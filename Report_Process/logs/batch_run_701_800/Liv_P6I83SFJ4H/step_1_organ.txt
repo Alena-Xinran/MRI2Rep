@@ -1,0 +1,60 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Patient is status post left lateral segmentectomy, with no evidence of recurrent or residual disease. 
+
+Segment 5 ablation cavity has slightly decreased, measuring 5.9 x 3.4 cm (series 4 image 20), previously 6.6 x 3.5 cm. There is no evidence of recurrent or residual viable HCC.
+
+Liver is cirrhotic morphology, with sequelae of portal hypertension including splenomegaly and upper abdominal varices. There is heterogeneous T2 signal throughout the right hepatic lobe, with corresponding reticular arterial enhancement which persists on delayed phases, consistent with fibrosis. Scattered nodular arterial enhancing foci are unchanged. There is no hepatocellular carcinoma.
+
+Hepatic vasculature: There is a new small nonocclusive bland thrombus within the main portal vein (series 13 image 39)..
+
+Biliary system: Unremarkable.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Mild ascites, increased since prior exam.No HCC.
+Numerous small nonocclusive bland thrombus in the main portal vein
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic morphology" and describes "sequelae of portal hypertension," along with "reticular arterial enhancement ... consistent with fibrosis." These are direct keywords and findings indicating chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=483 / Out=66
+Cost: $0.000131

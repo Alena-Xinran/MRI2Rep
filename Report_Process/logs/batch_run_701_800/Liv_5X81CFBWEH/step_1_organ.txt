@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. There is no evidence of hepatocellular carcinoma. A 0.7 cm arterially enhancing focus in segment 8 adjacent to the gallbladder fossa is unchanged and demonstrates no evidence of washout (image 33, series 13). A subcentimeter right hepatic lobe cyst is noted. The hepatic vasculature is patent.
+
+A septated cystic lesion in the pancreatic head has minimally increased from 2.2 cm to 2.3 cm (image 29, series 3). No nodular components are seen. The main pancreatic duct is normal in caliber.
+
+Mild splenomegaly is unchanged. The kidneys, adrenal glands, and gallbladder are local, except for parapelvic renal cysts and a stable 1 cm right adrenal nodule.
+
+No abdominal lymphadenopathy or ascites is seen.1. No evidence of HCC.
+2. Minimal increase in 2.3 cm pancreatic cystic lesion, likely a sidebranch IPMN.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=423 / Out=38
+Cost: $0.000102

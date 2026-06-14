@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is unremarkable except for multiple stable subcentimeter foci of arterial enhancement without correlate on other sequences, likely perfusional. No findings for HCC or cholangiocarcinoma is visualized. The gallbladder is unremarkable.
+
+Moderate splenomegaly is redemonstrated. The pancreas, adrenal glands and kidneys are unremarkable except for stable cysts, few of which contain proteinaceous/hemorrhagic components for example in the right inferior renal pole. No abdominal adenopathy is seen.No findings of HCC or cholangiocarcinoma.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver as "unremarkable" and does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The findings noted are related to vascular perfusion and are not indicative of parenchymal fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=335 / Out=88
+Cost: $0.000099

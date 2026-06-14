@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Normal cirrhotic liver morphology. Treatment cavity in segment 5 of the liver measures approximately 6.5 x 3.3 cm (series 14,001 image 43) with minimal peripheral enhancement around the treatment cavity without evidence of focal or nodular arterial enhancement. A few scattered arterial enhancing foci without washout or pseudocapsule (LR 3) are also noted. For example, a 0.9 cm arterial enhancing focus (series 11,001 image 19) in hepatic segment 8. Cholelithiasis without cholecystitis. Normal intrahepatic and extrahepatic ducts.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable
+
+Spleen: Unremarkable.
+
+Adrenal glands: Redemonstration left adrenal fat containing lesion measuring 3.1 cm stable from previous study.
+
+Kidneys: Stable bilateral simple cysts. 
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Treatment cavity in segment 5 with no evidence tumor recurrence. LR-TR nonviable.
+Scattered LR 3 lesions. No new lesions with findings to suggest HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Normal cirrhotic liver morphology," which directly includes the keyword "cirrhotic." This indicates the presence of cirrhosis, regardless of the term "normal" being used in a descriptive context for morphology.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=476 / Out=59
+Cost: $0.000126

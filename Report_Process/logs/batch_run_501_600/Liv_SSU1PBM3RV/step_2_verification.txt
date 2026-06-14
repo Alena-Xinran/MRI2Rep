@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+with and without 12 cc of intravenous Dotarem. Compared to CT dated 5/27/2020.
+
+A treatment cavity in segment 7 (series 14 image 27) measures approximately 3.8 cm without evidence of recurrent neoplasm, unchanged. 
+
+The right lobe of the liver is severely atrophic and demonstrates heterogeneous enhancement without evidence of HCC. The spleen is enlarged, there are multiple varices, there is mild ascites compatible with portal hypertension. 
+
+The patient is status post cholecystectomy and mild biliary dilatation is stable. The adrenal glands, pancreas and kidneys are unremarkable.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes "The right lobe of the liver is severely atrophic and demonstrates heterogeneous enhancement" along with findings of "spleen is enlarged, there are multiple varices, there is mild ascites compatible with portal hypertension." These are classic imaging features of cirrhosis and portal hypertension, even though the word "cirrhosis" is not explicitly used. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=329 / Out=106
+Cost: $0.000137

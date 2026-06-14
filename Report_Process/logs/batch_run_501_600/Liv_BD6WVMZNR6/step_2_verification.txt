@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+ABDOMEN:
+
+Liver: On series 10 image 30, a 3.7 x 3.4 cm segment 8 ablation cavity is present without definite evidence of residual HCC. Hepatic vasculature is patent.
+
+Gallbladder and biliary tree: Unremarkable.
+
+Pancreas: Unremarkable.
+
+Spleen: Mildly enlarged
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Renal cysts present
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence of residual HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a segment 8 ablation cavity in the liver without mention of cirrhosis, fibrosis, or any morphologic features suggestive of chronic liver disease (such as nodularity, contour irregularity, or caudate lobe hypertrophy). The hepatic vasculature is noted as patent. The liver is not explicitly described as "normal," but the absence of any cirrhosis-related findings and the presence of a focal treated lesion (ablation cavity) without background parenchymal abnormality supports the classification of "NoFibrosis/Cirrhosis." The previously extracted status is therefore correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=310 / Out=133
+Cost: $0.000143

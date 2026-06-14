@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post interval liver transplant. There is no evidence of recurrent HCC. There is a subcentimeter hemorrhagic focus at the superior aspect of the pouch of Douglas (series 5 image 36), presumably postoperative. The hepatic vasculature is patent.
+
+There is borderline splenomegaly. The pancreas and adrenals are unremarkable. Bilateral renal cysts are noted.
+
+There are trace pleural effusions and ascites. There is no adenopathy.There is no evidence of recurrent HCC status post liver transplant.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post liver transplant, but does not mention specific keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease" in relation to the current liver parenchyma. The liver parenchyma itself is not described with terms like "unremarkable", "normal", or "smooth" either. The findings of borderline splenomegaly, trace ascites, and pleural effusions could be seen in cirrhosis, but these are non-specific and the report does not attribute them to liver fibrosis or cirrhosis in this context. Without direct evidence of fibrosis or cirrhosis in the liver description, the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of the specified keywords.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=332 / Out=181
+Cost: $0.000137

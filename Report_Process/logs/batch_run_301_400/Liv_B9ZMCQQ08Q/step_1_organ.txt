@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right partial hepatectomy. The previously seen subcentimeter arterially enhancing foci are less conspicuous. A 0.5 cm T2 hyperintense lesion the left hepatic lobe is stable, possibly a sclerosed hemangioma (image 16, series 3). No findings of recurrent HCC. The patient is status post cholecystectomy with similar dilatation of the common bile duct. The pancreas, spleen, adrenal glands, and kidneys are unremarkable, except for stable renal cysts. No abdominal lymphadenopathy or ascites is seen.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes post-surgical changes and stable lesions but does not comment on the liver parenchyma's texture or surface characteristics. There is no mention of the liver being "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators suggests no active signs of that condition are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=350 / Out=127
+Cost: $0.000119

@@ -1,0 +1,99 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+A 1 cm cystic lesion in the pancreatic head has increased from 0.6 cm (image 19, series 4). Additional sub-4 mm pancreatic cystic foci are noted. The main pancreatic duct is normal in caliber.
+
+There are bilateral renal cysts, some which contain hemorrhage. The gallbladder and adrenal glands are unremarkable. A 1.6 cm peripherally enhancing splenic lesion has increased from 1.3 cm, but is likely benign (image 26, series 4).
+
+No abdominal lymphadenopathy or ascites is seen.1. No evidence of HCC.
+2. Increased in size 1 cm cystic lesion in the pancreatic head, likely a sidebranch IPMN. Follow-up MRI in 2 years is recommended.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: The liver is cirrhotic in morphology. -> Reasoning: Background morphology, no focal lesion.
+Sentence 2: There is no evidence of hepatocellular carcinoma. -> Reasoning: Negative statement, no focal lesion described.
+Sentence 3: The hepatic vasculature is patent. -> Reasoning: Background vascular status, no focal lesion.
+Sentence 4: A 1 cm cystic lesion in the pancreatic head has increased from 0.6 cm (image 19, series 4). -> Reasoning: Lesion is in the pancreas, not the liver. Ignore.
+Sentence 5: Additional sub-4 mm pancreatic cystic foci are noted. -> Reasoning: Lesions are in the pancreas, not the liver. Ignore.
+Sentence 6: The main pancreatic duct is normal in caliber. -> Reasoning: Pancreatic finding, no liver lesion.
+Sentence 7: There are bilateral renal cysts, some which contain hemorrhage. -> Reasoning: Lesions are in the kidneys, not the liver. Ignore.
+Sentence 8: The gallbladder and adrenal glands are unremarkable. -> Reasoning: Negative statement for other organs, no liver lesion.
+Sentence 9: A 1.6 cm peripherally enhancing splenic lesion has increased from 1.3 cm, but is likely benign (image 26, series 4). -> Reasoning: Lesion is in the spleen, not the liver. Ignore.
+Sentence 10: No abdominal lymphadenopathy or ascites is seen. -> Reasoning: Negative statement, no liver lesion.
+Sentence 11: 1. No evidence of HCC. -> Reasoning: Negative statement, no focal lesion described.
+Sentence 12: 2. Increased in size 1 cm cystic lesion in the pancreatic head, likely a sidebranch IPMN. Follow-up MRI in 2 years is recommended. -> Reasoning: Lesion is in the pancreas, not the liver. Ignore.
+
+Step 2: Structured Output
+(No valid liver findings identified)
+
+--- EXTRACTED INFO ---
+NONE
+
+--- USAGE ---
+Tokens: In=1012 / Out=408
+Cost: $0.000213

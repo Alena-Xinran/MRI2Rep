@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of liver cirrhosis with sequelae of portal hypertension including splenomegaly. Ablation cavity of segment 2/3 measures 2.9 x 2.1 cm, image 33 series 12 001, stable in size. There is no evidence of disease recurrence. Previously described ablation cavity of segment IVb is not visualized. 
+
+There is no new HCC. Few scattered subcentimeter foci of arterial hyperenhancement without evidence of washout or pseudocapsule are noted, some of which were not visualized on prior imaging, others which are unchanged. For reference, measuring 0.6 cm of segment 4A near the middle hepatic vein, image 20 series 10001, was not clearly visualized on prior MRI (LIRADS 3). The hepatic vasculature is patent. Replaced left hepatic artery via left gastric artery again noted.
+
+The gallbladder, pancreas, and adrenal glands are unremarkable. Bilateral renal cysts, some which are proteinaceous/hemorrhagic are stable. 
+
+There is no bowel obstruction. Trace ascites and small periportal nodes are unchanged. Small right pleural effusion and trace left pleural effusion are redemonstrated. There is no aggressive osseous lesion.No evidence of recurrent tumor along segment 2/3 ablation cavity.
+
+No new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "liver cirrhosis" in the first sentence, which directly meets the criteria for classification as Fibrosis/Cirrhosis. Additional findings such as sequelae of portal hypertension (including splenomegaly) and trace ascites further support chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=500 / Out=70
+Cost: $0.000137

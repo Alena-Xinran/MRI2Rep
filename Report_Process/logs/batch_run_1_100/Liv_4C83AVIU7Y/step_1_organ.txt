@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. There is splenomegaly, a tiny amount of ascites, and varices compatible with portal hypertension.
+
+On series 14,001 image 25, there is a 6 mm arterial phase enhancing focus in segment 8 without washout or pseudocapsule (LR 3). This is better seen on the current study, but is unchanged in size in retrospect.
+
+Previously described 6 mm T2 hyperintense nonspecific lesion in the spleen is stable (series 3001 image 31). There is gallbladder wall edema, nonspecific, possibly related to liver disease. The pancreas, right adrenal gland, and kidneys are unremarkable exception of renal cysts. Thickening of the left adrenal gland is unchanged.Cirrhosis with portal hypertension.
+
+No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis with portal hypertension." Additionally, there are findings consistent with cirrhosis such as splenomegaly, ascites, and varices from portal hypertension.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=395 / Out=65
+Cost: $0.000106

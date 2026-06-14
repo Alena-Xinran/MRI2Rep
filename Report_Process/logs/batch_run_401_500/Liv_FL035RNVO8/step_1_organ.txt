@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The majority of the right subcapsular HCC is now hypoenhancing or nonenhancing and has decreased in size now measuring 5.7 x 3.3 cm (image 45, series 6), previously 6.4 x 5.2 cm, however there continues to be nodular arterial enhancement along the posterior and medial aspect of the treatment cavity, suspicious for residual tumor. Multiple enlarged periportal lymph nodes continue to increase in size with the largest lymph node now measuring 4.0 cm (image 33, series 6). Scattered areas of arterial enhancement in segment 5/8 demonstrate persistent enhancement and are likely related to radioembolization. 
+
+The spleen, adrenal glands, and pancreas are unremarkable with the exception of pancreas divisum variant. Multiple bilateral renal cysts are unchanged and the kidneys are otherwise unremarkable. 
+
+There is no bowel wall thickening or bowel dilation. There is no upper abdominal ascites or focal osseous lesion. Infrarenal 3 cm abdominal aortic aneurysm is stable. Lipomatous hypertrophy of the interatrial septum is partially imaged.Decreased HCC status post radioembolization. Increased in periportal lymphadenopathy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth". The focus is on HCC (hepatocellular carcinoma) status post-treatment and associated findings like lymphadenopathy, but no direct assessment of the background liver parenchyma for fibrosis or cirrhosis is provided.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=472 / Out=123
+Cost: $0.000152

@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is again noted to be status post left hepatectomy and interval ablation of previously demonstrated remnant viable segment VIII and LI-RADS 4 segment V lesions.
+
+Treatment cavities are described below:
+*  1.4 x 1.0 cm prior treatment cavity in segment 8 (series 10001 image 10) without evidence of recurrent HCC
+*  3.7 x 2.9 cm recent treatment cavity in segment 8 (series 10001 image 15) without evidence of recurrent HCC
+*  2.7 x 1.8 cm recent treatment cavity in segment 5 (series 10001 image 26) without evidence of recurrent HCC
+
+Subcentimeter LR- 3 lesions on image 15 series 17001 are unchanged.
+
+There is a new small right pleural effusion. Scattered small cystic lesions are again seen throughout the pancreas including a cluster of small cysts in the pancreatic neck, all unchanged. The gallbladder, spleen, adrenals, and kidneys are unremarkable.
+
+ No aggressive osseous lesion is seen.1.  Status post radiofrequency ablation of prior remnant HCC (segment 8) and LI-RADS 4 (segment 5) lesions without evidence of new or recurrent HCC.
+2.  Small right pleural effusion.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient's status post left hepatectomy and ablation of liver lesions, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as abnormal in terms of texture or surface morphology. The findings focus on treatment cavities and lesions, but no descriptors indicate fibrosis or cirrhosis. The gallbladder, spleen, adrenals, and kidneys are noted as unremarkable, but the liver parenchyma is not specifically characterized as normal or smooth. However, absence of fibrosis/cirrhosis keywords and lack of parenchymal abnormality description suggests no evidence of fibrosis/cirrhosis is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=490 / Out=173
+Cost: $0.000178

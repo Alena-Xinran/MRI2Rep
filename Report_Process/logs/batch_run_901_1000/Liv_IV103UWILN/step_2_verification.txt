@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The entire study, including the arterial phase images, are limited due to the patient's inability to cooperate with breath-holding.
+
+Segment 7 ablation cavity measures 3.0 x 2.5 cm, previously 3.6 x 3.1 cm.
+
+No new hepatic masses are identified. The
+
+The segment 3 lesion cavity is not visualized on this study due to motion artifact.
+
+The indeterminate 1 cm segment 8 lesion seen on the prior MRI only on the hepatobiliary phase is not identified on the current study.
+
+ Liver demonstrates cirrhotic morphology and there is evidence of portal hypertension with enlarged venous collaterals and splenomegaly. There is trace ascites. Portal and hepatic veins are patent.Although no new or recurrent HCC is identified, the study is extremely limited due to patient's inability to cooperate with breath-holding.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Liver demonstrates cirrhotic morphology," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=371 / Out=55
+Cost: $0.000127

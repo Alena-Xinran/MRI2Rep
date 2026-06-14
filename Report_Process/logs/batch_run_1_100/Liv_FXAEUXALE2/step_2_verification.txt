@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 16 Dotarem was administered intravenously. Sequences include axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Patient is status post subtotal segment 2 resection. There is no evidence for HCC. Very small portion of the hepatic dome is not imaged on the arterial phase limiting evaluation. The portal and hepatic veins are patent.
+
+The spleen, pancreas, gallbladder, adrenal glands and kidneys are unremarkable, except for a small right renal cyst.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension). It only notes a status post subtotal segment 2 resection and that there is no evidence for HCC, with patent portal and hepatic veins. The liver parenchyma itself is not described as abnormal, and no fibrosis or cirrhotic features are reported. Therefore, the appropriate status is "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=324 / Out=118
+Cost: $0.000124

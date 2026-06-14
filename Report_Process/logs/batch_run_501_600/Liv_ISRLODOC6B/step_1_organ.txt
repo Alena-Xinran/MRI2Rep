@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequelae of portal hypertension including recanalized paraumbilical vein and upper abdominal varices (including gastroesophageal).
+
+On image 42, series 11,001, a 2.8 cm non-rim arterially hyperenhancing mass within segment II/III with washout on delayed venous images is compatible with a LI-RADS 5 hepatocellular carcinoma. The drop in signal on the opposed phase images compatible with intralesional fat is less apparent on this examination. No new arterially enhancing lesions are seen.
+
+Numerous other hypoenhancing subcentimeter nodules throughout the liver likely represent regenerative nodules. Scattered hepatic cysts are present. The hepatic vasculature is patent.
+
+The adrenal glands, kidneys, and pancreas are unremarkable with the exception of bilateral small renal cysts. Gallbladder wall edema is probably reactive to cirrhosis. Hypointense regions in the peripheral aspect of the spleen likely represent sequela of prior infarcts.
+
+Prominent periportal lymph nodes are likely reactive.
+
+There is increased abdominal ascites, now moderate to large in volume. There is nonspecific prominent peritoneal enhancement.Stable segment II/III LI-RADS 5 HCC.
+
+Increased ascites, now moderate to large in volume.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and includes findings such as sequelae of portal hypertension, recanalized paraumbilical vein, varices, and gallbladder wall edema reactive to cirrhosis, all consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=480 / Out=68
+Cost: $0.000131

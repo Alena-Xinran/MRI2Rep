@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The exam is essentially nondiagnostic for evaluation of HCC given significant motion on all sequences and poor contrast opacification. Within this limitation a cirrhotic liver morphology is demonstrated and small T2 hyperintensities within the right hepatic lobe are seen, favored to represent cysts but poorly evaluate. There is evidence of portal hypertension given splenomegaly and small volume ascites. Hepatic vasculature is not well evaluated given aforementioned limitations.
+
+There is nonspecific gallbladder wall edema, presumably related to chronic liver disease. The limited evaluation of the pancreas, adrenal glands and partially imaged kidneys are unremarkable
+
+Moderate bilateral pleural effusions with adjacent lung base consolidations are partially imaged.
+
+No definite lymphadenopathy is seen.Cirrhosis with evidence of portal hypertension. Essentially nondiagnostic evaluation for HCC, given significant motion and poor contrast opacification. Recommend multiphase CT of the abdomen for further evaluation.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "a cirrhotic liver morphology is demonstrated" and later concludes with "Cirrhosis with evidence of portal hypertension." Therefore, the presence of cirrhosis is confirmed, and the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=384 / Out=71
+Cost: $0.000137

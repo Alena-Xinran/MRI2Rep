@@ -1,0 +1,58 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary: The patient is status post orthotopic liver transplant. There are no findings suspicious for HCC.. There is heterogeneous perfusion of the liver on arterial phase which dissipated on the portal venous and delayed phases. The hepatic vasculature is patent.
+
+There is unchanged intrahepatic and extrahepatic biliary ductal dilatation with left and right internal/external biliary stents which are unchanged in position and associated pneumobilia.
+
+Spleen: There is slight interval increase in splenomegaly now measuring 17.7 cm in craniocaudal dimension, previously 15.4 cm.
+
+Pancreas: Unremarkable.
+
+Adrenals: Unremarkable.
+
+Kidneys: Unremarkable except for small bilateral renal cysts including a tiny hemorrhagic cyst on the right.
+
+GI: There is a percutaneous jejunostomy tube again noted.
+
+Vasculature: Multiple upper abdominal varices are noted including a small splenorenal shunt.
+
+Lymph nodes: There is no abdominal lymphadenopathy.
+
+Peritoneum: There is trace perisplenic and perihepatic ascites.No HCC. 
+Unchanged biliary ductal dilatation with internal/external biliary stents in place.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not explicitly mention "cirrhosis" or describe any morphologic features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension like varices or ascites specifically attributed to cirrhosis). The patient is status post orthotopic liver transplant, and the findings include heterogeneous perfusion (which dissipated on later phases), biliary ductal dilatation with stents, splenomegaly, varices, and trace ascites. While splenomegaly, varices, and ascites can be seen in cirrhosis, they are not definitively attributed to cirrhosis in this report and may be related to the post-transplant state or other conditions. The report does not state the liver is normal, but it also does not confirm cirrhosis. According to the given rules, the status should only be "Fibrosis/Cirrhosis" if the report says "cirrhosis" or features of it. Since it does not, and the liver is not described as normal, the appropriate status based on the strict criteria is "NoFibrosis/Cirrhosis" (as the alternative when not explicitly stated).
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=444 / Out=249
+Cost: $0.000229

@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: The patient status post segment 5 HCC resection and cholecystectomy. Trace fluid is seen in the cholecystectomy fossa. There is no evidence for residual or recurrent disease. Treatment cavities in segment 2 are unchanged, without evidence for residual or recurrent disease.
+
+There is slightly increased segmental biliary dilatation within segment 7 with surrounding increased T2 signal and abnormal perfusion.
+
+Hepatic vasculature: Thrombus in the left portal vein branch supplying segment 2 appears stable. Trifurcation pattern to the portal vein is again noted. Which appears otherwise patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable hemorrhagic left upper pole renal cyst.
+
+Bowel: Redemonstration of changes status post esophagectomy and gastric pull-through. No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Status post segment 5 resection of HCC. No findings of residual /recurrent HCC.
+
+New biliary dilatation predominantly involving segment 7, presumably postsurgical.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, morphologic changes, or signs of portal hypertension). It describes post-surgical changes, biliary dilatation, and stable thrombus, but does not indicate cirrhosis. Since the liver is not explicitly described as normal but there is no mention of cirrhosis, the appropriate status based on the given rules is "NoFibrosis/Cirrhosis". The previously extracted status is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=430 / Out=118
+Cost: $0.000170

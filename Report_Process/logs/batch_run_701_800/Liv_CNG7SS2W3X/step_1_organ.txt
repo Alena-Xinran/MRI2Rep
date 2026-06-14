@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Study significantly limited by motion and dielectric effect artifact.
+
+Hepatobiliary system: Redemonstrated cirrhotic liver morphology morphology. Mild hepatic steatosis. Similar sized bilobed mild T2 hyperintense observation in segment VII/VIII at known region of chemoembolization. Evaluation of recurrent disease is limited by motion artifact. No definite residual disease is identified. Lipiodol deposition is again noted within this region. 
+
+Hepatic vasculature: Stable bland nonocclusive thrombus is again noted at the portosplenic confluence. Abdominal varices are present.
+
+Pancreas: Redemonstrated multiple T2 hyperintense foci are not appreciably changed from prior. Pancreatic head/uncinate cystic lesions measuring up to 1.5 cm are unchanged, likely IPMNs. The main pancreatic duct at the level of the head is slightly dilated to 4-5 mm, unchanged.
+
+Spleen: Stable splenomegaly. Spleen measures 18.7 cm craniocaudad. Stable scattered punctate nonenhancing T2 hyperintense foci seen throughout the spleen. 
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Upper abdominal lymph nodes: Increased size of paracaval lymph nodes, the largest measures up to 2.0 cm (series 4001, image 29), previously measuring 1.4 cm. 
+
+Peritoneum: Trace ascites.Motion limited examination with no definite evidence of residual HCC.
+
+Increased retroperitoneal lymphadenopathy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstrated cirrhotic liver morphology" under the Hepatobiliary system section, which directly indicates cirrhosis. Additionally, findings such as "abdominal varices," "splenomegaly," and "trace ascites" are supportive signs of portal hypertension often associated with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=540 / Out=76
+Cost: $0.000151

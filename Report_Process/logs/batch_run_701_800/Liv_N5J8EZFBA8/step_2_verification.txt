@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is diffuse hepatic steatosis. Several punctate arterial enhancing foci are appreciated, there is no associated washout. Some appear similar to prior study and others are not confidently seen in retrospect. The focus of enhancement in segment 4 appears similar to prior studies (series 7 image 31). There is no HCC identified. 
+
+The hepatic vasculature is patent. The patient is status post liver transplant and cholecystectomy. There is a stable 1.5 cm nonspecific cystic lesion in the head of the pancreas. This may reflect the sequela of prior pancreatitis or side branch IPMN. There is no main duct dilatation.
+
+The spleen and adrenals are unremarkable. Subcentimeter renal cysts are noted. Small anterior abdominal wall hernia contains fat and fluid.Status post liver transplant without evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension findings, etc.). It notes diffuse hepatic steatosis and status post liver transplant, but does not describe cirrhotic morphology. Since the liver is not explicitly described as normal (it has steatosis and post-transplant status), but there is no mention of cirrhosis, the appropriate status based on the given binary classification is "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=365 / Out=130
+Cost: $0.000157

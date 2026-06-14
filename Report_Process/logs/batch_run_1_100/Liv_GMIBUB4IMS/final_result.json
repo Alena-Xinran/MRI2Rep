@@ -1,0 +1,29 @@
+{
+  "id": "Liv_GMIBUB4IMS",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "HEM",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "CYST",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"CYST | R_DIFFUSE | 1\", \"HEM | R_DIFFUSE | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00104412,
+    "timestamp": "2026-02-06 21:25:57",
+    "model": "deepseek/deepseek-chat"
+  }
+}

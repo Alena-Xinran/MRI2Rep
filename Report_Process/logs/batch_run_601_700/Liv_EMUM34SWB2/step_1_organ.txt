@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Segment 2 hemorrhagic ablation cavity encompasses the previously noted arterially enhancing mass and measures 5.1 x 3.3 cm (series 12 image 21). There is no evidence recurrent or residual disease.
+
+Additional arterially enhancing focus within segment 2 is increased, measuring 2.0 cm (series 10 image 23), previously 1.2 cm. There is corresponding vague T2 hyperintensity (series 7 image 31). This does not demonstrate washout or pseudocapsule, although is concerning for HCC.
+
+New nodular focus of arterial enhancement at segment 2 at the hepatic dome does not demonstrate washout or pseudocapsule (best seen series 10 image 19). There is no corresponding T2 or other signal abnormality.
+
+The liver is cirrhotic in morphology with sequelae of portal hypertension including recanalization of the paraumbilical vein and splenomegaly.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive appearing osseous lesion.Interval segment 2 HCC ablation with no evidence of residual or recurrent disease at the treatment site.
+
+Increasing and new arterially enhancing foci within segment 2 are concerning for HCC, although do not meet imaging diagnostic criteria. Recommend short-term (3 month follow-up).
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=486 / Out=44
+Cost: $0.000122

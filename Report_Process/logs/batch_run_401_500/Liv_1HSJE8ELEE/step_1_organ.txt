@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver displays slight surface irregularity and hypertrophy of the caudate suggesting underlying parenchymal fibrosis and/or cirrhosis. No findings of HCC with a few sub-5 mm punctate regions of arterial enhancement noted, for example on series 9 image 62, which are likely perfusional (LR 3). Stable mild biliary dilatation likely related to postcholecystectomy status and unchanged punctate benign hepatic cysts. No splenomegaly. Adrenal glands, kidneys, and pancreas appear unremarkable with a stable punctate cyst in the midpole of the left kidney. No adenopathy. No ascites. A trace right pleural effusion is incidentally seen.No findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "slight surface irregularity" and "hypertrophy of the caudate suggesting underlying parenchymal fibrosis and/or cirrhosis," which directly indicates signs of fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=366 / Out=54
+Cost: $0.000093

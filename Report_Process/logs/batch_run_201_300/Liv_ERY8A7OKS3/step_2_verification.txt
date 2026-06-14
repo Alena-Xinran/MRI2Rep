@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Changes of partial left hepatectomy and cholecystectomy are again noted. The hepatic volume is approximately 659 cc.
+
+There has been interval growth of the HCC/tumor recurrence along the resection site, for instance one mass measures 4.9 cm (previously 2.5 cm) and the other mass now measures 2.5 cm (previously 2 cm).
+
+There is a 1.2 cm arterially enhancing lesion at the right hepatic dome (series 15 image 76) with washout and pseudocapsule, compatible with OPTN 5A. This lesion previously measured 0.3 cm.
+
+There is a 0.7 cm arterially enhancing lesion in segment VI (series 15 image 40) with washout which is nonspecific but suspicious for HCC. This lesion measured 0.3 cm previously. 
+
+A new arterially enhancing focus in segment VI has no correlate on additional sequences (series 15 image 41) and is nonspecific. A stable wedge-shaped arterially enhancing focus again segment VII (series 15 image 64) has no correlate on additional sequences and remains nonspecific.
+
+The spleen, pancreas and kidneys are unremarkable except for stable small bilateral renal cysts.
+
+No enlarged abdominal lymph nodes are seen. There is no free fluid or bowel obstruction.
+
+No aggressive osseous lesions are demonstrated.
+
+Ectasia of the ascending aorta is redemonstrated.Interval growth of recurrent HCC along the resection margin.
+
+1.2 cm HCC OPTN 5A at the right hepatic dome as described.
+
+Additionally nonspecific liver lesions as above.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension findings, or splenomegaly). The spleen is described as unremarkable. The liver volume is quantified but not characterized as cirrhotic. The findings focus on post-surgical changes and HCC lesions, but no cirrhosis is stated. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=527 / Out=117
+Cost: $0.000197

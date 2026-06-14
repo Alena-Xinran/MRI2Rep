@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: 2.3 cm ablation cavity in segment 4 is unchanged without evidence of recurrence, LR TR nonviable (image 24 series 13. No lesion suspicious for HCC. Cirrhotic liver morphology with signs of portal hypertension are again noted including splenorenal renal shunt. No biliary dilatation.
+
+Hepatic vasculature: Bland nonocclusive thrombus in the main and left portal vein is unchanged.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly is unchanged.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small cysts bilaterally.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Periportal and retroperitoneal lymphadenopathy is unchanged. 
+
+Peritoneum: Trace ascites. Mesenteric and retroperitoneal induration is unchanged.No evidence for recurrent HCC.
+
+Unchanged nonocclusive portal venous thrombus.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic liver morphology with signs of portal hypertension," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=61
+Cost: $0.000134

@@ -1,0 +1,51 @@
+{
+  "id": "Liv_IQ2C7MWGR0",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "L_LAT",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "CAUDATE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "L_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | L_DIFFUSE | 1\", \"APHE_NoWO | L_MED | 1\", \"CYST | DIFFUSE | Multiple\", \"RIM_ATYP | CAUDATE | 1\", \"RIM_ATYP | L_LAT | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | L_DIFFUSE | 1\", \"CYST | DIFFUSE | Multiple\", \"RIM_ATYP | CAUDATE | 1\", \"RIM_ATYP | L_LAT | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | L_MED | 1\", \"CYST | DIFFUSE | Multiple\", \"RIM_ATYP | CAUDATE | 1\", \"RIM_ATYP | L_DIFFUSE | 1\", \"RIM_ATYP | L_LAT | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0016649640000000001,
+    "timestamp": "2026-02-08 17:26:02",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,64 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Findings above the diaphragm are dictated separately.
+
+Hepatobiliary system: Cirrhotic liver morphology again noted with multiple prior ablation cavities as noted. Some regions of are seen within the liver, presumably related to prior hiatal deposition, for example on series 5 image 36. 
+
+Ablation cavities are detailed below:
+1.  Decrease in size of previously noted hepatic segment 7 treatment cavity, previously measuring 3.4 x 2.7 cm, now measuring 2.7 x 2.0 cm (series 16 image 40, LR TR nonviable).
+2.  Grossly unchanged size of previously noted segment 6/7 treatment cavity, now measuring 3.1 x 1.4 cm, previously 2.9 x 1.4 cm (series 16 image 44, LR TR nonviable), which abuts the segment 7 treatment cavity (image 43).
+3.  Unchanged hepatic segment 4A treatment cavity measuring approximately 2.0 x 1.1 cm, previously 2.8 x 1.1 cm (series 16 image 28, LR TR nonviable).
+4.  Interval decrease in size of previously noted hepatic segment 4 treatment cavity, previously measuring 2.4 x 1.2 cm, now measuring 2.0 x 0.7 cm (series 16 image 24). No definitive findings of recurrent disease (series 14 image 26, LR TR nonviable).
+5.  Grossly unchanged 1.1 cm hepatic segment 5 treatment cavity (series 16 image 51, LR TR nonviable).
+
+Several subcentimeter arterially enhancing foci are seen within the liver without any washout/pseudocapsule or T2 correlate, many of which appear peripheral (LR 2).  No biliary dilatation. The gallbladder is unremarkable.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unchanged scattered pancreatic cysts measuring up to 1.5 cm in the pancreatic head (series 4 image 24). No pancreatic ductal dilatation.
+
+Spleen: Splenomegaly with spleen measuring up to 17.8 cm in cranial caudal dimension. Some regions of susceptibility artifact are again seen within the spleen
+
+
+Adrenal glands: Unchanged thickening of the left adrenal gland; the right adrenal gland is unremarkable.
+
+Kidneys: Unchanged bilateral renal cysts, some of which are hemorrhagic/proteinaceous. Diffuse renal parenchymal thinning is again noted.
+
+Bowel: No bowel obstruction. Previously noted small hiatal hernia is unchanged. Fat-containing umbilical hernia is likely present.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No definitive findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology again noted" in the hepatobiliary system section, which directly meets the criteria for classification as "Fibrosis/Cirrhosis".  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=798 / Out=53
+Cost: $0.000213

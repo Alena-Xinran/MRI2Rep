@@ -1,0 +1,96 @@
+{
+  "id": "Liv_HFGW07OLO8",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "L_LAT",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "CYST",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"CYST | DIFFUSE | 1\", \"RIM_ATYP | DIFFUSE | 1\", \"RIM_ATYP | DIFFUSE | 1\", \"RIM_ATYP | L_LAT | 1\", \"RIM_ATYP | L_MED | 1\", \"RIM_ATYP | R_ANT | 1\", \"RIM_ATYP | R_POST | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | R_JUNCTION | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"CYST | DIFFUSE | 1\", \"RIM_ATYP | DIFFUSE | 1\", \"RIM_ATYP | L_LAT | 1\", \"RIM_ATYP | R_JUNCTION | 1\", \"RIM_ATYP | R_JUNCTION | 1\", \"RIM_ATYP | R_POST | 1\"]": 1,
+      "[\"APHE_NoWO | R_JUNCTION | 1\", \"APHE_NoWO | R_POST | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"CYST | DIFFUSE | 1\", \"RIM_ATYP | DIFFUSE | 1\", \"RIM_ATYP | L_LAT | 1\", \"RIM_ATYP | R_JUNCTION | 1\", \"RIM_ATYP | R_JUNCTION | 1\", \"RIM_ATYP | R_POST | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.003104052,
+    "timestamp": "2026-02-08 21:28:11",
+    "model": "deepseek/deepseek-chat"
+  }
+}

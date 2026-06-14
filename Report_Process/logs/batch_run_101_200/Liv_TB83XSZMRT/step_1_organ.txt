@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post partial orthotopic liver transplant. The hepatic vasculature is patent. There is no evidence of HCC.
+
+The gastrosplenic collection has essentially resolved status post placement of a cystogastrostomy stent and the collection adjacent to the lesser curvature has resolved. A subhepatic collection measures 2.1 cm, previously 2.9 cm (series 4, image 29).
+
+A 1.7 cm cystic lesion in the pancreatic head is unchanged. The main pancreatic duct is not dilated. Splenomegaly has improved measuring up to 13.8 cm, previously 15 cm the adrenal glands and kidneys are unremarkable except for renal cysts.
+
+There is no abdominal adenopathy or ascites.No evidence for HCC.
+
+Improved abdominal collections.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes the hepatic vasculature as patent and notes no evidence of HCC, but does not comment on the liver parenchyma texture or surface morphology. The liver is not described as "unremarkable", "normal", or "smooth" either. However, given the criteria, the absence of positive indicators for fibrosis/cirrhosis and the lack of a direct abnormal description of the liver parenchyma suggests classification as "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=152
+Cost: $0.000139

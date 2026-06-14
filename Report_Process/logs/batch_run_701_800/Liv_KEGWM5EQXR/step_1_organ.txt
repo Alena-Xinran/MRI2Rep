@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+-The segment 8 hepatic ablation cavity measures 4.1 x 2.4 cm (image 9, series 15), previously 4.7 x 2.4 cm. There is no recurrent disease.
+
+There are innumerable arterially enhancing foci, increased from the prior exam. Some of these demonstrate a pseudocapsule appearance and/or central washout as described below. Findings are overall concerning for multifocal HCC.
+
+-A 1.4 cm lesion in segment 2/3 (image 25, series 12) demonstrating washout and pseudocapsule (LIRADS 5).
+- A stable 1.2 cm lesion in segment 7 (image 21, series 12) now demonstrating pseudocapsule appearance (LIRADS 4). 
+-A 1.1 cm lesion in segment 8 (image 24, series 12), demonstrating pseudocapsule appearance (LIRADS 4). 
+-There are several additional lesions demonstrating washout and/or pseudocapsule appearance, however they are subcentimeter (LIRADS 4). 
+
+The hepatic vasculature is patent. There is no biliary ductal dilatation. The spleen, gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for tiny renal cysts. There is no abdominal adenopathy or ascites.Innumerable arterially enhancing foci, increased from the prior exam. Some of these demonstrate a pseudocapsule appearance and/or central washout. Given the history of cirrhosis and prior HCC, findings are  concerning for multifocal HCC. However, metastases from some other primary can have a similar appearance.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Given the history of cirrhosis" in the context of the findings, indicating the patient has a known background of cirrhosis. There are no descriptions contradicting this, such as the liver being called normal, smooth, or unremarkable. The focus is on lesions and HCC, but the history confirms the underlying condition.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=561 / Out=82
+Cost: $0.000159

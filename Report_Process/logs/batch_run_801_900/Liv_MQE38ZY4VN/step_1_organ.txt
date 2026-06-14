@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by recannulization of the umbilical vein and upper abdominal varices, including a small left splenorenal shunt as well as gastroesophageal varices. Several small hepatic cysts are redemonstrated. The hepatic vasculature is patent.    The patient is status post partial right hepatectomy with expected postsurgical change including adjacent focal biliary ductal dilatation and a wedge-shaped area of enhancement suggestive of a perfusional variant. There has been interval resolution of previously seen collection along the inferior aspect of the cut edge of the liver, with residual scarring.    Along the inferior/posterior border of the resection bed, in hepatic segment 6, there is a 1.9 cm focus of arterial phase hyperenhancement which has increased in size from prior exam, when it measured 0.5 cm (series 12001, image 51). This demonstrates washout with surrounding pseudocapsule on delayed phase images (series 16001, image 51). LI-RADS 5.    Cholelithiasis is again noted. There is chronic choledocholithiasis, with a more distal CBD stone in unchanged position from prior exam (series 2001, image 25) and a second stone more proximal in location compared to prior exam (series 2001, image 24). The spleen, pancreas, adrenal glands, and kidneys are unremarkable, with the exception of a subcentimeter right adrenal nodule and bilateral renal cysts, some of which are proteinaceous/hemorrhagic.    There is no abdominal lymphadenopathy or ascites.1.9 cm HCC in hepatic segment 6, adjacent to the hepatectomy site.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis. Keywords such as "cirrhotic" and "portal hypertension" align with the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=584 / Out=66
+Cost: $0.000046

@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Image quality is limited due to respiratory motion artifact.
+
+
+-1.7 cm arterial enhancing segment 8 lesion corresponds to the previously described 1.1 cm lesion on CT (image 25, series 15). (image 23, series 19), and displays increased T2 signal intensity, although there is no definite pseudocapsule. This meets OPTN 5a growth criteria for HCC. 
+
+-Additional 1.4 cm arterial enhancing lesion within segment 6, previously measured 1.3 cm and displays no definite pseudocapsule or washout on delayed imaging, although evaluation on delayed images is limited by motion artifact (image 37, series 15). There is associated increased T2 signal making this lesion highly suspicious for HCC but not yet meeting OPTN criteria.
+
+-Wedge-shaped arterial enhancement within segment 6 does not have a T2 correlate and is felt to represent perfusional abnormality (image 25, series 15).
+
+Few additional punctate hepatic cysts are present. The hepatic vasculature is patent.
+
+A gallstone is present within a moderately distended gallbladder. There is a small right renal cyst. The spleen, pancreas, adrenal glands and kidneys are otherwise unremarkable.
+
+There is no bowel obstruction, ascites or abdominal adenopathy. No aggressive osseous lesion.Motion degraded MRI.
+
+Slight interval enlargement of 1.7 cm segment 8 HCC (OPTN 5A-G). Little interval change to more inferior segment 6 lesion highly suspicious for HCC but not yet meeting OPTN criteria. 
+
+No findings of extrahepatic metastases in the abdomen.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, segmental atrophy/hypertrophy, or signs of portal hypertension). It describes liver lesions and other findings but does not comment on the background liver parenchyma or indicate cirrhosis. Since the report does not state cirrhosis and does not explicitly say the liver is normal, but the absence of mention of cirrhosis or its features suggests the previous extraction of "NoFibrosis/Cirrhosis" is appropriate based on the provided criteria.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=526 / Out=134
+Cost: $0.000204

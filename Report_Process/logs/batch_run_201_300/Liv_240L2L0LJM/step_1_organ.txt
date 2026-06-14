@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Unchanged 1.2 cm cyst. No HCC. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Cystic lesions, measuring up to 1.4 cm in the head, are unchanged.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unchanged left simple cyst
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC.
+Unchanged pancreatic cystic lesions
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not directly described, but the hepatobiliary system section notes an unchanged cyst and no HCC, with no indication of abnormal liver texture or morphology. Other findings are unrelated to liver fibrosis. Without any positive descriptors of fibrosis or cirrhosis, and given the absence of abnormal liver features, the liver is effectively unremarkable.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=340 / Out=128
+Cost: $0.000117

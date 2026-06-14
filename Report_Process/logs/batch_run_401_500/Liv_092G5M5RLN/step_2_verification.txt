@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: The patient is status post liver transplant. There are decreased sequelae of portal hypertension, including splenomegaly, upper abdominal varices and ascites. There is mild perihepatic ascites, although this is decreased from prior exam.
+
+Although contrast-enhanced images are degraded by motion artifact, there is no evidence of HCC. 
+
+Hepatic vasculature: The portal and hepatic veins are patent..
+
+Biliary system: The patient is status post cholecystectomy. There is no biliary dilatation. Expected caliber change at the extrahepatic biliary anastomosis is noted. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable 2.8 cm Bosniak type II cyst at the superior pole of the right kidney, as well as bilateral subcentimeter simple cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Status post liver transplant with decreased sequelae of portal hypertension, and no evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the patient as status post liver transplant with decreased sequelae of portal hypertension, but does not explicitly mention cirrhosis or fibrosis. The liver parenchyma itself is not described as cirrhotic, and the findings are focused on post-transplant changes and resolved complications. Since the report does not state "cirrhosis" or describe features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, or fibrosis), and the liver is not explicitly called normal but the context implies the transplanted liver is without cirrhosis, the appropriate status based on the given rules is "NoFibrosis/Cirrhosis". The previous extraction matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=150
+Cost: $0.000180

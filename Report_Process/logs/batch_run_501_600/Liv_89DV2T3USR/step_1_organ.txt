@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic liver morphology. Similar appearance of previously described right hepatic hemangioma, currently measuring 1.4 cm (series 3001 image 12), previously 1.0 cm. The hemangioma is mildly T2 hyperintense, demonstrates mild signal drop on out of phase sequence, and does not enhance. No new liver lesions with imaging features of HCC. No biliary dilatation. Cholelithiasis without acute cholecystitis.
+
+Hepatic vasculature: Patent. Splenic varicosities are noted.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Similar bilateral renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Right hepatic lobe lesion seen on the right upper quadrant ultrasound dated 6/29/2023 represents the known hemangioma. No new liver lesions with imaging features of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" in the hepatobiliary system section, which directly indicates cirrhosis. Additionally, splenic varicosities are noted, which can be associated with portal hypertension often seen in cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=61
+Cost: $0.000115

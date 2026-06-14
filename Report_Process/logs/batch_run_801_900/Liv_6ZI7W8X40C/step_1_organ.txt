@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluation is somewhat limited due to respiratory motion artifact.
+
+Hepatobiliary system: Note is made of cirrhotic liver morphology with sequelae of portal hypertension as evidenced by splenomegaly. Similar size of a 2.0 x 1.5 cm segment 5/8 treatment cavity, previously 1.9 x 1.5 cm (series 6 image 260). No suspicious internal nodular enhancement is identified (LR-TR nonviable). No new or suspicious hepatic lesion. No biliary dilatation. Note is made of cholelithiasis, mild gallbladder wall thickening/edema is likely related to hepatic parenchymal disease over acute cholecystitis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Similar scattered punctate T2 hyperintense pancreatic cystic lesions are seen. These may represent sequelae of prior pancreatitis versus side branch IPMNs; recommend attention on follow-up exam. The main pancreatic duct is normal in caliber.
+
+Spleen: The spleen is enlarged and measures 15.7 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are bilateral renal cysts with a dominant cyst in the left kidney, measuring 5.3 cm.
+
+Bowel: No abnormal bowel loop dilatation..
+
+Upper abdominal lymph nodes: Unchanged prominent peripancreatic and porta hepatis lymph nodes.
+
+Peritoneum: There is trace ascites.
+
+Nonaneurysmal vascular structures. Incidental retroaortic left renal vein.
+
+Musculoskeletal and soft tissues: A small fat-containing umbilical hernia seen on the scout images. No aggressive osseous lesion is identified.1.  Similar segment 5/8 treatment cavity (LR-TR nonviable). No new lesion suspicious of HCC in the setting of cirrhosis and portal hypertension.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions "portal hypertension" and "ascites," which are sequelae of cirrhosis. It also notes the clinical context of "cirrhosis and portal hypertension" in the summary.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=590 / Out=63
+Cost: $0.000159

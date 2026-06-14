@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 22 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: The liver is cirrhotic. The patient is status post TIPS. Intrahepatic biliary ductal dilatation is noted in the posterior right hepatic lobe. No arterially enhancing lesion is identified in the liver.
+
+Hepatic vasculature: Patent. Artifact from multiple splenic vascular coils is again seen. A splenorenal shunt and varices are noted. The main portal vein, confluence and superior mesenteric vein are patent. Unchanged thrombus in the right posterior portal vein. The TIPS patency is not evaluated secondary to artifact.
+
+Gallbladder: Cholelithiasis.
+
+Pancreas: Numerous pancreatic cysts are noted, the largest measuring up to 1.8 cm in the pancreatic body (image 27 of series 4), which may reflect side branch IPMNs versus sequela of pancreatitis. These are stable. No main pancreatic ductal or common bile duct dilatation.
+
+Spleen: The spleen is enlarged.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Prominent, symmetric low T2 signal is noted in the kidney cortices with mild signal drop is noted on image phase chemical shift imaging, likely reflecting iron deposition. There is a stable benign right renal cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Cirrhotic liver with no findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and later repeats "Cirrhotic liver" in the conclusion. This directly meets the criteria for keywords indicating fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=587 / Out=53
+Cost: $0.000154

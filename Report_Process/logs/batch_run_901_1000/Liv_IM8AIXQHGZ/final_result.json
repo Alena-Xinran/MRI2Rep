@@ -1,0 +1,66 @@
+{
+  "id": "Liv_IM8AIXQHGZ",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "CAUDATE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_JUNCTION",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_POST",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"APHE_NoWO | CAUDATE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_JUNCTION | 1\", \"APHE_NoWO | R_POST | Multiple\"]": 1,
+      "[\"APHE_NoWO | CAUDATE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_JUNCTION | 1\"]": 1,
+      "[\"APHE_NoWO | CAUDATE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_ANT | 1\", \"APHE_NoWO | R_JUNCTION | 1\", \"APHE_NoWO | R_POST | Multiple\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0023954,
+    "timestamp": "2026-02-08 23:44:24",
+    "model": "deepseek/deepseek-chat"
+  }
+}

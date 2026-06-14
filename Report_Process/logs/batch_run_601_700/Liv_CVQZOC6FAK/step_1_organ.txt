@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Exam is  limited due to failed fat saturation, respiratory motion and misregistration artifact. 
+
+The liver is cirrhotic with sequela of portal hypertension, characterized by splenomegaly and upper abdominal varices. On series 17, image 26, a 2.3 x 2.0 cm ablation cavity at the junction of medial lateral segments has slightly decreased in size, previously 2.9 x 2.3 cm. There is no evidence of recurrent disease. There are no new findings of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+A stable 1.7 cm splenic hemangioma is seen. The adrenal glands, kidneys, pancreas, and gallbladder are unremarkable, except for tiny renal cysts.
+
+There is trace perihepatic ascites. No enlarged abdominal lymph nodes are seen. No aggressive osseous lesion is identified.No findings of recurrent HCC with limitations as detailed.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and mentions sequelae of portal hypertension, which directly indicates chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=411 / Out=47
+Cost: $0.000103

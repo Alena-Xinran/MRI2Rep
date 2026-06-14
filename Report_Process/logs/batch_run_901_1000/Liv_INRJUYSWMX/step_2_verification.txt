@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Multiple unchanged nodules throughout the liver many of which are T2 hypointense and T1 hyperintense. On image 32 series 8 in segment 8 a 1.6 cm T2 hypointense encapsulated enhancing nodule with washout is unchanged. Unchanged 2.5 cm cavernous hemangioma in the liver dome. Again seen is occlusion of the intrahepatic IVC and hepatic veins, consistent with knownUnchanged exam, including 1.6 cm enhancing encapsulated hepatic nodule with washout. Given long-term stability and in a setting of Budd-Chiari, this is likely an FNH type nodule rather than HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes multiple nodules, a cavernous hemangioma, and occlusion of the intrahepatic IVC and hepatic veins consistent with Budd-Chiari syndrome. There is no mention of cirrhosis, morphologic features of cirrhosis, or fibrosis. The liver parenchyma itself is not described as abnormal aside from the vascular occlusion and nodules, which are attributed to Budd-Chiari and likely FNH. Since the report does not state "cirrhosis" or features of it, and does not describe a normal liver either (it has specific findings), the appropriate status based on the given binary classification rules is "NoFibrosis/Cirrhosis" as the absence of explicit cirrhosis/fibrosis mention is implied.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=337 / Out=163
+Cost: $0.000163

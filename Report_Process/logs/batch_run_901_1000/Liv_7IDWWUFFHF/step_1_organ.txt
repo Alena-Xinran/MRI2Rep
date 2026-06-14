@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Status post partial right hepatectomy. A 10 cm loculated fluid collection within the surgical bed is unchanged. Scattered hepatic cysts are again noted.
+
+Hepatic observations are as follows, measured on series 13,001:
+-Segment 4A observation measuring 11mm (image 32 series 15001), now with non rim arterial enhancement, washout, and pseudocapsule. LIRADS 5 (previously LR3)
+
+-Segment 1 ablation cavity stably measures 2.6 x 3.1 cm without any definitive internal enhancement; series 16,001, image 32. LR TR nonviable.
+
+-Segment 2 ablation cavity has decreased in size measuring 7.7 x 5.7 cm (previously 8.9 x 5.9 cm), contains some internal hemorrhage/debris but without evidence of recurrent disease. LR TR nonviable.
+
+A few other scattered tiny arterial enhancing foci without washout or pseudocapsule are noted. LR3.
+
+A 9 mm enhancing nodule along the margin of the left hepatic lobe is unchanged (series 11001 image 50). 
+
+A 7 mm cystic lesion at the margin of the pancreatic uncinate is stable since 5/16/2019, either a side branch IPMN or sequela of prior pancreatitis. The spleen, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts. Retroaortic left renal vein is incidentally seen. Small nodule adjacent to the right adrenal gland is unchanged (series 15001 image 35).
+
+No ascites or lymphadenopathy. Redemonstrated fat-containing ventral abdominal hernia.Enlarged segment 4A 1.1 cm observation now consisted with HCC (LR 5).
+
+Ablation cavities appear stable without any definitive recurrence. No definitive extrahepatic metastatic disease identified in the abdomen.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes findings related to post-surgical changes, ablation cavities, and specific hepatic observations including a new HCC, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators suggests no reported signs of fibrosis or cirrhosis in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=616 / Out=120
+Cost: $0.000191

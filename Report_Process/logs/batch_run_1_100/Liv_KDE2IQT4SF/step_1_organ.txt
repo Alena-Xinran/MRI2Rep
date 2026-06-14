@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Bilateral pleural effusions are again seen, left greater than right,. A cirrhotic liver with sequelae of portal hypertension is again noted. There is a mild amount of ascites and mild soft tissue anasarca. Spleen remains enlarged. Pancreas, kidneys, and adrenal glands appear stable. No adenopathy. Multiple gallstones are again seen.
+
+No new arterially enhancing lesion with washout to suggest recurrent HCC. Vasculature remains patent. 3 ablation cavities are again noted within segments 4A and segment 7/8 without findings of recurrent disease.
+
+No aggressive osseous lesions. Some T1 hyperintense material is again noted along the right posterior diaphragmatic surface.No findings of residual or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic liver with sequelae of portal hypertension is again noted," which directly indicates cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=375 / Out=39
+Cost: $0.000089

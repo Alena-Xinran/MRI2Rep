@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Image quality of multiple sequences is dramatically reduced due to motion artifact.
+
+Cirrhotic appearance of the liver with nodular surface, gastric fundus varices, and splenomegaly to 19.2 cm which is indicative of portal hypertension. No evidence of HCC. Heterogeneous perfusion in segment 3 which is related to an isolated bile duct which is unchanged from priors.
+
+
+Status post cholecystectomy. The pancreas, adrenal glands, kidneys are unremarkable with the exception of few bilateral cortical cysts as well as regions of cortical scarring.
+
+Stable periaortic/retroperitoneal lymph nodes up to 1 cm short axis diameter on series 19001 image 61.
+
+No aggressive osseous lesion.No findings of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic appearance of the liver with nodular surface," which directly indicates the presence of cirrhosis. According to the task rules, if the report mentions cirrhosis or its features, the status must be "Fibrosis/Cirrhosis." The previously extracted status is "Fibrosis/Cirrhosis," which matches the report findings.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=349 / Out=90
+Cost: $0.000136

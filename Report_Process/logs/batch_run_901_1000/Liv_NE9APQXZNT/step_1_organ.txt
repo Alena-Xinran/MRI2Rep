@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly, upper abdominal varices (including gastroesophageal varices), and trace abdominal ascites. The hepatic vasculature is patent.    There is been interval decrease in size in a hepatic segment 4A treatment cavity, now measuring 2.7 x 1.9 cm, previously 3.1 x 1.9 cm (series 14001, image 31). There are no findings to suggest recurrence. Peripheral to the treatment cavity, there is a wedge-shaped area of arterial phase hyperenhancement without washout or pseudocapsule which is unchanged from prior exam. Associated upstream biliary ductal dilatation has mildly worsened. Findings are favored to be posttreatment in nature.    No new findings to suggest HCC are seen.    A 1.6 cm cystic lesion in the pancreatic head is unchanged from prior exam, without internal enhancement. There is no dilation of the main pancreatic duct.    Diffuse gallbladder wall thickening/edema is not significantly changed from prior exam, presumably reactive in nature. The adrenal glands and kidneys are unremarkable, with the exception of subcentimeter bilateral renal cysts. Portal colopathy is noted, may be slightly worse.    There is no abdominal lymphadenopathy.1.  Interval decrease in size of hepatic segment 4A treatment cavity, without findings of recurrence. No new findings of HCC.  2.  Mild interval progression of intrahepatic biliary ductal dilatation upstream of the ablation cavity. No bladder wall thickening/edema is unchanged.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and also mentions sequelae of portal hypertension, including splenomegaly, varices, and ascites, which are consistent with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=551 / Out=54
+Cost: $0.000145

@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+No suspicious hepatic lesions. Liver displays some parenchymal changes of chronic liver disease with probable underlying fibrosis but does not appear frankly cirrhotic.    Hepatic steatosis is also present with estimated fat fraction of approximately 17%.  There is mild iron overload using .032 conversion factor x R2*    Liver iron content is 2.9 mg/g.     Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system:     Less than 2- Normal  2.0-7.0 - Mild Iron overload  7.0-15.0 - Moderate iron overload  Greater than 15.0 - Severe iron overload      The pancreas, kidneys, and adrenal glands appear unremarkable with exception of a few subcentimeter right renal cysts. Spleen is enlarged measuring 14.7 cm. No ascites. No suspicious adenopathy. Portal venous system remains patent.No findings of HCC. Significant background hepatic steatosis with mild iron deposition and splenomegaly likely related to underlying portal hypertension.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver displays some parenchymal changes of chronic liver disease with probable underlying fibrosis" and later notes "splenomegaly likely related to underlying portal hypertension," which are direct indicators of fibrosis and chronic liver disease. Although it says "does not appear frankly cirrhotic," the presence of probable fibrosis and associated findings meets the criteria for classification as "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=440 / Out=95
+Cost: $0.000131

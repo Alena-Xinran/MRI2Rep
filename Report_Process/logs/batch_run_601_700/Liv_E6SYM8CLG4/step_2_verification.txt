@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver demonstrates multiple peripheral nodular foci of arterial phase contrast-enhancement without correlate on other sequences, the largest measuring 0.9 cm in the right lobe (image 64, series 14), likely perfusional. There are three lesions in the right lobe compatible with hemangiomas, measuring up to 1.5 cm (images 38, 55, 69; series 14). No lesions suspicious for hepatocellular carcinoma are identified. There is no intrahepatic biliary duct dilatation. The hepatic vasculature is patent. 
+
+The gallbladder, spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral small simple renal cysts, as well as two small nonspecific 3 mm pancreatic body cystic lesions that likely represent side branch IPMNs (images 23, 25; series 4). There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes multiple hepatic findings including nodular foci of arterial enhancement and hemangiomas, but does not mention any morphologic features of cirrhosis such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension. The report also explicitly states "No evidence of HCC" but does not indicate cirrhosis. Since the liver is not described as normal (due to the presence of lesions), but cirrhosis is not mentioned, the appropriate status remains "NoFibrosis/Cirrhosis" as the absence of cirrhosis is implied by the lack of cirrhotic features.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=134
+Cost: $0.000164

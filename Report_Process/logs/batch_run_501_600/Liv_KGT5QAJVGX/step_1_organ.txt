@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates cirrhotic morphology with sequela of portal hypertension as evidenced by splenomegaly, upper abdominal and paraesophageal varices. A segment VI ablation cavity is unchanged, measuring 2.1 x 1.6 cm (series 12001, image 38). On image 42 of series 10001, there is a stable 0.7 cm focus of arterial enhancement along the inferior border of the ablation cavity without washout, possibly postprocedural. Additional scattered punctate arterially enhancing foci without correlate on subsequent phases, may be perfusional. There are no lesions that meet imaging criteria for hepatocellular carcinoma. The hepatic vasculature is patent.
+
+Small anterior splenic infarct is unchanged. The kidneys, pancreas and adrenal glands are unremarkable, except for small renal cysts. There is cholelithiasis.
+
+There is no ascites. A few stable periportal subcentimeter lymph nodes are likely secondary to chronic liver disease. Susceptibility artifact from sternotomy wires are present. A small ventral fat containing hernia is again noted.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates cirrhotic morphology" and also mentions "sequela of portal hypertension" and "periportal subcentimeter lymph nodes are likely secondary to chronic liver disease," which are clear indicators of cirrhosis and chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=450 / Out=66
+Cost: $0.000121

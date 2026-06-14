@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Postsurgical changes are again seen from right hepatic lobe transplant with biliary enteric anastomosis and gastrojejunostomy. No findings of recurrent HCC. Hepatic vasculature remains patent. No biliary dilatation.
+
+Spleen, adrenal glands, pancreas, and kidneys appear unremarkable. Tiny left renal cyst is stable. No findings of bowel obstruction with formation of ventral abdominal wall. No adenopathy. No ascites. Some residual collateral vessel formation consisting of a splenorenal shunt is again seen.
+
+No aggressive osseous lesions.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described, but the context includes postsurgical changes from a right hepatic lobe transplant, with no findings of recurrent HCC, patent vasculature, and no biliary dilatation. The spleen, adrenal glands, pancreas, and kidneys are noted as unremarkable, but the liver is not explicitly characterized as normal, smooth, or unremarkable. However, given the absence of any indicators of fibrosis or cirrhosis, and the lack of ascites or other signs of portal hypertension aside from a stable splenorenal shunt (which may be residual), the classification should lean toward "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=340 / Out=194
+Cost: $0.000144

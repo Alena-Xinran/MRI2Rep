@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Postsurgical changes compatible with a right hepatic lobe transplant are again noted. The transplanted liver is not cirrhotic in morphology. There are no liver lesions imaging features of hepatocellular carcinoma. There is a stable right hepatic lobe cyst. Mild to moderate biliary ductal dilatation, predominantly in the posterior right hepatic lobe is stable.    The spleen remains mildly enlarged. The pancreas, adrenal glands, and kidneys are unremarkable, with the exception of bilateral renal cysts, some of which are proteinaceous/hemorrhagic. There is no abdominal lymphadenopathy. Trace free fluid is again noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The transplanted liver is not cirrhotic in morphology." There are no mentions of cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver is not described as unremarkable or normal, but the explicit negation of cirrhotic morphology indicates absence of fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=348 / Out=86
+Cost: $0.000101

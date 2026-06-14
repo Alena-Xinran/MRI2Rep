@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The liver is cirrhotic. There is an unchanged treatment cavity in segment 2 without evidence of viable disease. Scattered cysts are redemonstrated, some mildly enlarged. No suspicious hepatic lesion. There is similar of focal intrahepatic biliary ductal dilation just distal to the treatment cavity in segment 2.    Hepatic vasculature: There is a TIPS in place, cannot evaluate patency due to artifact.    Pancreas: Tiny cyst in the pancreas, probably sequela of pancreatitis or possibly a sidebranch IPMN on series 5 image 17 is unchanged.    Spleen: Borderline splenomegaly.    Adrenal glands: Unremarkable.    Kidneys: Unremarkable.    Bowel: Unremarkable.    Upper abdominal lymph nodes: Unchanged periportal prominent lymph nodes.    Peritoneum: No ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis, a form of advanced fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=414 / Out=40
+Cost: $0.000100

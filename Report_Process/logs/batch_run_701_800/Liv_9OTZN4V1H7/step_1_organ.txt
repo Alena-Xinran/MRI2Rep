@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is a small fat-containing ventral wall hernia on the right.
+
+Patient is status post partial right hepatectomy.
+1.4 cm rounded area of arterial phase and persistent enhancement along the cut surface of the liver on image 33 series 10 is stable.
+5 mm arterial phase hyperenhancing focus along the surface of segment 3 does not demonstrate washout and is stable.
+There are no new findings suspicious for hepatocellular carcinoma. The portal and hepatic veins are patent. Bile ducts are not dilated. Gallbladder has been surgically removed.
+
+Pancreas, adrenal glands, and kidneys are unremarkable. Low signal splenic thickening is stable.
+
+There is no ascites. There is no adenopathy.No new or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" either, but the focus is on post-surgical findings and stability of lesions, with no indication of parenchymal disease. The portal and hepatic veins are patent, and there is no ascites. Given the absence of positive criteria for fibrosis/cirrhosis, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=376 / Out=144
+Cost: $0.000134

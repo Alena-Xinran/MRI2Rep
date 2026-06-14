@@ -1,0 +1,24 @@
+{
+  "id": "Liv_QFIT0S8330",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "R_JUNCTION",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"CYST | R_JUNCTION | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0010708039999999999,
+    "timestamp": "2026-02-09 00:09:56",
+    "model": "deepseek/deepseek-chat"
+  }
+}

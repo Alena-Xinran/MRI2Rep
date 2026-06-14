@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. There is no evidence of HCC. Hepatic vasculature is patent. No biliary ductal dilatation.
+
+The spleen is at the upper limits of normal in size (12 cm in the craniocaudal dimension) and demonstrates siderotic nodules.
+
+The pancreas and right adrenal gland are again noted to be atrophic.
+
+The left adrenal gland and kidneys are unremarkable.
+
+On series 13 image 52, there is a 1 cm lymph node between the IVC and right crus of the diaphragm. This has increased in size and measured 0.7 cm on 7/13/2018 and approximately 0.1 cm on 4/2/2018.No evidence for hepatoma.
+
+Interval increase in size of a retroperitoneal lymph node. While this is of uncertain etiology, the possibility of metastatic disease should be considered given that the transplanted liver contained HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the patient as status post liver transplant and notes no evidence of HCC, patent hepatic vasculature, and no biliary ductal dilatation. There is no mention of cirrhosis or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). The liver is not explicitly described as "normal," but the absence of cirrhosis-related findings and the focus on transplant status and other findings (like the lymph node) suggest the liver is not cirrhotic. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is consistent with the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=387 / Out=142
+Cost: $0.000168

@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequelae of portal hypertension, including splenomegaly, upper abdominal and paraesophageal varices.
+
+Ablation cavity traversing segments 7 and 8 measures 4.8 x 1.2 cm (series 10 image 31), unchanged from prior exam. There is no evidence of recurrent or residual disease.
+
+Segment 4A ablation cavity with a small amount of hemorrhage is slightly decreased in size measuring 2.4 x 1.7 cm (series 10 image 16), previously 2.9 x 1.7 cm. There is no evidence of recurrent or residual disease.
+
+Multilobulated cystic lesion at the pancreatic body measuring 7 mm (series 3 image 24), unchanged from MRI dating back to 11/2017, is likely a small side branch IPMN or sequelae of prior pancreatitis.
+
+The patient is status post cholecystectomy. There is no intra or extrahepatic biliary dilatation. The adrenal glands and kidneys are unremarkable except for renal cysts.
+
+There is no abdominal lymphadenopathy. Trace ascites is noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=462 / Out=43
+Cost: $0.000115

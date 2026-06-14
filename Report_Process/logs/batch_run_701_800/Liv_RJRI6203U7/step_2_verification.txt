@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is redemonstration of emphysema at the lung bases as well as multiloculated cavitary lesion of the left lower lobe, better characterized on prior chest CT from 1/22/2020.
+
+There is been interval ablation of previously described lesion posterior to the prior segment 8 ablation cavity, with ablation cavity now measuring 4.5 x 3.3 cm along segment 7/8, image 92 series 10. There is no evidence of residual recurrent HCC.
+
+Ablation cavity of segment 8 measures 4.4 x 3.4 cm, image 92 series 10, stable in size. There is no evidence of residual recurrent HCC.
+
+Ablation cavity of segment 5 measures 2.7 x 1.7 cm, image 111 series 10, previously 2.6 x 1.9 cm. There is no evidence of residual recurrent HCC.
+
+The hepatic vasculature is patent. There is no biliary ductal dilatation. The gallbladder, pancreas, spleen, adrenals, and kidneys are unremarkable aside from tiny right renal cyst. A previously described indeterminate 0.70 right renal lesion is not visualized, possibly due to motion artifact.
+
+There is no bowel obstruction or ascites. A 1.0 cm periportal node is noted on image 208 series 10, previously 1.1 cm (remeasured). There is no aggressive osseous lesion.Interval ablation of lesion posterior to the prior segment 8 ablation cavity. No evidence of residual or recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, portal hypertension signs, or fibrosis). It describes ablation cavities and states there is no evidence of residual or recurrent HCC, but does not comment on liver parenchymal texture or morphology indicative of cirrhosis. The hepatic vasculature is patent, and there is no biliary ductal dilatation, but these are not specific for cirrhosis. Since the report does not state cirrhosis and does not explicitly describe a normal liver either, but given the absence of any cirrhosis-related findings and the default rule that if cirrhosis is not mentioned the status should be "NoFibrosis/Cirrhosis", the previously extracted status is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=519 / Out=165
+Cost: $0.000215

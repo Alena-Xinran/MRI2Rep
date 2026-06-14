@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is again noted to be status post left hepatectomy. Hepatic vasculature is patent.
+
+Multiple treatment cavities are again noted as follows (all measured on series 14):
+-On image 8, a stable 2.1 x 1.2 cm cavity in the subcapsular aspect of segment VIII demonstrates no evidence of recurrent HCC.
+
+-On image 14, a stable 2.5 x 1.7 cm cavity more inferiorly in segment VIII and demonstrates no evidence of recurrent HCC.
+
+-On image 15, a 2.1 x 1.0 cm cavity within segment VIII is stable in size with peripheral biliary ductal dilatation. A 1.2 cm arterially enhancing nodule along the medial aspect of the cavity is slightly increased from the prior study, although similar in size on more remote exams and remains concerning for recurrent HCC. No definite washout is seen within this nodule.
+
+-On image 18, a 1.4 x 2.4 cm subcapsular cavity within segment VIII is stable in size without evidence of recurrent disease.
+
+-On image 29, series 15, a T2 hyperintense 0.9 cm arterially enhancing observation within segment V adjacent to the gallbladder is not significantly changed in size and continues to demonstrate no washout or pseudocapsule. However, this can be upgraded to a LI-RADS 4 on the basis of T2 hyperintensity.
+
+Other tiny arterially enhancing lesions without washout or pseudocapsule are unchanged, LR3.
+
+There are stable scattered pancreatic cysts, a conglomerate within the pancreatic head measures 1.1 cm (image 11, series 3). There is no main pancreatic ductal dilatation. The gallbladder, spleen, adrenal glands, and kidneys are unremarkable. There is no abdominal adenopathy or ascites. No aggressive osseous lesion is detected.Slightly increased size of an arterially enhancing nodule along the medial aspect of one of the segment VIII treatment cavities concerning for viable HCC, LR-viable.
+
+A subcapsular 0.9 cm segment V arterially enhancing lesion can be upgraded to LIRADS4 on the basis of T2 hyperintensity.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, morphologic changes, portal hypertension findings, etc.). It describes the liver in the context of post-hepatectomy status and treatment cavities, but does not comment on background liver parenchyma or indicate cirrhosis. Since the report does not state cirrhosis or a normal liver explicitly, but the absence of mention of cirrhosis in a detailed liver MRI report implies no evidence of cirrhosis is present, the previous extraction "NoFibrosis/Cirrhosis" is appropriate.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=652 / Out=133
+Cost: $0.000238

@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Punctate hepatic cysts. Previously seen nonspecific enhancing focus in segment 7 is not well visualized on the current exam. There is no finding to suggest hepatocellular carcinoma. No biliary dilatation. Again noted is 4 mm gallbladder polyp (series 13, image 52), essentially unchanged compared to prior exam.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: Periportal adenopathy measuring up to 2.5 and 1.8 cm portacaval adenopathy, not significantly changed from the prior study. Some smaller lymph nodes in the hepatic hilum may have slightly increased.
+
+Peritoneum: No ascites.No evidence for HCC.
+
+Bulky portacaval adenopathy measuring up to 2.5 cm in short axis, not significantly changed to mildly increased from 3/16/2023 but as described previously, significantly increased from 5/10/2021. Continued attention on follow-up in 3 months.
+
+Stable subcentimeter gallbladder polyp.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes punctate hepatic cysts and notes no findings suggesting hepatocellular carcinoma, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described as "unremarkable", "normal", or "smooth" in this excerpt, but the absence of any fibrosis/cirrhosis indicators and the lack of ascites (which can be associated with cirrhosis) suggests no evidence of fibrosis or cirrhosis. However, since the criteria specify that classification as "NoFibrosis/Cirrhosis" requires positive descriptors like "unremarkable" or "normal", and these are not explicitly stated for the liver in this report, the default inference from the absence of fibrosis/cirrhosis keywords and the overall context supports "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=472 / Out=205
+Cost: $0.000186

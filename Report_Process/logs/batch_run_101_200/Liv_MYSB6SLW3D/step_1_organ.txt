@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post partial hepatic segmentectomy. There are scattered hepatic cysts and hemangiomas. The hepatic vasculature is patent. Prominence of the bile ducts, likely due to the postcholecystectomy state.
+
+-There is a 1.4 x 1.3 cm ablation cavity in segment 4A without evidence of residual or recurrent neoplasm (image 26, series 14).
+
+There are no new hepatic lesions meeting imaging criteria for hepatocellular carcinoma.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for renal cysts, some of which are hemorrhagic.
+
+There is no abdominal ascites or adenopathy.New segment 4 ablation cavity without viable HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes scattered hepatic cysts and hemangiomas, a post-surgical ablation cavity, and prominence of bile ducts likely due to postcholecystectomy state. There are no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of any fibrosis/cirrhosis indicators suggests no active signs of fibrosis or cirrhosis are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=368 / Out=129
+Cost: $0.000125

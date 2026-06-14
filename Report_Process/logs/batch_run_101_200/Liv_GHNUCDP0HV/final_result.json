@@ -1,0 +1,24 @@
+{
+  "id": "Liv_GHNUCDP0HV",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "L_MED",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_NoWO | L_MED | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0009504600000000001,
+    "timestamp": "2026-02-08 17:22:21",
+    "model": "deepseek/deepseek-chat"
+  }
+}

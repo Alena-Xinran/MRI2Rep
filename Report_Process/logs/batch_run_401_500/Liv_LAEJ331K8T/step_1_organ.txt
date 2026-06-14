@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is no pleural or pericardial effusion.
+
+Patient is again noted to be status post liver transplant. Mild intrahepatic biliary ductal dilatation is stable in appearance. No suspicious arterially enhancing lesions are noted within the liver. No findings of arterial or biliary stricture.
+
+The spleen, adrenals and kidneys are unremarkable with the exception of small bilateral renal cysts. Pancreas divisum is incidentally noted.
+
+There is no abdominal adenopathy.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of a post-transplant status and biliary findings, but the parenchyma itself is not characterized as unremarkable, normal, or smooth. However, the absence of fibrosis/cirrhosis indicators and the lack of any described parenchymal abnormality suggest no active signs of fibrosis or cirrhosis are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=322 / Out=126
+Cost: $0.000111

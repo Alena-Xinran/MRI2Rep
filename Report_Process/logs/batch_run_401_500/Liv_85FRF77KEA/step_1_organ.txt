@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 17 cc Dotarem was administered intravenously. Sequences include axial fat-suppressed T2 and axial T1 fat-sat pre and multiphase postcontrast.
+
+FINDINGS
+A 2.7 x 1.4 cm ablation cavity bordering segments 8 and 4A noted (series 14 image 30), and demonstrates no evidence of residual or recurrent neoplasm.
+
+The liver demonstrates morphologic features of cirrhosis or hepatic vasculature is patent. There are no findings of new HCC. The spleen is enlarged and multiple varices are present compatible with portal hypertension.
+
+Prominent periportal, peripancreatic, and retroperitoneal nodes are nonspecific, possibly reactive. The pancreas, adrenal glands, and kidneys are unremarkable exception of renal cysts. Gallbladder wall edema is nonspecific. There is a tiny amount of perihepatic free fluid. Nodular changes at the right lung base are presumably secondary to atelectasis.No evidence of recurrent or residual HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and also notes findings associated with chronic liver disease such as an enlarged spleen, varices compatible with portal hypertension, and a tiny amount of perihepatic free fluid. These are clear indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=444 / Out=69
+Cost: $0.000121

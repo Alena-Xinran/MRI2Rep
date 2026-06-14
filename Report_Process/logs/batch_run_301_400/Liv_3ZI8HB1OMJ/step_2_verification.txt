@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post liver transplant. Hepatic vasculature is patent. There is no evidence of HCC. There is no biliary dilatation. The spleen is mildly enlarged and varices are noted. A few small cystic structures in the pancreas are nonspecific, unchanged, possibly sidebranch I PMN. The adrenal glands and kidneys are unremarkable. A 5.4 cm fluid collection in the anterior abdominal wall associated with an incision is unchanged. There is no adenopathy. Minimal ascites is noted.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, regenerative nodules, or signs of portal hypertension like varascites, splenomegaly, or varices). While the report notes "spleen is mildly enlarged and varices are noted," these findings are in a patient status post liver transplant and could be related to portal hypertension from other causes, but the report does not explicitly attribute them to cirrhosis. The liver parenchyma itself is not described as cirrhotic. Therefore, based on the provided rules, since the report does not state "cirrhosis" or features of it, and the liver is not described as abnormal, the status should be "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=306 / Out=179
+Cost: $0.000161

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right partial hepatectomy. There is no evidence of hepatocellular carcinoma. Multiple scattered arterially enhancing foci with no washout or pseudocapsule remain indeterminate. Some of these foci are slightly more prominent and amenable to follow up. For instance, a 1.5 cm focus at the hepatic dome and a 1.3 cm focus in the anterior left hepatic lobe (images 21 and 29, series 13, respectively). The hepatic vasculature is patent.
+
+The gallbladder, pancreas, spleen, adrenal glands and are unremarkable.
+
+There is no abdominal lymphadenopathy or ascites.No evidence of HCC. Small nonspecific arterially enhancing foci amenable to continued follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the focus is on post-surgical status and indeterminate enhancing foci. Since there is no positive evidence of fibrosis or cirrhosis based on the given criteria, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=371 / Out=126
+Cost: $0.000125

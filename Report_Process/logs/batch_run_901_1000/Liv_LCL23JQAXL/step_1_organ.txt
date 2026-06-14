@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent. Sequela of portal hypertension is appreciated as indicated by a splenorenal shunt.  
+
+There is a 1.1 cm arterial enhancing lesion in segment IVb that demonstrates washout and pseudocapsule (series 17 image 31) meeting OPTN 5A criteria for HCC.
+
+Cholelithiasis is noted. The pancreas, spleen, adrenals, and kidneys are unremarkable.
+
+There is no adenopathy, ascites, or obstruction.There is a 1.1 cm segment IVb lesion that meets OPTN 5a criteria for HCC.
+
+A Yellow message has been communicated to this patient's provider via the PowerScribe 360 Critical Results application on 1/9/2018 3:25 PM, Message ID 2686340.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. Additionally, there is mention of "sequela of portal hypertension" and a "splenorenal shunt," both consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=401 / Out=65
+Cost: $0.000107

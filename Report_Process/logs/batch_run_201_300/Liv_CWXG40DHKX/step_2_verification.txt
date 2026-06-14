@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A 4.3 x 3.2 cm ablation cavity in the segment 7 is essentially unchanged in size. There is slight interval increase in nodular and wispy enhancement in the periphery of the cavity, suspicious for early recurrence.
+
+A 1.0 cm arterially enhancing nodule in segment 3 is redemonstrated (series 5, image 36), however without definite washout or pseudocapsule on today's exam. This nodule remains concerning for HCC given prior findings of washout.
+
+A new 1.1 cm arterially enhancing nodule in segment 8 (series 5, image 24) with washout and pseudocapsule is consistent with OPTN 5a HCC.
+
+A previously described steatotic 1.1 cm nodule in segment 5 does not arterial phase enhance and is indeterminant but stable (series 7, image 34).
+
+There are multiple other subcapsular arterial phase enhancing foci within the liver, without washout or pseudocapsule, nonspecific.
+
+Hepatic vasculature is patent.
+
+Gallbladder, spleen, pancreas, adrenal glands and kidneys are unremarkable.
+
+There is no abdominal adenopathy or ascites.New HCC in segment 8.
+
+Findings suspicious for early recurrence in the ablation cavity.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis. It describes specific nodules and an ablation cavity but does not comment on overall liver parenchyma or indicate cirrhosis. Since the report does not state normal liver explicitly either, but the absence of mention of cirrhosis or its features means the previous extraction of "NoFibrosis/Cirrhosis" is appropriate based on the given rules.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=465 / Out=101
+Cost: $0.000173

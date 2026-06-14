@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension. A stable T2 hyperintense segment 8 lesion measuring 1.4 cm is again noted however on today's exam there is no residual arterially enhancing component. A pseudocapsule is seen on more delayed postcontrast imaging.  No new hepatic lesions are seen. Cholelithiasis is again noted without any choledocholithiasis.    Remaining solid organs appears stable with unchanged renal cysts and left adrenal lipid rich adenoma measuring 2.4 cm. No ascites or adenopathy.    No aggressive osseous lesions.Atypical follow-up exam as the previously noted arterially enhancing HCC in segment 8 no longer displays arterial enhancement on the current MRI. While some of this may be technical related to slightly early arterial phase, it could also reflect sequelae of an "autoinfarcted" HCC.    Recommendation:  Given stability in size, reasonable to maintain the patient on surveillance. May be beneficial to get obtain follow-up surveillance imaging with multiphase CT.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Again noted is a cirrhotic liver with sequelae of portal hypertension." The keyword "cirrhotic" directly indicates cirrhosis, meeting the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=444 / Out=58
+Cost: $0.000116

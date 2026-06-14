@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Status post left hepatectomy and cholecystectomy. No evidence of HCC. Hepatic steatosis. Numerous arterially enhancing observations are seen throughout the liver, some of which are stable to more conspicuous and some new observations, without washout or enhancing pseudocapsule. LR-3. For example, a 0.8 cm right hepatic arterially enhancing observation is new (image 26, series 8), and a 0.5 cm right posterior hepatic lobe arterially enhancing observation is more conspicuous than prior (image 39, series 8). No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: A 1.2 cm pancreatic body cystic lesion is stable in size, which could represent sidebranch IPMN or sequela of prior pancreatitis (image 14, series 5). Nondilated main pancreatic duct.
+
+Spleen: Unremarkable.
+
+Adrenal glands: 1.8 cm lipid rich left adrenal adenoma is again seen. Unremarkable right adrenal gland.
+
+Kidneys: Unremarkable except for small bilateral renal cysts.
+
+Bowel: A duodenal diverticulum is again seen.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC. 
+Numerous hepatic LR-3 observations including some which are new and/or more conspicuous.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes "Hepatic steatosis" and "Numerous arterially enhancing observations... LR-3" but does not mention cirrhosis, morphologic features of cirrhosis, or any findings suggestive of fibrosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). The liver is described in the context of post-surgical changes and observations, but no fibrosis or cirrhosis is indicated. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=481 / Out=122
+Cost: $0.000186

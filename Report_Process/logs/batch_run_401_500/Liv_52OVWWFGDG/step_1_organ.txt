@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 21 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast. Subtraction images are submitted.
+
+FINDINGS
+Chest findings will be dictated by the thoracic radiology service.
+
+Hepatic lesions as follows:
+- 2.9 cm biopsy-proven tumor in segment 8 (image 20, series 9) is hypovascular and contains fat, unchanged in size.
+-1.2 cm arterially enhancing focus bordering segments 4A and 8 (image 19, series 9) with persistent enhancement on delayed phases and mild T2 hyperintensity is indeterminant.
+- 2.0 cm region of decreased attenuation on equilibrium phase in segment 7 (image 30, series 11) without arterial enhancement and a small amount of internal fat is indeterminate.
+- Few masslike regions of focal fat in segment 7 measuring up to 1.0 cm are unchanged.
+
+Hepatic vasculature is patent. Stable 9 mm pancreatic body cyst is compatible with sidebranch IPMN or sequela from prior pancreatitis. The gallbladder, spleen, adrenals, and kidneys are unremarkable with the exception of stable renal cysts. There is no abdominal ascites or lymphadenopathy.Segment 7 HCC and other indeterminant hepatic lesions as described.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described, but the hepatic vasculature is noted as patent, and there is no mention of ascites or other signs of portal hypertension. The findings focus on hepatic lesions and other organs, with no indication of abnormal liver texture or morphology suggestive of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=546 / Out=121
+Cost: $0.000171

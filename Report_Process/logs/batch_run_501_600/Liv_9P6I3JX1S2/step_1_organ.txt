@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A 1.4 x 0.9 cm ablation cavity in segment 7 has decreased in size from 2.3 x 0.8 cm and demonstrates no evidence of residual or recurrent disease (image 19, series 8). No new hepatic lesion is identified. The hepatic vasculature is patent.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable.
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of any positive findings related to fibrosis or cirrhosis, along with the lack of ascites or other signs of chronic liver disease, suggests no evidence of fibrosis/cirrhosis. The focus is on a prior ablation cavity and no new lesions, without any indication of parenchymal abnormality.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=323 / Out=142
+Cost: $0.000118

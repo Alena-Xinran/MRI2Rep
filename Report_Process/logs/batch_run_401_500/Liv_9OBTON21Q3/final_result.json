@@ -1,0 +1,30 @@
+{
+  "id": "Liv_9OBTON21Q3",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"RIM_ATYP | R_ANT | 1\"]": 1,
+      "[\"RIM_ATYP | R_ANT | 1\", \"RIM_ATYP | R_DIFFUSE | Multiple\"]": 2
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0012347439999999999,
+    "timestamp": "2026-02-07 02:32:13",
+    "model": "deepseek/deepseek-chat"
+  }
+}

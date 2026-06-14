@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Ablation cavity within segment 7 is essentially stable in size measuring 1.2 x 0.6 cm (image 28, series 16), given differences in technique. There is no evidence of recurrent or residual disease. There are a few scattered nonspecific arterially enhancing foci throughout the liver, the largest measuring up to 1.2 cm (image 59, series 11) without corresponding washout or pseudocapsule. The hepatic vasculature is patent.
+
+The spleen, gallbladder, adrenal glands, and kidneys are unremarkable. Sub-4 mm cystic foci throughout the pancreas are again noted, likely representing side branch IPMNs versus sequelae of prior pancreatitis.
+
+There is no abdominal adenopathy or ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described as "unremarkable", "normal", or "smooth", but the absence of fibrosis/cirrhosis indicators and the lack of ascites or other signs of portal hypertension suggest no clear evidence of fibrosis or cirrhosis. The findings focus on post-ablation changes and nonspecific enhancing foci without features of chronic liver disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=382 / Out=133
+Cost: $0.000131

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The hepatic vasculature is patent. A few subcentimeter hepatic cysts are noted.
+*  Stable segment 7 treatment cavity measuring 2.2 x 1.0 cm (series 9 image 28) previously measuring 2.2 x 1.0 cm. There is no evidence of residual disease or recurrence.
+*  There are nonspecific sub-5 mm arterially enhancing foci which appear similar to prior study. No washout or pseudocapsule.
+
+The gallbladder, pancreas, spleen, and adrenals are unremarkable. Subcentimeter renal cysts are noted.
+
+There is no adenopathy, ascites, or obstruction.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not directly described, but the hepatic vasculature is patent, and there are only noted cysts and a stable treatment cavity. The absence of terms indicating fibrosis or cirrhosis, along with no mention of surface irregularity, suggests no clear evidence of fibrosis/cirrhosis. However, the criteria specify that if the liver is described as "unremarkable", "normal", or "smooth", the classification should be "NoFibrosis/Cirrhosis". The liver is not explicitly described with those terms in this excerpt, but the gallbladder, pancreas, spleen, and adrenals are stated as "unremarkable". Since the liver parenchyma is not directly assessed in the provided text and no signs of fibrosis/cirrhosis are mentioned, based on the given criteria, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=361 / Out=233
+Cost: $0.000118

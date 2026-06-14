@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Confluent segment 7/8 ablation cavity measures 4.4 x 2.9 cm (series 9 image 23). There is no evidence of recurrent or residual disease. Diffuse hyperenhancement of the right lobe is noted without washout, likely perfusional There are scattered nodular arterially enhancing foci which do not demonstrate washout (for example series 7 image 39). There is no evidence of hepatocellular carcinoma. Diffuse wedge-shaped arterial enhancement throughout the right hepatic lobe without correlate on other sequences is probably perfusional.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable except for bilateral renal cysts. The patient is status post cholecystectomy. There is no upper abdominal lymphadenopathy. Small hiatal hernia is likely present.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is described in terms of enhancement patterns (diffuse hyperenhancement, wedge-shaped arterial enhancement) attributed to perfusional changes, but no descriptors indicating fibrosis or cirrhosis are present. The spleen, pancreas, adrenal glands, and kidneys are noted as unremarkable, but this does not directly describe the liver parenchyma. There is no mention of the liver being unremarkable, normal, or smooth either, but based on the criteria, the absence of fibrosis/cirrhosis keywords suggests classification as "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=392 / Out=173
+Cost: $0.000150

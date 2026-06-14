@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post left hepatectomy. The liver is cirrhotic with evidence of portal hypertension, as manifested by splenomegaly and a small amount of perihepatic ascites. Multiple ablation cavities are again noted. Representative cavities are as follows:
+
+-Segment 8, post repeat ablation along anterior margin of prior ablation cavity, cavity now measures 4.7 x 3.8 cm, image 74 series 13. Intrinsic T1 hyperintensity is compatible with small amounts of hemorrhagic/proteinaceous content. There is no residual enhancement in this location. 
+
+-Segment 8, inferior to the recent repeat ablation, the prior ablation cavity is stable in size, measuring 2.1 x 1.6 cm, image 67 series 13. There is no evidence of recurrent disease.
+
+-Segment 7 cavity is stable in size measuring 2.9 x 2.1 cm (image 62, series 13), previously 3.0 x 2.3 cm. No evidence of residual or recurrent disease.
+
+-Segment 7 cavity medially has slightly decreased in size measuring 2.1 x 1.6 cm (image 62 series 13), previously 2.1 x 1.4 cm. There is no evidence of recurrent disease.
+
+-Segment 5 cavity has slightly increased in size measuring 1.9 x 1.2 cm (image 41 series 13), previously 2.2 x 1.5 cm. There is no evidence of recurrent disease.
+
+-Segment 6 cavity is stable in size measuring 2.8 x 1.2 cm (image 40 series 13), previously 2.7 x 1.0 cm. There is no evidence of recurrent disease.
+
+Hepatic vasculature is patent. Replaced right hepatic artery to the SMA is again noted. There is cholelithiasis. The adrenal glands, kidneys, and pancreas are unremarkable with the exception of subcentimeter left renal cysts.
+
+There is a small umbilical hernia.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions evidence of portal hypertension, splenomegaly, and ascites, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=660 / Out=53
+Cost: $0.000175

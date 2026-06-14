@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Small chronic right pleural effusion with some adjacent atelectatic changes are again seen. Some susceptibility artifact is seen in the right breast, presumably related to prior biopsy.
+
+Again noted is a cirrhotic liver with stable sequelae of portal hypertension. No findings suspicious for HCC. A few peripheral subcentimeter arterially enhancing foci are noted without any correlate on T2-weighted images or more delayed postcontrast images, likely benign (LR 3). The broad shaped region of arterial enhancement previously called LR 4 in the posterior right hepatic lobe is no longer seen. Portal venous system is patent.
+
+ No choledocholithiasis with the gallbladder noted to be surgically absent. Pancreatic divisum variant is incidentally noted. Stable subcentimeter pancreatic body cyst without any worrisome complexity. Horseshoe kidney is again seen. Adrenal glands appear unremarkable.
+
+Mild ascites. Visualized bowel appear unremarkable.No findings of HCC. Previously noted right hepatic LR 4 lesion has resolved.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "a cirrhotic liver with stable sequelae of portal hypertension," which directly indicates cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=427 / Out=38
+Cost: $0.000103

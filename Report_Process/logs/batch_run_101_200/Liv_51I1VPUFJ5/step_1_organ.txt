@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 15 Dotarem was administered intravenously. Sequences include axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Patient is status post subtotal segment 2 resection. There is no HCC. The portal and hepatic veins are patent.
+
+The spleen, pancreas, gallbladder, adrenal glands and kidneys are unremarkable.No HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described, but the spleen, pancreas, gallbladder, adrenal glands, and kidneys are noted as "unremarkable". There is no positive finding indicating fibrosis or cirrhosis.  
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=321 / Out=101
+Cost: $0.000100

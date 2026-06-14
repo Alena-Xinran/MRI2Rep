@@ -1,0 +1,75 @@
+{
+  "id": "Liv_RXLQOMVIHJ",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "L_LAT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "CYST",
+      "position": "L_LAT",
+      "quantity": "1"
+    },
+    {
+      "type": "CYST",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "CYST",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "L_MED",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_WO | L_LAT | 1\", \"APHE_WO | L_MED | 1\", \"APHE_WO | L_MED | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"CYST | L_LAT | 1\", \"CYST | R_ANT | 1\", \"CYST | R_POST | 1\", \"RIM_ATYP | L_MED | 1\"]": 2,
+      "[\"APHE_WO | L_LAT | 1\", \"APHE_WO | L_MED | 1\", \"APHE_WO | L_MED | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"RIM_ATYP | L_LAT | 1\", \"RIM_ATYP | L_MED | 1\", \"RIM_ATYP | R_ANT | 1\", \"RIM_ATYP | R_POST | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00373772,
+    "timestamp": "2026-02-08 03:09:43",
+    "model": "deepseek/deepseek-chat"
+  }
+}

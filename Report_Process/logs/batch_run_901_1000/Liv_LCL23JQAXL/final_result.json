@@ -1,0 +1,24 @@
+{
+  "id": "Liv_LCL23JQAXL",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "L_MED",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_WO | L_MED | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0010134599999999999,
+    "timestamp": "2026-02-08 23:56:06",
+    "model": "deepseek/deepseek-chat"
+  }
+}

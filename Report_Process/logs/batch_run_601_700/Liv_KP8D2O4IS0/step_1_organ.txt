@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: No evidence for hepatocellular carcinoma. Scattered punctate arterial enhancing foci, without correlate on subsequent phases or EPI images, likely perfusional. Punctate right hepatic cyst. No intrahepatic ductal dilatation. Patent hepatic vasculature.
+
+Gallbladder and biliary tree: Status post cholecystectomy, with expected mild prominence of biliary tree.
+
+Pancreas: Stable punctate cystic lesion in pancreatic tail (series 1, image 21), may represent sequela prior pancreatitis or side branch IPMN. Normal caliber pancreatic duct.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: No bowel obstruction.
+
+Abdominal/pelvic lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Pelvis: No mass.
+
+Musculoskeletal: Unchanged bilateral hip periarticular enhancement, nonspecific.
+
+Lung bases: Please refer to the CT chest reported by thoracic radiology service for intrathoracic findings.No evidence for recurrence or metastatic HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver findings describe punctate arterial enhancing foci (likely perfusional) and a cyst, but the parenchyma itself is not described as abnormal in texture or contour. There is no mention of the liver being "unremarkable" or "normal" explicitly, but the absence of fibrosis/cirrhosis indicators and the lack of ascites or other stigmata suggest no clear evidence of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=440 / Out=143
+Cost: $0.000151

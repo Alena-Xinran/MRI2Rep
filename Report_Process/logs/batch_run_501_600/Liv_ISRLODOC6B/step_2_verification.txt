@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with sequelae of portal hypertension including recanalized paraumbilical vein and upper abdominal varices (including gastroesophageal).
+
+On image 42, series 11,001, a 2.8 cm non-rim arterially hyperenhancing mass within segment II/III with washout on delayed venous images is compatible with a LI-RADS 5 hepatocellular carcinoma. The drop in signal on the opposed phase images compatible with intralesional fat is less apparent on this examination. No new arterially enhancing lesions are seen.
+
+Numerous other hypoenhancing subcentimeter nodules throughout the liver likely represent regenerative nodules. Scattered hepatic cysts are present. The hepatic vasculature is patent.
+
+The adrenal glands, kidneys, and pancreas are unremarkable with the exception of bilateral small renal cysts. Gallbladder wall edema is probably reactive to cirrhosis. Hypointense regions in the peripheral aspect of the spleen likely represent sequela of prior infarcts.
+
+Prominent periportal lymph nodes are likely reactive.
+
+There is increased abdominal ascites, now moderate to large in volume. There is nonspecific prominent peritoneal enhancement.Stable segment II/III LI-RADS 5 HCC.
+
+Increased ascites, now moderate to large in volume.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic in morphology" and later mentions "Gallbladder wall edema is probably reactive to cirrhosis." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=452 / Out=68
+Cost: $0.000155

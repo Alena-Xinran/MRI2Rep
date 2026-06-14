@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: No suspicious hepatic lesion. No biliary dilatation. There is cholelithiasis.    Liver iron content is 1.01 mg/g Fe (T2*values is 31.6 ms), which is within normal limits based on the study cohort of Wood et al. Blood 2005; 106:1460-1465.    Hepatic vasculature: Patent.    Pancreas: Unremarkable.    Spleen: Unremarkable.    Adrenal glands: Unremarkable.    Kidneys: Unremarkable.    Bowel: Unremarkable.    Upper abdominal lymph nodes: No lymphadenopathy.    Peritoneum: No ascites.No evidence for HCC, iron overload or cirrhosis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "No evidence for HCC, iron overload or cirrhosis." This indicates the liver is normal with respect to cirrhosis. There is no mention of any features of cirrhosis, fibrosis, or morphological abnormalities. Therefore, the correct status should be "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=356 / Out=78
+Cost: $0.000132

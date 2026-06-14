@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic. A 0.9 cm arterially enhancing focus in the right hepatic lobe (image 47, series 22001) is likely perfusional. There is no evidence of hepatocellular carcinoma. Portal hypertension is present, as manifested by abdominal varices, including a left splenorenal shunt. The hepatic vasculature is patent.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable, except for tiny bilateral renal cysts.
+
+No abdominal lymphadenopathy or ascites is seen. A small lipoma is again noted in the distal stomach.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis. According to the task rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=323 / Out=88
+Cost: $0.000127

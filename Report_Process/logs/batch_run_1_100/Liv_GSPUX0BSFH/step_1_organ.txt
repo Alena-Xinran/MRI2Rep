@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Stable postsurgical changes from right hemi-hepatectomy. No HCC. Patent portal and hepatic veins.    Gallbladder and biliary tree:Status post cholecystectomy. No intrahepatic biliary ductal dilatation.    Pancreas: Unremarkable.    Spleen: Unremarkable.    Adrenal glands: Unremarkable.    Kidneys: Unremarkable.    Bowel: No bowel obstruction.    Abdominal lymph nodes: No lymphadenopathy.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of stable postsurgical changes from a right hemi-hepatectomy and notes no hepatocellular carcinoma (HCC), with patent vessels. There are no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of any fibrosis/cirrhosis indicators and the focus on surgical stability suggests no active fibrotic or cirrhotic changes are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=330 / Out=144
+Cost: $0.000121

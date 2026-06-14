@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Interval decreased size of segment 4A ablation cavity measuring 3.1 x 2.7 cm (previously 5.6 x 4.2 cm, 14001:28). There is no enhancement associated with the ablation cavity. No evidence of new HCC.
+
+No biliary dilatation. Cholelithiasis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Pancreatic cystic lesions which may represent sequela of prior pancreatitis or side branch IPMNs. Main duct is nondilated.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left renal cyst. The right kidney is unremarkable.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Decreased size of segment 4 ablation cavity without evidence of residual/recurrent disease. No evidence of new HCC.
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes findings related to the hepatobiliary system, including an ablation cavity and no evidence of new HCC, but does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, portal hypertension signs, etc.). It also does not explicitly state "normal liver" but the absence of cirrhosis descriptors and the lack of mention of fibrosis or cirrhotic morphology implies the liver is not cirrhotic. The previously extracted status "NoFibrosis/Cirrhosis" aligns with the report content.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=404 / Out=132
+Cost: $0.000169

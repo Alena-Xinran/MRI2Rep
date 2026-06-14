@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic and steatotic. Sequela of portal hypertension is evidenced by mild volume ascites and upper abdominal collateral vessels. The hepatic vasculature appears patent.    Again seen is the 3.3 cm ablation cavity in segment 5 which is unchanged in size. There is no evidence of recurrent tumor.    There is ill-defined, heterogeneous enhancement of the right hepatic lobe and there are discrete foci of arterial phase hyperenhancement which are described on series 100 (and 102 to appreciate washout/pseudocapsule).    -0.7 cm observation in the dome with washout. LR-4. (image 13)  -0.9 cm observation in segment 8 with washout. LR-4. (image 25)  -1 cm observation in segment 7 with washout. LR-5. (image 27)  -1.4 cm observation in segment 7 with washout. LR-5. (image 34)  -0.9 cm subcapsular observation in segment 6 with washout and pseudocapsule. LR-5. (image 69)    In addition, there are multiple subcentimeter foci in the liver that show washout without arterial phase hyperenhancement. These are indeterminate but could represent hypovascular hepatocellular carcinoma.    The gallbladder, pancreas, spleen, adrenal glands and kidneys are unremarkable with the exception of cholelithiasis and bilateral renal cysts.    There is no adenopathy.Heterogeneous enhancement the right hepatic lobe with small arterially enhancing lesions concerning for multifocal HCC, as above.     There are numerous subcentimeter hepatic foci that do not show arterial phase enhancement but do demonstrate washout. These are indeterminate but may represent hypovascular HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic and steatotic," which directly indicates cirrhosis. Additionally, there is mention of sequelae of portal hypertension (mild ascites, collateral vessels), further supporting chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=591 / Out=67
+Cost: $0.000161

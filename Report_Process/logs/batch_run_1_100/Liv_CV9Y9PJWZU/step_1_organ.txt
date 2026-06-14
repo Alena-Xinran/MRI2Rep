@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Liver is again noted to be cirrhotic in morphology with sequelae of portal hypertension including upper abdominal varices and recanalization of the paraumbilical vein.
+
+Hemorrhagic segment 5/8 ablation cavity has decreased, measuring 3.3 x 1.9 cm (series 13 image 37), previously 8.9 x 2.4 cm. There is no recurrent or residual viable HCC. No new HCC
+
+There is diffuse steatosis.
+
+Cholelithiasis, with no choledocholithiasis or biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable bilateral renal cysts..
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Unchanged periportal mildly enlarged lymph nodes.
+
+Peritoneum: No ascites.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to be cirrhotic in morphology" and mentions sequelae of portal hypertension, which directly indicates cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=419 / Out=44
+Cost: $0.000104

@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is a trace right pleural effusion.
+
+Patient is status post partial liver transplant. There is no evidence of hepatocellular carcinoma or liver mass. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts.
+
+There is no abdominal adenopathy or ascites. A fat-containing ventral abdominal hernia is stable.No evidence of HCC or liver mass.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Patient is status post partial liver transplant" and "no evidence of hepatocellular carcinoma or liver mass" with patent hepatic vasculature. There is no mention of cirrhosis or any features of cirrhosis (e.g., nodular liver surface, atrophy/hypertrophy, signs of portal hypertension). The liver is described without abnormal findings aside from the transplant history, which does not inherently indicate cirrhosis. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis for this report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=281 / Out=118
+Cost: $0.000128

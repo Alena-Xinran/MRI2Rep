@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Resection cavity isegment 5 measures 1.7 x 1.0 cm, unchanged. No new or recurrent HCC. Unchanged cysts, largest in the left lobe. Portal and hepatic veins patent. 
+
+Biliary: Unchanged mild bile duct dilatation. Gallbladder unremarkable.
+
+Pancreas, spleen, adrenal glands, and kidneys are unremarkable aside from unchanged bilateral simple renal cysts.
+
+No ascites, lymphadenopathy, or bowel obstruction.
+
+Unchanged asymmetric enhancement of the right paraspinal musculature.No new or recurrent viable HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a resection cavity in segment 5, unchanged cysts, and patent vessels, but does not mention any features of cirrhosis such as nodularity, contour irregularity, or signs of portal hypertension. It also does not explicitly state "normal liver," but the absence of cirrhosis-related findings and the lack of any mention of fibrosis or cirrhosis implies the liver is not cirrhotic. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=318 / Out=115
+Cost: $0.000137

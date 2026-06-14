@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with evidence of portal hypertension, characterized by splenomegaly and increased small amount of ascites. Again noted is multifocal hepatocellular carcinoma in the right hepatic lobe. The masses remain hypervascular, however demonstrate decreased arterial enhancement when compared to the prior exam, due to recent treatment. 
+
+A segment 7 mass at the hepatic dome has decreased in size measuring 3.9 cm (image 18, series 8), previously 5.1 cm, while other dominant masses in the right hepatic lobe are unchanged. A segment 5/8 prior treatment cavity is unchanged without evidence of residual or recurrent disease. Extensive thrombus throughout the right anterior portal venous system is predominantly bland. 
+
+An unchanged 1.4 cm arterially enhancing lesion in segment 6 does not demonstrate washout or pseudocapsule and remains nonspecific (image 35, series 6).
+
+A 1.4 cm cystic pancreatic neck lesion is unchanged. The main pancreatic duct is normal in caliber. The kidneys, adrenal glands, and gallbladder are unremarkable, except for small renal cysts. No adenopathy is seen.Improved but persistent multifocal HCC in the right hepatic lobe.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions evidence of portal hypertension, which is consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=467 / Out=44
+Cost: $0.000117

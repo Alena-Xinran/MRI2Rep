@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: 3.8 x 2.6 cm ablation cavity in segment 7 previously measured 3.9 x 2.9 cm. There are no findings concerning for recurrent or new viable HCC. Hepatic vasculature is patent. Bile ducts are not dilated. There is cholelithiasis.
+
+Again seen is evidence of portal hypertension with splenomegaly and paraesophageal varices.
+
+Multiple pancreatic unilocular cystic lesions measuring up to 1.8 cm on change. There are no solid enhancing components. Downstream mild dilatation of the pancreatic duct is unchanged.
+
+Adrenal glands are unremarkable. 1.2 cm right adrenal adenoma seen on the prior study is not appreciated on this exam.
+
+There are bilateral small simple renal cysts.
+
+No ascites. No lymphadenopathy. No aggressive osseous lesions.No new or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain direct keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". However, it states "evidence of portal hypertension with splenomegaly and paraesophageal varices," which is a strong indirect indicator of cirrhosis or advanced fibrosis, as portal hypertension is commonly caused by cirrhosis. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the presence of portal hypertension suggests underlying liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=405 / Out=129
+Cost: $0.000135

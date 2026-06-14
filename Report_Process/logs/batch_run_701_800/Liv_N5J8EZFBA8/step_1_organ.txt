@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is diffuse hepatic steatosis. Several punctate arterial enhancing foci are appreciated, there is no associated washout. Some appear similar to prior study and others are not confidently seen in retrospect. The focus of enhancement in segment 4 appears similar to prior studies (series 7 image 31). There is no HCC identified. 
+
+The hepatic vasculature is patent. The patient is status post liver transplant and cholecystectomy. There is a stable 1.5 cm nonspecific cystic lesion in the head of the pancreas. This may reflect the sequela of prior pancreatitis or side branch IPMN. There is no main duct dilatation.
+
+The spleen and adrenals are unremarkable. Subcentimeter renal cysts are noted. Small anterior abdominal wall hernia contains fat and fluid.Status post liver transplant without evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "diffuse hepatic steatosis" but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It notes the patient is "status post liver transplant" but does not describe the current liver parenchyma as cirrhotic or fibrotic. The hepatic vasculature is patent, and there is no description of surface nodularity or abnormal texture. The spleen is described as unremarkable, but the liver parenchyma itself is not explicitly stated as normal or smooth. However, based on the criteria, the absence of the specified keywords suggests no direct evidence of fibrosis or cirrhosis in the current description.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=392 / Out=166
+Cost: $0.000147

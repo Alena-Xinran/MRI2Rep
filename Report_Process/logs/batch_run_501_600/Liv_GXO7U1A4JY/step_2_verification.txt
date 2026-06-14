@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary: Status post orthotopic pole of the transplant
+-Wedge-shaped region of arterial phase hyperperfusion in segment 8 at the dome is more conspicuous compared to the prior study, likely due to slight differences in timing of contrast bolus. A similar hyperenhancing subcapsular region in posterior segment 6 on image 37 series 10 is unchanged. No washout or pseudocapsule
+-Several subcentimeter enhancing foci, for example in the caudate lobe on image 29 series 10, are unchanged and do not demonstrate washout or pseudocapsule. There is no washout or pseudocapsule. 
+-Multiple tiny cysts, unchanged. No intra or extrahepatic bile duct dilatation. Hepatic vasculature is patent.
+
+Pancreas, spleen, adrenal glands, and kidneys are unremarkable.
+
+No ascites, lymphadenopathy, or aggressive osseous lesionNo HCC
+There are several unchanged LI-RADS 3 observations
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a liver transplant status and mentions several findings such as arterial hyperperfusion, enhancing foci, and cysts, but does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis (e.g., nodular contour, atrophy/hypertrophy, signs of portal hypertension). The liver is not explicitly described as "normal," but the absence of any mention of cirrhosis or its features, along with the context of a transplant follow-up without cirrhotic indicators, supports the previous extraction of "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=406 / Out=129
+Cost: $0.000168

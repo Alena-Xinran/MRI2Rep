@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Multifocal HCC with interval increase in size of several lesions and there is interval development of increased internal T1 signal which may represent hemorrhage/proteinaceous material with associated new internal nonenhancement seen in many lesions which may be due to ongoing treatment. For example, a segment 6/7 lesion now measures 8.1 cm (series 13001, image 34), previously 7.0 cm, and a segment 5 lesion measuring 4.0 cm is unchanged in size (series 13001, image 27). Previously noted HCC in the posterior right hepatic lobe now measures 8.6 x 6.8 cm (series 13001, image 60), previously 8.4 x 4.2 cm by same measurements, with most of the mass still demonstrating low-level enhancement. There is interval decrease in size of a segment 5/8 mass which now measures 1.5 cm (series 12001, image 42), previously 2.6 cm. There is unchanged intrahepatic biliary ductal dilatation.
+
+Hepatic vasculature: Chronic thrombosis of the portal vein with cavernous transformation and minimal extension into the SMV is again seen. There is also persistent heterogeneous enhancement of the liver, most pronounced on the arterial phase, likely secondary to the chronic thrombosis/mass effect.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable except for stable mild thickening of the left adrenal gland.
+
+Kidneys: Stable right renal cysts, otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace amount of ascites.Mixed response of multifocal HCC with interval increase in size of several lesions, interval decrease in size of a few other lesions and interval development of internal necrosis/hemorrhage in several lesions which may be due to ongoing treatment.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes "persistent heterogeneous enhancement of the liver" likely secondary to chronic portal vein thrombosis/mass effect, but does not explicitly mention cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth; the findings are focused on multifocal HCC and vascular changes. Without specific keywords indicating fibrosis or cirrhosis, the condition of the liver parenchyma regarding fibrosis/cirrhosis cannot be definitively classified as present based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=625 / Out=130
+Cost: $0.000197

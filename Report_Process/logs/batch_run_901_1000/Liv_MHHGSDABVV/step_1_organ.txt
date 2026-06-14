@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Interval decrease in size of small left greater than right pleural effusions.
+
+Again noted is cirrhotic liver morphology with sequela of portal hypertension, including small volume ascites (slightly increased when compared to the prior study), small paraesophageal varices and mild splenomegaly.
+
+Several focal liver findings are stable since 2019, including:
+- An 8 mm focus of arterial enhancement in segment 7 (series 10, image 31) with mild corresponding T2 hyperintensity without washout or pseudocapsule (LR 3)
+- A 7 mm focus of arterial enhancement in segment 6 (series 10, image 58) without washout or pseudocapsule (LR 3)
+- A 5 mm focus of mild arterial enhancement in segment 6 (series 10, image 51) without washout or pseudocapsule (LR 3)
+
+The portal vein and diminutive hepatic veins are patent. The splenic vein is patent.
+
+The patient is status post cholecystectomy. The pancreas, kidneys and adrenal glands are unremarkable with the exception of stable small simple bilateral renal cysts.
+
+No abdominal lymphadenopathy is identified.No evidence for HCC. Several subcentimeter LR3 lesions demonstrate stability dating back to 2019, and are therefore likely benign.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions sequelae of portal hypertension, including ascites and varices, which are clear indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=494 / Out=52
+Cost: $0.000128

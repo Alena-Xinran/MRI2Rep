@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Intrathoracic findings are reported separately.
+
+Liver: Status post left hepatectomy. Hemorrhagic ablation cavity within segment VII is not significantly changed, measuring 1.7 x 3.1 cm (image 147, series 8), previously 1.6 x 3.1 cm. No evidence of recurrent HCC. Again seen are multiple arterial phase hyperenhancing subcentimeter foci without evidence of washout or pseudocapsule, likely perfusional. A stable wedge-shaped area of arterial hyperenhancement is again seen in segment VIII.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Intrahepatic biliary ductal dilatation at the cut surface of the liver and dilatation of the CBD, unchanged. Status post cholecystectomy.
+
+Pancreas: Atrophied. Mild ductal dilatation. Pancreas divisum.
+
+Spleen: Status post splenectomy.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Visualized bowel is unremarkable.
+
+Upper abdominal lymph nodes: No adenopathy.
+
+Peritoneum: No abdominal ascites.
+
+Musculoskeletal system and soft tissue: No aggressive osseous lesion is identified.Stable examination. No evidence of recurrent or new HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the liver in the context of post-surgical and post-ablation changes, including a hemorrhagic ablation cavity and perfusional foci. It does not mention "cirrhosis," "fibrosis," or any specific morphological features of cirrhosis (such as nodularity, contour irregularity, or signs of portal hypertension). The liver parenchyma itself is not described as abnormal aside from the noted procedural changes. Therefore, the liver is considered normal with respect to fibrosis/cirrhosis for the purpose of this extraction.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=460 / Out=125
+Cost: $0.000181

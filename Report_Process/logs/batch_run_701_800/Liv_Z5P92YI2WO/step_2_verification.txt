@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Liver is again noted to be cirrhotic morphology. Segment 8 hemorrhagic ablation cavity is slightly decreased measuring 4.7 x 2.6 cm (series 16 image 17), previously measuring 5.3 x 2.9 cm. 
+
+There is a 1 cm enhancing nodule along the anteromedial aspect of the ablation cavity (series 11 image 18), which previously measured 5 mm and demonstrates washout (series 16 image 17), concerning for viable HCC. Diffuse enhancement surrounding the ablation cavity which persists on delayed phases is unchanged, and probably reactive.
+
+There is unchanged trace biliary dilatation adjacent to the segment 8 ablation cavity.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Right renal scarring is unchanged.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Enhancing 1 cm nodule with washout along the anteromedial aspect of the segment 8 ablation cavity is highly suspicious for recurrent/residual HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "Liver is again noted to be cirrhotic morphology," which explicitly indicates the presence of cirrhosis. According to the verification rules, if the report mentions cirrhosis or features of it, the status must be "Fibrosis/Cirrhosis." The previously extracted status is "Fibrosis/Cirrhosis," which matches the report's description.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=440 / Out=89
+Cost: $0.000161

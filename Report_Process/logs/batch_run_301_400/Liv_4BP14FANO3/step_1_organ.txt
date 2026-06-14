@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver with evidence of portal hypertension including recanalized paraumbilical vein. No evidence of HCC. There is a stable indeterminate 1.9 cm arterial enhancing lesion in segment II/III (image 35, series 11), which persists on the remaining postcontrast sequences, presumably benign given its stability back to MR study of 2017. This might be vascular. Hepatic vasculature is patent.
+
+The spleen, pancreas,  adrenal glands and kidneys are unremarkable with exception of a stable subcentimeter left renal cyst. Cholelithiasis is seen. Infrarenal IVC filter is in place. There is no abdominal lymphadenopathy. Fat-containing umbilical hernia. Bilateral gynecomastia.Cirrhotic liver with sequela portal hypertension. No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver" and repeats "Cirrhotic liver with sequela portal hypertension," which directly indicates chronic liver disease with fibrosis/cirrhosis. Additional findings such as portal hypertension and a recanalized paraumbilical vein further support this classification.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=394 / Out=72
+Cost: $0.000108

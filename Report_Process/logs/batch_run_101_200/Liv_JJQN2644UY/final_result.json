@@ -1,0 +1,18 @@
+{
+  "id": "Liv_JJQN2644UY",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0009718799999999999,
+    "timestamp": "2026-02-08 17:28:53",
+    "model": "deepseek/deepseek-chat"
+  }
+}

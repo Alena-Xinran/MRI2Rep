@@ -1,0 +1,55 @@
+{
+  "id": "Liv_C944PIRZZE",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"RIM_ATYP | DIFFUSE | Multiple\", \"RIM_ATYP | R_ANT | 1\"]": 2,
+      "[\"APHE_NoWO | R_DIFFUSE | Multiple\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"RIM_ATYP | DIFFUSE | Multiple\", \"RIM_ATYP | R_ANT | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0020394920000000004,
+    "timestamp": "2026-02-08 23:24:27",
+    "model": "deepseek/deepseek-chat"
+  }
+}

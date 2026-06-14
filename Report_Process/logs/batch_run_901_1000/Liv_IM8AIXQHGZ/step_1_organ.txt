@@ -1,0 +1,62 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Patient is status post left hepatectomy and cholecystectomy. Liver is cirrhotic and diffusely steatotic. There are sequela of portal hypertension with 15 cm craniocaudal splenomegaly and paraesophageal varices. Hepatic vasculature is patent. There is no intra or extrahepatic biliary ductal dilatation. 
+
+Again seen are multiple arterially enhancing liver lesions. Regions of washout and pseudocapsule noted on prior exam are no longer apparent, likely related to treatment.
+
+-A 1.1 cm arterial enhancing lesion in segment 8 (series 13, image 24) is decreased, previously 2.1 cm.
+-A 1.9 cm arterial enhancing lesion in the caudate (series 13, image 43 and series 17, image 36) is decreased, previously 2.6 cm.
+-A 1.5 cm arterially enhancing lesion is unchanged (series 13, image 32).
+-A 2.7 cm lesion at the border of segments 5 and 8 (series 13, image 46) is decreased, previously 3.3 cm.
+-Linear arterial enhancement along the superior aspect of segment 8 (series 13, image 32) appears less prominent, previously more  masslike in measuring 2.4 cm.
+-A 1.2 cm focus of arterial enhancement is unchanged (series 13, image 18).
+
+Multiple other subcentimeter arterially enhancing foci without suspicious imaging features, for example in segment 6 (series 13, image 50) are also unchanged.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for left renal cyst.
+
+Upper abdominal lymph nodes: Prominent periportal nodes measuring up to 1.0 cm are not significant changed.
+
+Peritoneum: No ascites.
+
+Other: Susceptibility artifact from sternotomy wires are seen. Multiple ventral hernias are again seen containing nonobstructed loops of large and small bowel.  There is mild bilateral symmetric gynecomastia.Improved multifocal HCC. No findings of distant metastatic disease in the abdomen.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic and diffusely steatotic," which directly meets the criteria for classification as "Fibrosis/Cirrhosis." Additional supporting findings include sequelae of portal hypertension with splenomegaly and varices.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=690 / Out=65
+Cost: $0.000188

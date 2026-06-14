@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post liver transplant. Previously identified hepatic steatosis has resolved. No enhancing foci are identified to suggest hepatoma.
+
+The spleen, adrenal glands, kidneys, and pancreas are unremarkable.
+
+There is no abdominal lymphadenopathy. Multiple venous collaterals are seen in the upper abdomen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It states that previously identified hepatic steatosis has resolved and does not describe the liver parenchyma as unremarkable, normal, or smooth. However, the presence of multiple venous collaterals in the upper abdomen can be associated with portal hypertension, which is often a consequence of cirrhosis. Despite this indirect sign, the explicit criteria for classification require direct mention of the specified keywords or a description of the liver parenchyma itself. Since the liver parenchyma is not directly described with the specified terms, and the report does not state it is unremarkable, normal, or smooth, the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of direct evidence as per the given criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=291 / Out=201
+Cost: $0.000134

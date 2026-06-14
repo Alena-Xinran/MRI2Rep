@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. There are no lesions with imaging appearance of hepatocellular carcinoma. Thrombus within the excluded portion of the donor IVC is again noted and does not involve the IVC anastomotic site (image 32, series 15). There has been interval placement of a stent within the common bile duct. There is no biliary ductal dilatation. Pneumobilia is noted.
+
+The spleen, adrenal glands, and kidneys are unremarkable with the exception of left renal cysts. A 3 mm cystic lesion within the pancreatic uncinate process is unchanged and may present a side branch IPMN or sequelae of previous pancreatitis (image 15, series 3).
+
+There is no abdominal ascites or adenopathy. A stable 7.1 cm mass within the left lower pleural space is again seen. There is trace left pleural fluid.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, signs of portal hypertension like varices or splenomegaly). The liver is described in the context of transplant status and absence of hepatocellular carcinoma, but no explicit statement about cirrhosis or fibrosis is made. Since the report does not state normal liver either, but the absence of cirrhosis-related findings implies no active cirrhosis in the context of a transplant, the previous extraction "NoFibrosis/Cirrhosis" aligns with the lack of positive mention of cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=377 / Out=141
+Cost: $0.000165

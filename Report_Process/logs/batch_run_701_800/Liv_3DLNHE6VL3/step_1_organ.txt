@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: No evidence for HCC. Again noted are unchanged subcentimeter arterial enhancing lesions without washout or pseudocapsule. For example a 0.4 cm lesion in segment 8, or a 0.6 cm lesion in segment 7.
+No biliary dilatation. There is cholelithiasis and gallbladder fundal adenomyomatosis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Stable nodular thickening of the left adrenal gland. Right adrenal gland is unremarkable.
+
+Kidneys: Unremarkable, except for small cysts..
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+2.4 cm focal ectasia of the infrarenal abdominal aorta is again noted.No evidence for HCC. Unchanged LI-RADS 3  observations.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not directly described, but the hepatobiliary section notes no evidence for HCC and describes small arterial enhancing lesions without features of washout or pseudocapsule, which are not indicative of fibrosis or cirrhosis. Other findings like cholelithiasis, adenomyomatosis, and vascular patency do not suggest liver parenchymal disease. The spleen and pancreas are described as unremarkable, and there is no mention of ascites or other stigmata of chronic liver disease. Without any positive descriptors of fibrosis or cirrhosis, the liver parenchyma is implied to be without those specific conditions.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=419 / Out=183
+Cost: $0.000162

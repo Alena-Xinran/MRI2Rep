@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Nodularity of the parenchyma compatible with patient's history of cirrhosis. Unchanged subcentimeter T2 hyperintense lesion that is too small for characterization, possibly representing a hemangioma (series 3, image 32). Marked heterogeneity of parenchymal enhancement on arterial phase limits evaluation for small or subtle lesions. No discrete, suspicious arterial enhancing focus is visualized. A few nonspecific subcentimeter T1 hyperintense foci are again noted (image 56, series 7 and image 69, series 7), stable.
+
+Cholelithiasis, no pericholecystic fluid or gallbladder wall thickening. No biliary ductal dilatation.
+
+Hepatic vasculature: Patent. Recanalized umbilical vein again noted in addition to upper abdominal collaterals consistent with portal hypertension.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly measuring up to 17 cm.. Gamna-Gandy bodies are noted.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Stable prominent periportal nodes.
+
+Peritoneum: No ascites.Cirrhotic liver morphology with sequelae of portal hypertension. Marked heterogeneous arterial enhancement, limiting evaluation for small or subtle observations. No definite evidence of HCC. Continued MR surveillance is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "nodularity of the parenchyma compatible with patient's history of cirrhosis," "cirrhotic liver morphology with sequelae of portal hypertension," and notes portal hypertension findings (recanalized umbilical vein, collaterals). These are clear indicators of chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=509 / Out=80
+Cost: $0.000144

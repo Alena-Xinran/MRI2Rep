@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 17 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+There is a large hepatocellular carcinoma within the right hepatic lobe measuring 18.0 x 11.7 cm, with more cystic areas within it, likely due to treatment effect. There is hemorrhagic within the ablation cavity, and there are persistent large, arterially enhancing regions within the ablation cavity which are concerning for residual disease. 
+
+The right portal vein is attenuated. There is dilation of the right intrahepatic bile ducts due to mass effect from the large tumor.
+
+The gallbladder, spleen, kidneys, pancreas, and adrenal glands are unremarkable except for renal cysts.
+
+There is no adenopathy. There is trace perihepatic ascites. No aggressive osseous lesions are seen.Large right hepatic hepatocellular carcinoma with large areas of residual tumor status post TACE.
+No new HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth" aside from the findings related to the hepatocellular carcinoma and its effects. However, the presence of a large hepatocellular carcinoma, right portal vein attenuation, and trace perihepatic ascites are often associated with underlying chronic liver disease or cirrhosis, but these are not explicitly stated as signs of fibrosis or cirrhosis in the provided text. Based strictly on the given criteria and the absence of the specified keywords, the classification should be "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=463 / Out=173
+Cost: $0.000170

@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: The patient is status post orthotopic liver transplant. There are no findings suspicious for HCC.. There is heterogeneous perfusion of the liver on arterial phase which dissipated on the portal venous and delayed phases. The hepatic vasculature is patent.
+
+There is unchanged intrahepatic and extrahepatic biliary ductal dilatation with left and right internal/external biliary stents which are unchanged in position and associated pneumobilia.
+
+Spleen: There is slight interval increase in splenomegaly now measuring 17.7 cm in craniocaudal dimension, previously 15.4 cm.
+
+Pancreas: Unremarkable.
+
+Adrenals: Unremarkable.
+
+Kidneys: Unremarkable except for small bilateral renal cysts including a tiny hemorrhagic cyst on the right.
+
+GI: There is a percutaneous jejunostomy tube again noted.
+
+Vasculature: Multiple upper abdominal varices are noted including a small splenorenal shunt.
+
+Lymph nodes: There is no abdominal lymphadenopathy.
+
+Peritoneum: There is trace perisplenic and perihepatic ascites.No HCC. 
+Unchanged biliary ductal dilatation with internal/external biliary stents in place.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post orthotopic liver transplant, which implies underlying chronic liver disease necessitating transplantation. Additionally, there are findings of splenomegaly, multiple upper abdominal varices, a splenorenal shunt, and trace ascites—all of which are indirect signs of portal hypertension, commonly associated with cirrhosis. Although direct keywords like "cirrhosis," "fibrosis," or "nodular surface" are not explicitly stated, the combination of post-transplant status and portal hypertensive findings strongly suggests the presence of fibrosis/cirrhosis in the context of chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=472 / Out=136
+Cost: $0.000157

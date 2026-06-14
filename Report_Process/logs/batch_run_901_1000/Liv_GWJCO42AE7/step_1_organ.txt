@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Intrathoracic findings are dictated separately by the chest radiology service.
+
+The patient is status post interval partial right hepatectomy. The postoperative fluid collection measures 11.2 cm some regions of internal adherent clot. No findings of recurrent or residual HCC. A few scattered hepatic cysts remain stable.
+
+A few additional hepatic cysts are noted. Bilateral renal cysts are present. Spleen and adrenal glands appear unremarkable. There are bilateral simple appearing renal cysts. A 8 mm benign-appearing cyst is also noted within the pancreatic uncinate process. This may reflect a tiny sidebranch IPMN.  No dilatation the main pancreatic duct. No adenopathy with slight prominent right cardiophrenic lymph node amenable to follow up. A small amount of fluid is seen along the incision line with no fluid collections to suggest abscess.
+
+No aggressive osseous lesions. A retroaortic left renal vein is incidentally noted.Interval right hepatectomy with organized hemorrhagic fluid collection along the resection margin. No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post partial right hepatectomy with postoperative fluid collection and stable hepatic cysts, but there is no mention of keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not specifically described as unremarkable, normal, or smooth, but the absence of any fibrosis/cirrhosis indicators suggests no active signs of fibrosis or cirrhosis are reported. The spleen is noted as unremarkable, but this does not directly describe the liver. Given the criteria, the lack of positive findings for fibrosis/cirrhosis leads to classification as "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=437 / Out=167
+Cost: $0.000160

@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver demonstrates cirrhotic morphology with signs of portal hypertension as evidenced by stable portosystemic shunt. Confluent hepatic fibrosis is again seen. No suspicious hepatic lesions are seen.  Hepatic vasculature is patent.
+
+The gallbladder is surgically absent. The adrenal glands, spleen and kidneys are unremarkable.
+
+There is a tiny 4 mm lesion in the pancreatic tail, which may represent IPMN or be sequela of prior pancreatitis. Pancreatic divisum is again noted. 
+
+There is no abdominal adenopathy or upper abdominal fluid.Hepatic cirrhosis with no lesions concerning for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver demonstrates cirrhotic morphology" and later confirms "Hepatic cirrhosis", which directly indicates the presence of cirrhosis. According to the verification rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=319 / Out=88
+Cost: $0.000126

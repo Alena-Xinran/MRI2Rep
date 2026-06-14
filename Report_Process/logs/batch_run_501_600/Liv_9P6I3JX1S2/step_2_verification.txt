@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A 1.4 x 0.9 cm ablation cavity in segment 7 has decreased in size from 2.3 x 0.8 cm and demonstrates no evidence of residual or recurrent disease (image 19, series 8). No new hepatic lesion is identified. The hepatic vasculature is patent.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable.
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, portal hypertension signs, or fibrosis). It describes an ablation cavity in segment 7 and states no new hepatic lesion is identified, with patent hepatic vasculature. The liver parenchyma itself is not explicitly described as normal, but the absence of cirrhosis-related findings and the lack of any mention of fibrosis or cirrhotic morphology suggests the liver is not reported as cirrhotic. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is consistent with the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=296 / Out=142
+Cost: $0.000143

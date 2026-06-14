@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post partial right hepatectomy and cholecystectomy. Hepatic steatosis is noted as well as a stable left hepatic cyst. No evidence of hepatocellular carcinoma. Hepatic vasculature is patent.
+
+Patient is status post partial right nephrectomy. No evidence of recurrent or residual RCC. Several bilateral renal cysts are noted, some of which are proteinaceous/hemorrhagic.
+
+There are stable subcentimeter cystic structures throughout the pancreas, likely sequela of prior pancreatitis or side branch IPMNs. The main pancreatic duct demonstrates mild prominence within the body. No solid pancreatic mass is seen. 
+
+A cyst is seen within the spleen. The adrenal glands appear unremarkable.
+
+No enlarged upper abdominal lymph nodes or ascites.No HCC or recurrent/residual RCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "Hepatic steatosis" and a stable left hepatic cyst, but does not describe any features of cirrhosis such as nodularity, contour irregularity, caudate lobe hypertrophy, or portal hypertension. It also states "No evidence of hepatocellular carcinoma" and "Hepatic vasculature is patent," which are not direct statements about cirrhosis. Since there is no mention of cirrhosis or its features, and the liver is not explicitly described as normal but the findings are limited to steatosis and a cyst, the appropriate status remains "NoFibrosis/Cirrhosis" as fibrosis/cirrhosis is not reported.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=359 / Out=148
+Cost: $0.000163

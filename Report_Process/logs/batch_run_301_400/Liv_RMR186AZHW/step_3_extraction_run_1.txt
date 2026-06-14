@@ -1,0 +1,97 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+The liver appears normal in morphology without findings to suggest advanced cirrhosis. There is no suspicious lesion with characteristics of HCC. There are a few stable nonspecific enhancing peripheral foci (example images 59 and 63 of series 12) without correlate on additional sequences which may be perfusional. One of these foci appears stable demonstrates persistent enhancement and T2 hyperintensity suggestive of focal nodular hyperplasia (series 13 image 62).  Multiple hepatic cysts are again noted. The portal and hepatic veins are patent.
+
+The small focus of gallbladder fundal adenomyomatosis is unchanged. The spleen, pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable renal cysts. There is no upper abdominal adenopathy or ascites. No focal osseous lesion is seen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: The liver appears normal in morphology without findings to suggest advanced cirrhosis. -> Reasoning: Background info, no focal lesion.  
+Sentence 2: There is no suspicious lesion with characteristics of HCC. -> Reasoning: Negative statement, no focal lesion identified.  
+Sentence 3: There are a few stable nonspecific enhancing peripheral foci (example images 59 and 63 of series 12) without correlate on additional sequences which may be perfusional. -> Reasoning: Found lesion(s). Features: "enhancing peripheral foci... may be perfusional." This describes perfusion anomalies (THADs) which map to APHE_NoWO. Location: "peripheral" is not a specific segment, so maps to DIFFUSE. Quantity: "a few" implies multiple but unspecified number, maps to Multiple.  
+Sentence 4: One of these foci appears stable demonstrates persistent enhancement and T2 hyperintensity suggestive of focal nodular hyperplasia (series 13 image 62). -> Reasoning: Found lesion. Features: FNH typically shows APHE without washout, maps to APHE_NoWO. Location: Not specified, so maps to DIFFUSE. Quantity: "One" maps to 1.  
+Sentence 5: Multiple hepatic cysts are again noted. -> Reasoning: Found lesion(s). Features: Simple cysts, map to CYST. Location: "hepatic" (not specified), maps to DIFFUSE. Quantity: "Multiple" maps to Multiple.  
+Sentence 6: The portal and hepatic veins are patent. -> Reasoning: Background vascular info, no focal lesion.  
+Sentence 7: The small focus of gallbladder fundal adenomyomatosis is unchanged. -> Reasoning: Finding in gallbladder, not liver. Ignore.  
+Sentence 8: The spleen, pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable renal cysts. -> Reasoning: Renal cysts are not liver. Ignore.  
+Sentence 9: There is no upper abdominal adenopathy or ascites. -> Reasoning: Negative finding, no lesion.  
+Sentence 10: No focal osseous lesion is seen. -> Reasoning: Negative finding, no lesion.  
+Sentence 11: No evidence of HCC. -> Reasoning: Negative statement, no lesion.
+
+Step 2: Structured Output  
+TUMOR_RECORD: APHE_NoWO | DIFFUSE | Multiple  
+TUMOR_RECORD: APHE_NoWO | DIFFUSE | 1  
+TUMOR_RECORD: CYST | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+APHE_NoWO | DIFFUSE | Multiple  
+APHE_NoWO | DIFFUSE | 1  
+CYST | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1000 / Out=533
+Cost: $0.000375

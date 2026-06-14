@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Redemonstration of a cirrhotic liver with signs of portal hypertension, including small amount of ascites, splenomegaly, and upper abdominal varices. The hepatic vasculature is patent. Adenomyomatosis is again noted in the gallbladder fundus. The pancreas, adrenal glands, kidneys are unremarkable except for stable bilateral renal cysts. Few prominent gastrohepatic and periportal lymph nodes are again noted.
+
+Postprocedural changes and liver lesions as detailed below:
+
+*  On image 33 of series 12, in segment 6/7, there is a 5.8 x 3.9 cm ablation cavity. There is nodular arterial enhancement along the superior aspect of the ablation cavity, which extends inferiorly along the medial margin of the cavity. Associated washout is noted. This is compatible with residual/recurrent HCC. 
+
+*  On image 39 of series 12, segment 6, there is a new ablation cavity measuring 3.9 x 1.7 cm without evidence for residual or recurrent disease.
+
+*  On image 21 of series 12, in segment 7, there is a new ablation cavity measuring 4 x 2.6 cm. Along the superior and lateral margin of the ablation cavity is a punctate focus of arterial enhancement without correlate on other sequences which is nonspecific (image 17).
+
+*  On image 19 of series 12, segment 2, there is a 0.9 cm enhancing nodule with washout on the delayed phase without definite pseudocapsule. This is indeterminate but suspicious for HCC.
+
+*  On image 30 of series 12, in segment 2/3, a 1.2 cm arterially enhancing nodule, now demonstrates definite washout on delayed phase images without pseudocapsule, suspicious for HCC
+
+*  Multiple scattered punctate arterially enhancing foci without correlate on other sequences are nonspecific.1. Residual/recurrent HCC associated with the segment 6/7 ablation cavity.
+
+2. Two arterially enhancing lesions in segment 2 and 2/3, the larger measuring 1.2 cm, which are indeterminate but suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of a cirrhotic liver" at the beginning, which directly indicates the presence of cirrhosis. This meets the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=672 / Out=60
+Cost: $0.000181

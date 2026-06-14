@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial right hepatectomy and cholecystectomy. The liver is steatotic with stable left hepatic cyst. 0.7 cm arterially enhancing focus in segment 2 without evidence of washout or pseudocapsule (image 27 of series 21). Additional punctate arterially enhancing focus on image 29 of series 21 likely perfusional. No hepatic lesions are identified to suggest HCC. The hepatic vasculature is patent.
+
+The patient is status post right partial nephrectomy with unchanged fat necrosis. No evidence of residual tumor or recurrence. There are bilateral renal cysts some of which are hemorrhagic/proteinaceous.
+
+Redemonstration of a few tiny T2 hyperintense foci throughout the pancreas likely sequela of remote pancreatitis or side branch IPMN. The adrenal glands and spleen are unremarkable. No abdominal ascites or adenopathy.No evidence of recurrent HCC or RCC.
+
+Stable arterially enhancing LI-RADS 3 lesion in segment 2.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the liver as "steatotic" and notes a stable left hepatic cyst, an arterially enhancing focus in segment 2, and no evidence of HCC. There is no mention of cirrhosis, morphologic features of cirrhosis (such as nodularity, contour irregularity, or caudate lobe hypertrophy), or fibrosis. The liver is not described as normal, but the absence of any cirrhosis-related terminology means the status should remain "NoFibrosis/Cirrhosis" as per the given rules.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=405 / Out=123
+Cost: $0.000165

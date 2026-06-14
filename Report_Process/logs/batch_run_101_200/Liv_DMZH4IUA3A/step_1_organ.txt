@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Findings of the chest will be reported separately.
+
+The patient is status post post partial right hepatectomy and cholecystectomy. There is no evidence of residual or recurrent HCC. The hepatic vasculature is patent. No biliary ductal dilatation is identified.
+
+The pancreas, spleen, adrenal glands, and kidneys unremarkable, except for stable parapelvic left renal cyst and mild stable left adrenal gland thickening.
+
+The visualized bowel is unremarkable. There is no abdominal ascites or lymphadenopathy. No aggressive osseous lesion is identified.No evidence for residual or recurrent HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described as "unremarkable", "normal", or "smooth", but the absence of fibrosis/cirrhosis indicators and the focus on post-surgical status without parenchymal abnormality suggests no active signs of fibrosis or cirrhosis are present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=115
+Cost: $0.000113

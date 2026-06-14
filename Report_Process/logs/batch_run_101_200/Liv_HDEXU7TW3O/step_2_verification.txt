@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 15 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Patient is status post segment 5 segmentectomy for HCC. The previously described 0.8 cm arterially enhancing focus near the resection bed in segment 4B/5 is not seen on this exam. There is no evidence of HCC. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenals and kidneys are unremarkable. Patient is status post cholecystectomy. 
+
+There is no abdomen lymphadenopathy or free fluid.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state "normal liver," but the findings focus on the absence of HCC and the status post resection, with no mention of diffuse liver disease. The hepatic vasculature is reported as patent. Given the absence of any mention of cirrhosis or fibrosis, the appropriate status based on the provided rules is "NoFibrosis/Cirrhosis." The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=372 / Out=128
+Cost: $0.000158

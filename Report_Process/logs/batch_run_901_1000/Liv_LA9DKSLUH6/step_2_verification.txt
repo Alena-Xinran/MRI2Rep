@@ -1,0 +1,68 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: The liver is normal in morphology. There is a 1.4 cm lesion which demonstrates progressive enhancement venous/delayed phases and subtle T2 hyperintensity, possibly a sclerosed hemangioma. No evidence of HCC.
+
+There is no iron overload
+
+Liver iron content is 1.38 - 1.57 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload
+
+No hepatic steatosis. The hepatic fat fraction is 1.1%.
+
+Biliary system and gallbladder: There is gallbladder fundal adenomyomatosis. No biliary ductal dilatation.
+
+Spleen: Unremarkable.
+
+Pancreas: Scattered pancreatic cystic lesions are noted measuring up to 0.4 cm (series 4, image 27) without any worrisome internal features and may represent sidebranch I PMNs or sequela prior pancreatitis. No main pancreatic ductal dilatation. There is suggestion of underlying pancreatic divisum.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for tiny bilateral renal cysts including a subcentimeter hemorrhagic cyst noted in the interpolar left kidney.
+
+Lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Estimated liver iron content is 1.38 - 1.57 mg/g. No evidence of liver iron overload or HCC.
+
+Pancreatic cysts measuring up to 0.4 cm which may represent sidebranch IPMNs or sequela prior pancreatitis. Follow-up abdominal MRI without contrast can be obtained in one year to document stability.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver is normal in morphology" and does not mention any features of cirrhosis, fibrosis, nodularity, or architectural distortion. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=570 / Out=67
+Cost: $0.000188

@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: 4.2 x 7.3 cm mainly necrotic tumor in the posterior right hepatic lobe with extension to the thorax is unchanged. The 4.2 cm enhancing component is unchanged. Subcentimeter arterial enhancing lesion without washout are unchanged for example on image 30 and 42 series 11001. Faint segment 8 arterial enhancement without washout is again seen, image 24.
+
+Hepatic vasculature: Posterior right portal venous thrombus is unchanged. Main portal vein and right portal vein and SMV are patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small cysts otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.7.3 cm mainly necrotic tumor with residual enhancement and extension into the thorax is unchanged.
+
+No new lesions suspicious for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a necrotic tumor in the liver and notes hepatic vasculature findings, but does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis (such as nodularity, contour irregularity, caudate lobe hypertrophy, or signs of portal hypertension). The liver parenchyma itself is not explicitly described as normal, but the absence of any mention of cirrhosis or its features, along with the focus on tumor and vascular findings, suggests that cirrhosis is not reported. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=403 / Out=135
+Cost: $0.000170

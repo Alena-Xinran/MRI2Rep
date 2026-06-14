@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are no morphologic findings of cirrhosis. There are no findings of iron overload in the liver. There are no liver lesions suspicious for HCC. The hepatic vasculature is patent.
+
+There are bilateral renal cysts, some of which are hemorrhagic. The gallbladder, spleen, pancreas and adrenal glands are unremarkable.
+
+There is no abdominal adenopathy or ascites.No findings of cirrhosis, HCC or liver iron overload.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There are no morphologic findings of cirrhosis" and later repeats "No findings of cirrhosis." The liver parenchyma is not described with terms like nodular surface, fibrosis, coarse echotexture, or chronic liver disease. Instead, the absence of cirrhosis is clearly noted, and no other signs of fibrosis are mentioned.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=310 / Out=85
+Cost: $0.000090

@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post liver transplant. No suspicious hepatic lesion. No biliary dilatation.
+
+Hepatic vasculature: Patent. Focal dilatations of the hepatic artery are again seen, measuring up to 0.9 cm. There is a portosystemic shunt from the SMV to the IVC.
+
+Pancreas: Tiny stable pancreatic cystic foci.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a status post liver transplant and mentions a portosystemic shunt, which can be associated with portal hypertension often seen in chronic liver disease or cirrhosis. However, there are no direct keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease" in the description of the liver parenchyma itself. The liver is noted to have "No suspicious hepatic lesion" but its parenchymal texture or surface characteristics are not detailed. The spleen is described as "unremarkable", which in the context of a portosystemic shunt might argue against significant portal hypertension, but the primary criteria for classification are based on direct descriptors of the liver. Since the required keywords are absent and the liver is not explicitly described as normal, smooth, or unremarkable, the classification defaults to the absence of stated fibrosis/cirrhosis based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=349 / Out=212
+Cost: $0.000155

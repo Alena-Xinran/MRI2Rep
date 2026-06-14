@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic morphology of the liver is present with sequela of portal hypertension including severe splenomegaly, trace ascites, and upper abdominal varices. No suspicious liver lesion is seen. The portal and hepatic veins are patent, though compared to the exam of 2010, the right portal vein is slightly attenuated.
+
+The adrenal glands, kidneys, and pancreas are unremarkable. Patient is post cholecystectomy. There is mild soft tissue edema in the anterior pararenal spaces, more prominent along the pancreatic tail. Again seen is bowel wall thickening of the ascending colon and proximal transverse colon is favored to be secondary to portal colopathy, however infectious/inflammatory etiologies may appear similar. A few prominent periportal and peripancreatic lymph nodes may be reactive. No focal osseous lesion is seen.Cirrhosis with portal hypertension, but no evidence of HCC.
+
+Soft tissue edema in the anterior pararenal spaces. Please correlate with clinical findings of pancreatitis.
+
+Additional findings as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of the liver is present" and later confirms "Cirrhosis with portal hypertension." It also describes sequelae of portal hypertension including splenomegaly, ascites, and varices, which are consistent with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=433 / Out=68
+Cost: $0.000118

@@ -1,0 +1,30 @@
+{
+  "id": "Liv_97C44LYM2A",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | L_DIFFUSE | Multiple\", \"RIM_ATYP | DIFFUSE | Multiple\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"RIM_ATYP | DIFFUSE | Multiple\"]": 2
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0012763800000000001,
+    "timestamp": "2026-02-08 02:04:55",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The thoracic findings will be dictated separately under a different accession number in the concurrent CT of the chest.
+
+The liver is cirrhotic in morphology. The portal and hepatic veins are patent. Cholelithiasis and choledocholithiasis is again noted. Redemonstrated are multiple ablation cavities, as described as follows:
+
+-On image 17, series 19, a 3.0 x 1.1 cm segment 7 cavity appears stable . No evidence of recurrent or residual disease.
+-On image 37, series 19, a 1.0 x 0.6 cm segment 6 cavity is stable. No evidence of recurrent or residual disease.
+-On image 32, series 19, a 0.6 x 0.4 cm segment 1 cavity is stable. No evidence of recurrent or residual disease.
+
+Slight interval increase in size of the right paracolic gutter metastatic implant measuring 2.4 x 1.8 cm (previously 2.3 x 1.7 cm) and increased 1.5 cm aortocaval node (previously 1.2 cm). Interval decrease in size of the 0.9 cm periportal node (previously 1.7 cm) and a 0.7 cm right cardiophrenic node (previously 1.3 cm).
+
+Scattered subcentimeter pancreatic cystic lesions likely reflect the sequela of prior pancreatitis versus side branch IPMN. The spleen, adrenal glands and kidneys are unremarkable, except for bilateral renal cysts.
+
+There is a right femoral artery pseudoaneurysm measuring 1.6 cm in greatest diameter. On the most recent imaging of the pelvis November 8, 2016, this measured 1.4 cm. There are findings of benign prostate hyperplasia and detrusor hypertrophy in the urinary bladder wall.1.  A right femoral artery pseudoaneurysm has mildly enlarged.
+2.  No findings of recurrent intrahepatic HCC.
+3.  Mixed response of metastatic abdominal HCC with mild increase of the right paracolic gutter implant and aortocaval node.
+
+A Orange message has been communicated to this patient's provider via the PowerScribe 360 Critical Results application on 11/13/2018 12:20 PM, Message ID 3093191.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. This meets the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=701 / Out=52
+Cost: $0.000186

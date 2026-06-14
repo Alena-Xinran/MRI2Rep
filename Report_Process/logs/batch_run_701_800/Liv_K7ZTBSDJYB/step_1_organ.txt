@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension including a massive splenorenal shunt and recanalized paraumbilical vein as well as paraesophageal varices. There are no arterial enhancing lesions with washout to suggest HCC by imaging. A ill-defined slightly T2 hyperintense lesion with some peripheral presumed calcifications noted on prior CT is again noted within segment 8. This appears predominantly hypovascular to avascular measuring 3.2 cm. No susceptibility artifact is seen in the chemical shift imaging adjacent to this region or along the abdominal wall to suggest prior operative intervention.
+
+Liver, spleen, adrenal glands, and gallbladder appear stable from prior exams with some benign simple and benign hemorrhagic renal cysts noted bilaterally. No ascites or adenopathy. No aggressive osseous lesions.Cirrhotic liver with sequelae of portal hypertension. No lesions meeting imaging criteria for HCC.
+
+Indeterminate segment 8 lesion which appears avascular centrally and has the appearance of a treatment cavity. No other secondary findings are seen on the current MRI to suggest prior resection and no provided history is given for prior local regional therapy but this needs correlation with clinical history. If any prior imaging is available in the past, suggest obtaining this for comparison.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver" multiple times and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis. Keywords such as "cirrhotic" and "portal hypertension" align with the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=479 / Out=66
+Cost: $0.000130

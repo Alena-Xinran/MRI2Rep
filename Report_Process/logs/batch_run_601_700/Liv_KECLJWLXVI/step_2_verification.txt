@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is an 8 mm arterial phase enhancing lesion which demonstrates washout in the inferior aspect of segment 5. This is unchanged in size, however the washout is a new finding. It is suspicious for HCC, but does not meet OPTN criteria.
+
+Two other subcentimeter previously described lesions in the liver which were best seen on the hepatobiliary phase are not seen on today's study. It should be noted that a hepatobiliary phase was not acquired. 
+
+The spleen, adrenal glands, kidneys, pancreas, and gallbladder are unremarkable. No upper abdominal lymphadenopathy or ascites is seen.8 mm segment 5 lesion is suspicious for HCC but does not meet OPTN criteria.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state that the liver is normal, but it focuses on describing specific lesions without commenting on background liver parenchyma. Since the absence of a statement about cirrhosis does not equate to a confirmation of "NoFibrosis/Cirrhosis," and the previous extraction was based on prior information not in this report, the current report alone is insufficient to confirm or refute cirrhosis. However, per the given rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis," but it does not say that. The report only notes unremarkable spleen, adrenal glands, kidneys, pancreas, and gallbladder, but not the liver itself. Therefore, the previous status "NoFibrosis/Cirrhosis" cannot be verified from this report alone; it may be based on prior clinical data. Since the task is to verify based on the report, and the report does not provide evidence of cirrhosis or normal liver, the previous status remains unconfirmed but is not contradicted.
+
+Given the strict rules:  
+1. The report does not say "cirrhosis" or features of it, so it does not require "Fibrosis/Cirrhosis".  
+2. The report does not say "normal liver", so it does not require "NoFibrosis/Cirrhosis".  
+Thus, the previous extraction "NoFibrosis/Cirrhosis" is not explicitly supported by the report, but it is also not incorrect based on the report's content. Since the instruction is to verify if the previous status is correct based on the report, and the report does not contradict it, the status can stand as previously extracted.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=343 / Out=387
+Cost: $0.000259

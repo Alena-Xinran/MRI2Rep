@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+The liver is cirrhotic with sequelae of portal hypertension including splenomegaly and ascites, which is increased since prior exam. TIPS is again noted, with susceptibility artifact precluding patency assessment.
+
+Treatment cavities noted as follows:
+Segment 1 measuring 2.6 x 1.7 cm (series 13 image 49), previously 2.9 x 2.8 cm. There is nodular enhancement without washout along the posteromedial margin of the ablation cavity (image 49 series 11). Although comparison with the prior exam is limited due to motion artifact on the prior study, this finding was not present on the MR dated 4/24/2018.
+
+Segment 3 cavity measuring 0.9 x 0.7 cm (series 13 image 42), previously 0.9 x 0.7 cm . There is no residual or recurrent viable HCC.
+
+There is no new HCC. There is no abdominal lymphadenopathy.
+
+The gallbladder, pancreas, adrenal glands and kidneys are unremarkable except for bilateral renal cysts, the largest of which is located in the superior pole of the right kidney measuring 2.8 cm with thin internal septation and is stable.Nodular arterial enhancement without washout at the posterior aspect of segment 1 treatment cavity, new compared to the exam dated 4/24/2018. This is suspicious for recurrence of HCC. 
+
+Unchanged TIPS, with increased ascites concerning for underlying occlusion and resultant portal hypertension progression
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions sequelae of portal hypertension, which are direct indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=612 / Out=46
+Cost: $0.000142

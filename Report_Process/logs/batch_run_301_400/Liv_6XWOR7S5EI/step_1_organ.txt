@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. Patient is status post partial left hepatectomy with multiple ablations. 
+
+There are findings of multifocal HCC within both lobes of the liver which have increased since the prior exam from 1/16/2019. 
+
+For example:
+
+- Segment II/III lesion now measures 2.7 cm (image 44, series 14), previously 2.5 cm.
+- Segment II/III lesion now measures 2.6 cm (image 39, series 14), previously 2.0 cm.
+- Segment IVb lesion now measures 1.5 cm (image 37 series 14), previously 1.3 cm.
+
+There are multiple additional foci of arterial enhancement scattered throughout the liver parenchyma, some of which demonstrate washout with an enhancing pseudocapsule. However, these have increased in number when compared to the prior exam. There are additional more confluent regions of arterial enhancement and T2 signal hyperintensity concerning for infiltrative HCC, also appear progressed.
+
+The hepatic vasculature is patent, however the hepatic veins and left portal vein are diminutive in caliber, similar to the prior exam. There is sequela of portal venous hypertension, including splenomegaly, small volume ascites and upper abdominal varices.
+
+There is mild biliary ductal dilatation most prominent in the left lobe of the liver, similar to the prior exam. There is small amount of pericholecystic fluid which is nonspecific in the setting of ascites and cirrhosis. Cholelithiasis is noted.
+
+The pancreas, adrenal glands and kidneys are unremarkable except for bilateral renal cysts. No abdominal lymphadenopathy is seen. Nonspecific wall thickening of the SMA is again noted.Progression of multifocal HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and later mentions "in the setting of ascites and cirrhosis," directly indicating cirrhosis. Additionally, there are findings consistent with chronic liver disease such as portal hypertension sequelae (splenomegaly, ascites, varices).  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=592 / Out=75
+Cost: $0.000165

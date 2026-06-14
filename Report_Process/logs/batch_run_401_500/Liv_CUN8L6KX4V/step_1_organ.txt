@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. An ill-defined nonspecific 1.1 cm arterial enhancing area in the right hepatic lobe appears unchanged from prior study. There are several T1 hyperintense non enhancing subcentimeter hepatic lesion, likely regenerative nodules. No washout or pseudocapsule. No HCC is identified. Subcentimeter hepatic cysts are noted.
+
+Sequela of portal hypertension is appreciated as indicated by ascites, a recannulized paraumbilical vein, and upper abdominal/paraesophageal varices. 
+
+The pancreas, spleen, adrenals, and kidneys are unremarkable.No evidence for HCC. Evaluation is limited due to breathing artifact on the postcontrast images.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology" and mentions "regenerative nodules," which are associated with cirrhosis. Additionally, there are findings of portal hypertension sequelae (ascites, recannulized paraumbilical vein, varices), which are commonly secondary to cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=368 / Out=76
+Cost: $0.000103

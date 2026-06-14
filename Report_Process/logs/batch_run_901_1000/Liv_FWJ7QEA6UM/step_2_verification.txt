@@ -1,0 +1,54 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+The liver is cirrhotic with sequelae of portal hypertension including splenomegaly and ascites, which is increased since prior exam. TIPS is again noted, with susceptibility artifact precluding patency assessment.
+
+Treatment cavities noted as follows:
+Segment 1 measuring 2.6 x 1.7 cm (series 13 image 49), previously 2.9 x 2.8 cm. There is nodular enhancement without washout along the posteromedial margin of the ablation cavity (image 49 series 11). Although comparison with the prior exam is limited due to motion artifact on the prior study, this finding was not present on the MR dated 4/24/2018.
+
+Segment 3 cavity measuring 0.9 x 0.7 cm (series 13 image 42), previously 0.9 x 0.7 cm . There is no residual or recurrent viable HCC.
+
+There is no new HCC. There is no abdominal lymphadenopathy.
+
+The gallbladder, pancreas, adrenal glands and kidneys are unremarkable except for bilateral renal cysts, the largest of which is located in the superior pole of the right kidney measuring 2.8 cm with thin internal septation and is stable.Nodular arterial enhancement without washout at the posterior aspect of segment 1 treatment cavity, new compared to the exam dated 4/24/2018. This is suspicious for recurrence of HCC. 
+
+Unchanged TIPS, with increased ascites concerning for underlying occlusion and resultant portal hypertension progression
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic with sequelae of portal hypertension including splenomegaly and ascites," which directly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=584 / Out=65
+Cost: $0.000175

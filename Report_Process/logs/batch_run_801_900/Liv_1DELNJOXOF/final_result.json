@@ -1,0 +1,30 @@
+{
+  "id": "Liv_1DELNJOXOF",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "R_JUNCTION",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_JUNCTION",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | R_JUNCTION | 1\", \"APHE_NoWO | R_JUNCTION | Multiple\"]": 2,
+      "[\"APHE_NoWO | R_JUNCTION | 1\", \"APHE_NoWO | R_JUNCTION | Multiple\", \"RIM_ATYP | R_JUNCTION | Multiple\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00231378,
+    "timestamp": "2026-02-08 03:16:34",
+    "model": "deepseek/deepseek-chat"
+  }
+}

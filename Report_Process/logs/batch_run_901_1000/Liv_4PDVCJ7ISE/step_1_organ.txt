@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is again noted to be status post left hepatectomy. Hepatic vasculature is patent.
+
+Multiple treatment cavities are again noted as follows (all measured on series 14):
+-On image 8, a stable 2.1 x 1.2 cm cavity in the subcapsular aspect of segment VIII demonstrates no evidence of recurrent HCC.
+
+-On image 14, a stable 2.5 x 1.7 cm cavity more inferiorly in segment VIII and demonstrates no evidence of recurrent HCC.
+
+-On image 15, a 2.1 x 1.0 cm cavity within segment VIII is stable in size with peripheral biliary ductal dilatation. A 1.2 cm arterially enhancing nodule along the medial aspect of the cavity is slightly increased from the prior study, although similar in size on more remote exams and remains concerning for recurrent HCC. No definite washout is seen within this nodule.
+
+-On image 18, a 1.4 x 2.4 cm subcapsular cavity within segment VIII is stable in size without evidence of recurrent disease.
+
+-On image 29, series 15, a T2 hyperintense 0.9 cm arterially enhancing observation within segment V adjacent to the gallbladder is not significantly changed in size and continues to demonstrate no washout or pseudocapsule. However, this can be upgraded to a LI-RADS 4 on the basis of T2 hyperintensity.
+
+Other tiny arterially enhancing lesions without washout or pseudocapsule are unchanged, LR3.
+
+There are stable scattered pancreatic cysts, a conglomerate within the pancreatic head measures 1.1 cm (image 11, series 3). There is no main pancreatic ductal dilatation. The gallbladder, spleen, adrenal glands, and kidneys are unremarkable. There is no abdominal adenopathy or ascites. No aggressive osseous lesion is detected.Slightly increased size of an arterially enhancing nodule along the medial aspect of one of the segment VIII treatment cavities concerning for viable HCC, LR-viable.
+
+A subcapsular 0.9 cm segment V arterially enhancing lesion can be upgraded to LIRADS4 on the basis of T2 hyperintensity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" either, but the focus is on post-surgical changes and treatment cavities. Since there is no evidence of fibrosis or cirrhosis described, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=679 / Out=121
+Cost: $0.000209

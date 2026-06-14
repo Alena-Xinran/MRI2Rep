@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+ABDOMEN:
+
+Liver: A transplanted liver is noted. There is a 2.0 cm arterially enhancing lesion in segment 6 which displays persistent enhancement on delayed imaging (image 63, series 14). It is not visible on other sequences. This lesion is of uncertain significance, but is likely benign.
+
+There is a 1.7 cm segment 6 lesion (image 73, series 14) and a 1.9 cm segment 3 lesion (image 70, series 14), which display arterial enhancement but fade to isointensity on delayed imaging. These lesions have no correlate on other sequences, and likely represent shunts/perfusional phenomena. There is no definite evidence for hepatoma. The hepatic vasculature is patent.
+
+Gallbladder and biliary tree: The gallbladder is surgically absent. There is no intrahepatic or extrahepatic biliary dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: There is splenomegaly with Gamna-Gandy bodies.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are scattered sub-5 mm renal cysts.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Other: There is a partially duplicated IVC.Hepatic lesions as described above are indeterminate but likely benign. No findings suspicious for HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a transplanted liver without specific mention of cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not characterized as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis keywords and the context of a transplant without noted complications suggests no active signs of fibrosis or cirrhosis are reported. However, the presence of splenomegaly with Gamna-Gandy bodies can be associated with portal hypertension, which often accompanies cirrhosis, but this is not a direct descriptor of the liver parenchyma. Given the strict criteria based on direct liver descriptors, the keywords for fibrosis/cirrhosis are not present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=507 / Out=158
+Cost: $0.000176

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology is again demonstrated. A previously noted arterially hyperenhancing region within the right hepatic lobe is not seen identified on today's study. The hepatic vasculature is patent. There is no intrahepatic biliary ductal dilatation.
+
+The gallbladder, spleen, pancreas, kidneys, and adrenal glands are unremarkable aside from stable right subcentimeter renal cysts, gallbladder adenomyomatosis, pancreas divisum.
+
+The visualized bowel is nonobstructed. There is no ascites or adenopathy.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Cirrhotic liver morphology is again demonstrated," which explicitly confirms the presence of cirrhosis. According to the rules, if the report mentions cirrhosis or its features, the status must be "Fibrosis/Cirrhosis." The previously extracted status matches this requirement.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=306 / Out=73
+Cost: $0.000116

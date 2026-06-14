@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 13 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre and multiphase postcontrast including subtraction images.
+
+FINDINGS
+The liver is cirrhotic in morphology with evidence of portal hypertension characterized by splenomegaly, upper abdominal varices and splenorenal shunt. There is hepatic iron deposition. Several hepatic cysts are noted. 
+
+At the site of prior treated HCC in segment 8 there is a 2.3 cm arterial enhancing focus at the dome of the liver (previously measuring 0.6 cm) demonstrating persistent delayed enhancement without washout or capsule formation that is increased from the prior exam (image 24 series 12).
+
+Common bile duct is prominent measuring up to 9 mm. No choledocholithiasis. No intrahepatic biliary ductal dilation. Cholelithiasis is present. There is a small stone in the cystic duct. The adrenal glands, pancreas and kidneys are unremarkable other than subcentimeter renal cysts.
+
+Trace free fluid in the abdomen. No lymphadenopathy. Colonic diverticulosis is present.
+
+No aggressive osseous lesions. Stable subcutaneous lesion in the right back may represent a sebaceous cyst.2.3 cm arterial enhancing lesion in segment 8 at the site of prior treated HCC is increased in size (but no washout or pseudocapsule appearance),  is suspicious for recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions evidence of portal hypertension, which are direct indicators of cirrhosis. Keywords such as "cirrhotic" and references to chronic liver disease (portal hypertension, splenomegaly, varices) are present.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=560 / Out=72
+Cost: $0.000155

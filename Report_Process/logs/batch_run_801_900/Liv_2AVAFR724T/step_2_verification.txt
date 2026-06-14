@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Redemonstration of cirrhotic liver morphology with marked atrophy of a portion of the right hepatic lobe. Allowing for differences in contrast bolus timing, there are similar scattered LR 3 observation. For instance, there is an unchanged 0.5 cm segment VIII arterially hyperenhancing observation without washout or pseudocapsule (series 16001 image 18). No suspicious hepatic lesion concerning for hepatocellular carcinoma. Redemonstration of nonspecific geographic enhancement at the posterior left hepatic lobe, likely perfusional in nature versus secondary to associated fibrotic changes of the liver. A punctate left hepatic lobe cyst is again seen. The liver demonstrates mildly increased T2 hypointensity, which may be seen in the setting of iron overload. Correlate with history.
+
+No biliary dilatation. The patient is status post cholecystectomy.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There is a right renal cyst. The left kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Musculoskeletal and soft tissue: There is mild dextrocurvature of the thoracolumbar spine.No evidence for HCC in the setting of cirrhotic liver morphology. Similar scattered LR 3 observations as above.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Redemonstration of cirrhotic liver morphology" and later reiterates "No evidence for HCC in the setting of cirrhotic liver morphology." This confirms the presence of cirrhosis. The previously extracted status "Fibrosis/Cirrhosis" correctly reflects this finding.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=494 / Out=74
+Cost: $0.000169

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+For findings in the chest, please see the CT chest report dictated separately.
+
+The patient is status post liver transplant. Mild intrahepatic biliary ductal dilatation is unchanged. There are no findings of HCC. The hepatic vasculature is patent. The spleen remains mildly enlarged, measuring 14 cm. Paraesophageal varices are again noted. 
+
+The adrenal glands, kidneys, and pancreas are unremarkable, except for a stable 0.7 cm cystic lesion in the pancreatic body, which may represent sequela of prior pancreatitis or side branch IPMN. The pancreatic duct is normal in caliber. There is no abdominal ascites or lymphadenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report indicates the patient is status post liver transplant, with mild intrahepatic biliary ductal dilatation unchanged, no HCC, patent hepatic vasculature, mildly enlarged spleen (14 cm), and paraesophageal varices noted. The presence of paraesophageal varices and splenomegaly are indirect signs of portal hypertension, which is commonly associated with cirrhosis. However, the liver parenchyma itself is not explicitly described with keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The report does not state the liver is "unremarkable", "normal", or "smooth" either. Given the clinical context (post-transplant) and findings suggestive of portal hypertension (varices, splenomegaly), but without direct parenchymal description, the classification leans toward "Fibrosis/Cirrhosis" based on the associated signs.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=362 / Out=207
+Cost: $0.000156

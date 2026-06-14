@@ -1,0 +1,40 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is no evidence of hepatocellular carcinoma. The liver, spleen, adrenal glands, and gallbladder are unremarkable. The pancreas and kidneys are atrophic and demonstrate cysts, some of renal cysts are hemorrhagic. The largest pancreatic cystic lesion is at the neck measuring 1.2 cm (image 23, series 3). No solid or nodular components are seen. The pancreatic duct is normal in caliber.
+
+No ascites or lymphadenopathy is identified.1. No evidence of HCC.
+2. Small pancreatic cystic lesions measuring up to 1.2 cm, may represent sidebranch IPMNs or sequelae of pancreatitis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "The liver, spleen, adrenal glands, and gallbladder are unremarkable." There are no keywords such as cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or explicit mentions of chronic liver disease. The liver is described as unremarkable.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=355 / Out=74
+Cost: $0.000098

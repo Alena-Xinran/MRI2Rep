@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. No portal venous thrombus. There is new thrombosis of the left hepatic vein. There is a new segment 1 treatment cavity measuring 4.5 x 2.9 cm. There is no residual or recurrent disease. No new lesions are identified.
+
+Sequela of portal hypertension is appreciated as indicated by a large amount of ascites and a recannulized paraumbilical vein. Slight increased peritoneal enhancement along the paracolic gutters. Peritoneal nodularity in the left upper quadrant is stable, image 50 series 9.
+
+Cholelithiasis is noted. The pancreas, spleen, adrenals, kidneys are unremarkable except for small cysts. Moderate hiatal hernia seen.
+
+There is no adenopathy or obstruction. Mass in the L2 neural foramen is stable.No portal vein thrombus.
+
+New left hepatic vein thrombus.
+
+New ablation cavity in segment 1 without residual disease. No new hepatic mass suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. Additionally, there are findings consistent with sequelae of portal hypertension (ascites, recannulized paraumbilical vein), further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=429 / Out=65
+Cost: $0.000115

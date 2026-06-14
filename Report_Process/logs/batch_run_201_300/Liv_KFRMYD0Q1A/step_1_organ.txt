@@ -1,0 +1,40 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with evidence of portal hypertension including splenomegaly, recanalized periumbilical vein, as well as abdominal and paraesophageal varices. There is evidence of iron deposition in the liver and spleen. There is no evidence of HCC. The hepatic vasculature is patent.
+
+Status post cholecystectomy. The pancreas, bilateral adrenal glands and kidneys are unremarkable except for stable small bilateral renal cysts. Small amount of perihepatic ascites. No abdominal lymphadenopathy.Cirrhotic liver with sequela of portal hypertension.
+
+No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and repeats "Cirrhotic liver with sequela of portal hypertension." It also mentions signs of portal hypertension including splenomegaly, recanalized periumbilical vein, and varices, which are consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=346 / Out=73
+Cost: $0.000095

@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. The hepatic vasculature is patent. Multiple ablation cavities are redemonstrated, as follows:
+
+A 2.7 x 1.6 cm ablation cavity in segment VII (series 7, image 52), previously 2.7 x 2.0 cm. On series 7, image 19, there is a 1.1 cm focus of arterial enhancement adjacent to the superior medial aspect of the cavity with washout, previously 0.7 cm (series 11, image 19). This is highly concerning for recurrent disease. 
+
+A 2.9 x 1.6 cm ablation cavity in segment VI (series 7, image 52), previously 2.8 x 1.7 cm, demonstrates no recurrent disease.
+
+A 1.9 x 1.3 cm cavity ablation cavity in segment V/IVb (series 7, image 50), previously 2.2 x 1.3 cm, demonstrates no recurrent disease.
+
+A 9 mm arterial enhancing nodule with washout and pseudocapsule in segment 8 (series 6, image 9) is not significantly changed and remains suspicious for HCC. Additional nonspecific scattered arterial enhancing foci without washout or pseudocapsule are again noted.
+
+Hydropic gallbladder containing gallstones is noted. The kidneys, spleen, pancreas, and adrenal glands are unremarkable, except for bilateral renal cysts, some of which are hemorrhagic/proteinaceous.
+
+There is small volume ascites. No abdominal adenopathy is noted.
+
+Loculated fluid along the right lung base and upper abdomen is unchanged.Slightly decreased size of a segment VIII ablation cavity with increased size of a 1.1 cm arterially enhancing lesion adjacent to the superior medial aspect, highly concerning for recurrent disease.
+
+Stable indeterminate 0.9 cm arterially enhancing lesion in segment VIII, remains concerning for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" at the beginning, which directly meets the criteria for classification as "Fibrosis/Cirrhosis".  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=617 / Out=47
+Cost: $0.000160

@@ -1,0 +1,63 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Again seen is a partially treated HCC in segments VII/VIII, which is overall not significantly changed in size, measuring 8.4 x 7.0 cm (image 30, series 11) previously 8.9 x 6.7 cm.
+
+Again seen is mixed response within the treatment cavity, for example:
+- Residual disease along the anterior aspect now measures 4.3 x 3.4 cm (image 36, series 10) previously 3.9 x 3.3 cm. An adjacent 2.6 x 1.7 cm nodule (image 41, series 10) was almost imperceptible previously.
+- Residual disease along the medial aspect is similar to previous, for example measuring 1.8 x 1.5 cm (42, series 10) previously 1.9 x 1.5 cm.
+- A 1.3 cm anteromedial nodule seen previously (image 33, series 10 and prior exam) is no longer visualized.
+
+Again seen is tumor thrombus within the retrohepatic intrahepatic IVC, extending at least to the cavoatrial junction, and possibly into the right atrium. This is not significantly changed. The portal vein is patent. There is mass effect upon and marked attenuation of the posterior branch of the right portal vein. Again seen are areas of necrosis in the right hepatic lobe. On arterial phase images there are multiple foci of arterial enhancement and areas of wedge-shaped enhancement which probably perfusional.
+
+Biliary and Gallbladder: The gallbladder is collapsed, limiting assessment. There is mild intrahepatic biliary duct dilatation peripheral to the partially treated HCC, which is not significantly changed.
+
+Pancreas: There are couple of stable lipomas versus focal fat within the pancreas.
+
+Spleen: Enlarged, 14.6 cm CC.
+
+Adrenals: Tiny right adrenal myelolipoma. No suspicious adrenal nodule.
+
+Kidneys: Previously described 1.4 cm left renal lesion is not well-visualized on today's exam.
+
+Vascular: Abdominal aorta is normal in caliber.
+
+Lymph nodes: Periportal and portacaval lymphadenopathy has mildly increased, for example the largest now measures 2.2 cm in the portacaval space (image 58, series 14) previously 1.9 cm.
+
+Ascites: Trace ascites.
+
+Body wall and Bones: Unremarkable.1. Again seen is mixed treatment response in segment VII/VIII HCC.
+2. Mild interval increase in periportal and portacaval lymphadenopathy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes an enlarged spleen (14.6 cm) and trace ascites, which are potential indirect signs of portal hypertension often associated with cirrhosis. However, there is no explicit mention of keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the findings are focused on a treated HCC and its complications. Without direct evidence of fibrosis or cirrhosis from the provided criteria, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=761 / Out=145
+Cost: $0.000242

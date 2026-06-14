@@ -1,0 +1,68 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: There is cirrhotic morphology of the liver. No new suspicious hepatic lesion is identified. There is similar enhancement of the posterior aspect of the right hepatic lobe, likely posttreatment/perfusion changes.
+
+There are multiple unchanged observations (comparison to MR dated 5/6/2023):
+
+路  Unchanged 1.2 cm treated HCC lesion in segment VII (image 26 series 15,001), mostly necrotic with a small linear/nodular focus of enhancement (LR-TR equivocal).
+路  1.0 cm treated HCC lesion in segment VII demonstrating internal enhancing linear focus (LR-TR equivocal) (image 30 series 13,001), previously 0.9 cm.
+路  1.2 cm treated HCC lesion in segment VIII (image 32 series 15,001), unchanged in size but with mild increase in size of internal enhancing nodularity (LR-TR equivocal).
+路  Stable 0.9 cm observation with hyperenhancement on all phases, without enhancing capsule or washout (LR 3).
+
+
+Biliary system: The patient is status post cholecystectomy. The common bile duct is mildly dilated to 7 mm at porta hepatis with expected tapering towards simple, likely postsurgical.
+
+Hepatic vasculature: There is similar nonocclusive thrombosis of the portal vein near the portal confluence with diminutive appearance of the intrahepatic portal veins. A splenorenal shunt is again seen.
+
+Pancreas: There are multiple similar scattered cystic lesions with the representative example in the pancreatic head, measuring 0.8 cm, likely sequela of pancreatitis or IPMN.
+
+Spleen: The spleen is mildly enlarged, measuring up to 16 cm along the longest dimension with ill-defined subcentimeter T2 isointense/hyperintense focus as before.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are multiple subcentimeter T2 hyperintense foci bilaterally, too small to characterize and for which no imaging follow-up is necessary.
+
+Bowel: No abnormal bowel loop dilatation. Wall thickening of proximal stomach is likely secondary to underdistention.
+
+Upper abdominal lymph nodes: There are similarly prominent gastrohepatic lymph nodes, measuring up to 9 mm in short axis diameter (image 40 series 17,001). There is otherwise no lymphadenopathy by size criteria.
+
+Peritoneum: No ascites.
+
+Lung bases: There is a 8 mm pulmonary pleural-based nodule in the right lower lobe (image 28 series 15,001), decreased in size from CT dated 1/29/2014 when it measured 13 mm. Suggest correlation with recent CT scan chest.
+
+Additional: Susceptibility artifact from sternotomy wires are seen. Susceptibility artifact from spinal hardware is also noted.?  Treated HCC lesions demonstrating internal nodular/linear enhancement (LR-TR equivocal). No new suspicious liver lesion.
+?  Redemonstrated nonocclusive thrombus of the portal vein.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is cirrhotic morphology of the liver," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=843 / Out=41
+Cost: $0.000221

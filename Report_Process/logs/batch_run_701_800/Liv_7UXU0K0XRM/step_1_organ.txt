@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right hepatectomy. The liver is cirrhotic in morphology with portal hypertension as evidenced by splenomegaly. There is evidence of multiple new treated HCC's throughout the left hepatic lobe as evidenced by the previously noted HCC seen in segment IVb which is now avascular (series 15, image 39). There is diffuse arterial hyperenhancement within the medial segment of the left hepatic lobe without definite washout. This may be seen with diffuse disease or posttreatment changes. There is multifocal HCC with multiple arterially enhancing lesions which are either new or increased in size:
+
+-There are 2 confluent arterial enhancing lesions within segment III which have increased in size. The smaller one measures 1.2 cm (series 15, image 29; previously 9 mm), demonstrates washout and a pseudocapsule and meets OPTN 5A criteria.
+-There is a 1.5 cm arterially enhancing lesion at the borders of segments I/II/III which now demonstrates washout and a pseudocapsule (series 15, image 32; previously 1.4 cm) and meets OPTN 5A criteria
+-There is a 1.9 cm arterially enhancing lesion in segment 3 which has increased in size (series 15, image 49; previously 9 mm) which demonstrates questionable washout and is highly suspicious for HCC.
+-There is a new 9 mm arterial enhancing nodule in segment 3 which demonstrates washout but is too small to meet OPTN criteria.
+
+Multiple hepatic cysts are stable. The left portal and hepatic veins are patent.
+
+The spleen, adrenal glands and pancreas are unremarkable. Bilateral renal cysts are noted. There are multiple prominent upper abdominal lymph nodes which are stable.
+
+There is a moderate right pleural effusion as well as stable aneurysm of the descending thoracic aorta which measures up to 3.1 cm.Multifocal HCC. Interval treatment of multiple lesions, but also development/growth of multiple new lesions.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, it mentions portal hypertension evidenced by splenomegaly, which is often associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=643 / Out=57
+Cost: $0.000172

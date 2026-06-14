@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of cirrhotic liver morphology with findings of portal venous hypertension, including splenomegaly and abdominal varices. Multiple hepatic and peribiliary cysts are again seen.
+
+-There is a stable 0.8 cm arterially enhancing focus with washout in segment 6 (image 36, series 12 and 38, series 16).
+
+-A 0.7 cm arterially enhancing focus in segment 8 with washout
+is stable in size (images 20 of series 12 and 23 of series 16).
+
+-Previously described 0.8 cm enhancing focus with washout in segment 6 is minimally increased to 0.9 cm (image 41, series 12 and 44, series 16).
+
+Multiple additional arterially enhancing hepatic foci, some with questionable washout and some without correlate on other sequences, are not significantly changed, for example a 0.7 cm enhancing focus in segment 6 (image 25, series 12).
+
+The pancreas, adrenal glands and kidneys are unremarkable other than bilateral renal cysts, some of which are proteinaceous/hemorrhagic. The patient is status post cholecystectomy.
+
+No abdominal lymphadenopathy or ascites is seen.Minimally increased in size 0.9 cm lesion in segment 6 suspicious for HCC, though not meeting OPTN criteria. Additional subcentimeter hepatic lesions remain stable.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and also mentions findings of portal venous hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=516 / Out=42
+Cost: $0.000130

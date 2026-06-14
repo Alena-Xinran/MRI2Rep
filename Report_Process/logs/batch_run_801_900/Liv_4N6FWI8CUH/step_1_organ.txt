@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post partial right hepatectomy and cholecystectomy. The liver is steatotic with stable left hepatic cyst. 0.7 cm arterially enhancing focus in segment 2 without evidence of washout or pseudocapsule (image 27 of series 21). Additional punctate arterially enhancing focus on image 29 of series 21 likely perfusional. No hepatic lesions are identified to suggest HCC. The hepatic vasculature is patent.
+
+The patient is status post right partial nephrectomy with unchanged fat necrosis. No evidence of residual tumor or recurrence. There are bilateral renal cysts some of which are hemorrhagic/proteinaceous.
+
+Redemonstration of a few tiny T2 hyperintense foci throughout the pancreas likely sequela of remote pancreatitis or side branch IPMN. The adrenal glands and spleen are unremarkable. No abdominal ascites or adenopathy.No evidence of recurrent HCC or RCC.
+
+Stable arterially enhancing LI-RADS 3 lesion in segment 2.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver as "steatotic" (indicating fatty liver) and notes a stable left hepatic cyst, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators suggests no clear evidence of fibrosis or cirrhosis based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=432 / Out=128
+Cost: $0.000142

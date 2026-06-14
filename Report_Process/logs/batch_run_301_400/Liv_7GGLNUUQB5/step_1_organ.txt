@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Exam is limited by motion.
+
+A cirrhotic morphology of the liver is redemonstrated. There are similar findings of portal hypertension evidenced by splenomegaly and mild varices. There is no evidence of HCC. Hepatic hemangiomas are noted, the largest is in the lateral segment measuring 2.5 cm. Hepatic vasculature is patent.
+
+Gallstones are noted. A few stable sub-5 mm cystic structures in the pancreas are nonspecific, possibly sidebranch IPMN or from previous pancreatitis. The adrenal glands are unremarkable. There are bilateral renal cysts, some of which are septated, benign. Previously described proximal left ureteral calculus is no longer seen.
+
+ A lipoma is present within the antrum of the stomach. There appears to be a Meckel's diverticulum (image 9, series 3). There is no bowel obstruction, ascites or lymphadenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic morphology of the liver is redemonstrated," which directly indicates cirrhosis. Additionally, there are findings consistent with portal hypertension (splenomegaly and mild varices), which is often associated with advanced liver fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=416 / Out=68
+Cost: $0.000113

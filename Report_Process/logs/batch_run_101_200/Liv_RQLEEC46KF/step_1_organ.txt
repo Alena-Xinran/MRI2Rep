@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Left hepatic lobe is again diffusely replaced by multiple HCCs. There are also multiple HCC within the right hepatic lobe. These are overall not significantly changed. Representative lesion in the left hepatic lobe measures 3.7 cm (previously 3.6 cm), image 35 series 19. Representative 2.5 cm lesion in the right hepatic lobe is unchanged (image 36). Cholelithiasis is noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unchanged splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Renal cysts, some are hemorrhagic.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: 1.6 cm and gastrohepatic lymphadenopathy is unchanged. 1.0 cm retrocrural lymphadenopathy is unchanged.
+
+Peritoneum: Trace amount of ascites.
+
+Anterior chest wall mass is partially visualized and better evaluated on recent chest CT.No significant changed multifocal HCC/metastases.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multiple hepatocellular carcinomas (HCCs) in both hepatic lobes, splenomegaly, and trace ascites, which are findings often associated with chronic liver disease and cirrhosis. However, the report does not explicitly mention keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or direct statements of chronic liver disease. The liver parenchyma itself is not specifically described as normal or abnormal beyond the presence of HCCs. Without explicit evidence of fibrosis or cirrhosis based on the given criteria, the classification defaults to "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=442 / Out=145
+Cost: $0.000152

@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post left hepatectomy and cholecystectomy. The remnant liver is steatotic. The hepatic vasculature is patent.    There are no imaging findings concerning for hepatocellular carcinoma. Again seen is the segment 7 treatment cavity with a thin rim of peripheral enhancement measuring 1.2 x 1.2 cm which is not significantly changed (series 20, image 43).  Note is made of a few scattered arterially enhancing foci without washout or pseudocapsule (LR-3).     The pancreas, spleen, adrenal glands and kidneys are unremarkable with the exception of a few stable nonspecific subcentimeter pancreatic cystic lesions and bilateral renal cysts.    There is no ascites. A 1.2 cm gastrohepatic node is stable (series 3, image 21).No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the remnant liver as "steatotic," which indicates fatty infiltration but does not directly mention keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit chronic liver disease. The liver is not described as "unremarkable," "normal," or "smooth" either, but the absence of specific fibrosis/cirrhosis indicators suggests no clear evidence of fibrosis or cirrhosis based on the given criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=402 / Out=118
+Cost: $0.000130

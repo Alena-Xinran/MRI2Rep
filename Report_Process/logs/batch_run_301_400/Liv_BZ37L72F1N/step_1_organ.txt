@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Lung bases: A 4.1 cm right lower lobe mass with adjacent smaller masses/adenopathy and atelectasis versus consolidation are not significantly changed since CT chest 2/20/2019, within differences of modality.
+
+Hepatobiliary system: Cirrhotic liver morphology is again noted. Subcentimeter hepatic cysts are again noted. Three ablation cavities are noted in the hepatic dome: Anteriormost measures 3.3 x 3.6 cm, medialmost measures 3.9 x 3.0 cm, lateralmost measures 3.3 x 3.9 cm. No evidence of recurrence. No new lesion. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: A 7 mm cystic lesion in the pancreatic head favors a sidebranch IPMN versus sequel of prior/chronic pancreatitis (image 17 series 4)..
+
+Spleen: Splenomegaly is again seen.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral renal cysts are again noted.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace perihepatic ascites is again noted..
+
+Retroperitoneum: Retroperitoneal surgical clips are again noted. An IVC filter is again noted.No evidence for new or recurrent HCC post ablation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is again noted" under the Hepatobiliary system section, which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=505 / Out=45
+Cost: $0.000128

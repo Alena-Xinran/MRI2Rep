@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post partial right hepatectomy and cholecystectomy. Hepatic steatosis is noted as well as a stable left hepatic cyst. No evidence of hepatocellular carcinoma. Hepatic vasculature is patent.
+
+Patient is status post partial right nephrectomy. No evidence of recurrent or residual RCC. Several bilateral renal cysts are noted, some of which are proteinaceous/hemorrhagic.
+
+There are stable subcentimeter cystic structures throughout the pancreas, likely sequela of prior pancreatitis or side branch IPMNs. The main pancreatic duct demonstrates mild prominence within the body. No solid pancreatic mass is seen. 
+
+A cyst is seen within the spleen. The adrenal glands appear unremarkable.
+
+No enlarged upper abdominal lymph nodes or ascites.No HCC or recurrent/residual RCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions hepatic steatosis and a stable left hepatic cyst, but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The liver parenchyma is not described as unremarkable, normal, or smooth either, but the absence of fibrosis/cirrhosis indicators and the lack of ascites or other signs of portal hypertension suggests no clear evidence of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=119
+Cost: $0.000126

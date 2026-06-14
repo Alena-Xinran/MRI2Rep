@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post left hepatectomy.
+A new hemorrhagic ablation cavity in segment 8, along the cut surface of the liver, measures 3.0 x 1.8 cm (series 19.001, image 27). 
+
+In segment 8 superiorly, an ablation cavity has decreased in size measuring 1.2 x 0.7 cm (series 21.001, image 22), previously measuring 1.5 x 0.7 cm.
+
+In segment 8 inferiorly, an ablation cavity has decreased in size measuring 1.7 x 1.0 cm (series 21.001, image 30), previously 2.7 x 1.0 cm.
+
+There are no findings of recurrent or new HCC. The hepatic vasculature is patent.
+
+The gallbladder, spleen, adrenal glands, and kidneys are unremarkable. There is redemonstration of pancreatic divisum and a few subcentimeter T2 hyperintense foci in the pancreatic head and body which likely represent sequela of prior pancreatitis or side branch IPMN(s).
+
+There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described with terms like "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the focus on post-surgical and ablation changes without parenchymal texture abnormalities suggests no evidence of fibrosis or cirrhosis is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=466 / Out=120
+Cost: $0.000149

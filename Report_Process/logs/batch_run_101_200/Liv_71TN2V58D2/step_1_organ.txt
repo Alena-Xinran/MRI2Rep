@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right hepatectomy. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable.
+
+There is no bowel obstruction or adenopathy.
+
+There is decreased now small to moderate volume ascites. 
+
+There is a small left pleural effusion associated with pleural thickening and what was previouslyNo evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth" specifically. The liver is mentioned in the context of a prior hepatectomy and absence of hepatocellular carcinoma, but no direct assessment of fibrosis or cirrhosis is provided. Based on the given criteria, the absence of positive indicators means the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=310 / Out=141
+Cost: $0.000114

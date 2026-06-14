@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. There is no hepatic mass. Peripheral hypointense signal seen on T1-weighted sequences, for instance along the right hepatic lobe on series 15 image 26, may represent susceptibility artifact from calcifications or hemosiderin. The portal and hepatic veins are patent.     There is splenomegaly. The gallbladder is surgically absent. The pancreas, adrenal glands, and kidneys are unremarkable except for renal cysts.    There is small volume abdominal ascites. There is no lymphadenopathy. Incompletely visualized is enhancing abnormality within the subcutaneous fat overlying the left anterior abdominal musculature (for instance, series 19 image 86). This likely corresponds with ultrasound findings from November 23, 2021.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension aside from splenomegaly, which can occur in other conditions). The liver is described as having no mass, with patent vessels, and the only noted signal abnormality is attributed to possible artifact. There is no statement indicating cirrhosis. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=119
+Cost: $0.000150

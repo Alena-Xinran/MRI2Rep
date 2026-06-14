@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is again noted to be status post right hepatic lobe transplant. The hepatic vasculature is patent. The transplanted liver has a noncirrhotic morphology.
+
+There are no arterially enhancing lesions or areas of washout concerning for hepatocellular carcinoma. A stable 1.1 cm cyst is present within segment 6. Moderate intrahepatic biliary ductal dilatation, predominantly involving segments VI/VII is stable over multiple prior exams.
+
+The pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable bilateral renal cysts. The spleen remains mildly enlarged.
+
+No enlarged abdominal lymph nodes are seen. There are slightly increased small volume ascites, predominantly in the right paracolic gutter. There is no aggressive osseous lesion.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The transplanted liver has a noncirrhotic morphology," which explicitly indicates the absence of cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis," which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=351 / Out=65
+Cost: $0.000126

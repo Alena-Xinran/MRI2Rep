@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: No evidence for hepatoma. No interval change in the 5 mm T2 hyperintense lesion in the left hepatic lobe which demonstrates hypoenhancement and may be a sclerosed hemangioma, series 7 image 25, series 4 image 31. No interval change in scattered arterial enhancing foci without washout or T2 hyperintensity, likely perfusional.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Unremarkable. Status post cholecystectomy.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unchanged thickening.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a liver with no evidence of hepatoma or HCC, mentions a small T2 hyperintense lesion likely a sclerosed hemangioma, and scattered arterial enhancing foci likely perfusional, but does not mention any features of cirrhosis such as nodularity, contour irregularity, segmental atrophy/hypertrophy, or signs of portal hypertension. The liver is not explicitly described as "normal," but there is no indication of fibrosis or cirrhosis. The previously extracted status "NoFibrosis/Cirrhosis" aligns with the absence of cirrhosis-related findings in the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=138
+Cost: $0.000160

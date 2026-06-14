@@ -1,0 +1,40 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Motion artifact limits evaluation on some sequences. 
+
+There is cirrhotic liver morphology with small volume ascites. There are stable postsurgical changes of partial hepatectomy. No arterially enhancing hepatic observations are seen. A focus of susceptibility at the peripheral right hepatic lobe is unchanged. The hepatic vasculature is patent.
+
+The adrenal glands, kidneys, spleen, and pancreas are unremarkable with exception of bilateral renal cysts. There is no adenopathy. No aggressive osseous lesion is seen.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology," which directly indicates the presence of cirrhosis. This meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=330 / Out=49
+Cost: $0.000081

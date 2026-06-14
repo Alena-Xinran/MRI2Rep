@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic. The hepatic vasculature is patent. There are findings of portal hypertension as manifested by splenomegaly (17.0 cm in anteroposterior dimension, similar to prior), upper abdominal and paraesophageal varices, and a splenorenal shunt. 
+
+Multiple arterially enhancing foci are demonstrated within the liver, examples described as follows and annotated on series 18:
+- Stable 1.2 cm lesion without washout in segment 7 (image 17)
+- Stable 0.7 cm lesion without washout more posteriorly in segment 7 (image 16)
+- An 8 mm lesion in segment 5 is stable (image 38).
+
+No new enhancing lesion is identified.
+
+The gallbladder, kidneys, gallbladder, and adrenal glands are unremarkable, except for bilateral renal cysts. No abdominal lymphadenopathy or ascites seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic." This directly indicates the presence of cirrhosis, which falls under the required status of "Fibrosis/Cirrhosis" as per the verification rules.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=382 / Out=58
+Cost: $0.000131

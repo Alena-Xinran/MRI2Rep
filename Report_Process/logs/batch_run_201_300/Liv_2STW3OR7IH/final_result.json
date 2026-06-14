@@ -1,0 +1,24 @@
+{
+  "id": "Liv_2STW3OR7IH",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "HEM",
+      "position": "L_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"HEM | L_DIFFUSE | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0008987159999999999,
+    "timestamp": "2026-02-06 23:15:15",
+    "model": "deepseek/deepseek-chat"
+  }
+}

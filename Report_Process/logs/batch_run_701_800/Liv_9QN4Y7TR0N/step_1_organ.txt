@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A cirrhotic liver is again noted. A large segment of segment 7 is now infarcted secondary to recent treatment measuring approximately 5.8 x 9.2 cm. There is expected perfusion anomalies surrounding this region extending inferiorly into segment 6 as well as some residual linear regions of internal enhancement within the more inferior aspect of the cavity that will have to be watched on follow-up to ensure no change. These regions display a more progressive enhancement favoring residual noninfarcted parenchyma rather than recurrent HCC.
+
+Previously noted segment 4A nodule measuring 1.1 cm on prior CT has enlarged to approximately 2.2 cm. This displays a nodule within a nodule appearance with some internal regions of arterial nodular enhancement and arterial rim enhancement but no delayed pseudocapsule or washout. This is highly suspicious for HCC. As the arterial enhancement is reflected by discontinuous nodules, not scoring this as a 5G tumor currently. There is suggestion of a small amount of hemosiderin within the nodule on chemical shift imaging.  Hepatic arterial system, hepatic veins, and portal venous system remains patent.
+
+Kidneys, adrenal glands, spleen, and pancreas display no changes from prior. No aggressive osseous lesions or adenopathy. Sludge/stones remaining within the gallbladder. No secondary findings of acute cholecystitis.Large treatment cavity in segment 7 status post recent chemoembolization and microwave ablation.
+
+Enlarging segment 4a nodule highly suspicious for HCC as detailed above. This should be amenable to percutaneous biopsy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic liver is again noted," which directly indicates the presence of cirrhosis. This satisfies the criteria for "Fibrosis/Cirrhosis" based on keywords like "cirrhotic."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=544 / Out=58
+Cost: $0.000144

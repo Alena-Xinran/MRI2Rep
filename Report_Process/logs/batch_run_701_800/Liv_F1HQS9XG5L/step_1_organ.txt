@@ -1,0 +1,60 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Peripheral wedge-shaped arterial enhancement in the right hepatic lobe without washout, pseudocapsule, and with mild T2 hyperintensity, in the distribution of one of the peripheral bile ducts could represent focal cholangitis in the appropriate clinical setting. No suspicious hepatic lesion. 
+
+Irregularity of the intrahepatic bile ducts image 18 series 3001, with pneumobilia and debris, possibly due to a stricture near the porta hepatis and mild intrahepatic biliary ductal dilation similar to prior.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unchanged simple appearing cyst at the pancreas head neck junction measuring 1.5 cm. This could be a sidebranch IPMN and may be followed on subsequent imaging. Main pancreatic duct is normal in caliber.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unchanged left renal cyst, no hydronephrosis.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  No evidence for HCC.
+2.  Debris in the common bile duct, with an area of possible stricturing, similar to prior as described. This causes unchanged mild intrahepatic biliary ductal dilation.
+3.  Wedge-shaped arterial enhancement in the right hepatic lobe, following one of the peripheral bile ducts, with associated edema may represent focal cholangitis in the appropriate clinical setting.
+4.  The previously noted cystic lesion at the pancreatic head, possibly a sidebranch IPMN is unchanged. This could be followed on subsequent MRI.
+
+YNHHS Radiology Notify Critical Result system classification: Routine.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the findings focus on biliary issues (focal cholangitis, bile duct irregularity, pneumobilia) and a lack of suspicious hepatic lesions. Without specific descriptors indicating fibrosis or cirrhosis, and in the absence of normal parenchymal characterization, the default based on the provided criteria is to classify as "NoFibrosis/Cirrhosis" when no signs of fibrosis/cirrhosis are mentioned.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=575 / Out=163
+Cost: $0.000197

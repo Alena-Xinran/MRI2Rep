@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Surgical changes are again seen from prior left hepatectomy. Stable segment 7 ablation cavity without any findings of recurrent disease (LR TR nonviable). Stable subcentimeter segment 7 (series 8 image 34) arterial enhancing lesion for many years, likely benign. No new foci are seen to suggest HCC.
+
+Status post splenectomy and cholecystectomy with unchanged biliary dilatation. Splenules are again seen in the left upper quadrant. Stable pancreatic divisum. Remaining intra-abdominal solid organs appear unremarkable.
+
+No adenopathy or ascites. Atherosclerotic disease is seen involving the aorta without frank aneurysmal dilatation. Circumaortic left renal vein is incidentally seen. 
+
+No aggressive osseous lesions.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "Remaining intra-abdominal solid organs appear unremarkable," which includes the liver parenchyma. There are no keywords such as "cirrhosis," "fibrosis," "nodular surface," "coarse echotexture," or explicit mentions of chronic liver disease. The liver is described as part of the unremarkable solid organs.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=88
+Cost: $0.000113

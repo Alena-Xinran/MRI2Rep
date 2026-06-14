@@ -1,0 +1,117 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Hepatobiliary system: Postsurgical changes from segment 2 resection have almost completely resolved with only a subcapsular 7 mm cystic structure remaining and associated hyperemia in the region. The previously seen collection along the right inferior liver tip now measures 1.3 cm compared to 4 cm on prior study. It demonstrates marked T2 hypointensity and does not enhance likely indicating the presence of blood clot. Multiple subcapsular subcentimeter arterial phase hyperenhancing foci not apparent on other sequences and phases (LI-RADS 3). No HCC. Hepatic vasculature:patent. Cholelithiasis. No bile duct dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC.
+Almost complete resolution of postoperative changes and perihepatic hematoma.
+Multiple LI-RADS 3 observations
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Hepatobiliary system: Postsurgical changes from segment 2 resection have almost completely resolved with only a subcapsular 7 mm cystic structure remaining and associated hyperemia in the region. -> Found lesion. Features: "cystic structure" maps to CYST. Location: Segment 2 (L_LAT). Quantity: 1. Also mentions "hyperemia" which is a perfusion observation, but it is "associated" with the cystic structure/region and not a separate distinct focal finding.
+Sentence 2: The previously seen collection along the right inferior liver tip now measures 1.3 cm compared to 4 cm on prior study. -> Found lesion. Features: "collection" with characteristics described in next sentence. Location: "right inferior liver tip" likely corresponds to segment 5 or 6, but not specified. Maps to DIFFUSE.
+Sentence 3: It demonstrates marked T2 hypointensity and does not enhance likely indicating the presence of blood clot. -> This describes the collection from Sentence 2. Features: "does not enhance" and "blood clot" indicates a non-enhancing, likely treated/resolving collection. This does not fit CYST, HEM, APHE_WO, or APHE_NoWO. It is an atypical finding (treated/resolving hematoma). Maps to RIM_ATYP.
+Sentence 4: Multiple subcapsular subcentimeter arterial phase hyperenhancing foci not apparent on other sequences and phases (LI-RADS 3). -> Found observation. Features: Arterial Phase HyperEnhancement WITHOUT Washout (LI-RADS 3). Maps to APHE_NoWO. Location: "subcapsular" location not specified, maps to DIFFUSE. Quantity: Multiple.
+Sentence 5: No HCC. -> Background/negative statement, no focal lesion.
+Sentence 6: Hepatic vasculature:patent. -> Background info, no focal lesion.
+Sentence 7: Cholelithiasis. -> Gallbladder finding, not liver parenchyma.
+Sentence 8: No bile duct dilatation. -> Background/negative statement.
+Sentence 9: Pancreas: Unremarkable. -> Other organ.
+Sentence 10: Spleen: Unremarkable. -> Other organ.
+Sentence 11: Adrenal glands: Unremarkable. -> Other organ.
+Sentence 12: Kidneys: Unremarkable. -> Other organ.
+Sentence 13: Bowel: Unremarkable. -> Other organ.
+Sentence 14: Upper abdominal lymph nodes: No lymphadenopathy. -> Background/negative statement.
+Sentence 15: Peritoneum: No ascites.No HCC. -> Background/negative statement.
+Sentence 16: Almost complete resolution of postoperative changes and perihepatic hematoma. -> Summary statement, findings already captured.
+Sentence 17: Multiple LI-RADS 3 observations. -> Summary/reiteration of finding from Sentence 4.
+
+Step 2: Structured Output
+TUMOR_RECORD: CYST | L_LAT | 1
+TUMOR_RECORD: RIM_ATYP | DIFFUSE | 1
+TUMOR_RECORD: APHE_NoWO | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+CYST | L_LAT | 1
+RIM_ATYP | DIFFUSE | 1
+APHE_NoWO | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1050 / Out=670
+Cost: $0.000317

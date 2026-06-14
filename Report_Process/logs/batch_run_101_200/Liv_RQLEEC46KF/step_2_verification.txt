@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Left hepatic lobe is again diffusely replaced by multiple HCCs. There are also multiple HCC within the right hepatic lobe. These are overall not significantly changed. Representative lesion in the left hepatic lobe measures 3.7 cm (previously 3.6 cm), image 35 series 19. Representative 2.5 cm lesion in the right hepatic lobe is unchanged (image 36). Cholelithiasis is noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unchanged splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Renal cysts, some are hemorrhagic.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: 1.6 cm and gastrohepatic lymphadenopathy is unchanged. 1.0 cm retrocrural lymphadenopathy is unchanged.
+
+Peritoneum: Trace amount of ascites.
+
+Anterior chest wall mass is partially visualized and better evaluated on recent chest CT.No significant changed multifocal HCC/metastases.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes multiple HCCs in both hepatic lobes but does not mention cirrhosis, morphologic features of cirrhosis, or a normal liver. The absence of explicit mention of cirrhosis or a normal liver means the previous extraction "NoFibrosis/Cirrhosis" is based on the default assumption when no cirrhosis is reported. However, the presence of multifocal HCC, especially in a diffuse pattern, often raises suspicion for underlying cirrhosis, but the report itself does not state cirrhosis. Since the task rules specify that the status must be "Fibrosis/Cirrhosis" only if the report says "cirrhosis" or features of it, and it does not, and it does not say "normal liver" either, the previous extraction "NoFibrosis/Cirrhosis" remains appropriate as the default when cirrhosis is not explicitly mentioned.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=415 / Out=187
+Cost: $0.000195

@@ -1,0 +1,64 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Shrunken, nodular morphologically cirrhotic liver. No arterial phase enhancement are portal venous phase washout to suggest hepatocellular carcinoma identified. 
+
+Innumerable gallstones within an otherwise normal gallbladder.
+
+Again seen are clustered, tubular cystic changes involving the porta hepatis extending along the anterior and anteroinferior margins of the liver. On coronal images, there is clearly a tubular, branching morphology for example series 4001 image 16. The abnormality involves the porta hepatis and periphery of the liver and does not extend into the liver parenchyma arguing against biliary ductal dilatation. Moreover on coronal images, the prominent 10 mm common bile duct is extends into the porta hepatis and becomes inseparable from the abnormality but it does not appear to be contiguous with that. There is been no progression since the prior study 10/9/2022.
+
+As described above, no intrahepatic biliary ductal dilatation noted and the common bile duct measures 1.0 cm with smooth tapering to the level of the ampulla, similar to prior study. 
+
+Hepatic vasculature: Patent. Large portosystemic collaterals as before.
+
+Pancreas: Innumerable small cystic lesions in the pancreas measuring up to 7 mm without soft tissue/nodular enhancement. No main pancreatic ductal dilatation.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral simple renal cysts.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  No significant change since 10/9/22.
+2. No hepatocellular carcinoma identified.
+3. Multiple pancreatic cysts likely sequelae of prior pancreatitis versus sidebranch IPMN. Consider 2 year MRI pancreatic cyst follow-up for further evaluation.
+ 4. Extensive dilated tubular structures in the porta hepatis and along the anterior and inferior margins of the liver are similar in appearance to the prior study as well. The anatomic distribution is consistent with the superficial lymphatic drainage of the liver suggesting hepatic lymphatic obstruction or less likely a lymphatic malformation.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Shrunken, nodular morphologically cirrhotic liver," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=634 / Out=62
+Cost: $0.000204

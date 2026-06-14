@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of intrahepatic mass, biliary ductal dilation, or fatty infiltration. There is a tiny cyst in the left hepatic lobe. There are several tiny arterial enhancing foci without a correlate on any other sequences, likely perfusional in etiology. The hepatic vasculature is patent. 
+
+The gallbladder, spleen and adrenal glands are unremarkable. Incidentally noted is pancreatic divisum. Multiple cystic lesions are again seen throughout the pancreas, possibly representing prior episodes of pancreatitis or multiple sidebranch IMPN's. Multiple bilateral renal cysts are again noted, some in the left kidney are hemorrhagic. 
+
+There is no upper abdominal ascites or lymphadenopathy.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs, etc.). It states there is no evidence of intrahepatic mass, biliary ductal dilation, or fatty infiltration, and notes a tiny cyst and some arterial enhancing foci likely perfusional. The hepatic vasculature is patent. These findings do not indicate cirrhosis. The liver is described as having no mass, no ductal dilation, and no fatty infiltration, which suggests a generally normal liver parenchyma without fibrosis or cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=338 / Out=134
+Cost: $0.000151

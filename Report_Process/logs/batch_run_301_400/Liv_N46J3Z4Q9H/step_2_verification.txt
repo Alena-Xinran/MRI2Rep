@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic morphology with evidence of portal hypertension including mild splenomegaly, and upper abdominal varices.
+
+The large partially treated hepatocellular carcinoma within the central aspect of segments VII/VIII with tumor thrombus extending into the IVC is not significantly changed in size measuring 8.4 x 8.5 cm (image 36, series 16). Peripheral ductal dilatation to the mass is again noted.
+
+Multiple arterially enhancing masses within the segment VII/VIII HCC are unchanged in size as follows (all measured on series 10):
+-Dominant 4.2 x 2.7 cm HCC (image 37)
+-Adjacent 1.5 x 2.8 cm HCC, just medial to the dominant residual tumor (image 42)
+-A 1.7 x 1.6 cm HCC along the posterior aspect of the neoplasm (image 44)
+
+No new or increasing enhancing components are seen. There are no new separate HCC.  Areas of cystic necrosis within the right hepatic lobe are unchanged, presumably posttreatment from prior chemoembolization.
+
+There is a stable amount of tumor thrombus within the IVC (near occlusive) and extends cranially into the inferior cavoatrial junction and likely the right atrium. A small amount of tumor thrombus is again noted within branches of the middle hepatic vein. The left hepatic vein is patent. The portal veins are markedly attenuated from the large HCC, although appear patent.
+Multiple enlarged periportal lymph nodes are not significantly changed with the exception of decrease in the largest portacaval node now 1.4 cm, previously 1.8 cm (image 58, series 9). No ascites is seen.
+
+The gallbladder, pancreas, left adrenal gland, and kidneys are unremarkable. A tiny right adrenal myelolipoma is noted.
+No aggressive osseous lesion is seen.No significant change in partially treated HCC within the central right hepatic lobe with associated tumor thrombus in the IVC, likely extending into the right atrium. No new HCC.
+
+Slight decrease in size of a portocaval lymph node.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver is cirrhotic morphology", which directly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=627 / Out=51
+Cost: $0.000197

@@ -1,0 +1,29 @@
+{
+  "id": "Liv_EYC5DWKWPT",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"RIM_ATYP | R_POST | 1\", \"RIM_ATYP | R_POST | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0013965279999999997,
+    "timestamp": "2026-02-08 02:18:47",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The image quality is degraded due to patient's motion.  
+
+Hepatobiliary system: Redemonstration of cirrhotic liver morphology with sequela of portal hypertension as evidenced by portosystemic shunts.  Again noted are ablation cavities measuring 2.7 cm in segment 4A and 2.5 cm in segment 6 (series 12,001, images 21 and 31) without arterial enhancement or washout, consistent with LR-TR non viable. No new suspicious hepatic observation. Cholelithiasis without evidence of acute cholecystitis. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unchanged 1 cm cyst at the pancreas head neck junction without main duct dilation could be a sidebranch IPMN versus sequela prior pancreatitis. This could be followed on subsequent imaging for stability.
+
+Spleen: Unremarkable. Splenic artery aneurysm measuring 1.9 cm this is unchanged.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Small amount of ascites.1.  No evidence for HCC.
+2.  Cirrhotic liver morphology with LR-TR nonviable treatment cavities.
+
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic liver morphology" and later reiterates "Cirrhotic liver morphology" in the impression. This directly meets the criteria for keywords indicating fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=506 / Out=58
+Cost: $0.000134

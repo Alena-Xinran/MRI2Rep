@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic liver morphology with evidence of portal hypertension as evidenced by stable splenomegaly measuring up to 16.8 cm. No HCC.. Status post cholecystectomy with stable prominent cystic duct remnant in the gallbladder fossa. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Stable splenomegaly measuring up to 16.8 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Stable 1.3 cm portocaval lymph node (image 145, series 9).
+
+Peritoneum: No ascites. Minimal stranding in fat surrounding the celiac axis is unchanged (image 20, series 15) and possibly minimally increased since 2016. Stable nonspecific right periaortic cystic lesion (image 19, series 5).No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions evidence of portal hypertension with splenomegaly, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=427 / Out=46
+Cost: $0.000107

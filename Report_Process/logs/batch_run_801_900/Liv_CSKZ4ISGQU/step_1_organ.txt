@@ -1,0 +1,36 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with portal hypertension as manifested by splenomegaly 20.3 cm. No findings of arterial enhancing lesion with washout to suggest HCC.    Stable subcentimeter gallbladder polyps versus gallbladder fold. The pancreas is atrophic with a cyst in the pancreatic tail that could be from prior pancreatitis or a sidebranch IPMN. There are simple renal cysts and stable possible hemorrhagic cyst along the right midpole. The adrenal glands are unremarkable.    There is no bowel obstruction, adenopathy, or free fluid.    No aggressive osseous lesions are identified.Limited MRI however no findings to suggest HCC.    Patient body habitus may make it difficult to obtain high quality MRI images. Because of this, would  consider utilizing CT abdomen without and with IV contrast for future HCC surveillance.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions "portal hypertension" and "splenomegaly," which are consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=392 / Out=48
+Cost: $0.000098

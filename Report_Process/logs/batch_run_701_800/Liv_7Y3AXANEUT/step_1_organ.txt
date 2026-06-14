@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. The hepatic vasculature is patent.
+
+-4.4 x 2.6 cm segment VIII ablation cavity is unchanged, without residual or recurrent disease (image 61r, series 13).
+
+-A 2.1 x 1.4 cm cm segment IVa ablation cavity is unchanged without residual or recurrent disease (image 61, series 13).
+
+-0.6 cm subcapsular nodule-like arterial phase hyperenhancement in segment VI is unchanged, without washout or pseudocapsule (image 45, series 10) (LI-RADS 3).
+
+- 0.6 cm nodule-like arterial phase hyperenhancement  in segment III without washout or pseudocapsule (image 57, series 10) (LI-RADS 3) is not seen on the prior study but is unchanged compared to the exam from 11/19/2019.
+
+ Few additional subcentimeter arterial enhancing foci are stable and also nonspecific.
+
+The spleen, gallbladder, pancreas, adrenal glands and kidneys are unremarkable other than right renal cortical scarring.
+
+There is no ascites or abdominal adenopathy. No aggressive osseous abnormality.No HCC
+Stable ablation cavities. Additional nonspecific arterial enhancing foci as described (LI-RADS 3), amenable to ongoing follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for classification as Fibrosis/Cirrhosis based on the keyword "cirrhotic."  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=500 / Out=50
+Cost: $0.000129

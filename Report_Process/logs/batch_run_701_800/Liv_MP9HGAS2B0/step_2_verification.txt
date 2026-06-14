@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Small right pleural effusion and atelectatic changes persist.
+
+On series 12, image 28, a 6.8 x 4.9 cm segment 7/8 ablation cavity is not significant changed in size. However at the posterior aspect of the cavity (series 9, image 23) there is further enlargement of a 1.0 cm nodular arterial enhancement, most consistent with recurrent disease. Punctate region of arterial enhancement is also seen more medially along the cavity on image 26.
+
+On series 12, image 36, a 5.8 x 5.6 segment 6/7 ablation cavity demonstrates no definite findings of recurrent disease. 
+
+On series 9, image 40 in segment IVb there are 1 cm and 8cm arterial enhancing lesions with washout and pseudocapsule consistent with HCC, LIRADS 5.
+
+On series 9 image 41 there is a 9 mm arterially enhancing lesion that displays slightly increased T2 signal and low signal on precontrast T1-weighted images also suspicious for HCC. No washout or pseudocapsule. LIRADS 4.
+
+On series 9, image 64 at there is a 1 cm arterial enhancing lesion in segment 6 with washout and pseudocapsule, LIRADS 5.
+
+There are several other subcentimeter tail enhancing lesions, without washout or pseudocapsule, largest on series 9, images 22, 41, and 58 (LIRADS 3)
+
+The pancreas, spleen, adrenal glands and right kidney are unremarkable. Cholelithiasis and left renal atrophy are again noted. There is no upper abdominal adenopathy. Trace perihepatic fluid is present. No aggressive osseous lesions are identified. There is atheromatous disease in the aorta. There is possible occlusion of the ostia of the celiac axis which is poorly seen. Portal venous system remains patent.Recurrent multifocal HCC predominantly involving the right lobe and medial segment including recurrent tumor around the segment 7/8 ablation cavity.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension findings, etc.). It also does not explicitly state "normal liver" but focuses on describing HCC lesions, ablation cavities, and other findings without commenting on underlying liver parenchymal disease. Since the absence of a mention of cirrhosis does not equate to a statement of normal liver, and the previously extracted status was "NoFibrosis/Cirrhosis", this remains consistent with the report's lack of cirrhosis description. However, the report does not confirm a normal liver either, so the status is based on the absence of cirrhosis mention.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=632 / Out=157
+Cost: $0.000243

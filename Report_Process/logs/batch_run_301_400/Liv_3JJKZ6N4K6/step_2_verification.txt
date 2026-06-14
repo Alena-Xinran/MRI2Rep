@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial right hepatectomy and cholecystectomy. There are no focal hepatic lesions to suggest recurrent hepatocellular carcinoma. There is no intra or extrahepatic biliary duct dilatation. The hepatic vasculature is patent.
+
+The pancreas, spleen, and adrenal glands are unremarkable.
+
+The right kidney lower pole demonstrates a stable 0.6 cm angiomyolipoma. The left kidney is unremarkable.
+
+There is no abdominal lymphadenopathy, ascites, or aggressive osseous lesions.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension, etc.). It only notes the patient's surgical history (partial right hepatectomy and cholecystectomy) and states there are no focal hepatic lesions to suggest recurrent hepatocellular carcinoma, with patent hepatic vasculature. The liver parenchyma itself is not explicitly described as normal, but there is no indication of fibrosis or cirrhosis. Since the report does not state cirrhosis or its features, and the previously extracted status is "NoFibrosis/Cirrhosis", this matches the requirement that if the report does not say cirrhosis, the status should be "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=311 / Out=171
+Cost: $0.000159

@@ -1,0 +1,30 @@
+{
+  "id": "Liv_CFK4VUY26L",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "HEM",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "HEM",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"HEM | R_ANT | 1\", \"HEM | R_ANT | 1\"]": 2,
+      "[\"CYST | R_ANT | 1\", \"HEM | R_ANT | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00121702,
+    "timestamp": "2026-02-07 23:06:07",
+    "model": "deepseek/deepseek-chat"
+  }
+}

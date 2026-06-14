@@ -1,0 +1,103 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Patient is status post partial left hepatectomy. 
+
+There is interval decrease in size of a 1.4 x 1.1 cm segment 6/7 ablation cavity, previously 1.5 x 1.4 cm. There is stable delayed rim enhancement without nodularity to suggest residual disease. There is stable mild intrahepatic biliary ductal dilatation distal to the ablation cavity.
+
+There are few scattered subcentimeter arterially enhancing foci, which are less conspicuous and without washout or pseudocapsule.  Hepatic vasculature is patent.
+
+The spleen, adrenal glands, and pancreas are unremarkable. Bilateral renal cysts, some of which are hemorrhagic, are noted.
+
+Stable nonspecific mildly prominent upper abdominal lymph nodes, for example a 1.0 cm gastrohepatic node (image 40, series 13), unchanged. There is no ascites.No evidence of HCC.
+
+Decreased conspicuity of few nonspecific subcentimeter arterially enhancing foci (LI-RADS 3), which are amenable to follow-up.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: Patient is status post partial left hepatectomy. -> Reasoning: Background surgical history, no focal liver lesion described.  
+Sentence 2: There is interval decrease in size of a 1.4 x 1.1 cm segment 6/7 ablation cavity, previously 1.5 x 1.4 cm. -> Reasoning: Found lesion. Location: segment 6/7 maps to R_JUNCTION. Features: ablation cavity with stable delayed rim enhancement (treated lesion). Maps to RIM_ATYP. Quantity: 1.  
+Sentence 3: There is stable delayed rim enhancement without nodularity to suggest residual disease. -> Reasoning: Continuation of Sentence 2's finding, not a new distinct lesion.  
+Sentence 4: There is stable mild intrahepatic biliary ductal dilatation distal to the ablation cavity. -> Reasoning: Describes ductal dilatation, not a focal parenchymal lesion.  
+Sentence 5: There are few scattered subcentimeter arterially enhancing foci, which are less conspicuous and without washout or pseudocapsule. -> Reasoning: Found lesions. Features: arterial enhancement without washout. Maps to APHE_NoWO. Location: scattered (not specified) maps to DIFFUSE. Quantity: "few" implies multiple.  
+Sentence 6: Hepatic vasculature is patent. -> Reasoning: Background vascular status, no lesion.  
+Sentence 7: The spleen, adrenal glands, and pancreas are unremarkable. -> Reasoning: Other organs, no liver lesion.  
+Sentence 8: Bilateral renal cysts, some of which are hemorrhagic, are noted. -> Reasoning: Kidney findings, explicitly not liver. Ignore.  
+Sentence 9: Stable nonspecific mildly prominent upper abdominal lymph nodes, for example a 1.0 cm gastrohepatic node (image 40, series 13), unchanged. -> Reasoning: Lymph node finding, not a liver parenchymal lesion.  
+Sentence 10: There is no ascites.No evidence of HCC. -> Reasoning: Negative statement, no lesion.  
+Sentence 11: Decreased conspicuity of few nonspecific subcentimeter arterially enhancing foci (LI-RADS 3), which are amenable to follow-up. -> Reasoning: Reiterates the findings from Sentence 5 (same "few...arterially enhancing foci"), not a new distinct lesion.  
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | R_JUNCTION | 1  
+TUMOR_RECORD: APHE_NoWO | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_JUNCTION | 1  
+APHE_NoWO | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1055 / Out=543
+Cost: $0.000265

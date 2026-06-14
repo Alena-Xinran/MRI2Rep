@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multiple sequences are degraded by motion.
+
+Trace bilateral pleural effusions are noted.
+
+Liver is cirrhotic. There are no arterially enhancing lesions to suggest hepatocellular carcinoma. A 4.0 x 2.6 cm segment 7 ablation cavity is noted on image 14, series 3. Contiguous with this, more superiorly, is a 5.8 x 4.2 cm fluid and gas containing abscess cavity which is not significantly changed. Distal end of the pigtail drainage catheter is difficult to visualize however appears to terminate within the cavity. 
+
+There is suggestion of new nonocclusive filling defect at the portosplenic confluence (series 19, image 54). Ascites is slightly increased. The spleen is mildly enlarged.
+
+The patient is status post Whipple procedure. There is stable appearance of the atrophied remnant pancreas, with pancreatic ductal dilatation. The adrenal glands and kidneys are unremarkable. There is no adenopathy.Limited exam
+1. Redemonstration of 5.8 cm right hepatic lobe abscess with drainage catheter terminating in the cavity.
+2. Suggestion of new small nonocclusive thrombus at the portosplenic confluence.
+3. No evidence of HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic," which directly meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=476 / Out=41
+Cost: $0.000118

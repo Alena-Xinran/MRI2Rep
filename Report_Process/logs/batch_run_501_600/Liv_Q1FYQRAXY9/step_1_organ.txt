@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver is again seen with no findings of HCC. A few peripheral wedge-shaped regions of arterial enhancement are seen without washout likely reflecting perfusion anomalies a 8 mm hypoenhancing nodule seen in segment 3 which is nonspecific. Portal venous system and hepatic veins remain patent. Arterial anatomy is conventional Spleen is mildly enlarged measuring 13 cm likely secondary to portal hypertension.
+
+Gallstones are seen without secondary findings of acute cholecystitis or choledocholithiasis. No findings of biliary obstruction. The pancreas, adrenal glands, and kidneys are unremarkable. No adenopathy or ascites.No findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver is again seen", which directly indicates cirrhosis. Additionally, there is mention of "spleen is mildly enlarged... likely secondary to portal hypertension," which is often associated with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=357 / Out=60
+Cost: $0.000093

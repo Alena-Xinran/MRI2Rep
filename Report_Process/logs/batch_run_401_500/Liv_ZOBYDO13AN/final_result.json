@@ -1,0 +1,30 @@
+{
+  "id": "Liv_ZOBYDO13AN",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "HEM",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"HEM | R_DIFFUSE | 1\"]": 2,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"HEM | R_JUNCTION | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00119798,
+    "timestamp": "2026-02-07 22:32:06",
+    "model": "deepseek/deepseek-chat"
+  }
+}

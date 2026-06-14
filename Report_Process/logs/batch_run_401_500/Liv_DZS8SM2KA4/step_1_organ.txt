@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Postcontrast sequences are slightly limited due to lack of fat saturation. Liver demonstrates cirrhotic morphology with heterogenous enhancement compatible with hepatic fibrosis. Sequela of portal hypertension are again noted, including gastrorenal shunt. There is no finding suspicious for HCC. The hepatic vasculature is patent.
+
+There is cholelithiasis. Small bilateral renal cysts are unchanged. The spleen, adrenal glands and pancreas are within normal limits.
+
+There is no ascites or adenopathy.Cirrhotic liver without evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "cirrhotic morphology" and "hepatic fibrosis," which directly indicate chronic liver disease with fibrosis/cirrhosis. Additionally, it notes sequelae of portal hypertension (gastrorenal shunt) and concludes with "Cirrhotic liver," confirming the diagnosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=329 / Out=72
+Cost: $0.000090

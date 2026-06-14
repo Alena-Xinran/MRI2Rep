@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post interval cholecystectomy and resection of previously seen segment 5 hepatocellular carcinoma. There is a small amount of fluid along the resection margin. No residual or recurrent disease is identified.
+
+Postsurgical changes from prior segment 8 wedge resection are redemonstrated, without findings of recurrent disease.
+
+There are no new liver lesions with imaging features suspicious for HCC. Subcentimeter liver cysts are redemonstrated. There is no intra or extrahepatic biliary duct dilatation. Hepatic vasculature is patent. 
+
+The pancreas, spleen, adrenal glands and kidneys unremarkable except for tiny renal cysts. There is no abdominal adenopathy or ascitesInterval resection of segment 5 HCC without residual/recurrent disease. No new lesions suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes postsurgical changes and the absence of recurrent disease, but does not comment on the liver parenchyma's texture or surface characteristics. The liver is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the lack of any description suggesting chronic parenchymal disease leads to the classification of "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=379 / Out=149
+Cost: $0.000136

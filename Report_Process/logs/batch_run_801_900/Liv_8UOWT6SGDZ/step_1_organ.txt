@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: No evidence for hepatoma. Hepatic vasculature is patent. Subcentimeter liver cysts are noted on images 21 and 32 series 3.
+
+Gallbladder and biliary tree: Cholelithiasis is noted. There is no biliary ductal dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable, except for subcentimeter bilateral renal cysts and atrophy of the right renal lower pole.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver without keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It notes subcentimeter liver cysts but does not indicate any abnormality in the liver parenchyma suggestive of fibrosis or cirrhosis. Other organs like the pancreas and spleen are described as "unremarkable", but the liver itself is not explicitly labeled as "unremarkable", "normal", or "smooth". However, the absence of any fibrosis/cirrhosis indicators and the lack of ascites or other stigmata of chronic liver disease support a classification of no fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=360 / Out=159
+Cost: $0.000135

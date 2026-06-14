@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates imaging features compatible with cirrhosis. Portal hypertension is present as evidenced by gastroesophageal varices. Multifocal HCC is redemonstrated. Since last exam, some of the lesions display interval treatment response as detailed below with others displaying persistent arterial enhancement, washout, and pseudocapsule consistent with residual viable multifocal HCC (LR 5). Lesions are predominantly measured on series 14/15 as follows:    Lesion displaying full/partial treatment response:  -Dominant liver dome segment 8 mass measures 4.4 cm and appears avascular consistent with interval treatment response (series 14 image 27). This had appropriate lipiodol uptake on post angiographic images.  -More inferiorly dominant segment VIII/V 5.4 cm mass with a few adjacent viable subcentimeter satellite nodules displays some avascularity along the posterior periphery consistent with partial treatment response but remains largely viable with a 3.5 cm region more anteriorly displaying arterial enhancement and washout (series 14, image 34 and series 15 image 34). This had partial lipiodol uptake on post angiographic images.  -Dominant segment VI mass, is now avascular measuring 3.7 cm (previously 5.1 cm) (image 63).  This had appropriately lipiodol uptake on post angiographic images.      Lesions that remain fully viable and minimally changed from prior:  -Stable segment IVa mass measuring 1.9 cm (image 34)  -Stable segment VII mass measuring 1.7 cm and segment 4A lesion measuring 1.8 cm (image 29)  -Stable Segment VII mass measuring 3.5 cm (image 38).     -1.2 cm in segment III without washout or pseudocapsule is stable (LR-3).    The hepatic vasculature is patent. There are small-moderate ascites.     The spleen, gallbladder, pancreas, kidneys, and adrenal glands are unremarkable with the exception of cholelithiasis and small renal cysts. Prominent periportal cardiophrenic, and  retrocrural lymph nodes nodes are without significant change and nonspecific Chronic L1 compression fracture is unchanged.Multifocal HCC with 2 of the dominant right hepatic lesions displaying appropriate treatment response and now appearing fully avascular. However several sites of viable HCC remain as detailed above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates imaging features compatible with cirrhosis" and also mentions "portal hypertension," which is a common complication of cirrhosis. These findings meet the criteria for classification as "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=724 / Out=60
+Cost: $0.000196

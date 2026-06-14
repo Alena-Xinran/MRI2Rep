@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Minimal intrahepatic biliary ductal dilatation with several regions of ductal caliber change are stable and consistent with history of primary sclerosing cholangitis. The CBD is normal in caliber. No suspicious liver mass is identified. Subcentimeter hepatic hemangiomas and cysts are again noted.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable.
+
+No abdominal lymphadenopathy or ascites is seen.Stable examination with no evidence of HCC or cholangiocarcinoma.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension, etc.). It describes findings related to primary sclerosing cholangitis (intrahepatic biliary ductal dilatation, ductal caliber changes) and notes hemangiomas and cysts, but these are not indicative of cirrhosis. The liver is not explicitly described as "normal," but the absence of cirrhosis-related terminology and the lack of suspicious mass or other cirrhotic features supports the previous extraction of "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=299 / Out=142
+Cost: $0.000143

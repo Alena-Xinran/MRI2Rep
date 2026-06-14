@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. Redemonstration of a stable segment VIII/V ablation cavity measuring 2.9 x 1.7 cm with no evidence of residual or recurrent disease (series 13,001, image 29). A stable 0.6 cm arterial enhancing observation at segment VIII without correlate on T2 or portal venous/delay postcontrast sequences is again noted (series 11,001, image 29). There is no new hepatic lesion concerning for hepatocellular carcinoma.
+
+The hepatic vasculature is patent.
+
+Patient is status post cholecystectomy. There is no biliary ductal dilation.
+
+Stable 0.5 cm cystic lesion in the tail of the pancreas (series 2001, image 19) without pancreatic duct dilation, likely representing a sidebranch IPMN or sequela of prior pancreatitis.
+
+The spleen, adrenal glands and kidneys are unremarkable except for stable minimal nodularity of the left adrenal gland and bilateral renal cysts.
+
+There is no abdominal lymphadenopathy or ascites.Stable segment VIII/V ablation cavity without evidence of recurrent disease. LI-TR non viable.
+
+No evidence of HCC.
+
+Stable segment VIII LI-RADS 3 observation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates the presence of cirrhosis. This satisfies the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=469 / Out=55
+Cost: $0.000154

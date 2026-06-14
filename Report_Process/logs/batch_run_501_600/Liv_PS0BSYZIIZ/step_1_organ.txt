@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multiple images, particularly the postcontrast phases, are significantly limited due to motion.
+
+The liver demonstrates imaging features consistent with cirrhosis. Stigmata of portal hypertension are redemonstrated as evidenced by significant portal vein dilatation with a patent paraumbilical vein, extensive varices, trace ascites and marked splenomegaly. No liver masses are identified. 
+
+Again seen is multifocal nonocclusive splenic vein thrombus, which is without significant change. The hepatic vasculature is patent.
+
+The gallbladder is surgically absent. The pancreas, kidneys, and adrenal glands are unremarkable except for a tiny right renal cyst.
+
+No abdominal adenopathy.Significantly limited study due to motion. 
+1.  No significant change of nonocclusive splenic vein thrombus.
+2.  Cirrhosis with portal hypertension. No evidence of HCC. Given limitations of the exam, consider a shorter interval follow up study (CT or MRI).
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "imaging features consistent with cirrhosis" and details stigmata of portal hypertension, including portal vein dilatation, varices, ascites, and splenomegaly, which are indicative of chronic liver disease and fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=67
+Cost: $0.000113

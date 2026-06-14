@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Status post right hemihepatectomy with compensatory hypertrophy of the left sided liver remnant, there is no  hepatocellular carcinoma. The hepatic vasculature is patent. There is no intrahepatic bile duct dilatation.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable.
+
+No abdominal lymphadenopathy.No HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a post-surgical state with compensatory hypertrophy of the left liver remnant and explicitly states "there is no hepatocellular carcinoma." It does not mention any features of cirrhosis, fibrosis, or abnormal liver parenchymal texture. The hepatic vasculature is patent, and there is no bile duct dilatation. Since the report does not indicate cirrhosis and the liver findings are related to post-resection anatomy rather than chronic disease, the appropriate status is "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=266 / Out=116
+Cost: $0.000123

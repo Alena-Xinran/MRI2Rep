@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Patient is status post liver transplant. A few hepatic cysts are noted. There is mild intrahepatic ductal dilatation, slightly more prominent than on prior examination, with mismatch between the donor and recipient bile ducts again noted. There is a 0.9 cm arterial enhancing observation in hepatic segment 8 (8-36), previously 0.7 cm (September 26, 2022), measuring 1.0 cm on examination June 30, 2022. Differences in measured size likely reflects earlier contrast timing on the September 26, 2022 exam compared to this examination and the exam June 30, 2022. Lesion demonstrates no washout or pseudocapsule (LR 3).
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: The patient is status post splenectomy.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Small hiatal hernia. No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Stable segment 8 LR 3 observation when differences in contrast timing are considered.
+
+No lesions meeting imaging criteria for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a post-liver transplant liver with hepatic cysts, mild intrahepatic ductal dilatation, and a segment 8 observation, but does not mention cirrhosis or any features of cirrhosis (such as nodular liver surface, atrophy/hypertrophy pattern, portal hypertension signs, etc.). The liver is not described as normal, but the absence of cirrhosis-related findings means the status should remain "NoFibrosis/Cirrhosis". The previous extraction is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=451 / Out=115
+Cost: $0.000175

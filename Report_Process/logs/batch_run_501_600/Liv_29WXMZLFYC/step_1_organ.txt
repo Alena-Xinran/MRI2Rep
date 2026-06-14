@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Interval decreased size of segment 4A ablation cavity measuring 3.1 x 2.7 cm (previously 5.6 x 4.2 cm, 14001:28). There is no enhancement associated with the ablation cavity. No evidence of new HCC.
+
+No biliary dilatation. Cholelithiasis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Pancreatic cystic lesions which may represent sequela of prior pancreatitis or side branch IPMNs. Main duct is nondilated.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left renal cyst. The right kidney is unremarkable.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Decreased size of segment 4 ablation cavity without evidence of residual/recurrent disease. No evidence of new HCC.
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described, but findings are focused on a prior ablation cavity and absence of new HCC. There is no description of the liver surface or texture to suggest fibrosis or cirrhosis. The spleen and other organs are noted as unremarkable, but the liver is not explicitly stated as normal, smooth, or unremarkable. However, based on the criteria, since there are no positive indicators of fibrosis/cirrhosis, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=431 / Out=163
+Cost: $0.000157

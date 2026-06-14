@@ -1,0 +1,63 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with sequela of portal hypertension, including portosystemic collaterals, stable splenomegaly and large volume ascites. No biliary ductal dilatation is identified. There is Stable nonocclusive thrombus centered at the portal confluence/proximal main portal vein (image 51, series 13001). 
+
+There has been interval worsening of multifocal hepatocellular carcinoma, for instance:
+
+-A 3.7 cm confluence/conglomerate of arterially enhancing masses in segment 2 (image 20, series 11,001) demonstrate washout and pseudocapsule compatible with LI-RADS 5, previously appeared as a less confluent cluster of subcentimeter lesions.
+
+-A 2.3 cm arterially enhancing mass in segment IVb (image 36, series 11,001) demonstrates washout and pseudocapsule, compatible with LI-RADS 5, previously measured 1.8 cm.
+
+-A 2.2 cm subcapsular arterially enhancing mass in segment IVb (image 45, series 11,001) demonstrates washout and pseudocapsule compatible with LI-RADS 5, previously measured 1.4 cm.
+
+-A 1.6 cm arterially enhancing mass in the right hepatic dome in segment 8 (image 13, series 11,001) demonstrates washout and pseudocapsule compatible with LI-RADS 5, new since prior.
+
+-A 3 cm arterially enhancing mass in segment 8 (image 30, series 11,001), demonstrates washout and pseudocapsule compatible with LI-RADS 5, increased since prior (was previously 2.3 cm).
+
+-A 2.5 cm arterially enhancing mass in segment 8 (image 17, series 11,001), demonstrates washout and pseudocapsule compatible with LI-RADS 5, increased since prior (was previously 2.3 cm).
+
+-A 5.6 cm conglomerate of arterially enhancing masses in segment 7 (image 19, series 11,001), demonstrates washout and pseudocapsule compatible with LI-RADS 5, increased since prior (was previously 2.5 cm).
+
+Multiple treatment cavities have decreased in size without evidence of recurrent disease, for instance a 3.5 x 3.3 cm cavity in segment 2 (image 25, series 13,001) was previously 3.7 x 3.6 cm, a 4.9 x 3.2 cm cavity in segment 6 (image 35, series 13,001) was previously 5 x 3.4 cm, a 2.3 x 1.1 cm hemorrhagic ablation cavity in segment 5 (image 40, series 13,001) was previously 2.4 x 1.4 cm. A subcapsular rim-enhancing 2.2 cm mass in hepatic segment IVb (image 44, series 11,001) had features of HCC in the prior study and therefore may have auto infarcted.
+
+The gallbladder, pancreas, adrenal glands and kidneys are unremarkable, except for bilateral renal cysts.
+
+No abdominal lymphadenopathy is identified.Worsening multifocal HCC.
+
+Stable nonocclusive thrombus centered at the portal confluence.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic in morphology" and describes sequelae of portal hypertension, confirming the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=890 / Out=63
+Cost: $0.000276

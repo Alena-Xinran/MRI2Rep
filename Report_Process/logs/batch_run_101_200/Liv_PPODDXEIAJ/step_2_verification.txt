@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Status post liver transplant. No suspicious hepatic lesion. No biliary dilatation.
+
+Hepatic vasculature: Patent. Focal dilatations of the hepatic artery are again seen, measuring up to 0.9 cm. There is a portosystemic shunt from the SMV to the IVC.
+
+Pancreas: Tiny stable pancreatic cystic foci.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a status post liver transplant with no suspicious hepatic lesion and no mention of cirrhosis or features of cirrhosis (such as nodularity, contour irregularity, or signs of portal hypertension aside from the noted portosystemic shunt, which is a known post-transplant finding). The liver parenchyma itself is not described as abnormal in texture or morphology indicative of fibrosis or cirrhosis. Therefore, the appropriate status is "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=322 / Out=112
+Cost: $0.000137

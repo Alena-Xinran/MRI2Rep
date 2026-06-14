@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post partial hepatectomy. There has been interval enlargement of multiple T2 hyperintense, arterially enhancing lesions within the liver, some of which display washout. For example a prior conglomerate lesion now measures 3.8 cm, previously measured 3.4 cm (series 5, image 26). A prior 1.2 cm lesion now measures 2.7 cm (series 5, image 31). Previously identified 0.9 cm lesion in the right hepatic lobe now measures 1.7 cm (series 5, image 24). A prior 1.4 cm lesion now measures 2.4 cm (series 5, image 21).  Multiple other lesions also have increased in size. No new lesions are identified.
+
+The portal venous system remains patent. An elongated T2 hyperintense focus is again noted near the dome, unchanged.
+
+The adrenal glands, kidneys, pancreas, and spleen are unremarkable with the exception of a stable T1 signal artifact within the anterior spleen.
+
+Susceptibility artifact from prior surgical changes are seen in the anterior abdomen. There is no abdominopelvic lymphadenopathy or ascites.
+
+No aggressive osseous lesions are identified.Continued enlargement of multifocal HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, morphologic changes, portal hypertension findings, etc.). The liver findings described are related to post-surgical changes and enlarging lesions consistent with HCC, but there is no statement indicating cirrhosis. The absence of mention of cirrhosis or its features implies the liver parenchyma is not described as cirrhotic. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=462 / Out=115
+Cost: $0.000178

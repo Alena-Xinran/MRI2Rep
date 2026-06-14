@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates a cirrhotic morphology. Ablation cavities are as follows:
+
+- Segment I cavity measuring 3.5 x 2.2 cm, without evidence of residual or recurrent disease.
+- Segment V/VIII cavity measuring 2.9 x 1.6 cm, without evidence of residual or recurrent disease.
+
+No new hepatic lesion is identified. Main portal vein thrombus is now nearly occlusive and extends into the bilateral portal veins and SMV.
+
+Cholelithiasis is noted. The spleen is enlarged. Multiple cystic lesions are again noted within the pancreas, measuring up to 1.1 cm in the pancreatic head (image 15, series 4), likely representing sidebranch IPMNs versus sequelae of prior pancreatitis. Bilateral renal cysts are noted.
+
+There is trace perihepatic ascites. No abdominal lymphadenopathy is seen.No evidence of HCC. Increased portal vein/SMV thrombus.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates a cirrhotic morphology," which directly indicates cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=414 / Out=34
+Cost: $0.000098

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is again cirrhotic in morphology with large ascites, and splenomegaly compatible with portal hypertension. There is a 2.1 x 2.3 cm ablation cavity in segment VII/VIII with probable subtraction artifact within the ablation cavity due to respiratory motion, amenable to follow up.
+
+The previously identified 1.4 cm (series 11, image 43; previously 1.4 cm on 5/2/2014) and 1.7 cm (series 11, image 51; previously 1.7 cm on 5/2/2014) arterially enhancing nodules are unchanged in size. There is questionable washout on the later phases. There is no T2 correlate of these lesions which demonstrate mild hyperintense T1 signal.
+
+The kidneys, pancreas and adrenal glands are unremarkable aside from stable 1.5 cm left adrenal nodule and a small left renal cyst. The patient is status post cholecystectomy. There is peripheral low signal along the capsule of the posterior spleen which is nonspecific.Status post ablation of the segment VII/VIII HCC without definite evidence of recurrence.
+
+No significant change in the previously described indeterminate nodules.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is again cirrhotic in morphology," which directly indicates cirrhosis. Additionally, it mentions "large ascites, and splenomegaly compatible with portal hypertension," which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=470 / Out=63
+Cost: $0.000126

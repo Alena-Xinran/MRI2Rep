@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology, with redemonstrated sequale of portal hypertension, including splenomegaly (18.6cm), moderate volume ascites, and gastrosplenic varices. The patient is status post radioembolization and interval TACE for known HCC. There is a 5.6 x 5.7 cm segment treatment cavity, which demonstrates an area of nodular enhancement along the anterolateral cavity wall (image 34, series 13), measuring approximately 2.2 cm and posteromedial wall (image 35, series 14) measuring approximately 0.7 cm. The remaining cavity appears devascularized with thin peripheral enhancement, LR TR equivocal given prior radio embolization. Arterial enhancement in segment 2 and 3 is similar compared to prior exam.
+
+Biliary dilatation in the left hepatic lobe has improved. There is no common bile ductal dilation. There is a small gallstone, the gallbladder is otherwise unremarkable.
+
+The portal vein is patent. There are 1.5 and 2.5 cm splenic artery aneurysms in the mid and distal segments (respectively), seen on recent angiogram.
+
+The pancreas, kidneys, and adrenal glands are unremarkable except for small renal cysts. Moderate of amount of ascites is noted. 0.8 cm T1 hyperintense peritoneal nodule could be from prior paracentesis (image 67 series 11).
+
+The visualized bowel is unremarkable. No upper abdominal adenopathy.HCC status post interval TACE with residual enhancing nodularity, LR TR equivocal given prior radio embolization. 
+
+No new lesions suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, there are mentions of sequelae of portal hypertension (splenomegaly, ascites, varices), further supporting chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=572 / Out=69
+Cost: $0.000157

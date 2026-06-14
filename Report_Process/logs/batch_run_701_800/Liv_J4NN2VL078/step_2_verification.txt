@@ -1,0 +1,44 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are no hepatic lesions meeting imaging criteria for HCC. Scattered subcentimeter foci of arterial enhancement without washout or pseudocapsule appearance (i.e. series 14, image 35), are likely perfusional. Hepatic vasculature is patent.
+
+There is cholelithiasis and gallbladder fundal adenomyomatosis. The spleen, pancreas, right adrenal gland and bilateral kidneys are unremarkable except for stable tiny renal cysts. There is stable nodular thickening of the left adrenal gland.
+
+There is no abdominal adenopathy or ascites.No HCC.
+There are some nodular arterial phase hyperenhancement measuring less than 1 cm without washout or pseudocapsule appearance.LI-RADS 3
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or portal hypertension findings). It describes hepatic lesions and perfusion findings but does not indicate an abnormal liver parenchyma consistent with cirrhosis. Therefore, the liver should be considered normal in terms of fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=349 / Out=93
+Cost: $0.000137

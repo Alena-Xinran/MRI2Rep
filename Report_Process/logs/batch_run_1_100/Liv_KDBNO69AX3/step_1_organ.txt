@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is steatotic. No significant low T2 signal seen within the liver or spleen to suggest significant siderosis however iron quantification sequences were not performed. No findings of overt cirrhosis. No findings of HCC.
+
+Spleen, adrenal glands, pancreas, and kidneys appear unremarkable. No adenopathy.No findings of HCC.
+
+Note: Unfortunately dedicated iron quantification sequences where not performed. The patient will be called back to the department to obtain dedicated fat and iron quantification sequences.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "No findings of overt cirrhosis." The liver is described as steatotic (fatty), but there is no mention of cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The spleen and other organs are noted as unremarkable. Steatosis alone does not meet the criteria for fibrosis/cirrhosis classification.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=323 / Out=95
+Cost: $0.000098

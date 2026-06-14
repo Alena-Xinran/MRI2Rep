@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic liver morphology. Moderate volume of abdominal ascites. No suspicious hepatic lesion. No biliary dilatation. Mild gallbladder wall thickening likely related to ascites and chronic liver disease. A few small gallstones compatible with cholelithiasis. No acute cholecystitis.
+
+Pancreas: Unremarkable.
+
+Vascular: Splenorenal shunts and multiple upper abdominal venous collaterals, in keeping with portal hypertension.
+
+Spleen: Enlarged, measuring 20 cm in craniocaudal dimension.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Mild to moderate ascites.Cirrhosis with sequelae of portal hypertension as suggested by ascites, splenomegaly and multiple liver abdominal venous collaterals. Patent liver vasculature.No evidence of HCC. Continued imaging surveillance after 3 months is advised.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions "chronic liver disease." It also describes findings consistent with cirrhosis sequelae, such as ascites, splenomegaly, and venous collaterals indicating portal hypertension.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=431 / Out=62
+Cost: $0.000114

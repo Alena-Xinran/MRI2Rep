@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 11 L Dotarem was administered intravenously. Sequences include axial, axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Multiple treatment cavities are again noted as follows:
+
+Segment 6 measuring 1.1 x 0.7 cm (series 10 image 37) previously 1.4 x 0.7 cm. There is no recurrent or residual HCC.
+
+Segment 8 measuring 1.1 x 1.0 cm (series 10 image 13), previously 1.1 x 1.0 cm. There is no recurrent or residual HCC.
+
+No new HCC. Patent hepatic and portal vein.
+
+There is no lymphadenopathy. No ascites
+
+There is cholelithiasis. The spleen, pancreas, adrenal glands and kidneys are unremarkable.No new HCC. No recurrent/residual viable HCC in ablation cavities.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described, but the findings focus on treatment cavities and absence of HCC, with no indication of fibrosis or cirrhosis. The spleen is noted as unremarkable, but the liver's surface or texture is not commented on. Based on the criteria, since there are no positive signs of fibrosis/cirrhosis, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=431 / Out=141
+Cost: $0.000148

@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: The patient is status post liver transplant. There are decreased sequelae of portal hypertension, including splenomegaly, upper abdominal varices and ascites. There is mild perihepatic ascites, although this is decreased from prior exam.
+
+Although contrast-enhanced images are degraded by motion artifact, there is no evidence of HCC. 
+
+Hepatic vasculature: The portal and hepatic veins are patent..
+
+Biliary system: The patient is status post cholecystectomy. There is no biliary dilatation. Expected caliber change at the extrahepatic biliary anastomosis is noted. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable 2.8 cm Bosniak type II cyst at the superior pole of the right kidney, as well as bilateral subcentimeter simple cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Status post liver transplant with decreased sequelae of portal hypertension, and no evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post liver transplant with decreased sequelae of portal hypertension, but there are no direct keywords indicating active fibrosis or cirrhosis in the liver parenchyma itself (such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit chronic liver disease). The liver parenchyma is not specifically described as abnormal, and other organs are noted as unremarkable. The absence of these keywords and the context of a transplant with improved portal hypertension findings suggest no active fibrosis/cirrhosis is reported in this exam.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=137
+Cost: $0.000150

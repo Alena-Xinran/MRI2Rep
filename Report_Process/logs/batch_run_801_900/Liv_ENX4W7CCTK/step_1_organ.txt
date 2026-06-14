@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver with sequelae of portal hypertension are again noted.
+
+There is a new embolization cavity involving segment 3, measuring 5.6 x 3.8 cm transaxial dimensions (series 15 image 48). This appears confluent with the prior segment 2 ablation cavity, which measures 4.9 x 2.6 cm (series 15 image 32), previously 5.1 x 3.3 cm. There is no evidence of recurrent or residual disease at these treatment sites.
+
+New embolization cavity in the superior posterior aspect of segment 2 measures 1.6 x 1.0 cm (series 15 image 33), and occupies the region of previously noted 2.0 cm probable HCC.
+
+Subcentimeter nodular focus of arterial enhancement at the hepatic dome within segment 2 is unchanged from prior exam (series 11 image 28), with no pseudocapsule or washout. This may be perfusional.
+
+There are no new lesions meeting criteria for HCC. Left hepatic artery is again noted to be replaced to the left gastric artery. The portal and hepatic veins are patent. 
+
+The pancreas, gallbladder, adrenal glands and kidneys are unremarkable.
+
+Unchanged median sternotomy wires and adjacent epigastric omentum containing hernia.
+
+No abdominal lymphadenopathy. Slightly prominent hepatogastric lymph node should be watched on follow-up.
+
+No aggressive osseous lesion.Status post chemoembolization of the left lateral segment with no findings of residual HCC.
+
+Stable subcentimeter nodular enhancing focus at the hepatic dome in segment 2 is amenable to continued MRI surveillance.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver" in the first sentence, which directly meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=565 / Out=46
+Cost: $0.000145

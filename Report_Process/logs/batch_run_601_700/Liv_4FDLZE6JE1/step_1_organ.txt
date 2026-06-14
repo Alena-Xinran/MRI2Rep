@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The visualized lung bases are clear.
+
+There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent. The patient is status post cholecystectomy with stable dilatation of the common bile duct up to 9 mm.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable aside from tiny bilateral renal cysts.
+
+There is no abdominal ascites or adenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described, but the hepatic vasculature is noted as patent and there is no evidence of hepatocellular carcinoma. There is no mention of the liver being "unremarkable", "normal", or "smooth" either, but the absence of positive findings for fibrosis/cirrhosis and the lack of any abnormal descriptors for the liver parenchyma in the context of the provided criteria suggests a classification of "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=308 / Out=154
+Cost: $0.000119

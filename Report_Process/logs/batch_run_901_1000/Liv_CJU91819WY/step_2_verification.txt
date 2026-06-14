@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial hepatectomy as per the history. Again seen are multiple hepatic lesions without significant internal enhancement, best seen on T2 imaging. Some of the lesions demonstrate interval growth, as evidenced by a 2.7 cm lesion in the periphery of segment 7 (image 59 series 17), previously 1.5 cm and a 1.8 cm caudate lobe lesion (image 62 series 17), previously 1.0 cm. Additionally, there are a few new foci of arterial enhancement without washout or pseudocapsule, some of which demonstrate curvilinear course and may be vascular in etiology. There is persistent arterial enhancement of the periphery of the right hepatic lobe, similar to prior study, likely related to treatment. There is trace abdominal ascites.
+
+The spleen, pancreas, kidneys and adrenal glands are unremarkable, except for small renal cysts. There is no abdominal adenopathy.Increased hepatic lesions as described, although not meeting OPTN criteria are suspicious for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs like varices or splenomegaly). It describes multiple hepatic lesions, some with interval growth, and findings suspicious for HCC, but the liver background parenchyma is not characterized. The spleen is noted as unremarkable. Since there is no explicit statement of cirrhosis or normal liver, and the previously extracted status is "NoFibrosis/Cirrhosis", this is consistent with the absence of reported cirrhosis features. However, the report does not explicitly state "normal liver" either. Given the instructions, if the report does not say "cirrhosis" or features of it, the status should remain "NoFibrosis/Cirrhosis". The previous extraction is therefore correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=408 / Out=190
+Cost: $0.000194

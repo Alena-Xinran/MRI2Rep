@@ -1,0 +1,52 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 23 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Left hepatectomy and cholecystectomy changes are redemonstrated. Background hepatic parenchyma is steatotic. There is unchanged geographic hyperenhancement with corresponding T2 hyperintensity of the posterior right hepatic lobe associated with segmental biliary ductal dilatation, presumably related to parenchymal congestion. The portal vasculature is patent. Stable T1 hyperintense nonspecific filling defect within the intrapancreatic common bile duct (image 19, series 5) which may reflect layering stones, hemorrhage, or bile duct cast.
+
+Segment 8 ablation cavities demonstrate no suspicious enhancement and are unchanged in size measuring 2.0 x 1.6 cm (image 20, series 14). Additional previously noted subcentimeter ablation cavities are barely perceptible. 
+
+A 1.2 cm new segment 5 arterially enhancing nodule has washout and microscopic fat but no pseudocapsule (image 47, series 14), highly suspicious for HCC but not meeting OPTN criteria.
+
+A segment 8 arterially enhancing nodule (image 32, series 14) now measures 1.9 cm (previously 1.1 cm in retrospect) without definitive washout or pseudocapsule. This lesion has grown greater than 50% in less than 6 months meeting OPTN 5A-g criteria and is in similar position as previously noted recurrence in 2016 and
+
+The spleen, pancreas, adrenals, and kidneys are unremarkable with the exception of simple right renal cysts and a hemorrhagic left renal cyst. There is no ascites or lymphadenopathy.1. New 1.2 cm segment 5 lesion is highly suspicious for HCC but does not meet OPTN criteria.
+2. Growth of segment 8 arterially enhancing nodule consistent with HCC (OPTN 5A-g).
+3. T1 hyperintense material within the CBD as detailed above.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis such as nodularity, surface irregularity, caudate lobe hypertrophy, or signs of portal hypertension. It notes "Background hepatic parenchyma is steatotic" and "unchanged geographic hyperenhancement... presumably related to parenchymal congestion," but these are not definitive for cirrhosis. Without explicit mention of cirrhosis or its morphologic features, the liver should be considered as having no reported fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=672 / Out=120
+Cost: $0.000239

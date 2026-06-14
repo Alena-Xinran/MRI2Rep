@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology with findings of portal hypertension as manifested by splenomegaly, small upper abdominal varices, and trace ascites is again noted. The hepatic vasculature is patent. A flash filling right hepatic lobe hemangioma with surrounding perfusional variant is again noted. A few scattered hepatic cysts are again noted. No findings of HCC. 
+
+There is unchanged, marked intrahepatic biliary ductal dilatation and unchanged dilation of the common bile duct measuring up to 1.3 cm. No obstructing lesion is seen. There is no choledocholithiasis.
+
+The spleen contains Gamna-Gandy bodies. The gallbladder wall is mildly edematous, presumably reactive in nature in a patient with chronic liver disease. The adrenal glands, pancreas, and kidneys are unremarkable. 
+
+There is no abdominal lymphadenopathy or ascites. There is peritoneal soft tissue thickening along the paracolic gutters, similar to the June 2, 2021 CT MRI however increased compared to the January 25, 2021 MRI.
+
+Lung bases are unremarkable. No aggressive osseous lesion is seen.1.  No evidence for HCC.
+2.  Peritoneal soft tissue thickening along the paracolic gutters is worsened compared to the prior MRI, unchanged compared to the more recent CT. Differential considerations are sequela of malignancy or prior inflammatory process. Given interval worsening, unless there is evidence of ongoing infection or inflammation, consider further evaluation with biopsy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and later mentions "chronic liver disease," both of which directly indicate the presence of cirrhosis. Additional findings such as portal hypertension manifestations (splenomegaly, varices) further support this classification.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=529 / Out=66
+Cost: $0.000144

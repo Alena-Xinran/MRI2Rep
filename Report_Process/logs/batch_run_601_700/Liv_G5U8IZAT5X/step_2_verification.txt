@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A 2.9 cm T2 hyperintense lesion in segment 5 has decreased in size, previously 4.7 cm. There remains heterogeneous enhancement and lipid within this mass. 
+
+New wedge-shaped perfusion in the right hepatic lobe, but no new HCC.. Multiple other small arterially enhancing foci in the right hepatic lobe without correlate on other sequences are not definitely changed, also favored to be perfusional.  Hepatic vasculature is patent.
+
+The spleen, adrenal glands, and pancreas are unremarkable. Numerous bilateral renal cysts are again noted, a few which are hemorrhagic. Focal adenomyomatosis again noted at the gallbladder fundus.
+
+Trace perihepatic ascites. No abdominal lymphadenopathy.Known HCC in segment 5 of the liver decreased in size size, although there remains internal enhancement indicating residual/recurrent viable tumor.
+
+No new HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs, or splenomegaly). It describes a known HCC lesion and other perfusion findings but does not comment on the overall liver parenchyma morphology or indicate cirrhosis. Since the report does not state normal liver explicitly either, but the absence of cirrhosis description means the previous extraction of "NoFibrosis/Cirrhosis" is appropriate based on the provided information.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=377 / Out=123
+Cost: $0.000157

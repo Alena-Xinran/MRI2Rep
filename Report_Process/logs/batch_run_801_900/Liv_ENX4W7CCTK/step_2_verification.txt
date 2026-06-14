@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver with sequelae of portal hypertension are again noted.
+
+There is a new embolization cavity involving segment 3, measuring 5.6 x 3.8 cm transaxial dimensions (series 15 image 48). This appears confluent with the prior segment 2 ablation cavity, which measures 4.9 x 2.6 cm (series 15 image 32), previously 5.1 x 3.3 cm. There is no evidence of recurrent or residual disease at these treatment sites.
+
+New embolization cavity in the superior posterior aspect of segment 2 measures 1.6 x 1.0 cm (series 15 image 33), and occupies the region of previously noted 2.0 cm probable HCC.
+
+Subcentimeter nodular focus of arterial enhancement at the hepatic dome within segment 2 is unchanged from prior exam (series 11 image 28), with no pseudocapsule or washout. This may be perfusional.
+
+There are no new lesions meeting criteria for HCC. Left hepatic artery is again noted to be replaced to the left gastric artery. The portal and hepatic veins are patent. 
+
+The pancreas, gallbladder, adrenal glands and kidneys are unremarkable.
+
+Unchanged median sternotomy wires and adjacent epigastric omentum containing hernia.
+
+No abdominal lymphadenopathy. Slightly prominent hepatogastric lymph node should be watched on follow-up.
+
+No aggressive osseous lesion.Status post chemoembolization of the left lateral segment with no findings of residual HCC.
+
+Stable subcentimeter nodular enhancing focus at the hepatic dome in segment 2 is amenable to continued MRI surveillance.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report begins with "Cirrhotic liver with sequelae of portal hypertension are again noted," which explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=537 / Out=63
+Cost: $0.000177

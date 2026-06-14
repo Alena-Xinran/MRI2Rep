@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with findings of portal hypertension as evidenced by splenomegaly, recanalization of the umbilical veins, and upper abdominal varices. There are no findings of hepatocellular carcinoma. There is focal arterial enhancement without correlate on other sequences adjacent to the gallbladder fossa, likely perfusional. There is diffuse hepatic steatosis. The hepatic vascular is patent.
+
+On series 8001, image 32, posterior to the intrahepatic IVC, there is a small collection of vessels which may represent an arteriovenous malformation, stable to prior imaging. 
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable.
+
+Prominent periportal and pancreatic nodes are seen.
+
+There are no aggressive osseous lesions.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic in morphology" and describes findings consistent with cirrhosis (portal hypertension, splenomegaly, recanalized umbilical veins, varices). Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=72
+Cost: $0.000130

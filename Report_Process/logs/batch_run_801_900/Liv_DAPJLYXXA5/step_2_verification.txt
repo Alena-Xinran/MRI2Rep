@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Interval decrease in size of segment VIII treatment cavity, now 5.2 x 3.6 cm, previously 6.3 x 4.6 cm, with no evidence of recurrent disease. No evidence of new enhancing suspicious lesion. Intrahepatic and extrahepatic bile ducts are unremarkable. Gallstones without evidence of acute cholecystitis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Mild splenomegaly measuring 13 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Status post sleeve gastrectomy. Otherwise grossly unremarkable bowel.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace ascites.
+
+Lower chest: Improved right pleural effusion.Decreased segment VIII posttreatment cavity, LR TR nonviable. No new suspicious liver lesion.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes findings related to a segment VIII treatment cavity, gallstones, and mild splenomegaly, but does not mention any features of cirrhosis such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension aside from splenomegaly (which is noted as mild and could be due to other causes). There is no explicit mention of "cirrhosis" or terms indicating fibrosis. The liver parenchyma is not described as abnormal aside from the post-treatment changes. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=389 / Out=136
+Cost: $0.000166

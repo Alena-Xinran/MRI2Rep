@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is again evidence of right hepatectomy with cholecystectomy. Scattered subcentimeter hepatic cysts are again seen. A 5 mm arterial enhancing focus seen along the margins of segments II and III posteriorly (48, series 10) is seen on comparison exam dated 5/21/2012 and is unchanged, likely a shunt. The hepatic vasculature is patent.
+
+Subcentimeter left renal cyst and right angiomyolipoma are again seen. The spleen, pancreas, and adrenal glands are unremarkable. There is no ascites or lymphadenopathy in the visualized abdomen.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of fibrosis/cirrhosis indicators and the presence of only scattered cysts and a stable shunt suggest no active fibrotic or cirrhotic changes are reported. The spleen, pancreas, and adrenal glands are noted as unremarkable, but this does not directly describe the liver parenchyma. However, based on the criteria, since no positive signs of fibrosis/cirrhosis are present, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=355 / Out=173
+Cost: $0.000140

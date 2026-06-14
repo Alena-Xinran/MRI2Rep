@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Scattered hepatic cysts are noted. There is no evidence of hepatocellular carcinoma. There is a stable nonspecific 8 mm arterially enhancing focus within segment 4A (series 11 image 22), which retains contrast on delayed phases. The hepatic vasculature is patent.
+
+The spleen, pancreas, gallbladder, adrenal glands are unremarkable. There are bilateral subcentimeter renal cysts.
+
+No abdominal lymphadenopathy or ascites is seen. Subcentimeter soft tissue nodules in the subcutaneous tissues bilaterally are stable (images 18, 41, and 81, series 15).1. No evidence of HCC.
+2. Stable subcentimeter subcutaneous soft tissue nodules.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" in the provided text, but the absence of any positive indicators for fibrosis or cirrhosis, along with the lack of ascites or other stigmata of chronic liver disease, suggests no evidence of fibrosis/cirrhosis is reported. The findings noted (hepatic cysts, stable enhancing focus) are not indicative of parenchymal fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=150
+Cost: $0.000084

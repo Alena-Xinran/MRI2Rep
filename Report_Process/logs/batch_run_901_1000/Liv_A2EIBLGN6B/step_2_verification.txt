@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post left hepatectomy. The liver is cirrhotic with evidence of portal hypertension, as manifested by splenomegaly and a small amount of perihepatic ascites. Multiple ablation cavities are again noted. Representative cavities are as follows:
+
+-Segment 8, post repeat ablation along anterior margin of prior ablation cavity, cavity now measures 4.7 x 3.8 cm, image 74 series 13. Intrinsic T1 hyperintensity is compatible with small amounts of hemorrhagic/proteinaceous content. There is no residual enhancement in this location. 
+
+-Segment 8, inferior to the recent repeat ablation, the prior ablation cavity is stable in size, measuring 2.1 x 1.6 cm, image 67 series 13. There is no evidence of recurrent disease.
+
+-Segment 7 cavity is stable in size measuring 2.9 x 2.1 cm (image 62, series 13), previously 3.0 x 2.3 cm. No evidence of residual or recurrent disease.
+
+-Segment 7 cavity medially has slightly decreased in size measuring 2.1 x 1.6 cm (image 62 series 13), previously 2.1 x 1.4 cm. There is no evidence of recurrent disease.
+
+-Segment 5 cavity has slightly increased in size measuring 1.9 x 1.2 cm (image 41 series 13), previously 2.2 x 1.5 cm. There is no evidence of recurrent disease.
+
+-Segment 6 cavity is stable in size measuring 2.8 x 1.2 cm (image 40 series 13), previously 2.7 x 1.0 cm. There is no evidence of recurrent disease.
+
+Hepatic vasculature is patent. Replaced right hepatic artery to the SMA is again noted. There is cholelithiasis. The adrenal glands, kidneys, and pancreas are unremarkable with the exception of subcentimeter left renal cysts.
+
+There is a small umbilical hernia.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver is cirrhotic with evidence of portal hypertension, as manifested by splenomegaly and a small amount of perihepatic ascites." This explicitly confirms cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=632 / Out=73
+Cost: $0.000208

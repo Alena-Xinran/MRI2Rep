@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The liver is steatotic and demonstrates a cirrhotic morphology. Arterial enhancement within segment VI is likely perfusional in etiology. No enhancing hepatic masses identified.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Cystic lesions in the region of the pancreatic body measuring up to 1 cm (24 series 3) likely represent sidebranch IPMNs or sequelae of prior pancreatitis.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: A 1.2 cm enhancing lesion within the upper pole of the right kidney has slightly increased in size and is likely seen in retrospect seen dating back to 2016 (0.7 mm). Comparison is difficult given the improved image quality on today's study. Additional bilateral renal cysts are stable.
+
+Bowel: The patient is status post sleeve gastrectomy.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  No evidence for HCC.
+2.  1.2 cm solid slowly growing right renal neoplasm.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "the liver is steatotic and demonstrates a cirrhotic morphology," which directly includes the keyword "cirrhotic" and indicates a cirrhotic morphology, meeting the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=448 / Out=63
+Cost: $0.000120

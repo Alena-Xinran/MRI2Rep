@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Please see separately dictated chest CT performed same day for findings above the diaphragm.    The patient is status post hepatic transplant with a biliary enteric anastomosis. A right-sided external biliary drain is in situ. There is no biliary ductal dilatation. Small perihepatic hematomas continue to decrease in size, for example in the right upper quadrant measuring 1.4 cm, previously 2.2 cm (series 4, image 23). There is small amount of loculated fluid along the falciform ligament. The hepatic vasculature is patent.    A 1.7 cm hemangioma in the right hepatic lobe is noted as well as 2 mildly T2 hyperintense lesions likely hemangiomas are unchanged.    There are no imaging findings concerning for hepatocellular carcinoma.    The spleen is mildly enlarged measuring 15 cm and there are abdominal varices. The pancreas, adrenal glands and kidneys are unremarkable except for renal cysts.    There is no abdominal adenopathyNo evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post hepatic transplant, which implies underlying chronic liver disease, but does not explicitly mention cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or chronic liver disease in the parenchymal description. The liver itself is not described as unremarkable, normal, or smooth; however, findings such as splenomegaly and abdominal varices are present, which are often associated with portal hypertension and can be secondary to cirrhosis. Despite these indirect signs, the direct criteria keywords for liver parenchymal fibrosis/cirrhosis are not stated in the report.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=432 / Out=138
+Cost: $0.000147

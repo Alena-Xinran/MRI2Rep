@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Evaluations limited by patient motion artifact on multiple sequences.
+
+The liver is cirrhotic with sequela portal hypertension including splenomegaly and upper abdominal varices. 
+
+Small hepatic cysts are noted. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is grossly patent.
+
+The kidneys, adrenal glands, and pancreas are unremarkable, except for a stable subcentimeter hemorrhagic cyst in the left upper renal pole. 
+
+Gallstones are present in the gallbladder wall is mildly thickened, presumably secondary to liver disease.
+
+There is trace abdominal ascites. There are prominent retroperitoneal lymph nodes. 
+
+
+Partially visualized is an at least moderate right pleural effusion.
+
+Partially visualized lumbar spine fusion hardware and laminectomy changes again noted.Evaluation is limited by patient motion artifact on multiple sequences.
+
+No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic with sequela portal hypertension including splenomegaly and upper abdominal varices." This confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=69
+Cost: $0.000115

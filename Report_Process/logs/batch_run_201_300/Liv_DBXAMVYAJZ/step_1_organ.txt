@@ -1,0 +1,36 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The transplanted liver is normal in morphology and demonstrates no evidence of HCC. There is no intra-or extrahepatic biliary ductal dilatation. The hepatoportal vasculature is patent. The spleen, pancreas, adrenal glands and kidneys are unremarkable, except for a stable right parapelvic renal cyst. Gallbladder is surgically absent. There is no adenopathy or ascites. Slight narrowing at the biliary anastomosis appears stable with no intrahepatic biliary dilatation.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the transplanted liver as "normal in morphology" and does not contain any keywords such as cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or explicit mentions of chronic liver disease. The spleen and other organs are noted as "unremarkable," which further supports a normal finding.  
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=328 / Out=81
+Cost: $0.000094

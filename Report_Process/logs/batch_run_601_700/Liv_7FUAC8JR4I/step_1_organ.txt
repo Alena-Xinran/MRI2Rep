@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver does not appear significantly nodular to suggest cirrhosis. No findings of portal hypertension or HCC. There is persistent intra and extrahepatic biliary dilatation with the common bile duct measuring up to 13 mm. This is stable from the most recent MRI but has slowly increased when compared to more remote studies dating back to 2013. The duct can be traced down normally to the level of the ampulla with dilatation of the cystic duct remnant. A 2 to 3 mm dependent filling defect is again noted in the distal CBD which appears in a slightly different location compared to prior exam consistent with choledocholithiasis. A dominant dorsal duct configuration is again noted involving the main pancreatic duct which remains mildly dilated measuring 3 to 4 mm. No pancreatic or biliary mass is seen.
+
+Spleen, adrenal glands, and kidneys appear unremarkable with the exception of a few punctate renal cyst. No ascites or adenopathy. Infrarenal aortic aneurysm measuring approximately 4.2 cm is stable from most recent exam. Hepatic veins and portal veins remain patent.No findings of HCC.
+
+Persistent biliary dilatation which may relate to postcholecystectomy status and/or ampullary stenosis. Please correlate with LFTs. Unchanged choledocholithiasis.
+
+Stable infrarenal aortic aneurysm.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "The liver does not appear significantly nodular to suggest cirrhosis," which explicitly indicates no significant nodularity to suggest cirrhosis. There are no mentions of cirrhosis, cirrhotic, fibrosis, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not described as unremarkable or normal, but the absence of nodularity and other signs points against fibrosis/cirrhosis. Other findings relate to biliary dilatation and choledocholithiasis, not parenchymal liver disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=493 / Out=119
+Cost: $0.000156

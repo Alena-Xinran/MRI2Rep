@@ -1,0 +1,38 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic morphology of liver is again noted. Scattered arterial enhancing foci measuring up to 7 mm are present without washout or T2 correlate, with the dominant arterial enhancing foci unchanged dating back to 4/10/2013, likely perfusional in etiology. No suspicious liver lesion is seen. The portal and hepatic veins are patent.
+
+The spleen, adrenal glands, kidneys, and pancreas are unremarkable. Biliary sludge/small stones are seen in the gallbladder without cholecystitis. No bowel wall thickening or bowel dilation is seen. No upper abdominal lymphadenopathy or ascites is present. No focal osseous lesion is identified.Cirrhosis without evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of liver is again noted" and concludes with "Cirrhosis without evidence of HCC," which directly indicates chronic liver disease with fibrosis/cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=369 / Out=56
+Cost: $0.000095

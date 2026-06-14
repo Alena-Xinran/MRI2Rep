@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial right hepatectomy. The liver is cirrhotic. There is no evidence of hepatocellular carcinoma. The portal and hepatic veins are patent.
+
+The patient status post cholecystectomy. The kidneys are unremarkable except for bilateral renal cysts. Tiny scattered pancreatic cysts are stable. The spleen and adrenal glands are unremarkable, except for stable nodularity of the left adrenal gland.
+
+No ascites or lymphadenopathy is seen.
+
+L1 vertebral body hemangioma is again noted.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic." This directly indicates the presence of cirrhosis, which aligns with the previously extracted status "Fibrosis/Cirrhosis" as per the rule that if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=308 / Out=84
+Cost: $0.000122

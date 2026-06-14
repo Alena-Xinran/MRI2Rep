@@ -1,0 +1,60 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multifocal hepatocellular carcinomas are redemonstrated, with known treatment cavities in the right hepatic lobe. Representative lesions as follows:
+On image 29 series 12, in the left lateral lobe,, 8.1 cm HCC is unchanged
+Diffuse HCC in the right lobe is difficult to measure but appears enlarged compared to the prior study.
+On image 32 series 12, in segment II, a 0.9 cm satellite lesion has enlarged, previously measuring 0.4 cm. 
+
+Hepatic vasculature: Patent main and left portal vein. Distal anterior right portal vein and right posterior portal veins are not visualized and likely invaded. The middle hepatic vein is patent.
+
+The right and left hepatic veins are not visualized and likely invaded. The nodular structures seen within the intrahepatic IVC on the prior study is not seen on the current exam.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable with exception of a few subcentimeter cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Other: A subcentimeter right retroperitoneal nodule is less prominent (image 77 series 15).Multifocal HCC. Tumor burden in the right lobe has increased.. Aside from slight increase in size of a small , left lobe tumor burden is unchanged.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multifocal hepatocellular carcinomas (HCC) and notes portal and hepatic vein invasion, but does not explicitly mention keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth; the focus is on tumor burden and vascular changes. Without direct evidence of fibrosis or cirrhosis from the given criteria, the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of specified keywords.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=521 / Out=136
+Cost: $0.000171

@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Study limited by motion artifact.
+
+Lower thorax: Redemonstrated bilateral gynecomastia. Increased size of 2.3 cm subcutaneous enhancing lesion in the right breast, previously measuring 1.2 cm.
+
+Hepatobiliary system: Redemonstration of cirrhotic liver morphology. Tips again noted. No hepatocellular carcinoma identified. Slightly increased intra and extra hepatic biliary ductal dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Redemonstrated cystic pancreatic lesions measuring up to 6 mm at the pancreatic neck, unchanged. These likely represent side branch IPMN's versus sequela of prior pancreatitis. Main pancreatic duct is again mildly dilated.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Redemonstrated bilateral simple renal cysts, measuring up to 4.3 cm on the left.
+
+Upper abdominal lymph nodes: No lymphadenopathy. 
+
+Peritoneum: No ascites.
+
+Soft tissues: Stable subcentimeter T1 hyperintense focus in the right lateral chest wall (image 66, series 16).No evidence of HCC. Increased 2.3 cm right breast lesion.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic liver morphology," which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=463 / Out=37
+Cost: $0.000113

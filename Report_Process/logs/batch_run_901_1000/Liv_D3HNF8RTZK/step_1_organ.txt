@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver redemonstrates cirrhotic morphology and evidence of portal hypertension manifested by mild splenomegaly and multiple upper abdominal varices. 
+
+- There is an ablation cavity in segment IVA measuring 1.5 x 1.2 cm with a thin peripheral rim of enhancement and without evidence of residual tumor (series 11 image 19).
+- There is a 0.6 cm enhancing focus in segment III with washout on portal venous phase and hypointensity on hepatobiliary phase. This is suspicious for HCC although not meeting OPTN criteria (series 11 images 34-35, series 15 image 35).
+
+There are innumerable nonspecific hypovascular nodules throughout the liver, stable from prior examination.
+
+The portal and hepatic veins are patent. Cholelithiasis is again visualized. The pancreas, adrenal glands and kidneys are unremarkable except for renal cysts, some of which are hemorrhagic. No enlarged abdominal lymph nodes are visualized.Ablation cavity in segment IVA without evidence of residual tumor.
+
+Stable 0.6 cm lesion in segment III suspicious for HCC although not meeting OPTN criteria.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic morphology" and mentions evidence of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=456 / Out=40
+Cost: $0.000112

@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary: Patient status post partial right hepatectomy and cholecystectomy. The liver is steatotic. There is no evidence of hepatocellular carcinoma. Redemonstration of scattered subcentimeter foci of arterial hyperenhancement in the left hepatic lobe (i.e. series 17001, image 24) without correlate on the other sequences, which are likely perfusional. 
+
+0.8 cm unchanged arterial enhancing lesion in segment 2 with persistent enhancement, no washout, no pleural capsule and increased T2 signal is again noted, LI RADS 3. 
+
+There is a stable left hepatic cysts and the hepatic vasculature is patent.
+
+Spleen: Unremarkable
+
+Pancreas: There is an 1.4 cm cystic lesion at the pancreatic head (series 21001, image 57), which is unchanged in size. There is no internal enhancement or nodularity and the previously noted questionable internal enhancing septation is not identified on current examination, which may be due to differences in technique. There is unchanged prominence of the upstream main pancreatic duct measuring up to 0.6 cm, demonstrating long-term stability.
+
+Adrenals: Unremarkable
+
+Kidneys: The patient is also status post partial right nephrectomy, with stable appearance of fat necrosis at the postoperative bed without evidence of recurrent disease. There are stable bilateral renal cysts, some of which are hemorrhagic or proteinaceous.
+
+Lymph nodes: There is no abdominal adenopathy. 
+
+Peritoneum: No ascites.
+
+MUSCULOSKELETAL: There is no aggressive osseous lesion. A nonspecific 0.6 cm enhancing focus in the right posterior chest wall (series 21001, image 35) demonstrates long-term stability dating back to 2012.No evidence of HCC or RCC recurrence. Unchanged LI RADS 3 lesion amenable to routine follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the liver as "steatotic" and mentions post-surgical changes, but does not mention "cirrhosis" or any specific features of cirrhosis such as nodularity, contour irregularity, segmental atrophy/hypertrophy, or signs of portal hypertension. The absence of such descriptors indicates the liver is not reported as cirrhotic. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=591 / Out=108
+Cost: $0.000211

@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 16 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+The liver is cirrhotic in morphology, with sequelae of portal hypertension including splenomegaly, recanalization of the umbilical vein, upper abdominal and paraesophageal varices. There is no HCC. The portal and hepatic veins are patent.
+
+There is cholelithiasis and choledocholithiasis with very mild proximal biliary prominence.
+
+The pancreas is diffusely atrophied and contains scattered cystic lesions measuring up to 9 mm, nonspecific.
+
+Nonspecific cystic structure at the inferior aspect of the spleen is noted. The adrenal glands and kidneys are unremarkable except for left renal cysts measuring up to 1 cm.
+
+On series 4 image 10, there is a 2 cm T2 hyperintense irregular structure in the right midlung zone, not seen on recent chest x-ray from 7/16/2018.Cirrhosis with portal hypertension.
+
+No evidence of HCC.
+
+Choledocholithiasis.
+
+Nonspecific cystic structures within the pancreas, likely sidebranch IPMN or related to previous pancreatitis.
+
+New abnormality at the right lung base, possibly infectious.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and includes findings of sequelae of portal hypertension, which directly indicates chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=525 / Out=51
+Cost: $0.000136

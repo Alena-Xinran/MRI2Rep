@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+New hemorrhagic ablation cavity traversing segments 5 and 6, encompassing the region of the previously noted HCC measures up to 7.3 x 5.8 cm (series 12 image 55). There is minimal peripheral arterial enhancement, several of which appears slightly nodular at the superior aspect of the cavity (series 9 image 68), although there is no washout to definitively suggest recurrent or residual disease.
+
+Hepatic vasculature is patent.
+
+Splenic infarcts are noted.
+
+Pancreas, gallbladder, adrenal glands and kidneys are unremarkable except for bilateral renal cysts, one of which is hemorrhagic, measuring up to 5 cm on the left.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive osseous lesion.
+
+Minimal bilateral pleural effusions and perihepatic ascites.1.  Interval HCC ablation, with no definitive evidence of recurrent or residual disease. There is mild nodular enhancement of the superior aspect of the cavity to which attention is recommended on subsequent follow-up.
+2.  New splenic infarcts.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators and the presence of a specific ablation cavity without parenchymal characterization suggests no direct evidence of fibrosis or cirrhosis. The mention of "minimal peripheral arterial enhancement" and "slightly nodular" refers to the ablation cavity margin, not the liver surface or parenchymal texture.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=447 / Out=143
+Cost: $0.000153

@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are no masses in the transplanted liver. Minimal dilatation of the bile ducts, unchanged.
+Hepatic vasculature is patent.
+
+There is no ascites or lymphadenopathy.
+
+Again seen are splenomegaly and horseshoe kidneys. The pancreas and adrenal glands are unremarkable.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of being transplanted without masses, and there is no description of its parenchymal texture or surface contour. The findings noted (splenomegaly, horseshoe kidneys) are unrelated to liver fibrosis or cirrhosis. Since there is no positive evidence of fibrosis/cirrhosis and the liver is not explicitly described as "unremarkable", "normal", or "smooth", but the absence of fibrosis indicators suggests no active signs of fibrosis/cirrhosis in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=288 / Out=162
+Cost: $0.000116

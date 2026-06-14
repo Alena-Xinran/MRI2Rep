@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Partial visualization of the lung bases shows a trace right pleural effusion and right lower lobe dependent atelectasis.
+
+Hepatobiliary system: Cirrhotic liver. No liver lesions that meet the imaging criteria for hepatocellular carcinoma. There are several nodular arterial enhancing foci in the right hepatic lobe for instance in segment 6 on series 11 image 46 measuring 8 mm, no washout or pseudocapsule LR 3.
+
+There are gallstones in the gallbladder which is distended with no wall thickening or other MR findings suspicious of cholecystitis. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Incidental note is made of large portal collaterals in the left retroperitoneum and probable splenorenal shunt.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Parenchymal atrophy with large parapelvic cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC. Several LR 3 observations in the right hepatic lobe for which short-term follow-up is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver" in the hepatobiliary system section, which directly meets the criteria for classification as Fibrosis/Cirrhosis. Additional supporting findings include large portal collaterals and a probable splenorenal shunt, which are often associated with portal hypertension in cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=466 / Out=76
+Cost: $0.000130

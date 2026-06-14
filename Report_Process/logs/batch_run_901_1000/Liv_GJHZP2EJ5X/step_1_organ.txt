@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Small bilateral pleural effusions are new.
+
+Liver is cirrhotic in morphology with sequelae of portal hypertension including splenomegaly, upper abdominal varices and mild ascites. There is no evidence of HCC. Atrophy of segment 7 with associated biliary ductal dilatation is unchanged. TIPS catheter is noted. Susceptibility artifact from the TIPS precludes evaluation of its patency. 
+
+Liver iron content is 2.6 mg/g
+
+Several cystic lesions scattered in the pancreatic body and tail measuring up to 6 mm (series 3 image 23) appear new. These are nonspecific but likely side branch IPMNs versus sequela of prior pancreatitis. These can be reassessed on future surveillance exams for HCC. There is no dilatation of the main pancreatic duct.
+
+There is cholelithiasis. The adrenal glands and kidneys are unremarkable except for subcentimeter bilateral renal cysts.
+
+There is no upper abdominal lymphadenopathy.1. No evidence for HCC.
+
+2. There is mild iron overload. Liver iron content is 2.6 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic in morphology" and mentions sequelae of portal hypertension including splenomegaly, varices, and ascites, which are clear indicators of cirrhosis.  
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=514 / Out=55
+Cost: $0.000135

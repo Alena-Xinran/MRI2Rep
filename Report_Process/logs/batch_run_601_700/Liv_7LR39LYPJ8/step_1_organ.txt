@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent.    -Previously noted arterially enhancing foci (LR-3) are not seen on this exam.    -Segment 7 ablation cavity measures 1.7 x 2.4 cm, previously 2.1 x 2.9 cm (series 14001, image 27) and the segment 6 ablation cavity measures 3.3 x 4.7 cm, previously 3.5 x 5.1 cm (series 14001, image 51). There is no evidence of recurrent tumor. LR-TR nonviable.    -The segment 7 hemangioma is noted.    The gallbladder, pancreas, spleen, adrenal glands and kidneys are unremarkable with the exception of stable pancreatic cystic lesions measuring up to 1.2 cm, stable 0.9 cm left adrenal nodule, bilateral renal cysts and a left upper pole hemorrhagic cyst.    There is no adenopathy or ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=439 / Out=51
+Cost: $0.000112

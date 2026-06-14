@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver
+1.4 cm T1 hyper intensity along the inferolateral posterior aspect of the liver is unchanged and probably represents blood products related to prior surgery. There are no new masses in the transplanted liver. Hepatic vascular structures are patent.
+
+On image 24 series 13 there is nodular arterial phase hyperenhancement measuring 8 mm just posterior to the middle 
+hepatic vein. This finding was not present on an MRI from 11/22/2016, measured 7 mm on MRI from 3/20/2018 and now measures 8 mm. It does not demonstrate washout or pseudocapsule. Is not seen on other postcontrast phases or other sequences and is likely perfusional.
+
+Pancreas divisum is again seen. The spleen, adrenal glands, and kidneys are unremarkable.
+
+There is no ascites or lymphadenopathy. There are no aggressive osseous lesions.No HCC.
+Slight increase in nodule-like arterial phase hyperenhancement in the liver. This does not demonstrate features of HCC and is likely perfusional.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a "transplanted liver" and mentions "nodular arterial phase hyperenhancement" in the context of a focal perfusion finding, but there is no explicit mention of cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not described as abnormal in texture or contour; the findings are focal and likely perfusional. There is no ascites or other stigmata of portal hypertension. The spleen is noted as unremarkable. Therefore, based on the provided criteria, there is insufficient evidence to classify the liver as showing signs of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=449 / Out=148
+Cost: $0.000156

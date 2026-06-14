@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: There is a noncirrhotic appearance of the transplanted liver. Biliary stents are again noted with T2 dark, T1 bright filling defects at the confluence of the left and right hepatic ducts which again presumably represent stones/debris. Degree of intrahepatic biliary ductal dilatation is similar to prior exam. Signal loss on in phase images within the central bile ducts is compatible with pneumobilia. There has been interval decrease in size of a hemorrhagic cyst in hepatic segment 6, currently measuring 0.7 cm, previously 1.1 cm (series 8, image 45). There are no findings of HCC.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Stably enlarged to 14 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left-sided renal cysts are again noted. The right kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Bones and soft tissue: No aggressive osseous lesions are identified.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "There is a noncirrhotic appearance of the transplanted liver," which explicitly indicates the absence of cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis," which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=68
+Cost: $0.000151

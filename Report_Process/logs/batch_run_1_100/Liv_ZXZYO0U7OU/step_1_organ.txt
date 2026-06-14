@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are post surgical changes of liver transplant. No suspicious liver observations are seen (note that there is slightly late contrast timing). The hepatic vasculature is patent.
+
+The pancreas, spleen and adrenal glands are unremarkable. Renal cysts are noted.
+
+There is no abdominal adenopathy or ascites.
+
+Fat-containing ventral hernias are noted.No evidence for metastatic disease or new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes post-surgical changes of liver transplant but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The liver is not described as "unremarkable", "normal", or "smooth" either, but the absence of suspicious observations and the lack of specific fibrosis/cirrhosis indicators suggests no active signs of fibrosis or cirrhosis are reported.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=303 / Out=117
+Cost: $0.000102

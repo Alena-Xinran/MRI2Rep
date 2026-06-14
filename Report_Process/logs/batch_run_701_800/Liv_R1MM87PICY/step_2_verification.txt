@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post liver transplantation. No hepatic mass is seen. The hepatic vasculature is patent. There is no bile duct dilation.
+
+Splenomegaly and upper abdominal varices with splenorenal shunt are again noted.
+
+A 1.1 cm cystic lesion within the pancreatic neck (image 17 series 5) is apparently slightly decreased in size from prior study dated 4/2/2020, where it measured 1.4 cm. However, this size discrepancy may be related to differences in technique, as this lesion also measured 1.1 cm on the study performed 12/9/2019. A 1.1 cm cystic lesion within the tail of the pancreas is stable. No definite communication with the main pancreatic duct is seen. There is no main pancreatic ductal dilatation.
+
+The kidneys and adrenals are unremarkable aside from stable bilateral renal cysts.
+
+There is no ascites or lymphadenopathy.Transplant liver without evidence of HCC.
+
+Stable cystic lesions within the pancreatic neck and tail, likely reflecting sidebranch IPMNs. Continued surveillance on future MRI studies is recommended.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a post-transplant liver without mention of cirrhosis or features such as nodularity, contour irregularity, or signs of portal hypertension directly attributed to cirrhosis. The findings of splenomegaly and varices are noted but are in the context of a known splenorenal shunt, which may be related to prior portal hypertension but not explicitly linked to cirrhosis in this report. The liver itself is described as having no mass, patent vasculature, and no bile duct dilation, with no indication of fibrosis or cirrhotic morphology. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=429 / Out=146
+Cost: $0.000181

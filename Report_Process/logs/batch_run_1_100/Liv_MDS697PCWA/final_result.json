@@ -1,0 +1,18 @@
+{
+  "id": "Liv_MDS697PCWA",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0007592759999999999,
+    "timestamp": "2026-02-06 21:39:04",
+    "model": "deepseek/deepseek-chat"
+  }
+}

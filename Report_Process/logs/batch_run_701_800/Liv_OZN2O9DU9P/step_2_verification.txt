@@ -1,0 +1,52 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+New hemorrhagic ablation cavity traversing segments 5 and 6, encompassing the region of the previously noted HCC measures up to 7.3 x 5.8 cm (series 12 image 55). There is minimal peripheral arterial enhancement, several of which appears slightly nodular at the superior aspect of the cavity (series 9 image 68), although there is no washout to definitively suggest recurrent or residual disease.
+
+Hepatic vasculature is patent.
+
+Splenic infarcts are noted.
+
+Pancreas, gallbladder, adrenal glands and kidneys are unremarkable except for bilateral renal cysts, one of which is hemorrhagic, measuring up to 5 cm on the left.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive osseous lesion.
+
+Minimal bilateral pleural effusions and perihepatic ascites.1.  Interval HCC ablation, with no definitive evidence of recurrent or residual disease. There is mild nodular enhancement of the superior aspect of the cavity to which attention is recommended on subsequent follow-up.
+2.  New splenic infarcts.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis. It describes a hemorrhagic ablation cavity in the liver related to prior HCC treatment, but does not comment on the background liver parenchyma or indicate cirrhosis. Since the report does not state "cirrhosis" or features of it, and does not explicitly state the liver is normal, the appropriate status based on the provided rules is "NoFibrosis/Cirrhosis" (as the default when cirrhosis is not mentioned). The previously extracted status is therefore correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=420 / Out=130
+Cost: $0.000172

@@ -1,0 +1,61 @@
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma, regardless of whether it is a "tumor", a "cyst", or a functional change like a perfusion anomaly. Do not filter out findings just because they are benign or non-neoplastic.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Expanded):
+- Cyst / Cysts / Polycystic -> CYST
+- Hemangioma -> HEM
+- APHE with Washout (LR-5, definite HCC) -> APHE_WO
+- APHE without Washout (LR-3, LR-4, indeterminate, arterial enhancing foci) -> APHE_NoWO
+- Rim enhancement / Atypical / Targetoid -> RIM_ATYP
+- Perfusion Anomalies / THAD / THID / Shunts / Wedge-shaped enhancement -> THAD
+- Fat deposition / Fatty sparing / Steatosis -> FAT
+- Post-treatment changes / Ablation zones / Surgical scars / Fibrotic streaks -> SCAR/LIA
+- Any other distinct focal finding not listed above -> OTHER
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+INCLUSION CRITERIA:
+- Include ALL focal lesions (cysts, hemangiomas, nodules).
+- Include perfusion abnormalities (e.g., "transient hepatic attenuation difference", "arterioportal shunt").
+- Include focal fat alterations (e.g., "focal fatty sparing").
+- Include post-surgical observations if they are described as distinct focal areas.
+- Ignore ONLY findings explicitly stated as belonging to other organs (e.g., "renal cysts", "pancreatic mass") unless they are metastases to the liver.
+
+TASK:
+Analyze the report sentence by sentence. Identify every distinct hepatic observation.
+For each observation, assign the most appropriate TYPE from the list above.
+Explain your reasoning, then output a structured line.
+
+INPUT REPORT:
+```
+{report_text}
+```
+
+OUTPUT FORMAT:
+First, write "ANALYSIS:" and analyze the text sentence by sentence to identify candidates.
+Then, for each valid observation found, output a line starting with "TUMOR_RECORD:" followed by the fields separated by pipes (|).
+(Note: We use the tag 'TUMOR_RECORD' for consistency, even for non-tumor findings like THAD).
+
+Format: TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+ANALYSIS: The text mentions a 5mm lesion in segment 8 with arterial enhancement (APHE_NoWO). It also notes a wedge-shaped area of hyperenhancement in segment 4 likely representing THAD.
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: THAD | L_MED | 1

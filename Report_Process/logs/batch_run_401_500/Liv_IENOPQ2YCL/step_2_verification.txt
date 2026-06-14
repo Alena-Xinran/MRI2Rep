@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The study is limited by respiratory motion.
+
+The liver is cirrhotic in morphology. There is evidence of portal hypertension characterized by abdominal varices and splenomegaly.
+
+There are innumerable arterially enhancing lesions throughout the left hepatic lobe which are not significantly changed in size or number since the prior exam. For example there is a 2.1 cm lesion in segment 3 (series 14, image 28; previously 2.1 cm). There is another 3.7 cm lesion in segment 3 (series 14, image 35; previously 3.7 cm). Although these lesions do not demonstrate washout and therefore do not meet strict criteria for HCC, they do not take up Eovist on the delayed phases and are almost certainly HCCs.
+
+There is diffusely infiltrating HCC within the right hepatic lobe which demonstrates arterial enhancement washout and a pseudocapsule. The tumor measures 6.4 cm on series 18 image 16 and no significantly changed in size. 
+
+There are ablation cavities within the right hepatic lobe which appear stable and demonstrate no enhancement to suggest residual recurrent disease.
+Segment 4A/8: There is a stable 2.5 x 2.6 cm ablation cavity (series 17, image 15; previously 2.6 x 2.6 cm). 
+Segment 7: There is a bilobed stable 4.5 x 2.7 cm ablation cavity (series 17, image 21; previously 5.1 x 2.0 cm).
+Segment 6/7: There is a stable 2.4 x 2.6 cm ablation cavity (series 17, image 23; previously 2.6 x 2.5 cm when remeasured).
+The hepatic and portal veins are patent however the right portal vein is attenuated.
+
+The pancreas, gallbladder, adrenal glands and kidneys are unremarkable aside from renal cysts.
+
+There is moderate ascites as well as small bilateral pleural effusionsDiffuse infiltrative HCC as described above, not significantly changed in appearance since the prior exam.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver is cirrhotic in morphology," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions cirrhosis or features of it, the status must be "Fibrosis/Cirrhosis." The previously extracted status is "Fibrosis/Cirrhosis," which matches the report's description.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=626 / Out=87
+Cost: $0.000212

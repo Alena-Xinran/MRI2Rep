@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic and steatotic. Previously described 0.7 cm lesion at the liver dome demonstrates arterial enhancement and not definitively seen on other sequences, consistent with LR 3 (image 14, series 9). No new liver lesion is identified. The hepatic vasculature is patent.
+
+T2 hyperintense splenic lesions measure up to 1.8 cm, previously 1.6 cm. The patient is status post Whipple procedure. The kidneys, adrenal glands, and remnant pancreas are unremarkable, except for bilateral renal cysts and a stable subcentimeter left adrenal nodule.
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic and steatotic," which directly indicates the presence of cirrhosis, a form of advanced fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=367 / Out=44
+Cost: $0.000089

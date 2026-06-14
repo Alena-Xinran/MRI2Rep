@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Nodularity of the parenchyma compatible with patient's history of cirrhosis. Unchanged subcentimeter T2 hyperintense lesion that is too small for characterization, possibly representing a hemangioma (series 3, image 32). Marked heterogeneity of parenchymal enhancement on arterial phase limits evaluation for small or subtle lesions. No discrete, suspicious arterial enhancing focus is visualized. A few nonspecific subcentimeter T1 hyperintense foci are again noted (image 56, series 7 and image 69, series 7), stable.
+
+Cholelithiasis, no pericholecystic fluid or gallbladder wall thickening. No biliary ductal dilatation.
+
+Hepatic vasculature: Patent. Recanalized umbilical vein again noted in addition to upper abdominal collaterals consistent with portal hypertension.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly measuring up to 17 cm.. Gamna-Gandy bodies are noted.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Stable prominent periportal nodes.
+
+Peritoneum: No ascites.Cirrhotic liver morphology with sequelae of portal hypertension. Marked heterogeneous arterial enhancement, limiting evaluation for small or subtle observations. No definite evidence of HCC. Continued MR surveillance is recommended.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly mentions "nodularity of the parenchyma compatible with patient's history of cirrhosis" and later concludes with "cirrhotic liver morphology with sequelae of portal hypertension." These statements confirm the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=481 / Out=81
+Cost: $0.000169

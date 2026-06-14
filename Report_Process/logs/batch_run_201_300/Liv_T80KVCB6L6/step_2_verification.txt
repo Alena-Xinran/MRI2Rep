@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: The patient is status post partial right hepatectomy (segment 6).
+
+A new 5.3 x 3.6 cm ablation cavity is predominantly in segment 6. There is no evidence of residual neoplasm within the cavity.
+
+On series 6 image 49, there is a 1.1 cm region of arterial phase enhancement in segment 5 inferior to the ablation cavity which washes out on the delayed images and there is a suggestion of a pseudocapsule. Findings are consistent with HCC. This was likely present on the previous exam.
+
+There is a new 1.5 cm arterial enhancing lesion in segment IVb with washout on delayed phase images. There is no pseudocapsule. Findings are consistent with HCC, but not meeting OPTN criteria.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Patient status post cholecystectomy. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small cysts.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Residual and new HCC as described.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension findings, splenomegaly, varices, etc.). The liver findings are focused on post-surgical changes, ablation cavity, and HCC lesions, but the background liver parenchyma is not described as cirrhotic. Since the report does not state cirrhosis or features of it, and does not explicitly state "normal liver" either, the default assumption per the task rules is that if cirrhosis is not mentioned, the status should be "NoFibrosis/Cirrhosis". The previously extracted status is consistent with this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=151
+Cost: $0.000186

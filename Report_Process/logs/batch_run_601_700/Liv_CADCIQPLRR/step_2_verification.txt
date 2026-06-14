@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Evaluation is limited by dielectric artifact.    Cirrhotic liver morphology is redemonstrated along with sequelae of portal hypertension including splenomegaly measuring 6.4 cm and large volume of ascites. There are a few hepatic cysts.  There are no lesions with imaging findings consistent with hepatocellular carcinoma.    The pancreas, adrenal gland and kidneys are unremarkable. There is a nonspecific 1.1 cm hypoenhancing lesion in the spleen.    There is no abdominal adenopathy. No aggressive osseous lesion is seen.Liver cirrhosis with no evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic liver morphology is redemonstrated" and later concludes "Liver cirrhosis with no evidence for HCC." This confirms the presence of cirrhosis. According to the verification rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". The previously extracted status matches this requirement.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=317 / Out=93
+Cost: $0.000128

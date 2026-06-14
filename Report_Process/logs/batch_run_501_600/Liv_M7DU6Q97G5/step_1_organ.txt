@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The visualized lung bases are clear.
+
+The liver displays some hypertrophy of the caudate and atrophy of the medial segment which is likely related to underlying parenchymal liver disease however does not appear frankly cirrhotic. No arterially enhancing lesions with washout to suggest HCC. The hepatic vasculature is patent. The patient is status post cholecystectomy with stable dilatation of the common bile duct measuring up to 0.9 cm.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for stable tiny bilateral renal cysts.
+
+There is no bowel obstruction, ascites, or abdominal adenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions hypertrophy of the caudate and atrophy of the medial segment, which are described as likely related to underlying parenchymal liver disease, but it explicitly states "does not appear frankly cirrhotic." There are no direct keywords like "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit mentions of "chronic liver disease" that definitively indicate fibrosis or cirrhosis. The description suggests possible underlying disease but not confirmed fibrosis/cirrhosis, and the liver is not described as unremarkable, normal, or smooth either. However, based on the criteria, since the key terms are not present and the report explicitly says it does not appear frankly cirrhotic, the classification should lean toward "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=354 / Out=179
+Cost: $0.000142

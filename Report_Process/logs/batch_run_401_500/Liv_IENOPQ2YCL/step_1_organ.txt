@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is limited by respiratory motion.
+
+The liver is cirrhotic in morphology. There is evidence of portal hypertension characterized by abdominal varices and splenomegaly.
+
+There are innumerable arterially enhancing lesions throughout the left hepatic lobe which are not significantly changed in size or number since the prior exam. For example there is a 2.1 cm lesion in segment 3 (series 14, image 28; previously 2.1 cm). There is another 3.7 cm lesion in segment 3 (series 14, image 35; previously 3.7 cm). Although these lesions do not demonstrate washout and therefore do not meet strict criteria for HCC, they do not take up Eovist on the delayed phases and are almost certainly HCCs.
+
+There is diffusely infiltrating HCC within the right hepatic lobe which demonstrates arterial enhancement washout and a pseudocapsule. The tumor measures 6.4 cm on series 18 image 16 and no significantly changed in size. 
+
+There are ablation cavities within the right hepatic lobe which appear stable and demonstrate no enhancement to suggest residual recurrent disease.
+Segment 4A/8: There is a stable 2.5 x 2.6 cm ablation cavity (series 17, image 15; previously 2.6 x 2.6 cm). 
+Segment 7: There is a bilobed stable 4.5 x 2.7 cm ablation cavity (series 17, image 21; previously 5.1 x 2.0 cm).
+Segment 6/7: There is a stable 2.4 x 2.6 cm ablation cavity (series 17, image 23; previously 2.6 x 2.5 cm when remeasured).
+The hepatic and portal veins are patent however the right portal vein is attenuated.
+
+The pancreas, gallbladder, adrenal glands and kidneys are unremarkable aside from renal cysts.
+
+There is moderate ascites as well as small bilateral pleural effusionsDiffuse infiltrative HCC as described above, not significantly changed in appearance since the prior exam.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, there is mention of portal hypertension with varices and splenomegaly, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=654 / Out=56
+Cost: $0.000174

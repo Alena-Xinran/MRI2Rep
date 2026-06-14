@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post right hepatectomy. The left lobe of the liver is hypertrophied, and without evidence of mass. There is no biliary dilatation. The spleen, pancreas, and adrenal glands are unremarkable. Innumerable tiny renal cysts are noted, some of which are hemorrhagic. A 3 mm right renal AML is noted. There is no ascites or adenopathy.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the left lobe of the liver as hypertrophied without evidence of mass, and there is no mention of cirrhosis, fibrosis, nodularity, surface irregularity, or other features of chronic liver disease. The hypertrophy is likely compensatory following right hepatectomy. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis status, aligning with the previously extracted "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=287 / Out=107
+Cost: $0.000125

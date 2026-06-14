@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is cirrhotic in morphology with sequelae of portal venous hypertension including small abdominal varices and splenomegaly, measuring 20 cm. There is a 7 mm arterially enhancing lesion in segment 4 (image 27 series 12) without washout, stable. No additional enhancing lesions are identified. The hepatic vasculature is patent.
+
+There is layering sludge/stones within the gallbladder. There is no biliary ductal dilatation. The kidneys and adrenal glands are unremarkable with exception of a few subcentimeter simple renal cysts.
+
+There is a 4 mm cyst within the mid body of the pancreas (image 26 series 4) likely representing side branch IPMN.
+
+There is no adenopathy or ascites.1. Cirrhotic liver morphology with sequelae of portal venous hypertension.
+
+2. Nonspecific stable arterial phase enhancing focus within segment 4. No definite HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic in morphology" and mentions "sequelae of portal venous hypertension," which are direct indicators of cirrhosis. Keywords such as "cirrhotic" and references to chronic liver disease complications (varices, splenomegaly) are present.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=411 / Out=72
+Cost: $0.000113

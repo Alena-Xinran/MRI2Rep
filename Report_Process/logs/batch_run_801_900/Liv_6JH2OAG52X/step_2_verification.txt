@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post right hepatectomy. A 10.7 cm postoperative collection along the cut surface of the liver is not significantly changed. Some hyperemia the adjacent parenchyma is again seen and likely related to mass effect. Stable cysts and mild biliary dilatation. There are no findings of recurrent disease or new liver lesions with imaging features suspicious for hepatocellular carcinoma. Hepatic vasculature is patent.
+
+A 1.0 cm cystic lesion in the pancreatic uncinate process is unchanged, nonspecific, presumed sequela of pancreatitis or sidebranch IPMN.
+
+Patient is status post cholecystectomy. Spleen, adrenal glands and kidneys unremarkable except for tiny cysts. A right upper abdominal wall hernia contains unobstructed small bowel There is no upper abdominal adenopathy or ascites.  A 0.9 cm right nonenhancing retroperitoneal nodule (series 6, image 26) is unchanged.No findings of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, atrophy, hypertrophy, or signs of portal hypertension). It describes postoperative changes, a collection, hyperemia, stable cysts, and mild biliary dilatation, but no findings indicating fibrosis or cirrhosis. The liver is not explicitly described as "normal," but the absence of cirrhosis-related terms and the lack of mention of any fibrotic changes supports the previously extracted status of "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=393 / Out=124
+Cost: $0.000162

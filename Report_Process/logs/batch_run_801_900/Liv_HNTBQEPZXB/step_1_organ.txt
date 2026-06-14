@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent. Liver lesions are as follows:
+*  Decrease in size of segment 7/8 treatment cavity measuring 4.0 x 3.1 cm (series 8 image 20) previously measuring 4.3 x 3.1 cm. No residual disease or recurrence.
+*  Slight decrease in size of segment 5 treatment cavity measuring 2.8 x 2.0 cm (series 8 image 58) previously measuring 3.0 x 2.2 cm. No residual disease or recurrence.
+*  New segment 6 treatment cavity measuring 5.0 x 4.0 cm (series 8 image 50). No residual disease or recurrence.
+*  New segment 7 treatment cavity measuring 3.9 x 2.3 cm (series 8 image 29). No residual disease or recurrence.
+*  New segment 8 treatment cavity measuring 7.1 x 3.5 cm (series 8 image 29). No residual disease or recurrence.
+*  New segment 5 lesion demonstrate mild arterial enhancement with washout and pseudocapsule measuring 2.9 cm (series 8 image 48 and series 11 image 48). This lesion meets OPTN 5B criteria for HCC.
+*  New segment 4A lesion demonstrates mild arterial enhancement with washout and pseudocapsule measuring 2.3 cm (series 8 image 12 and series 11 image 12). This lesion meets OPTN 5B criteria for HCC.
+
+Cholelithiasis is noted. The pancreas, adrenals, and kidneys are unremarkable. Likely Gamna-Gandy bodies are noted within the spleen. Trace ascites is appreciated. There is no adenopathy or obstruction.1.  There are 2 new lesions that meets OPTN 5B criteria for HCC. One is located in segment 5 (2.9 cm) and the other is located in segment 4A (2.3 cm).
+2.  Old and new treatment cavities are without residual or recurrent disease.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=667 / Out=51
+Cost: $0.000176

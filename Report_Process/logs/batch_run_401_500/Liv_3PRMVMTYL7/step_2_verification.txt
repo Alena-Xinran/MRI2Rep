@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is again cirrhotic and steatotic. There is interval increase in size of the large arterially enhancing mass with intralesional fat, involving segments 5-8, measuring 7.8 x 7 cm, previously 6.2 x 5.5 cm when measured similarly. There are new foci of arterial enhancement measuring up to 8 mm, for example on image 25, series 11 surrounding this mass, likely representing additional disease. The mass is closely associated with the anterior sector right hepatic vein branches which is likely involved. The mass also deviates and contacts the anterior and posterior right portal vein branches but without any definitive intravenous tumor thrombus. Some arterial portal shunting is likely present within the right lobe.    Common hepatic artery is again noted to be replaced to the SMA with some atherosclerotic disease noted.    On image 29, series 11 in segment 4A, a 0.9 cm observation with arterial enhancement, without washout or pseudocapsule, demonstrates slight interval increase in size as previously it measured 0.7 cm. This demonstrates T2 hyperintensity. (LR-4)    On image 34, series 11 in segment 7 there is a 1.7 cm observation with arterial enhancement, which is T2 hyperintense and demonstrates washout on delayed phase images and demonstrates mild interval increase in size and previously measured 1.3 cm (LR-5). This lesion abuts the right adrenal gland. Right adrenal gland also contains a small adenoma more inferiorly which is unchanged in size dating back to 2020.    The gallbladder, pancreas, spleen, left adrenal gland, and kidneys are unremarkable, with the exception of renal cysts, some of hemorrhagic. There is no suspicious abdominal lymphadenopathy. Trace ascites is present.      No aggressive osseous lesion is seen. Patient is status post median sternotomyEnlarging right hepatic infiltrating HCC (LR5).    Enlarged satellite HCC nodules within the medial segment (LR4) and right lobe (LR5) as noted above.     No definite extrahepatic metastatic disease identified.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is again cirrhotic and steatotic," confirming the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=639 / Out=58
+Cost: $0.000203

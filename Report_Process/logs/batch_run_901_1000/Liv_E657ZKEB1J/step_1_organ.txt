@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a central pseudomass related to the patient's primary disease, unchanged in appearance from the prior exams. There are no findings in the liver suspicious for HCC.
+
+ A few nonspecific foci of hypointense signal on T1 and T2 signal within the right hepatic lobe are unchanged, probably representing calcified granulomas.
+ There is persistent irregularity of the intrahepatic bile ducts , with hypointense filling defects within the ducts, possibly related to chronic changes from a sending cholangitis due to the known Kasai procedure; these findings are unchanged since 2011. Gallbladder is absent. There is similar appearance of a simple cyst within the midabdomen which measures up to 2.0 cm, unchanged.
+
+There is are multiple varices including a splenorenal shunt and splenomegaly. The pancreas, adrenal glands, and kidneys are unremarkable. There are a few nonspecific prominent periportal lymph nodes and a prominent anterior paracardial lymph node measuring which are stable.  There is no upper abdominal ascites. 
+
+There is probable atelectasis at the right lung base. There are no aggressive osseous lesions.Stable exam without evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain direct keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease" in relation to the liver parenchyma. While there are findings of persistent irregularity of the intrahepatic bile ducts possibly related to chronic changes from ascending cholangitis, this is a biliary finding and not a direct description of the liver parenchyma's condition. The liver itself is not described as "unremarkable", "normal", or "smooth", but the absence of fibrosis/cirrhosis indicators suggests no clear evidence of parenchymal fibrosis or cirrhosis. The presence of varices and splenomegaly could be indirect signs of portal hypertension, but without explicit parenchymal descriptors, the primary criteria for fibrosis/cirrhosis are not met.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=472 / Out=191
+Cost: $0.000180

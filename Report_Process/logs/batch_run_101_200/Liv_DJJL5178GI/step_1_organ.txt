@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Post-surgical change of right hepatic lobe transplant are redemonstrated. Stable region of enhancement along the medial right hepatic lobe surface (series 8, image 44) is likely perfusional. Stable right hepatic lobe cyst. No hepatic mass identified. Stable mild intrahepatic biliary ductal prominence. 
+
+The spleen, adrenals, kidneys, and pancreas are unremarkable with the exception of renal cysts.
+
+No abdominal lymphadenopathy or ascites is seen.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver findings describe post-surgical changes, a stable cyst, and mild intrahepatic biliary ductal prominence, but no descriptors indicating fibrosis or cirrhosis. The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of positive signs of fibrosis/cirrhosis and the lack of ascites or other stigmata suggest no evidence of fibrosis or cirrhosis is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=325 / Out=148
+Cost: $0.000121

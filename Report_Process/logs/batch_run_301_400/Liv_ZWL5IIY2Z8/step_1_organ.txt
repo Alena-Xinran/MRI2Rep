@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post left hepatectomy with no abnormality in the surgical bed. Redemonstration of multiple arterial enhancing observations in the right hepatic lobe on series 18,001 image 43, 35, 39 and 41 with another linear enhancing structure on image 58, all without T2 correlate, pseudocapsule, rim enhancement or washout.
+Status post cholecystectomy with minimal, expected post cholecystectomy biliary ductal dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Stable cystic structure in the body of the pancreas measuring 1.4 cm, stable from prior study best seen series 2001 image 16. No new pancreatic mass.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Stable left adrenal adenoma measuring 1.4 cm. Right adrenal is unremarkable.
+
+Kidneys: Bilateral simple cysts with a proteinaceous/hemorrhagic cyst in the left upper pole measuring 1.6 cm. No suspicious renal mass.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Degenerative changes in the included spine with focal enhancement at multiple levels. No focal marrow signal abnormality.1.  Multiple LR3 observations, overall unchanged as described above. No new liver lesion sebaceous of HCC.
+2.  Overall is stable pancreatic cystic lesion and additional findings.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of any descriptors indicating fibrosis or cirrhosis, along with findings focused on post-surgical status and observations (likely benign or indeterminate nodules) without parenchymal texture abnormalities, suggests no evidence of fibrosis or cirrhosis. The spleen is noted as "unremarkable", but this does not directly describe the liver. Based on the criteria, since no positive indicators are present, the classification is "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=520 / Out=169
+Cost: $0.000184

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The 8 mm arterially enhancing focus in the right hepatic lobe on image 18 of series 7 is unchanged and does not demonstrate a pseudocapsule or washout on delayed images. A 3.0 cm ablation cavity in segment 5/8 on image 25 of series 7 is stable without evidence of recurrent disease.
+
+A stable 3 mm dilated side branch versus cystic lesion is noted in the tail the pancreas. The spleen, adrenal glands and kidneys are unremarkable, except for a right renal cyst. The patient is status post cholecystectomy. 
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state "normal liver," but it describes specific findings in the liver (an enhancing focus and an ablation cavity) without indicating diffuse parenchymal disease. Since there is no mention of cirrhosis or its features, the appropriate status based on the provided rules is "NoFibrosis/Cirrhosis." The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=333 / Out=121
+Cost: $0.000144

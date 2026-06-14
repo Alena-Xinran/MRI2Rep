@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant. A small right hepatic cyst abutting the liver capsule is again noted. No suspicious liver mass identified. A small geographic area in segment 5 is slightly hypoenhancing on portal venous phase and slightly hyperenhancing on delayed phase, favored to represent vascular perfusion phenomenon (image 52, series 15). The hepatic vasculature is patent.
+
+A cystic structure in the porta hepatis/gallbladder fossa is again noted, possibly reflecting a cystic duct remnant, mildly increased in size from prior. A mismatch between the dilated common bile duct size (0.5 cm) and recipient common bile duct size (1.3 cm) is redemonstrated. 
+
+Previously seen right adrenal heterogeneous thickening/nodularity appears similar to mildly decreased.
+
+The spleen, pancreas, left adrenal gland and kidneys are unremarkable except for renal cysts.
+
+There is no ascites or upper abdominal lymphadenopathy.
+
+A small fat-containing umbilical hernia is again noted. Bilateral gynecomastia is present.1.  No evidence for HCC.
+2.  Similar to mildly decreased right adrenal thickening/nodularity may reflect resolving hematoma.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of a post-transplant status, noting a small cyst and a vascular perfusion phenomenon, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma is not described as "unremarkable", "normal", or "smooth" directly, but there is no evidence of fibrosis or cirrhosis based on the provided text. The absence of these specific findings suggests no active fibrosis or cirrhosis in the transplanted liver.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=462 / Out=136
+Cost: $0.000154

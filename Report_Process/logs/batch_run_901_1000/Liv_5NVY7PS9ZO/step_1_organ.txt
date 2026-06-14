@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A 1.4 cm segment 8 lesion (13:81) has slightly grown from prior exams when it measured 1 cm and displays washout and partial pseudocapsule consistent with an HCC (OPTN 5a). A few adjacent small arterial enhancing satellite nodules are nonspecific without discrete washout.
+
+No other lesions displaying arterial enhancement and washout to suggest HCC are identified. Multiple peripherally peripheral wedge-shaped regions of arterial enhancement without washout are noted with some increased T2 signal intensity likely related to regions of confluent fibrosis.
+
+Several avascular ablation cavities are again noted as follows (measured on series 17):
+
+Segment 7 measuring 2 cm
+More inferiorly in segment 7 measuring 3.3 cm
+Segment IVb measuring 1.6 cm
+Segment 4A/4B measuring 1.4 cm
+Vague segment 3 subcentimeter cavity
+
+No findings of tumor thrombus or extrahepatic metastases. Portal system remains patent with large varices again noted. Abnormal enhancement and adhesion formation is noted along the ventral abdominal wall.  16 cm spleen remains enlarged. A few punctate renal cysts are unchanged. Pancreas, adrenal glands, and visualized bowel appear unremarkable. No adenopathy. There is trace perihepatic ascites.Interval growth of OPTN 5A segment 8 HCC.
+
+No findings of recurrence at other sites of treated disease.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "regions of confluent fibrosis" in the liver, which directly indicates the presence of fibrosis. Additionally, there are findings such as "large varices" and "trace perihepatic ascites," which are often associated with portal hypertension and chronic liver disease/cirrhosis. The spleen is also noted as enlarged (16 cm), which can be a secondary sign of portal hypertension. There is no description of the liver parenchyma as unremarkable, normal, or smooth.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=514 / Out=116
+Cost: $0.000160

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Please note that artifact from the patient's epicardial pacing wires obscures portions of the left lateral lobe of the liver.
+
+The liver has a slightly nodular contour with hypertrophy of the caudate lobe and atrophy of the medial segment, suggestive of underlying cirrhosis. On series 15, image 28, there is a 1.3 cm hypoenhancing lesion in segment 2 that enhances on the more delayed phase imaging (series 17, image 29) and corresponds to vague area of T2 hyperintensity on series 4, image 17.  Evaluation for arterial enhancement is limited due to suboptimal timing of bolus. This lesion likely corresponds to a hypoattenuating lesion in the left lateral segment noted on recent and older CT imaging. The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for tiny renal cysts. 
+
+The previously noted hemoperitoneum has resolved. There is no abdominal adenopathy or ascites. A duodenal diverticulum is again seen.Cirrhotic appearing liver without findings of HCC. No residual hemoperitoneum.
+
+Stable segment 2 lesion which is indeterminate but likely benign given stability. Differential diagnosis includes sclerosed hemangioma.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a slightly nodular contour with hypertrophy of the caudate lobe and atrophy of the medial segment, suggestive of underlying cirrhosis" and later concludes "Cirrhotic appearing liver". These are direct keywords and descriptions meeting the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=475 / Out=74
+Cost: $0.000132

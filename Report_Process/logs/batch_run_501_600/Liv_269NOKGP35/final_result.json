@@ -1,0 +1,25 @@
+{
+  "id": "Liv_269NOKGP35",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_WO | R_POST | 1\"]": 2,
+      "[\"APHE_WO | R_JUNCTION | 1\", \"APHE_WO | R_POST | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00094122,
+    "timestamp": "2026-02-07 22:37:52",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post liver transplant. No suspicious hepatic lesion. 1.5 cm focal bulging at the posterior right hepatic lobe is unchanged compared to 2021. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: 4 mm cystic lesion at the neck/body is unchanged, image 19 series 3.
+
+Spleen: No splenomegaly. Small splenorenal renal shunt is again noted
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small simple renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of a status post liver transplant, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma is not specifically described as "unremarkable", "normal", or "smooth", but the absence of the specified fibrosis/cirrhosis keywords and the lack of any description suggesting chronic parenchymal disease indicates no evidence of fibrosis or cirrhosis in this report.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=368 / Out=128
+Cost: $0.000125

@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver has a cirrhotic morphology. 
+
+The diffuse infiltrating HCC in the left hepatic lobe is stable in size. There are multiple HCC's in the right hepatic lobe which are overall stable in size except for a 1.2 cm lesion in segment 7 which previously measured 0.8 cm, image 72 series 12. Representative stable right hepatic lobe HCC measure 1.1 cm, 1.1 cm and 1.0 cm on image 62 series 12. The hepatic vasculature is patent.
+
+The gallbladder, pancreas, spleen, and adrenals are unremarkable. Renal cysts are noted.
+
+There is trace ascites. No adenopathy or obstruction.
+
+Several enhancing pelvic and new L1 osseous lesions are noted and suspicious for metastatic disease.Overall stable diffuse infiltrative HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver has a cirrhotic morphology," which directly indicates features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=365 / Out=54
+Cost: $0.000125

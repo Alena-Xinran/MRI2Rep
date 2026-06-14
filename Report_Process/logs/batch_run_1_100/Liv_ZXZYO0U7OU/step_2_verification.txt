@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are post surgical changes of liver transplant. No suspicious liver observations are seen (note that there is slightly late contrast timing). The hepatic vasculature is patent.
+
+The pancreas, spleen and adrenal glands are unremarkable. Renal cysts are noted.
+
+There is no abdominal adenopathy or ascites.
+
+Fat-containing ventral hernias are noted.No evidence for metastatic disease or new HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "post surgical changes of liver transplant" and "No suspicious liver observations are seen," but does not explicitly state "cirrhosis" or describe features of cirrhosis such as nodularity, atrophy, or portal hypertension. The liver is described without evidence of suspicious observations, which implies a normal appearance in this context, consistent with "NoFibrosis/Cirrhosis." The previous extraction is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=276 / Out=103
+Cost: $0.000121

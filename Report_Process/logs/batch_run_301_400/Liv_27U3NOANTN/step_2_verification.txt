@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Postsurgical changes compatible with a right hepatic lobe transplant are again noted. The transplanted liver is not cirrhotic in morphology. There are no liver lesions imaging features of hepatocellular carcinoma. There is a stable right hepatic lobe cyst. Mild to moderate biliary ductal dilatation, predominantly in the posterior right hepatic lobe is stable.    The spleen remains mildly enlarged. The pancreas, adrenal glands, and kidneys are unremarkable, with the exception of bilateral renal cysts, some of which are proteinaceous/hemorrhagic. There is no abdominal lymphadenopathy. Trace free fluid is again noted.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The transplanted liver is not cirrhotic in morphology," which explicitly indicates the absence of cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis," which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=321 / Out=64
+Cost: $0.000117

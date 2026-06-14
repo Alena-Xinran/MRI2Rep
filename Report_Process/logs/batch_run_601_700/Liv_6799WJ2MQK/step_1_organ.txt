@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is limited by motion.
+
+The liver is fatty and cirrhotic. There are multiple hepatic cysts, as well as a 1.6 cm T1 hyperintense lesion in segment 2/3 that may represent a hemorrhagic cyst (image 40, series 13). A 1.9 cm mildly T2 hyperintense lesion in segment 8 demonstrates fat and mild enhancement, again concerning for HCC. The hepatic vasculature is patent.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable. There is evidence of portal hypertension, as manifested by paraesophageal varices and moderate amount of ascites. No lymphadenopathy is identified. There are small bilateral pleural effusions.Motion limited study. 1.9 cm hepatic lesion in segment 8 remains indeterminate with steatotic HCC not excluded.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is fatty and cirrhotic," which directly indicates cirrhosis. Additionally, there is mention of portal hypertension with paraesophageal varices and ascites, which are often associated with advanced liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=398 / Out=61
+Cost: $0.000105

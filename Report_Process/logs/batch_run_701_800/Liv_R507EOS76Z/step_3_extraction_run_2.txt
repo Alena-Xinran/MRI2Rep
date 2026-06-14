@@ -1,0 +1,99 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+The previously seen treated HCC at the dome of the liver is very difficult to confidently identify, but is best seen on series 3001 image 5, measuring approximately 6 x 2.5 cm, without definite evidence of recurrent neoplasm (LR TR nonviable).
+
+Necrotic adenopathy is unchanged. For instance, 2.5 cm portacaval and 2.5 cm aortocaval node are stable.
+
+Adrenal metastases have improved. The right adrenal metastasis measures 1.2 cm, previously 2.4 cm, and the left measures 1 cm, previously 1.7 cm. These also appear avascular.
+
+There is a 1.3 cm mass in the inferior aspect of the spleen. This may have slightly increased in size, previously measuring approximately 1.1 cm, presumably metastatic disease.
+
+The pancreas and kidneys are unremarkable. There is no ascites.Improvement in adrenal metastases.
+
+Possible slight interval increase in size of splenic metastasis.
+
+Otherwise, no significant interval change.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: The previously seen treated HCC at the dome of the liver is very difficult to confidently identify, but is best seen on series 3001 image 5, measuring approximately 6 x 2.5 cm, without definite evidence of recurrent neoplasm (LR TR nonviable). -> Reasoning: Found a lesion. It is a treated HCC described as "LR TR nonviable" and "without definite evidence of recurrent neoplasm." This is a treated lesion/scar, which maps to the RIM_ATYP type. Location: dome of the liver maps to R_ANT. Quantity: 1.
+Sentence 2: Necrotic adenopathy is unchanged. For instance, 2.5 cm portacaval and 2.5 cm aortocaval node are stable. -> Reasoning: Describes lymph nodes, not a liver lesion.
+Sentence 3: Adrenal metastases have improved. The right adrenal metastasis measures 1.2 cm, previously 2.4 cm, and the left measures 1 cm, previously 1.7 cm. These also appear avascular. -> Reasoning: Describes adrenal lesions, not liver.
+Sentence 4: There is a 1.3 cm mass in the inferior aspect of the spleen. This may have slightly increased in size, previously measuring approximately 1.1 cm, presumably metastatic disease. -> Reasoning: Describes a splenic lesion, not liver.
+Sentence 5: The pancreas and kidneys are unremarkable. There is no ascites.Improvement in adrenal metastases. -> Reasoning: Background/other organ findings, no liver lesion.
+Sentence 6: Possible slight interval increase in size of splenic metastasis. -> Reasoning: Follow-up on splenic lesion, not liver.
+Sentence 7: Otherwise, no significant interval change. -> Reasoning: General statement, no new lesion.
+
+Step 2: Structured Output
+TUMOR_RECORD: RIM_ATYP | R_ANT | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_ANT | 1
+
+--- USAGE ---
+Tokens: In=1049 / Out=411
+Cost: $0.000466

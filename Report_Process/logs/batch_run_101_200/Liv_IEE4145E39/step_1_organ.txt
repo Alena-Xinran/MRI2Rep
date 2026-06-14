@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post interval bland embolization. There is been marked interval improvement in the previously seen multifocal HCC, with the majority of the previously seen HCC now avascular, some are also smaller. For instance, on series 13 image 41, a 1.5 cm embolized HCC bordering segments 7 and 8 previously measured 2.3 cm. On series 13 image 26, an 18 mm avascular tumor in segment 8 is unchanged in size.
+
+Residual neoplasm is also present but essentially unchanged. For instance, on series 11 image 24, there are 2 adjacent arterial phase enhancing nodules measuring up to 1.2 cm, in segment 8 adjacent to the ablation cavity.
+
+A 5.8 x 2 cm ablation cavity in segment 8 is essentially unchanged, without evidence of residual neoplasm within the cavity.
+
+Hepatic vasculature is stable.
+
+
+Cholelithiasis is again noted. The pancreas, spleen, adrenals, and kidneys are unremarkable. Cardiophrenic nodes measuring up to 8 mm are nonspecific, stable. Trace perihepatic ascites is again noted.Marked interval improvement in multifocal HCC.
+
+Residual disease is present, but essentially unchanged.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report focuses on the status of hepatocellular carcinoma (HCC) post-embolization and ablation, noting interval improvement and residual disease. It mentions "trace perihepatic ascites" and "cholelithiasis," but does not include any keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit mentions of "chronic liver disease." The liver parenchyma itself is not described as abnormal, unremarkable, normal, or smooth in this excerpt. However, given the presence of multifocal HCC, which is often associated with underlying chronic liver disease or cirrhosis, the context suggests possible underlying liver pathology. But based strictly on the provided criteria and the absence of the specified keywords describing the liver parenchyma, the report does not meet the criteria for "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=484 / Out=195
+Cost: $0.000185

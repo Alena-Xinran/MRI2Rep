@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+For findings in the chest, please see separate chest CT.
+
+Hepatic cirrhosis. There are numerous ablation cavities without recurrence in the treatment cavities. However, there are multiple worsening HCCs elsewhere in the liver; HCC essentially replaces the right hepatic lobe. For example: 
+
+-On image 20 of series 8, segment VIII HCC lesion now measures 3.8 cm, previously 2.6.
+
+-On image 16 of series 8, segment II HCC now measures 4.0 cm, previously 2.2 cm.
+
+-Stable size of a segment VII ablation cavity measuring 4.6 x 3.9 cm on image 22 of series 8. Tumors superolateral to the cavity have increased in size on image 13 of series 8, now measuring 2.5 cm and 1.4 cm, previously 2.0 and subcentimeter. New worsening disease posterior to the cavity on image 24 of series 8, measuring 1.0 cm.
+
+-Interval decrease in the size of segment VII/VIII ablation cavity measuring less than 1 cm on image 25 of series 12. Further decrease in size of an ablation cavity in segment VIII on image 18 of series 12 now measuring 0.7 x 0.8 cm, previously 0.7 x 1.3 cm. There is no evidence for residual/recurrent disease within these treatment cavities.
+
+The main, right and left portal veins are patent. There is marked attenuation/occlusion of the posterior right portal vein (image 32, series 10) and probable occlusion of a distal branch of the right anterior portal vein (image 21, series 10). 
+
+The spleen, pancreas, kidneys, and adrenal glands are unremarkable, except for punctate renal cysts and regions of renal cortical scarring. No enlarged abdominal lymph nodes are noted. Trace ascites is seen predominantly in Morison's pouch. 
+
+Bypass grafts in the right thoracic wall are again noted, one of which is occluded (stable). Diffuse atherosclerotic disease aorta noted with partial visualization of occlusion of the left common iliac artery, unchanged.
+
+Stable nonspecific 0.5 cm nodule posterior to the right psoas muscle on image 64 series 11. Stable punctate enhancing focus in the right paraspinal musculature on image 28 of series 11.Cirrhosis with worsening HCC tumor burden, as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Hepatic cirrhosis" in the findings and later reiterates "Cirrhosis with worsening HCC tumor burden," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=727 / Out=54
+Cost: $0.000194

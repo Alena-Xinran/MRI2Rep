@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequela of portal hypertension including upper abdominal varices, recanalization of the paraumbilical vein, and trace ascites. 
+
+Redemonstration of multiple treatment cavities which are decreased in size and some of which are hemorrhagic (measured on series 9). No evidence of residual or recurrent disease.
+
+-Segment 4A measuring 2.0 x 1.5 cm, previously 2.3 x 2.0 cm (image 14).
+-Segment 7/8 measuring 3.0 x 2.7 cm, previously 3.4 x 2.9 cm (image 20).
+-Segment 8 measuring 4.4 x 3.2 cm, previously 4.7 x 3.2 cm (image 28).
+-Segment 7 measuring 3.5 x 2.3 cm, previously 3.9 x 2.6 cm (image 29).
+-Segment 5 measuring 3.4 x 2.0 cm, previously 3.4 x 2.3 cm (image 44).
+-Segment 5 measuring 1.9 x 1.2 cm, previously 1.9 x 1.2 cm (image 50).
+-Segment 6 measuring 4.0 x 3.1 cm, previously 4.6 x 3.6 cm (image 47).
+
+There are no new lesions meeting criteria for hepatocellular carcinoma. The hepatic vasculature is patent.
+
+Gallstones and sludge are noted. The pancreas, spleen, adrenal glands, and kidneys are unremarkable except for likely splenic Gamna-Gandy bodies.
+
+There is no abdominal lymphadenopathy.Multiple treatment cavities again noted, without evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and includes sequelae of portal hypertension (varices, recanalized paraumbilical vein, ascites), which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=600 / Out=58
+Cost: $0.000160

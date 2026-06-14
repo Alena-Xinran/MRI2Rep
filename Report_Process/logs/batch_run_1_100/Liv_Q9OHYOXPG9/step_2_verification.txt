@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. Hepatic steatosis is redemonstrated. There is no evidence of HCC. The hepatic vascular structure is patent.
+
+There is an unchanged 1.6 cm cystic lesion in the tail of the pancreas which may represent sequela of prior pancreatitis versus a side branch IPMN. 
+
+The spleen, kidneys and adrenal glands are unremarkable. There is no bowel obstruction or adenopathy. The patient appears to be status post ventral hernia repair with a small amount of fluid in the abdominal wall.No HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, atrophy/hypertrophy, portal hypertension findings). It only notes hepatic steatosis and patent vasculature post-transplant, with no evidence of HCC. The liver is not explicitly described as "normal," but there is no indication of fibrosis or cirrhosis. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=308 / Out=111
+Cost: $0.000133

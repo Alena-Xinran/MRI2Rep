@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology and there is confluent fibrosis in the left hepatic lobe. There is no new hepatocellular carcinoma. There are a few scattered foci of arterial hyperenhancement without correlate on subsequent phases which are nonspecific. The hepatic vasculature is patent.
+
+Segment V ablation cavity with associated capsular retraction has decreased in size now measuring 0.7 x 0.4 cm, previously 1.0 x 0.6 cm and there are no findings of residual or recurrent neoplasm (image 42, series 18).
+
+Ablation cavities in segment II/III and segment VI/V are not well delineated on the current exam.
+
+The adrenals, visualized kidneys, spleen and gallbladder are unremarkable with the exception of a small splenic cyst and concentrated bile in the gallbladder. There is similar prominence of the main pancreatic duct and common bile duct as well as minimal dilation of the intrahepatic biliary tree. A periampullary duodenal diverticulum is redemonstrated.
+
+There is no abdominal lymphadenopathy. There is trace upper abdominal ascites. An IVC filter is noted.
+
+There is no aggressive osseous lesion.No new HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver is cirrhotic in morphology and there is confluent fibrosis in the left hepatic lobe." This explicitly indicates the presence of cirrhosis and fibrosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=441 / Out=68
+Cost: $0.000152

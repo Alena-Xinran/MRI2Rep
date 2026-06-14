@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Please see separately dictated chest CT performed same day for findings above the diaphragm.    The patient is status post hepatic transplant with a biliary enteric anastomosis. A right-sided external biliary drain is in situ. There is no biliary ductal dilatation. Small perihepatic hematomas continue to decrease in size, for example in the right upper quadrant measuring 1.4 cm, previously 2.2 cm (series 4, image 23). There is small amount of loculated fluid along the falciform ligament. The hepatic vasculature is patent.    A 1.7 cm hemangioma in the right hepatic lobe is noted as well as 2 mildly T2 hyperintense lesions likely hemangiomas are unchanged.    There are no imaging findings concerning for hepatocellular carcinoma.    The spleen is mildly enlarged measuring 15 cm and there are abdominal varices. The pancreas, adrenal glands and kidneys are unremarkable except for renal cysts.    There is no abdominal adenopathyNo evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the patient as status post hepatic transplant, notes a hemangioma and other likely hemangiomas, and states there are no imaging findings concerning for hepatocellular carcinoma. There is no mention of cirrhosis, morphologic features of cirrhosis, or any signs of fibrosis. The liver is not explicitly described as "normal," but the absence of any cirrhotic features and the presence of a transplant without noted fibrosis supports the "NoFibrosis/Cirrhosis" status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=405 / Out=113
+Cost: $0.000161

@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multiple hepatic ablation cavities are again noted as follows:
+
+Segment 8, subcapsular ablation cavity measuring 4.8 x 1.4 cm, previously 5.5 x 1.3 cm. There is no recurrent or residual disease.
+
+Segment 8, subcapsular cavity just inferiorly, measuring 1.8 x 1.8 cm. There is no recurrent or residual disease.
+
+Segment 7, subcapsular measuring 2.8 x 1.2 cm, previously 3.0 x 1.1 cm. A nodular focus of internal enhancement is less prominent and does not demonstrate washout.
+
+Scattered foci of arterial enhancement throughout the bilateral hepatic lobes (for example segment 3 series 10 image 63), do not demonstrate washout.
+
+The spleen, gallbladder, pancreas, adrenal glands and kidneys are unremarkable except for 1 cm left renal cyst.
+
+There is no abdominal lymphadenopathy or ascites.No evidence of recurrent or residual HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multiple hepatic ablation cavities and scattered foci of arterial enhancement, but does not include any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as abnormal in texture or contour. Other organs are noted as unremarkable, but the liver's parenchymal condition is not directly stated. Since there is no evidence of fibrosis or cirrhosis based on the given criteria, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=430 / Out=137
+Cost: $0.000146

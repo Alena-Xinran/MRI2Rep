@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+LUNG BASES: Minimal dependent atelectasis. 
+
+LIVER: Patient is status post right partial hepatectomy. A 10.7 cm collection with internal debris along the cut surface of the liver is stable in appearance. 
+
+The patient is status post interval microwave ablation of a previously seen LI-RADS 5 caudate lesion. Ablation cavity measures 4.5 x 3.2 cm, without evidence of recurrent or residual tumor. 
+
+Scattered hepatic cysts are again noted. Mild intrahepatic biliary ductal dilatation adjacent to the cut surface of the liver is unchanged.
+
+Hepatic vasculature is patent.
+
+GALLBLADDER: Status post cholecystectomy.
+SPLEEN: Unremarkable.
+PANCREAS: Stable 0.8 cm cystic lesion within the uncinate process, likely reflecting a sidebranch IPMN (image 16 series 4). No main pancreatic duct dilation.
+ADRENALS: Unremarkable.
+KIDNEYS: Bilateral renal cysts.
+
+BOWEL: No bowel obstruction.
+
+PERITONEUM/RETROPERITONEUM: No intraperitoneal free fluid. Unchanged nonspecific 0.9 cm right retroperitoneal nodule (series 4, image 28). Stable 0.7 cm nodule adjacent to the left hepatic lobe (series 10, image 47).
+
+LYMPH NODES: Unremarkable.
+
+BONES &amp; SOFT TISSUE: Unremarkable.No evidence of residual or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of post-surgical and post-ablation changes, including a collection along the cut surface, an ablation cavity, scattered cysts, and mild biliary ductal dilatation adjacent to the cut surface. There are no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators suggests no active fibrotic or cirrhotic changes are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=543 / Out=142
+Cost: $0.000179

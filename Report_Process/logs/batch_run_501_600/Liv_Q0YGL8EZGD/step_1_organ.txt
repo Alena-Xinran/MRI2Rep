@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Segment VI and segment VIII ablation cavities are again identified and have decreased in size now measuring 2.4 cm x 1.4 cm and 2 cm x 2.1 cm respectively (previously 3.2 cm x 1.4 cm and 2.9 cm x 2.4 cm.) There is no evidence of residual disease. No new hepatic lesions are identified. Multiple arterially enhancing foci without correlate on other sequences likely represent shunts. Several equilibrium phase hyperenhancing subcentimeter nodules throughout the hepatic parenchyma likely represent regenerative nodules. The hepatic vasculature is patent.
+
+Cholelithiasis is identified without evidence of acute cholecystitis. There is no intra or extrahepatic biliary ductal dilation. The pancreas, adrenal glands, spleen, and kidneys are unremarkable. No aggressive bone lesions. Calcified nodule in the right lower lobe remain stable.No evidence of recurrent or residual HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "Several equilibrium phase hyperenhancing subcentimeter nodules throughout the hepatic parenchyma likely represent regenerative nodules." Regenerative nodules are typically associated with a cirrhotic liver. Additionally, the presence of "Multiple arterially enhancing foci without correlate on other sequences likely represent shunts" can be indicative of altered hepatic hemodynamics often seen in chronic liver disease or cirrhosis. While the liver surface is not explicitly described, the findings strongly suggest underlying fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=110
+Cost: $0.000131

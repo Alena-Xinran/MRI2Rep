@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post right hepatic lobe transplant with hepaticojejunostomy and gastrojejunostomy. No hepatocellular carcinoma is identified. There is a new nonspecific patchy region of enhancement in segment 8 measuring approximately 2 cm (image 41, series 10), without T2 correlate, washout, or pseudocapsule. The hepatic vasculature is patent. 
+
+The spleen, adrenal glands, pancreas, and kidneys are unremarkable with exception of a few tiny renal cysts. No upper abdominal lymphadenopathy or ascites.
+
+The patient is status post ventral hernia repair with several loops of nonobstructed small bowel adhesed to the anterior abdominal wall.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy pattern, portal hypertension findings, etc.). It describes a post-transplant liver with a new nonspecific enhancement in segment 8 but does not indicate fibrosis or cirrhosis. The liver is not explicitly described as "normal" in morphology, but the absence of any mention of cirrhosis or its features, along with the context of a transplant and patent vasculature, supports the classification of "NoFibrosis/Cirrhosis" as per the given rules.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=341 / Out=133
+Cost: $0.000151

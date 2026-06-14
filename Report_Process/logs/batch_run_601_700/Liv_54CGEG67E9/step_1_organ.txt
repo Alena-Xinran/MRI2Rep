@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Again, the liver morphology is cirrhotic. Patient is status post post left lower segment partial hepatectomy with no evidence of abnormal enhancement to suggest disease recurrence within the surgical bed. No new liver lesions with imaging features of HCC. Stably dilated common bile duct and central hepatic ducts, likely a sequela of cholecystectomy.    Hepatic vasculature: Patent.    Pancreas: No pancreatic duct dilatation. Redemonstration of stable scattered pancreatic cyst along the course of the pancreatic duct, measuring up to 0.9 cm and the pancreatic neck region and 0.6 cm in the pancreatic tail area. No abnormal enhancement is associated with this cystic lesions. This cystic lesions may represent sidebranch IPMN or may be a sequela of chronic pancreatitis    Spleen: Unremarkable.    Adrenal glands: Unremarkable.    Kidneys: Atrophic with trace amount of nonspecific perinephric fluid, likely physiologic. Again, a stable right renal cyst is seen. No evidence of hydronephrosis.    Bowel: Unremarkable.    Upper abdominal lymph nodes: No lymphadenopathy.    Peritoneum: No ascites.    Other findings:  Degenerative changes of the thoracolumbar spine as evidenced by intervertebral disc narrowing, endplate osteophytosis and multilevel spinal canal narrowing secondary to disc osteophyte complexes.    Status post left mastectomy.    Right basilar atelectatic changes are noted.Status post left partial hepatectomy with no evidence of HCC recurrence.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "the liver morphology is cirrhotic," which directly indicates cirrhosis. This meets the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=549 / Out=51
+Cost: $0.000143

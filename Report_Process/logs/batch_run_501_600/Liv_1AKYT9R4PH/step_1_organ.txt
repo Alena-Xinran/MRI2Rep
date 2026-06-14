@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: There is evidence of volume redistribution and the liver is nodular in contour compatible with provided history of cirrhosis. Geographic area of arterial hyperenhancement noted in hepatic segment III, without washout or pseudocapsule appearance, likely representing perfusional variant. No suspicious focal liver lesions. There is sequela portal hypertension including recannulated paraumbilical vein and splenomegaly as well as paraesophageal varices. Hepatic vasculature is patent.
+
+Biliary system: Status post cholecystectomy. No biliary ductal dilatation.
+
+Spleen: Splenomegaly. There is nonspecific 0.5 cm focus of T2 hyperintensity and enhancement in the spleen (series 15, image 58)
+
+Pancreas: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for right peripelvic renal cyst.
+
+Lymph nodes: There are multiple prominent peripancreatic and hepatogastric lymph nodes measuring up to 1.1 cm (series 15, image 30), nonspecific in the setting of cirrhosis.
+
+Musculoskeletal: Partially visualized lumbar spine fixation hardware. Mild bilateral gynecomastia.Cirrhotic liver with sequela portal hypertension. 
+
+No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "nodular in contour compatible with provided history of cirrhosis" and later concludes with "Cirrhotic liver with sequela portal hypertension." It also mentions findings consistent with portal hypertension (recannulated paraumbilical vein, splenomegaly, varices) and notes prominent lymph nodes "in the setting of cirrhosis." These keywords and descriptions meet the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=487 / Out=98
+Cost: $0.000145

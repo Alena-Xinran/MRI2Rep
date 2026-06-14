@@ -1,0 +1,98 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+There is a cirrhotic liver with signs of portal hypertension including splenomegaly, ascites and portosystemic collaterals. The hepatic vasculature is patent. There are no new findings of hepatocellular carcinoma.
+
+A 2.5 x 1.3 cm presumably post-treatment cavity in segment VIII (image 33, series 15,001) is decreased in size from 2.7 x 1.6 cm. There is no evidence of recurrent disease. 
+
+A 0.8 cm arterially hyperenhancing lesion in segment sec (image 47, series 15,001) is unchanged, without washout or pseudocapsule and consistent with a LI-RADS 3 observation. 
+
+Previously seen pancreatic edema is decreased. The gallbladder, adrenal glands, and kidneys are unremarkable aside from a subcentimeter right renal cyst. A 1.5 cm enhancing polypoid lesion is seen in the descending duodenum, less conspicuous on the prior exam due to collapsed duodenum. There is no abdominal adenopathy.1.  No evidence of new or recurrent HCC.
+2.  Stable segment VI LI-RADS 3 observation.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: There is a cirrhotic liver with signs of portal hypertension including splenomegaly, ascites and portosystemic collaterals. The hepatic vasculature is patent. There are no new findings of hepatocellular carcinoma. -> Reasoning: Background description of liver morphology and vasculature. Statement about "no new findings of HCC" is a general assessment, not a description of a specific focal observation.
+Sentence 2: A 2.5 x 1.3 cm presumably post-treatment cavity in segment VIII (image 33, series 15,001) is decreased in size from 2.7 x 1.6 cm. There is no evidence of recurrent disease. -> Reasoning: Found lesion. Described as a "post-treatment cavity" with no evidence of recurrent disease. This fits the rule for "RIM_ATYP: Treated lesions/Scars". Location: Segment VIII maps to R_ANT.
+Sentence 3: A 0.8 cm arterially hyperenhancing lesion in segment sec (image 47, series 15,001) is unchanged, without washout or pseudocapsule and consistent with a LI-RADS 3 observation. -> Reasoning: Found lesion. Features: Arterial hyperenhancement (APHE) WITHOUT washout. Maps to APHE_NoWO. Location: "segment sec" is interpreted as a typo/truncation for "segment VI" based on the summary point #2. Segment VI maps to R_POST.
+Sentence 4: Previously seen pancreatic edema is decreased. -> Reasoning: Describes pancreas, not a liver finding.
+Sentence 5: The gallbladder, adrenal glands, and kidneys are unremarkable aside from a subcentimeter right renal cyst. -> Reasoning: Describes other organs. The renal cyst is not a liver finding.
+Sentence 6: A 1.5 cm enhancing polypoid lesion is seen in the descending duodenum, less conspicuous on the prior exam due to collapsed duodenum. -> Reasoning: Describes a duodenal lesion, not a liver finding.
+Sentence 7: There is no abdominal adenopathy. -> Reasoning: General statement about lymph nodes, not a liver finding.
+Sentence 8: 1.  No evidence of new or recurrent HCC. -> Reasoning: Summary/conclusion statement, not a description of a specific focal observation.
+Sentence 9: 2.  Stable segment VI LI-RADS 3 observation. -> Reasoning: Summary statement referring to the lesion described in Sentence 3. Already captured.
+
+Step 2: Structured Output
+TUMOR_RECORD: RIM_ATYP | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | R_POST | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_ANT | 1
+APHE_NoWO | R_POST | 1
+
+--- USAGE ---
+Tokens: In=1074 / Out=570
+Cost: $0.000282

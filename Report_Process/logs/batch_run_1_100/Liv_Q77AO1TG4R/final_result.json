@@ -1,0 +1,18 @@
+{
+  "id": "Liv_Q77AO1TG4R",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.000942256,
+    "timestamp": "2026-02-06 21:45:43",
+    "model": "deepseek/deepseek-chat"
+  }
+}

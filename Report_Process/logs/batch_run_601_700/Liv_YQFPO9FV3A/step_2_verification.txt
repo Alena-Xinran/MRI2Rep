@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is a small right pleural effusion with adjacent compressive atelectasis.    Multifocal liver metastasis with sequela of prior transarterial embolization are noted. Patient is most recently status post interval chemoembolization of the left hepatic metastasis which is now largely centrally necrotic. There is a persistent 3.7 x 3.1 cm heterogeneously enhancing solid component more superiorly within the left hepatic metastasis, (series 13, image 66), consistent with residual disease. The remaining in multifocal HCC also displays increased necrosis compared to the March examination but with multifocal sites of residual disease. The segment 4B lesion displays increased peripheral tumor compared to the prior MRI along its medial where the tumor now measures up to 1.5 cm in thickness previously 0.8 cm. When correlating with the intraprocedural images, no significant contrast staining is seen in this region.    The portal venous system is patent. The middle hepatic vein is not visualized and there is redemonstrated compression of the hepatic IVC, central right and left hepatic veins by the segment 4A mass/chemoembolization cavity which are otherwise patent.     The pancreas, spleen, kidneys and adrenal glands are unremarkable aside from a stable subcentimeter right renal cyst.    There is no abdominal lymphadenopathy.When compared to the prior MRI there is interval partial treatment response involving the dominant left lateral segment HCC which was recently treated. While increased tumor is seen within the segment 4B lesion medially, the rest of the multifocal disease displays decreased internal enhancement consistent with partial treatment response compared to prior MRI (all have internal viable components).    No definite sites of extrahepatic metastatic disease in the abdomen.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It describes liver metastases, HCC, and treatment changes, but does not comment on the background liver parenchyma or indicate cirrhosis. Since the report does not state cirrhosis or features of it, and does not explicitly say the liver is normal (it is abnormal due to metastases and HCC), the appropriate status based on the given rules is "NoFibrosis/Cirrhosis" because the absence of a mention of cirrhosis implies no documented cirrhosis. The previously extracted status is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=552 / Out=150
+Cost: $0.000218

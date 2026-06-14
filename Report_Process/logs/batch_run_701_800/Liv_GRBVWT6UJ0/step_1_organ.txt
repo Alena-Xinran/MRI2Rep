@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again seen are two small arterial phase hyperenhancing nodules with washout and pseudocapsule appearance in segment 7 at the dome of the liver. Uterus measures 1.2 cm (measured on the delayed venous phase) image 21 series 21 and the second measures 1.0 cm (image 22 series 21. These are unchanged compared to the prior study.
+
+There are other nodule-like arterial phase hyperenhancement, but none of these demonstrate pseudocapsule appearance or washout on the current study. Furthermore, some of the nodule-like arterial phase hyperenhancement seen on the prior exam are not apparent on the current study, possibly due to slight changes in timing of the contrast injection.
+
+The hepatic vasculature is patent. The pancreas, spleen, adrenals, and kidneys are unremarkable.
+
+There is no adenopathy, ascites, or obstruction. There is no pelvic mass.
+
+A small right hip joint effusion with peripheral enhancement is noted consistent with synovitis. The joint effusion is similar in size to recent MRI.-1.2 cm unchanged enhanced nodule in segment 7 which meets OPTN 5A criteria for HCC.
+-Another unchanged enhancing nodule in segment 7 demonstrates washout and pseudocapsule, but since it measures 1.0 cm it does not technique OPTN criteria for HCC. Nevertheless, it remains highly suspicious for HCC
+-No other small enhancing nodules identified in the study demonstrate washout or pseudocapsule. Some of the tiny enhancing nodule seen on the prior study are not apparent on the current study.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes specific nodules concerning for HCC but does not comment on the overall liver parenchyma texture, surface, or signs of diffuse fibrosis. The hepatic vasculature is noted as patent, and other organs are unremarkable, but there is no statement about the liver parenchyma being normal, smooth, or unremarkable. Since the criteria require explicit signs of fibrosis/cirrhosis or explicit normal/smooth description, and neither is present, the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of positive findings.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=555 / Out=169
+Cost: $0.000194

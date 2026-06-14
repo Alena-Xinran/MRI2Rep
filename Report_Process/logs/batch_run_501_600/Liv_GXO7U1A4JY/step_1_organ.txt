@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: Status post orthotopic pole of the transplant
+-Wedge-shaped region of arterial phase hyperperfusion in segment 8 at the dome is more conspicuous compared to the prior study, likely due to slight differences in timing of contrast bolus. A similar hyperenhancing subcapsular region in posterior segment 6 on image 37 series 10 is unchanged. No washout or pseudocapsule
+-Several subcentimeter enhancing foci, for example in the caudate lobe on image 29 series 10, are unchanged and do not demonstrate washout or pseudocapsule. There is no washout or pseudocapsule. 
+-Multiple tiny cysts, unchanged. No intra or extrahepatic bile duct dilatation. Hepatic vasculature is patent.
+
+Pancreas, spleen, adrenal glands, and kidneys are unremarkable.
+
+No ascites, lymphadenopathy, or aggressive osseous lesionNo HCC
+There are several unchanged LI-RADS 3 observations
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of post-transplant status and specific findings like hyperperfusion, enhancing foci, and cysts, but there is no description of the liver parenchyma as unremarkable, normal, or smooth either. However, the absence of fibrosis/cirrhosis indicators and the lack of ascites (which can be associated with cirrhosis) suggest no clear evidence of fibrosis or cirrhosis. Given the criteria, since the liver is not explicitly described with fibrosis/cirrhosis signs, the classification should be "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=433 / Out=173
+Cost: $0.000162

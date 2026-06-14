@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A small right pleural effusion has slightly decreased.
+
+Cirrhotic liver morphology is again noted. There is no intra or extrahepatic biliary ductal dilatation or choledocholithiasis. The hepatic vasculature is patent.
+
+-On series 15, image 17, a 5.4 x 4.2 cm ablation cavity previously measured 5.9 x 4.7 cm. Linear enhancement along the inferior margin is unchanged.
+
+- On series 15, image 40, a 2.9 cm segment III arterial enhancing lesion with washout and pseudocapsule previously measured 2.6 cm (image 40, series 15), consistent with OPTN 5B HCC.
+
+-On series 15, image 16, a new 1.7 cm arterial enhancing segment VIII lesion just medial to the resection cavity contains fat and demonstrates washout and pseudocapsule, consistent with OPTN 5A HCC.
+
+- On series 15, image 16, a 1.0 cm segment 8 arterial enhancing lesion is unchanged in size, and again demonstrates washout, with newly appreciated pseudocapsule consistent with a OPTN 5A HCC.
+
+-On series 15, image 17, a 1.1 cm arterially enhancing lesion adjacent to the ablation cavity, does not demonstrate washout or pseudocapsule and is therefore indeterminate. This appears separate from an adjacent new 1.7 cm OPTN 5A HCC. Attention on follow-up.
+ 
+Cholelithiasis is noted. The pancreas, spleen, adrenal glands and kidneys are unremarkable other than small scattered renal cysts and right renal cortical scarring.
+
+There is no ascites or abdominal lymphadenopathy. Mild ectasia of the infrarenal abdominal aorta is noted. No aggressive osseous lesion.Slight increase in size of a segment III OPTN 5B HCC.
+
+New 1.7cm segment VIII OPTN 5A HCC, adjacent to the ablation cavity.
+
+A 1.0 cm segment VIII lesion, now meets OPTN 5A criteria for HCC.
+
+Indeterminate 1.1 cm arterially enhancing lesion in segment VII, does not meet the OPTN criteria. Attention on follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is again noted," which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=683 / Out=37
+Cost: $0.000175

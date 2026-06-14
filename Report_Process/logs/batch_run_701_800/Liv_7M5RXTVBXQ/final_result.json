@@ -1,0 +1,25 @@
+{
+  "id": "Liv_7M5RXTVBXQ",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "R_JUNCTION",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_WO | DIFFUSE | 1\"]": 1,
+      "[\"APHE_WO | R_JUNCTION | 1\"]": 2
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00115444,
+    "timestamp": "2026-02-08 01:57:12",
+    "model": "deepseek/deepseek-chat"
+  }
+}

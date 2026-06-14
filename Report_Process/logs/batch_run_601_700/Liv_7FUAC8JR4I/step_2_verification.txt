@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver does not appear significantly nodular to suggest cirrhosis. No findings of portal hypertension or HCC. There is persistent intra and extrahepatic biliary dilatation with the common bile duct measuring up to 13 mm. This is stable from the most recent MRI but has slowly increased when compared to more remote studies dating back to 2013. The duct can be traced down normally to the level of the ampulla with dilatation of the cystic duct remnant. A 2 to 3 mm dependent filling defect is again noted in the distal CBD which appears in a slightly different location compared to prior exam consistent with choledocholithiasis. A dominant dorsal duct configuration is again noted involving the main pancreatic duct which remains mildly dilated measuring 3 to 4 mm. No pancreatic or biliary mass is seen.
+
+Spleen, adrenal glands, and kidneys appear unremarkable with the exception of a few punctate renal cyst. No ascites or adenopathy. Infrarenal aortic aneurysm measuring approximately 4.2 cm is stable from most recent exam. Hepatic veins and portal veins remain patent.No findings of HCC.
+
+Persistent biliary dilatation which may relate to postcholecystectomy status and/or ampullary stenosis. Please correlate with LFTs. Unchanged choledocholithiasis.
+
+Stable infrarenal aortic aneurysm.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver does not appear significantly nodular to suggest cirrhosis." This indicates no imaging features of cirrhosis are present. Therefore, the correct status should be "NoFibrosis/Cirrhosis", which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=466 / Out=68
+Cost: $0.000159

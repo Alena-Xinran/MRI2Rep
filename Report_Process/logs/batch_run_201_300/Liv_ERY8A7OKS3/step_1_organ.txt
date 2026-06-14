@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Changes of partial left hepatectomy and cholecystectomy are again noted. The hepatic volume is approximately 659 cc.
+
+There has been interval growth of the HCC/tumor recurrence along the resection site, for instance one mass measures 4.9 cm (previously 2.5 cm) and the other mass now measures 2.5 cm (previously 2 cm).
+
+There is a 1.2 cm arterially enhancing lesion at the right hepatic dome (series 15 image 76) with washout and pseudocapsule, compatible with OPTN 5A. This lesion previously measured 0.3 cm.
+
+There is a 0.7 cm arterially enhancing lesion in segment VI (series 15 image 40) with washout which is nonspecific but suspicious for HCC. This lesion measured 0.3 cm previously. 
+
+A new arterially enhancing focus in segment VI has no correlate on additional sequences (series 15 image 41) and is nonspecific. A stable wedge-shaped arterially enhancing focus again segment VII (series 15 image 64) has no correlate on additional sequences and remains nonspecific.
+
+The spleen, pancreas and kidneys are unremarkable except for stable small bilateral renal cysts.
+
+No enlarged abdominal lymph nodes are seen. There is no free fluid or bowel obstruction.
+
+No aggressive osseous lesions are demonstrated.
+
+Ectasia of the ascending aorta is redemonstrated.Interval growth of recurrent HCC along the resection margin.
+
+1.2 cm HCC OPTN 5A at the right hepatic dome as described.
+
+Additionally nonspecific liver lesions as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes findings related to hepatocellular carcinoma (HCC) recurrence and other liver lesions, but does not include any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of direct fibrosis/cirrhosis indicators means the criteria for "Fibrosis/Cirrhosis" are not met. The spleen, pancreas, and kidneys are noted as unremarkable, but this does not specifically describe the liver parenchyma. Based on the provided criteria, the classification defaults to "NoFibrosis/Cirrhosis" when explicit signs are absent.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=554 / Out=172
+Cost: $0.000195

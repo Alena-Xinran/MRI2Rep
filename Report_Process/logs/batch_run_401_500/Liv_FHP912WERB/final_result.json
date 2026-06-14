@@ -1,0 +1,56 @@
+{
+  "id": "Liv_FHP912WERB",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "2"
+    },
+    {
+      "type": "HEM",
+      "position": "R_JUNCTION",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "HEM",
+      "position": "R_JUNCTION",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "HEM",
+      "position": "R_ANT",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"APHE_NoWO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"HEM | R_ANT | Multiple\", \"HEM | R_JUNCTION | Multiple\", \"HEM | R_JUNCTION | Multiple\", \"RIM_ATYP | R_POST | 2\"]": 1,
+      "[\"APHE_NoWO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"HEM | CAUDATE | Multiple\", \"HEM | R_ANT | Multiple\", \"HEM | R_ANT | Multiple\", \"HEM | R_JUNCTION | Multiple\", \"RIM_ATYP | R_POST | 2\"]": 1,
+      "[\"APHE_NoWO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"APHE_WO | R_POST | 1\", \"HEM | CAUDATE | Multiple\", \"HEM | R_ANT | Multiple\", \"HEM | R_JUNCTION | Multiple\", \"RIM_ATYP | R_POST | 2\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0019440959999999998,
+    "timestamp": "2026-02-07 21:51:26",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with findings of portal hypertension.
+
+The recently treated exophytic segment 7/8 HCC is now approximately 75% necrotic but with viable disease noted along its superior and predominantly lateral aspect displaying arterial enhancement and washout, largest focus measuring 2 cm. This area did not have significant uptake on the postprocedural CT. A punctate subcentimeter focus is also seen adjacent to this lesion likely reflecting a small satellite focus best appreciated on series 8 image 21, unchanged from prior. LR TR viable.
+
+No other arterially enhancing observations are seen with washout/pseudocapsule on today's exam. Portal venous system remains patent.
+
+Gallstones are again seen along with some mild ascites. Stable pancreatic tail cystic lesion measuring 1.6 cm with mild upstream dilatation the main pancreatic duct but no worrisome internal solid components. No adenopathy. Spleen, adrenal glands, and kidneys display no suspicious findings.Partially treated segment 7/8 HCC (LR TR viable).
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "a cirrhotic liver" in the first sentence, which directly meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=439 / Out=46
+Cost: $0.000062

@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is no evidence of cirrhotic liver morphology. There are no liver lesions imaging features of hepatocellular carcinoma. The hepatic vasculature is patent. The pancreas, adrenal glands, and kidneys are unremarkable except for subcentimeter right renal cysts and pancreatic divisum anatomy. The gallbladder is underdistended. There is no biliary ductal dilatation.
+
+There is susceptibility artifact along the medial aspect of the spleen of unknown etiology though could be related to prior infarct.
+
+ There are findings of mild iron overload.
+
+Liver iron content is 4.35 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload1. No evidence of cirrhosis or HCC
+2. Mild iron overload
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is no evidence of cirrhotic liver morphology" and later reiterates "No evidence of cirrhosis." There are no keywords indicating fibrosis, cirrhosis, nodular surface, coarse echotexture, or chronic liver disease. The liver parenchyma is not described as abnormal in terms of fibrosis or cirrhosis, though mild iron overload is noted separately.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=419 / Out=88
+Cost: $0.000122

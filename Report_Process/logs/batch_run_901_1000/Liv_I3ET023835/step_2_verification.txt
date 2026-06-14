@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 11 L Dotarem was administered intravenously. Sequences include axial, axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Multiple treatment cavities are again noted as follows:
+
+Segment 6 measuring 1.1 x 0.7 cm (series 10 image 37) previously 1.4 x 0.7 cm. There is no recurrent or residual HCC.
+
+Segment 8 measuring 1.1 x 1.0 cm (series 10 image 13), previously 1.1 x 1.0 cm. There is no recurrent or residual HCC.
+
+No new HCC. Patent hepatic and portal vein.
+
+There is no lymphadenopathy. No ascites
+
+There is cholelithiasis. The spleen, pancreas, adrenal glands and kidneys are unremarkable.No new HCC. No recurrent/residual viable HCC in ablation cavities.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state "normal liver" or "unremarkable liver," but the focus is on treatment cavities and absence of HCC, with no indication of chronic liver disease. The previously extracted status "NoFibrosis/Cirrhosis" is consistent with the absence of any mention of cirrhosis or fibrosis in the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=404 / Out=122
+Cost: $0.000164

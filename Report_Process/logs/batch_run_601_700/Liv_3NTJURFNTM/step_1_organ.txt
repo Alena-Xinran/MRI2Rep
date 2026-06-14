@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+For findings above the diaphragms please see a separate Chest CT report.
+ 
+The liver is cirrhotic. There is portal hypertension, as manifested by splenomegaly and small abdominal varices.
+
+ There is similar extensive HCC throughout the liver, predominantly in the right lobe, measuring up to 19 cm (4001-21), with a few smaller foci in the left lobe, grossly unchanged. For example, a hepatic segment 2/3 lesion measures 3.3 cm (7001-12), which is unchanged when measured in similar fashion. There is unchanged tumor thrombus in the right portal vein up to the portal bifurcation , as well as tumor thrombus within the right hepatic vein. There are similar scattered areas of hypoenhancement consistent with tumor necrosis. There is unchanged minimal prominence of the intrahepatic bile ducts. A few small gallstones are noted. 
+
+Area of hypoenhancement along the central aspect the spleen is similar and remains improved from exam on November 2, 2022.
+
+The pancreas, adrenal glands, and kidneys are unremarkable. There is no bowel obstruction, ascites, or lymphadenopathy.Stable examination with extensive infiltrative HCC and tumor thrombus as described.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=477 / Out=38
+Cost: $0.000117

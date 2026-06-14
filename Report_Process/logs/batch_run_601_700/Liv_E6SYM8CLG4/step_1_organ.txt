@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates multiple peripheral nodular foci of arterial phase contrast-enhancement without correlate on other sequences, the largest measuring 0.9 cm in the right lobe (image 64, series 14), likely perfusional. There are three lesions in the right lobe compatible with hemangiomas, measuring up to 1.5 cm (images 38, 55, 69; series 14). No lesions suspicious for hepatocellular carcinoma are identified. There is no intrahepatic biliary duct dilatation. The hepatic vasculature is patent. 
+
+The gallbladder, spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral small simple renal cysts, as well as two small nonspecific 3 mm pancreatic body cystic lesions that likely represent side branch IPMNs (images 23, 25; series 4). There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the presence of benign findings (perfusional foci, hemangiomas) without structural parenchymal abnormalities suggest no evidence of fibrosis or cirrhosis. The hepatic vasculature is patent, and there is no intrahepatic biliary duct dilatation, ascites, or other stigmata of chronic liver disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=413 / Out=151
+Cost: $0.000147

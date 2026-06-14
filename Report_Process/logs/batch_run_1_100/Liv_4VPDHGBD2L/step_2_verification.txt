@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Thoracic findings are interpreted separately.
+
+The patient is status post liver transplant. There is no evidence of hepatic mass. Hepatic vasculature is patent.
+
+Again noted is mild intrahepatic and moderate extrahepatic biliary dilatation to the level of the anastomosis. The extrahepatic bile duct measures approximately 1.5 cm, unchanged.
+
+The spleen, left adrenal gland, and kidneys are unremarkable with exception of renal cysts. A small right adrenal nodule is stable. A 4 mm cystic structure in the head of the pancreas is unchanged. A prominent gastrohepatic node is stable.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, signs of portal hypertension, or fibrosis). It states the patient is status post liver transplant and notes no evidence of hepatic mass, patent vasculature, and biliary dilatation, but does not describe the liver parenchyma as normal or abnormal in terms of fibrosis/cirrhosis. Since the report does not explicitly state "normal liver" either, the previous extraction "NoFibrosis/Cirrhosis" is based on the absence of any mention of cirrhosis, which aligns with the default assumption when no cirrhosis is reported. However, the instruction specifies that if the report says normal liver, the status must be "NoFibrosis/Cirrhosis". The report does not explicitly say "normal liver", but it also does not indicate cirrhosis, so the previous extraction remains appropriate.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=325 / Out=205
+Cost: $0.000177

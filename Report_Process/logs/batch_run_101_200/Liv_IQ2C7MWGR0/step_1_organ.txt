@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Status post partial right hepatectomy with unchanged loculated fluid collection within the operative bed containing some layering hemorrhage spanning 10.3 cm transversely. Some regions of intrahepatic biliary dilatation are stable. Stable benign hepatic cysts.
+
+Hemorrhagic ablation cavity in segment 2 is decreased in size measuring 9 cm and without any findings of local recurrence. Some internal lipid is seen, likely related to lipiodol.
+
+Additional ablation cavity within the caudate containing internal lipiodol measuring 3.3 cm is noted without any findings of local recurrence.
+
+No new lesions meeting imaging criteria for HCC. A few subcentimeter arterially enhancing foci without washout, pseudocapsule, or T2 correlate are again seen (LR 3). Most discrete lesion is appreciated on series 9 image 27 within segment 4A No adenopathy. A 9 mm nodule inferior left hepatic lobe is unchanged.
+
+Remaining intra-abdominal solid organs appear stable with unchanged renal and small pancreatic cysts. Retroaortic left renal vein is incidentally seen.
+
+No aggressive osseous lesions. No ascites or carcinomatosis.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes findings related to post-surgical and post-ablation changes, stable benign cysts, and monitoring for HCC recurrence. There are no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators suggests no active signs of that condition are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=462 / Out=125
+Cost: $0.000150

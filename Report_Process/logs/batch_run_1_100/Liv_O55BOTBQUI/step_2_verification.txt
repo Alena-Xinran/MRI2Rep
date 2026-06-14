@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver
+1.4 cm T1 hyper intensity along the inferolateral posterior aspect of the liver is unchanged and probably represents blood products related to prior surgery. There are no new masses in the transplanted liver. Hepatic vascular structures are patent.
+
+On image 24 series 13 there is nodular arterial phase hyperenhancement measuring 8 mm just posterior to the middle 
+hepatic vein. This finding was not present on an MRI from 11/22/2016, measured 7 mm on MRI from 3/20/2018 and now measures 8 mm. It does not demonstrate washout or pseudocapsule. Is not seen on other postcontrast phases or other sequences and is likely perfusional.
+
+Pancreas divisum is again seen. The spleen, adrenal glands, and kidneys are unremarkable.
+
+There is no ascites or lymphadenopathy. There are no aggressive osseous lesions.No HCC.
+Slight increase in nodule-like arterial phase hyperenhancement in the liver. This does not demonstrate features of HCC and is likely perfusional.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension, etc.). It describes a transplanted liver with no new masses, patent vasculature, and a perfusional nodule, but no indication of fibrosis or cirrhosis. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=422 / Out=104
+Cost: $0.000162

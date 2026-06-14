@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in appearance. Hepatic vasculature is patent. Mild biliary ductal dilatation in the right hepatic lobe is unchanged.
+
+Hepatic observations include:
+
+-On image 24 series 14, a segment VI/VII treatment cavity is decreased in size, measuring 3.7 x 7.1 cm, (previously 4.7 x 7.7 cm). LR-TR nonviable.
+
+-On image 20 series 14, a segment VIII treatment cavity is unchanged in size, measuring 2.0 x 4.3 cm. LR-TR nonviable.
+
+-On image 21 series 14, a segment IVa treatment cavity is unchanged, measuring 2.1 x 1.1 cm. LR-TR nonviable.
+
+-LR-3 opacification at the dome measuring 7 mm is unchanged, image 15 series 14.
+
+-Heterogeneous enhancement is noted at the previously noted segment 5 observation without measurable abnormality. Small hepatic cysts are noted.
+
+
+The spleen, gallbladder, adrenal glands, kidneys, and pancreas are unremarkable with exception of renal cysts and right upper pole scarring.
+
+No bowel obstruction. No adenopathy or ascites. No aggressive osseous lesion.1. LR-TR nonviable treatment cavities, as above.
+2. No evidence of new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in appearance," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=503 / Out=40
+Cost: $0.000125

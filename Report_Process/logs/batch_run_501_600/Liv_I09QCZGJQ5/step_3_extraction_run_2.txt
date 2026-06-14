@@ -1,0 +1,100 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+There is no evidence of hepatocellular carcinoma. There is a 6.0 cm cystic lesion in hepatic segments 8/4a with multiple internal serpiginous structures, compatible with an echinococcal cyst with detached membranes. There is no enhancing solid component. This lesion is unchanged in size since 2014. There are a few additional scattered subcentimeter cysts. The hepatic vasculature is patent. There is no biliary ductal dilatation.
+
+Mild splenomegaly is again noted. The gallbladder, adrenal glands, and kidneys are unremarkable except for left renal cysts, one of which is hemorrhagic/proteinaceous. There are few scattered sub-5 mm cystic lesions in the pancreas, likely the sequela of prior pancreatitis and/or side branch IPMN. The main pancreatic duct is not dilated. 
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC. 6 cm hepatic echinococcal cyst, stable in size since 2014.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: There is no evidence of hepatocellular carcinoma. -> Reasoning: No focal lesion described.
+Sentence 2: There is a 6.0 cm cystic lesion in hepatic segments 8/4a with multiple internal serpiginous structures, compatible with an echinococcal cyst with detached membranes. -> Reasoning: Found lesion. Features: Cystic lesion with internal structures, but specified as a cyst (echinococcal). Maps to CYST. Loc: Segments 8/4a (Seg 8 -> R_ANT, Seg 4a -> L_MED). This is a boundary between R_ANT and L_MED, but the rule for "Boundary (5/6, 6/7, 5/8)" does not cover 8/4a. Since not specified in boundary rules, assign based on primary segments mentioned: R_ANT and L_MED. However, it is a single lesion spanning two segments. The most specific mapping for a lesion at the junction of 8 and 4a is not defined, so we will list it as a single finding with the composite location "R_ANT/L_MED" (as a single entity). Quantity: 1.
+Sentence 3: There is no enhancing solid component. -> Reasoning: Descriptive of the prior lesion, not a new finding.
+Sentence 4: This lesion is unchanged in size since 2014. -> Reasoning: Follow-up info, not a new finding.
+Sentence 5: There are a few additional scattered subcentimeter cysts. -> Reasoning: Found lesions. Features: Simple cysts. Maps to CYST. Loc: Scattered (not specified) -> DIFFUSE. Quantity: "a few" implies multiple but not a specific number -> Multiple.
+Sentence 6: The hepatic vasculature is patent. -> Reasoning: Background info, no focal lesion.
+Sentence 7: There is no biliary ductal dilatation. -> Reasoning: Background info, no focal lesion.
+Sentence 8: Mild splenomegaly is again noted. -> Reasoning: Spleen finding, not a liver lesion.
+Sentence 9: The gallbladder, adrenal glands, and kidneys are unremarkable except for left renal cysts, one of which is hemorrhagic/proteinaceous. -> Reasoning: Kidney finding, not a liver lesion.
+Sentence 10: There are few scattered sub-5 mm cystic lesions in the pancreas, likely the sequela of prior pancreatitis and/or side branch IPMN. -> Reasoning: Pancreas finding, not a liver lesion.
+Sentence 11: The main pancreatic duct is not dilated. -> Reasoning: Background info, not a liver lesion.
+Sentence 12: No abdominal lymphadenopathy or ascites is seen. -> Reasoning: Background info, no focal liver lesion.
+Sentence 13: No evidence of HCC. -> Reasoning: No focal lesion described.
+Sentence 14: 6 cm hepatic echinococcal cyst, stable in size since 2014. -> Reasoning: Summary of Sentence 2, not a new finding.
+
+Step 2: Structured Output
+TUMOR_RECORD: CYST | R_ANT/L_MED | 1
+TUMOR_RECORD: CYST | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+CYST | R_ANT/L_MED | 1
+CYST | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1035 / Out=669
+Cost: $0.000313

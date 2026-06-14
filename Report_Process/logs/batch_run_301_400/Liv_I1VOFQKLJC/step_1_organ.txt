@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates a nodular contour, hepatomegaly, mild steatosis, and heterogeneous enhancement consistent with chronic cirrhosis. 
+There is a stable 2.6 x 1.6 cm sclerosing hemangioma of the right lobe. There are no findings in the liver suspicious for malignancy. The CBD is stable measuring 8 mm, similar to previous MRI. Portal and hepatic veins are patent.
+
+The spleen demonstrates stable mild splenomegaly measuring 13.7 cm.
+
+The pancreas, adrenal glands, and kidneys are unremarkable except for a stable left kidney 6 mm hemorrhagic cyst.
+
+Visualized upper abdominal bowel loops are unremarkable. There is no abdominal lymphadenopathy, ascites, or aggressive osseous lesions.No  HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "nodular contour" and "chronic cirrhosis," which are direct keywords indicating fibrosis/cirrhosis. Additionally, terms like "heterogeneous enhancement" and "hepatomegaly" in this context support chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=381 / Out=64
+Cost: $0.000101

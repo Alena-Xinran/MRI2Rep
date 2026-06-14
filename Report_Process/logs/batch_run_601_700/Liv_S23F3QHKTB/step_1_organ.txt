@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with findings of portal hypertension and a TIPS. Main portal vein remains patent. Cannot assess patency of the shunt on MRI. Some scattered hepatic cysts and geographic regions of increased T2 signal intensity are again seen with delayed enhancement likely reflecting confluent fibrosis appear unchanged. Gallbladder surgically absent.
+
+No discrete arterial enhancing lesion with washout is seen to suggest HCC. Previously noted segment 8 lesion is not seen on today's exam. Previously noted segment 2 lesion is also not well seen on today's exam with a large geographic region of slight hyperenhancement noted involving the left lateral segment superiorly.
+
+8 mm arterially enhancing lesion without washout (compared to more posterior right hepatic parenchyma), pseudocapsule, or T2 correlate is unchanged in segment 5 (LR 3, image 53 series 21001).
+
+Malrotated kidneys appears stable. Pancreas, spleen, and adrenal glands display no suspicious lesions. No findings of biliary obstruction. No adenopathy or aggressive osseous lesions. Mild ascites. Fat-containing ventral hernia is again seen.No evidence for HCC. Stable subcentimeter LR 3 lesion in the right lobe which can be watched on follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "a cirrhotic liver" in the first sentence, which directly meets the criteria for classification as Fibrosis/Cirrhosis. Additional supporting findings include portal hypertension and confluent fibrosis, further confirming chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=476 / Out=63
+Cost: $0.000127

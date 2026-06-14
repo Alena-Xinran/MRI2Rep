@@ -1,0 +1,24 @@
+{
+  "id": "Liv_I2T363Z3PM",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "HEM",
+      "position": "R_POST",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"HEM | R_POST | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.000742896,
+    "timestamp": "2026-02-08 17:23:24",
+    "model": "deepseek/deepseek-chat"
+  }
+}

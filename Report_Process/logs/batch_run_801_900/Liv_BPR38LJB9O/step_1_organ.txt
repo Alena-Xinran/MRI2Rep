@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates a cirrhotic morphology. There is a wedge-shaped region of arterial enhancement within segment 8, similar to the prior examination. Again seen is a thrombus in the anterior right portal vein. Multiple arterial enhancing foci are present within segment VIII measuring up to 1.1 cm (29 series 13), which do not meet OPTN criteria for HCC. 
+
+Multiple ablation cavities are as follows:
+
+-Segment III ablation cavity measuring 2.9 x 2.1 cm (35 series 15), with enhancing soft tissue within the medial aspect of the cavity (34 series 16).
+
+-Segment VI/VII cavity measuring 3.7 x 1.7 cm (35 series 15), which is not significantly changed when measured in a similar fashion. No evidence of residual or recurrent disease.
+
+-Segment VIII ablation cavity measuring 2.5 x 1.6 cm, with no definite evidence of residual or recurrent disease (14 series 16).
+
+A left adrenal nodule is unchanged. The spleen, pancreas, kidneys, and right adrenal gland are unremarkable, except for tiny renal cysts.
+
+There is no ascites or adenopathy.1.  Findings suspicious for recurrent disease within the segment III ablation cavity.
+2. Additional arterially enhancing foci within segment 8 remain stable and do not yet meet OPTN criteria for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates a cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=504 / Out=51
+Cost: $0.000130

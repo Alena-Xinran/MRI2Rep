@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Evaluation is limited due to patient motion artifact.    Cirrhotic liver morphology is redemonstrated. The patient is status post partial right hepatectomy. There is no evidence of recurrence along the surgical margin. Many of the previously seen arterially enhancing lesions are not well seen on today's study, likely due to a combination of differences in contrast bolus timing as significant motion artifact. No Portal venous thrombosis.    -Stable 1 cm arterially enhancing focus in segment 7 (image 20 of series 12,001) with no washout or pseudocapsule is compatible with LI RADS 3 observation.     -Additional segment a 1.2 cm arterially enhancing lesion is stable with no evidence of washout or pseudocapsule (LR 3) (image 20 of series 12,001).    -T2 bright lesion within the caudate lobe is stable going back to multiple studies and is likely benign.     There is worsening intrahepatic and extrahepatic biliary ductal dilatation to the level of the ampulla with the common bile duct measuring up to 1.6 cm, previously 1.4 cm. No choledocholithiasis. The patient is status post cholecystectomy.    Numerous subcentimeter pancreatic cysts are again seen such as a 0.2 cm cyst in the pancreatic tail (image 20 of series 3001). These are more conspicuous on today's study and do not appear significantly changed. No main pancreatic ductal dilatation. The spleen, adrenal glands and kidneys are unremarkable other than bilateral renal cysts. Artifact from prior G-tube are noted.    No abdominal adenopathy or ascites. No aggressive osseous lesion is seen.Limited evaluation due to motion artifact.    Status post partial right hepatectomy with no evidence of recurrent HCC.    Unchanged LR 3 observations.    Increased biliary dilatation.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "Cirrhotic liver morphology is redemonstrated," which explicitly indicates the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=593 / Out=58
+Cost: $0.000190

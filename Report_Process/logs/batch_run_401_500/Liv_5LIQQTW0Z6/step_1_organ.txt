@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Status post liver transplant. Scattered peripheral arterial enhancing foci are present without washout or correlate on additional sequences, likely perfusional in etiology. No findings of HCC. The portal and hepatic veins are patent.
+
+Spleen is again enlarged with multiple upper abdominal varices. Tiny renal cysts are again noted, and the kidneys are otherwise unremarkable. The adrenal glands and pancreas are unremarkable. 
+
+ There is no upper abdominal lymphadenopathy or ascites. No focal osseous lesion is identified.Status post liver transplant. No recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a status post liver transplant and mentions an enlarged spleen with varices, which can be associated with portal hypertension. However, there are no direct keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease" specifically describing the liver parenchyma. The liver itself is not described as unremarkable, normal, or smooth either, but the absence of fibrosis/cirrhosis indicators in the context of a transplant (where the graft may be normal) and no mention of parenchymal abnormalities suggests no active fibrosis or cirrhosis in the current graft.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=338 / Out=151
+Cost: $0.000126

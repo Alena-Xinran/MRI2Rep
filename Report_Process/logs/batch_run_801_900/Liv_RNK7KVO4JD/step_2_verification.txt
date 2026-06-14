@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The exam is significantly limited by motion.
+
+Mild bibasilar dependent atelectasis is present.
+
+The liver is diffusely steatotic. No liver lesion is identified with characteristics to suggest HCC.
+
+The calculated T2* value is 3 ms corresponding to 8.76 mg/g iron based on the study cohort of Wood et al. Blood 2005; 106:1460-1465. (Red curve utilized with offset of 6.5)
+
+The pancreas, spleen and adrenal glands are unremarkable. There are regions of scarring within the right kidney and a small right renal cyst. There is severe left hydronephrosis secondary to UPJ obstruction with associated renal atrophy, consistent with chronic nature.
+
+There is no bowel obstruction, lymphadenopathy or ascites.
+
+There are age indeterminate posterior lower rib fracture deformities, bilaterally. Additionally there are age indeterminate compression deformities of the L1 and L2 vertebral bodies.Limited exam.
+
+No HCC identified. Steatotic liver. Iron quantification, as above.
+
+Age indeterminate bilateral posterior rib fracture and lumbar spine compression deformities.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the liver as "diffusely steatotic" and later summarizes "Steatotic liver." There is no mention of cirrhosis, fibrosis, nodularity, surface irregularity, morphologic changes of cirrhosis, or features suggestive of portal hypertension. The liver is not explicitly stated as "normal," but the absence of any cirrhosis-related findings means the status should remain "NoFibrosis/Cirrhosis." The previous extraction is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=422 / Out=110
+Cost: $0.000164

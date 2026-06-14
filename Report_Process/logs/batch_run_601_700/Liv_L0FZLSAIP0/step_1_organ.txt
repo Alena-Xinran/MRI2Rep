@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A large infiltrating mass occupying the entire right hepatic lobe with regions arterial enhancement and washout have not significantly changed from prior measuring approximately 18.5 x 12.4 cm, previously 17.1 x 13.3 cm. Extensive tumor thrombus throughout the right portal venous system and in the tributaries of the right hepatic vein are redemonstrated. 
+
+There are multiple new observations in the left hepatic lobe as follows:
+路  1.8 cm segment 4A and 2.2 cm segment 2 arterially enhancing observations with washout on delayed phase images (images 24 and 27, series 16). LR-5.
+路  1.3 cm segment 4 x 1.1 cm segment 2 arterially enhancing observations without washout on delayed phase images (images 15 and 30, series 16). LR-3.
+
+There is cholelithiasis. The spleen, pancreas, adrenal glands and kidneys are unremarkable. No abdominal or pelvic lymphadenopathy. Prominent periportal nodes again noted.
+
+There is trace ascites. No bowel obstruction or lymphadenopathy.?  New left hepatic lobe observations consistent with HCC as described. LR-5.
+?  Stable right hepatic lobe infiltrating HCC with extensive tumor thrombus.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes a large infiltrating mass in the right hepatic lobe consistent with HCC, multiple new observations in the left hepatic lobe, tumor thrombus, cholelithiasis, trace ascites, and prominent periportal nodes. However, there is no mention of specific keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit statements of chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of direct indicators of fibrosis or cirrhosis means the criteria for "Fibrosis/Cirrhosis" are not met. The findings are primarily focused on neoplastic and thrombotic changes rather than parenchymal texture or morphology indicative of chronic liver disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=490 / Out=178
+Cost: $0.000180

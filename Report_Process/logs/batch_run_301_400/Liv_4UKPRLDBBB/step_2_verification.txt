@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A 1.8 cm ablation cavity with internal fat is again seen in the periphery of the right lobe in segment 8. No findings of local recurrence or new HCC. A cirrhotic liver with stable sequelae of portal hypertension is again noted including thyromegaly.
+
+Pancreas, adrenal glands, visualized bowel, and left kidney appear unremarkable. A hypoenhancing 7-8 mm right upper and midpole lesion is again noted, best appreciated on the equilibrium phase series 13. This may reflect a hypovascular renal neoplasm. No adenopathy or ascites. Hepatic vasculature remains patent.No evidence of recurrent HCC.
+
+Stable subcentimeter right renal lesion, likely a small renal neoplasm.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "A cirrhotic liver with stable sequelae of portal hypertension is again noted," which directly confirms the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=346 / Out=64
+Cost: $0.000124

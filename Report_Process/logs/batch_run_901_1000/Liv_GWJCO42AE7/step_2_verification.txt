@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Intrathoracic findings are dictated separately by the chest radiology service.
+
+The patient is status post interval partial right hepatectomy. The postoperative fluid collection measures 11.2 cm some regions of internal adherent clot. No findings of recurrent or residual HCC. A few scattered hepatic cysts remain stable.
+
+A few additional hepatic cysts are noted. Bilateral renal cysts are present. Spleen and adrenal glands appear unremarkable. There are bilateral simple appearing renal cysts. A 8 mm benign-appearing cyst is also noted within the pancreatic uncinate process. This may reflect a tiny sidebranch IPMN.  No dilatation the main pancreatic duct. No adenopathy with slight prominent right cardiophrenic lymph node amenable to follow up. A small amount of fluid is seen along the incision line with no fluid collections to suggest abscess.
+
+No aggressive osseous lesions. A retroaortic left renal vein is incidentally noted.Interval right hepatectomy with organized hemorrhagic fluid collection along the resection margin. No findings of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). It describes status post partial right hepatectomy, postoperative fluid collection, stable hepatic cysts, and no recurrent HCC, but does not comment on liver parenchyma texture or morphology to indicate fibrosis or cirrhosis. Since there is no statement of cirrhosis or its features, and no explicit mention of a normal liver either, the default based on the absence of cirrhosis findings is "NoFibrosis/Cirrhosis". The previously extracted status is consistent with this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=410 / Out=144
+Cost: $0.000175

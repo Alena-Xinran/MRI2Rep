@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+5.4 x 5.7 cm splenic lesion has increased from 4.8 x 5.0 cm. The pancreas, kidneys, and adrenal glands are unremarkable, except for a 1.7 cm left adrenal adenoma. Cholelithiasis is noted.
+
+No abdominal lymphadenopathy or ascites is seen. A small hiatal hernia is noted.No evidence of HCC. Increased splenic lesion measuring 5.7 cm.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, portal hypertension signs, etc.). It also does not explicitly state "normal liver," but it indicates no evidence of hepatocellular carcinoma and patent hepatic vasculature, which are consistent with an absence of reported cirrhosis. Since the report lacks any mention of cirrhosis or its features, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=309 / Out=117
+Cost: $0.000136

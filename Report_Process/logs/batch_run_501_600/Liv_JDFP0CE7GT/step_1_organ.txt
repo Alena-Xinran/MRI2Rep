@@ -1,0 +1,67 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Elastography: Elastography demonstrates no fibrosis. Liver stiffness: 3.28 kPa.
+
+Reference: (Clin Gastroenterol Hepatol. 2015 Mar; 13(3): 440-451.e6. Published online 2014 Nov 20. doi:  10.1016/j.cgh.2014.09.046)
+
+Optical cut-off (kPa): 
+3.45-3.65 kPa = Any fibrosis (stage 1)
+3.66- 4.10 kPa = Significant fibrosis (stage 2)
+4.11- 4.70 kPa = Advanced fibrosis (stage 3)
+&gt; 4.71 kPa = Cirrhosis (stage 4)
+
+MRI:
+
+Hepatobiliary system: No evidence for HCC. There is hepatic steatosis with a fat fraction of 12.4%. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are multiple cysts, some are hemorrhagic. The largest cyst at the right upper pole measures 4.7 cm. The appearance of the thickened wall on the substractions images is due to misregistration, and resolves after motion correction. 
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+
+No evidence for liver fibrosis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Elastography demonstrates no fibrosis" and later repeats "No evidence for liver fibrosis." The liver stiffness measurement of 3.28 kPa is below the threshold for any fibrosis (stage 1 starts at 3.45 kPa). There is no mention of cirrhosis, nodular surface, coarse echotexture, or chronic liver disease. Hepatic steatosis is noted, but steatosis alone does not indicate fibrosis or cirrhosis.  
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=525 / Out=107
+Cost: $0.000063

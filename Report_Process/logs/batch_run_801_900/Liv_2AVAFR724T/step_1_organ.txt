@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Redemonstration of cirrhotic liver morphology with marked atrophy of a portion of the right hepatic lobe. Allowing for differences in contrast bolus timing, there are similar scattered LR 3 observation. For instance, there is an unchanged 0.5 cm segment VIII arterially hyperenhancing observation without washout or pseudocapsule (series 16001 image 18). No suspicious hepatic lesion concerning for hepatocellular carcinoma. Redemonstration of nonspecific geographic enhancement at the posterior left hepatic lobe, likely perfusional in nature versus secondary to associated fibrotic changes of the liver. A punctate left hepatic lobe cyst is again seen. The liver demonstrates mildly increased T2 hypointensity, which may be seen in the setting of iron overload. Correlate with history.
+
+No biliary dilatation. The patient is status post cholecystectomy.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There is a right renal cyst. The left kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Musculoskeletal and soft tissue: There is mild dextrocurvature of the thoracolumbar spine.No evidence for HCC in the setting of cirrhotic liver morphology. Similar scattered LR 3 observations as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic liver morphology" and later repeats "in the setting of cirrhotic liver morphology." It also mentions "associated fibrotic changes of the liver." These are direct keywords indicating cirrhosis and fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=522 / Out=63
+Cost: $0.000140

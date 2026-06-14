@@ -1,0 +1,67 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The liver is cirrhotic and steatotic. Hepatic observations as described:
+
+-On image 61 series 11,001, in hepatic segment 5, a stable 1.7 cm arterial enhancing observation without washout or pseudocapsule (LR-3). Additional possible punctate region of arterial enhancement measuring 3 to 4 mm in segment 4B on image 49 is noted, not clearly seen on prior (LR 3).
+
+-On image 41 series 13,001, in hepatic segment 2/3, the confluent treatment cavities measure 5.6 x 3.8 cm (previously 5.7 x 3.9 cm) without suspicious residual enhancement (LR TR nonviable).
+
+-On image 41 series 13,001, in hepatic segment 8, a treatment cavity measures 4.5 cm without suspicious residual enhancement (LR TR nonviable).
+
+-On image 45 series 13,001, in hepatic segment 7, a treatment cavity measures 1.6 cm without suspicious residual enhancement (LR TR nonviable).
+
+-On image 37 series 14,001, in the caudate lobe, a treatment cavity measures 3.2 cm without suspicious residual enhancement (LR TR nonviable).
+
+Stable slightly within the gallbladder.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable with exception of unchanged some ductal dilatation near the ampulla measuring up to 7 mm.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable with exception of a subcentimeter hemorrhagic right renal cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1. Multiple treatment cavities without evidence of recurrent disease (LR TR nonviable).
+
+2. LR-3 observations as above. No lesions currently meeting imaging criteria for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic and steatotic," which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=631 / Out=38
+Cost: $0.000160

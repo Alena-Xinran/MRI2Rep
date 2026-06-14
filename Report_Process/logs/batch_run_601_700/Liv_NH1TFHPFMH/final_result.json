@@ -1,0 +1,29 @@
+{
+  "id": "Liv_NH1TFHPFMH",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "CAUDATE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "L_LAT",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"RIM_ATYP | CAUDATE | Multiple\", \"RIM_ATYP | L_LAT | Multiple\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0009142,
+    "timestamp": "2026-02-08 01:15:06",
+    "model": "deepseek/deepseek-chat"
+  }
+}

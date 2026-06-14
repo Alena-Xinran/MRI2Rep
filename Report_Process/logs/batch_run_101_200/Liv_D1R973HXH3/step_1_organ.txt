@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic and steatotic, with sequelae of portal venous hypertension including splenomegaly, abdominal varices, and a splenorenal shunt. There are no findings of hepatocellular carcinoma. The hepatic vasculature remains patent. Scattered subcentimeter liver cysts are noted.
+
+The pancreas, gallbladder, adrenal glands and kidneys are unremarkable. Several mildly prominent periportal lymph nodes measuring up to 1.1 cm are stable. Trace perihepatic ascites is unchanged.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic and steatotic," which directly indicates the presence of cirrhosis. Additional findings such as sequelae of portal venous hypertension (splenomegaly, varices, shunt) and trace ascites further support chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=333 / Out=70
+Cost: $0.000090

@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is limited by motion. The liver has a cirrhotic morphology. Sequela of portal hypertension include upper abdominal collateral vessels including a splenorenal shunt. The hepatic vasculature is patent.    Again seen is the segment 3 treatment cavity without evidence of recurrent which measures 1.5 x 4.0 cm, previously 1.7 x 4.2 cm (series 20, image 51). There are no imaging features suspicious for hepatocellular carcinoma.    The gallbladder, pancreas, spleen, adrenal glands and kidneys are unremarkable with the exception of renal cysts and multiple cystic lesions in the pancreas measuring up to 0.7 cm which may represent sequela of prior pancreatitis or side branch IPMNs.    There is no lymphadenopathy or ascites.Motion limited study with no definite evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=397 / Out=49
+Cost: $0.000099

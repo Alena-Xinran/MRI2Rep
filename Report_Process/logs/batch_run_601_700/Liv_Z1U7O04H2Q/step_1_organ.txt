@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology with multiple large regenerative nodules. Normal intra and extra hepatic bile ducts. Status post cholecystectomy.
+
+New arterial enhancing observation in the medial segment 6, measures 0.8 cm (series 900 image 48) without washout or pseudocapsule (LR-3). Similar observation on series 9 image 63 in segment 6.
+
+Previous LR-3 observation are not seen. No evidence of HCC.
+
+Splenomegaly. The adrenals, and kidneys are unremarkable. 
+
+No bowel obstruction. No lymphadenopathy. Trace perihepatic free fluid. No aggressive osseous lesion.1.  New 0.8 cm arterial enhancing observation in medial segment 6 without washout or pseudocapsule (LR-3). Some of the previous LR-3 observation are not seen. Recommend short-term follow-up to document stability.
+2.  No evidence of HCC.
+
+These findings have been submitted to the YNHHS Radiology Communication Center to ensure provider awareness. YNHHS Radiology Notify Critical Result system classification: Trackable imaging recommendation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions "multiple large regenerative nodules," which are direct indicators of cirrhosis. Additionally, there is mention of splenomegaly and trace perihepatic free fluid, which are often associated with chronic liver disease and portal hypertension.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=453 / Out=71
+Cost: $0.000124

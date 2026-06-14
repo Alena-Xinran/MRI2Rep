@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology. Status post partial left hepatectomy with stable postsurgical changes. Redemonstrated arterial hyperenhancing foci with the largest 1.3 cm lesion along the resection margin (series 11001 image 31) without washout or capsular appearance, unchanged. T1 hyperintense nonspecific nodules, unchanged. Hepatic, portal veins and SMV are patent. Status post cholecystectomy. No abnormal biliary duct dilatation.
+
+Splenomegaly, as before. Prominent periportal lymph nodes, unchanged. Pancreas, adrenals, kidneys are unremarkable. No significant ascites. No abnormal bowel dilatation Bilateral nonenhancing retroperitoneal structures which were noted to be calcified at prior CT, unchanged. No aggressive osseous lesion.Status post partial left hepatectomy with unchanged L3 observations. No discrete lesion suspicious of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic liver morphology" at the beginning, which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=60
+Cost: $0.000133

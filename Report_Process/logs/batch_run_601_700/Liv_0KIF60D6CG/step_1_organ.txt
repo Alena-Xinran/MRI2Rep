@@ -1,0 +1,40 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension with a TIPS in place. There has been interval development of small bilateral pleural effusions increased abdominal ascites.   Postcontrast sequences are slightly degraded by motion artifact. There are no lesions meeting imaging criteria for HCC. Vasculature remains patent with exception of some stable peripheral thrombosed hepatic vein branches near the TIPS shunt which is better assessed on prior ultrasound. No adenopathy.  
+
+Gallbladder surgically absent. There is stable prominence to the biliary tree. A punctate low signal focus within the distal CBD (6:18) could reflect a tiny stone however is not clearly seen on the axial T2-weighted sequences. Remaining intra-abdominal organs appear unchanged.No findings of HCC.
+
+Increased ascites with new small bilateral pleural effusions.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "a cirrhotic liver" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=391 / Out=41
+Cost: $0.000094

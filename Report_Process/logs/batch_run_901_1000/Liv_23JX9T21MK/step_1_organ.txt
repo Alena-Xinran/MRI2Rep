@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+with and without 6.6 cc of intravenous Gadavist. Precontrast sequences include axial and coronal T2, axial fat-suppressed T2, axial EPI, and axial T1-weighted images with and without fat suppression. After contrast, dynamic axial fat-suppressed T1-weighted images were performed. Compared to exam dated 12/10/2014.
+
+A subcentimeter hemangioma is noted in the medial segment of the left lobe of the liver. There is no evidence of HCC. Liver morphology is unremarkable. There are no findings to suggest iron deposition in the liver.
+
+The spleen, pancreas, and adrenal glands are unremarkable. Renal cysts and hemorrhagic cysts are noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "Liver morphology is unremarkable," which indicates no signs of fibrosis or cirrhosis. There are no keywords such as cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or explicit mentions of chronic liver disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=376 / Out=66
+Cost: $0.000052

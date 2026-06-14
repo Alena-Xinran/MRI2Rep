@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is an 8 mm arterial phase enhancing lesion which demonstrates washout in the inferior aspect of segment 5. This is unchanged in size, however the washout is a new finding. It is suspicious for HCC, but does not meet OPTN criteria.
+
+Two other subcentimeter previously described lesions in the liver which were best seen on the hepatobiliary phase are not seen on today's study. It should be noted that a hepatobiliary phase was not acquired. 
+
+The spleen, adrenal glands, kidneys, pancreas, and gallbladder are unremarkable. No upper abdominal lymphadenopathy or ascites is seen.8 mm segment 5 lesion is suspicious for HCC but does not meet OPTN criteria.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth". The focus is on specific lesions (suspicious for HCC) and the absence of a hepatobiliary phase, but there is no direct statement about the overall condition of the liver parenchyma regarding fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=370 / Out=126
+Cost: $0.000124

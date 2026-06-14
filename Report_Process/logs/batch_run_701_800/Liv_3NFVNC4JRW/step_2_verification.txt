@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: There are postsurgical changes related to wedge resection of the hepatic segment 2. Similar enhancing foci throughout the liver with no washout or pseudocapsule (LI-RADS 3). Cholelithiasis. No biliary dilatation. 
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Upper abdominal lymph nodes: Similar-appearing periportal lymphadenopathy.
+
+Peritoneum: No ascites.No evidence of HCC. Similar arterially enhancing foci throughout the liver with no washout or pseudocapsule (LI-RADS 3).
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes postsurgical changes from a wedge resection and notes multiple arterially enhancing foci throughout the liver (LI-RADS 3), but does not mention any features of cirrhosis such as nodularity, contour irregularity, caudate lobe hypertrophy, or signs of portal hypertension. The liver is not explicitly described as "normal," but there is no statement indicating fibrosis or cirrhosis. Therefore, the absence of cirrhosis-related findings supports the previously extracted status of "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=346 / Out=120
+Cost: $0.000147

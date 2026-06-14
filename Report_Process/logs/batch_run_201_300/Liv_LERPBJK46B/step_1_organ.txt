@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial in and out of phase, axial T2 fat saturated, axial pre and multiphasic postcontrast T1 vibe. 
+
+FINDINGS
+Liver: The patient is status post right hepatectomy and partial resection of segment IVb. The biliary ductal dilatation along the resection margin is unchanged. Just superior to the segment 2 resection cavities, a 3.3 cm lesion in segment II/IVa demonstrates arterial enhancement with washout, compatible with recurrent HCC. This involves the more superior segment to ablation cavity. The inferior segment to ablation cavity has decreased in size and measures 0.6 cm, previously 1.0 cm. 
+
+Hepatic vasculature: Patent.
+
+Gallbladder: Surgically removed.
+
+Pancreas:Unremarkable.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Bilateral renal cysts are again seen.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Recurrent 3cm HCC involving segment II/IVa (OPTN 5B). No extrahepatic metastatic disease identified.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes the liver in the context of post-surgical changes and recurrent HCC, but does not include any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" either, but the absence of the specified fibrosis/cirrhosis indicators means the criteria for "Fibrosis/Cirrhosis" are not met. The findings focus on resection status and a tumor, without commentary on the background liver texture or morphology suggestive of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=501 / Out=154
+Cost: $0.000173

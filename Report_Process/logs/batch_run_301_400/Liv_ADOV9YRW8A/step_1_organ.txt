@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Patient is status post left hepatectomy with postoperative changes. There is a 2.6 cm observation in the segment 7/8 whose evaluation is limited due to presence of contrast on precontrast T1 sequence (series 12, image 26). This observation demonstrates no arterial phase hyperenhancement, pseudocapsule, or washout. No restricted diffusion is appreciated.
+
+Other nonspecific T1 hyperintense nonenhancing observations are stable, as seen in segment 7, likely representing regenerative nodules (series 12, image 29 and 30). No arterial phase hyperenhancement, pseudocapsule, or washout is demonstrated. No associated restricted diffusion.
+
+There is diffuse hepatic steatosis. No biliary dilatation. Gallbladder is unremarkable.
+
+Hepatic vasculature: Portal and hepatic veins are patent.
+
+Pancreas: 3 mm cystic lesion in the tail of the pancreas is grossly unchanged and likely represents a sequelae of prior pancreatitis or a sidebranch IPMN (series 7, image 19).
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral renal collecting systems demonstrate excreted contrast. Punctate left upper pole renal cyst is stable. There are no renal mass or hydronephrosis.
+
+Bowel: There is no bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Musculoskeletal: No aggressive osseous lesions. T12 vertebral body hemangioma is stable.No new HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "diffuse hepatic steatosis" and "regenerative nodules," but does not include keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit mentions of "chronic liver disease." Regenerative nodules can be associated with cirrhosis, but the report does not specify cirrhotic morphology or surface nodularity. The liver parenchyma is not described as "unremarkable," "normal," or "smooth" either, but the absence of direct fibrosis/cirrhosis indicators suggests no clear evidence of fibrosis or cirrhosis based on the given criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=551 / Out=148
+Cost: $0.000184

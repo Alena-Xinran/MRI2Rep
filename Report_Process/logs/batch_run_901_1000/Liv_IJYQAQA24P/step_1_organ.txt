@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. The spleen is enlarged and there are varices compatible with portal hypertension. There is no significant ascites. A small liver cyst is noted. Findings suggesting iron deposition in the liver are present. There is no evidence of HCC. Hepatic vasculature is patent.
+
+The adrenal glands and kidneys are unremarkable.
+
+There is dilatation of the main pancreatic duct involving the tail of the pancreas with abrupt transition to a normal appearing duct at the body of the pancreas. No discrete mass is identified.
+
+There is no abdominal adenopathy. There is no biliary dilatation. The gallbladder is unremarkable.Cirrhosis with portal hypertension.
+
+No evidence of HCC.
+
+Dilatation of the main pancreatic duct with abrupt transition to a normal appearing duct in the body of the pancreas as described. No discrete mass at the point of transition is identified. It is possible that this is secondary to a pancreatic duct stricture from pancreatitis, given the previous findings of acute pancreatitis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis with portal hypertension." Additionally, it mentions an enlarged spleen and varices compatible with portal hypertension, which are secondary signs of cirrhosis. There are no descriptors indicating a normal or unremarkable liver parenchyma.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=428 / Out=77
+Cost: $0.000120

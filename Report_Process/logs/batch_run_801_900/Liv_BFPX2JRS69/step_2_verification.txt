@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Patient is status post right hepatectomy with compensatory left hepatic lobe hypertrophy. There is evidence of mild hepatic steatosis. No imaging evidence to suggest hepatocellular carcinoma. Patient is status post cholecystectomy. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable 8 mm left lower pole exophytic renal lesion (image 14 series 4). The right kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+
+Stable exophytic left renal lower pole lesion. Continued attention on follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report mentions "mild hepatic steatosis" and "compensatory left hepatic lobe hypertrophy" post-hepatectomy, but does not describe any features of cirrhosis such as nodularity, contour irregularity, or signs of portal hypertension. The hepatic vasculature is patent, and there is no mention of cirrhosis. Therefore, the liver is not described as normal due to the steatosis and surgical history, but the absence of cirrhosis findings means the status should remain "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=362 / Out=122
+Cost: $0.000153

@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Postcontrast sequences are degraded by motion and misregistration artifact on subtraction images.
+
+Trace right pleural effusion is new.
+
+Cirrhotic liver morphology is redemonstrated with multiple large regenerative nodules. 
+
+A 2.8 x 1.9 cm segment VII ablation cavity is not significantly changed. 
+
+A 1.4 cm region of arterial enhancement at the inferior aspect of the cavity (series 11, image 26) demonstrates probable washout and is concerning for recurrent disease (this measured 0.6 cm on prior CT). 
+
+There is a 1.4 cm arterially enhancing observation in the right hepatic dome (series 11, image 18) which does not demonstrate washout or pseudocapsule (LI-RADS 3).
+
+A subcentimeter liver cyst is again noted. Portal veins are patent. Hepatic veins are not well visualized. Mild bile duct dilation is redemonstrated, consistent with history of PSC.
+
+A 2.1 cm cystic lesion in the pancreatic head without solid enhancing nodularity is unchanged.
+
+Patient is status post cholecystectomy. Spleen, adrenal glands and kidneys are unremarkable except for small bilateral renal cysts. A 1.0 cm left para-aortic lymph node (series 16, image 30) is unchanged. There is small volume ascites.Findings concerning for recurrent HCC adjacent to ablation cavity.
+
+1.4 cm LI-RADS 3 observation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated with multiple large regenerative nodules," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and "cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=521 / Out=58
+Cost: $0.000138

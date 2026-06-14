@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is cirrhotic and diffusely steatotic. Several subcentimeter T1 hyperintense nodules are noted on the precontrast imaging. No arterially enhancing nodule with washout is identified to suggest HCC. A few scattered sub-5 mm arterial enhancing foci without correlate on delayed sequences are minimally changed and possibly perfusional. Splenomegaly measuring 18 cm in perigastric and esophageal varices are again seen. No significant ascites. Gallbladder, adrenal glands, biliary tree, pancreas, and kidneys appear unremarkable. Reactive periportal lymph nodes are stable. Vasculature remains patent.No findings of HCC.
+
+Cirrhotic and steatotic liver with stable sequelae of portal hypertension.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic" and later summarizes "Cirrhotic and steatotic liver," which directly indicates the presence of cirrhosis. Additionally, there are findings consistent with chronic liver disease and portal hypertension, such as splenomegaly and varices.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=374 / Out=70
+Cost: $0.000102

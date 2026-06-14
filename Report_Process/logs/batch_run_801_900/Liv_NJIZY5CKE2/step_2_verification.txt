@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology is again noted. Ablation cavity in hepatic segment V and VI measures 5.8 x 3.5 cm (image 50 series 13), previously 6.1 x 3.7 cm. There are no findings of recurrent or residual disease. There are no new liver lesions with imaging characteristics of hepatocellular carcinoma. A few tiny liver cysts are again seen. The hepatic vasculature is patent.
+
+Cholelithiasis is seen. Choledocholithiasis is noted with a 6 mm stones in the proximal and distal CBD (series 6, image 26, 27). There is no upstream biliary ductal dilatation. Bilateral renal cysts are noted, including a subcentimeter left renal hemorrhagic/proteinaceous cysts. The adrenal glands, pancreas and spleen are unremarkable.
+
+There is no abdominal ascites or lymphadenopathy. No aggressive osseous lesion is identified.No evidence of residual or recurrent HCC. 
+
+Choledocholithiasis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Cirrhotic liver morphology is again noted," which explicitly indicates features of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=403 / Out=56
+Cost: $0.000136

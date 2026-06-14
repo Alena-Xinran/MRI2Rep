@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial hepatic segmentectomy. There are scattered hepatic cysts and hemangiomas. The hepatic vasculature is patent. Prominence of the bile ducts, likely due to the postcholecystectomy state.
+
+-There is a 1.4 x 1.3 cm ablation cavity in segment 4A without evidence of residual or recurrent neoplasm (image 26, series 14).
+
+There are no new hepatic lesions meeting imaging criteria for hepatocellular carcinoma.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for renal cysts, some of which are hemorrhagic.
+
+There is no abdominal ascites or adenopathy.New segment 4 ablation cavity without viable HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, portal hypertension findings, or fibrosis). It describes status post partial hepatic segmentectomy, scattered cysts and hemangiomas, patent vasculature, and an ablation cavity, but no cirrhotic morphology. The liver is not explicitly described as "normal," but the absence of cirrhosis-related terms and the lack of mention of fibrosis or cirrhotic features supports the "NoFibrosis/Cirrhosis" status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=341 / Out=129
+Cost: $0.000150

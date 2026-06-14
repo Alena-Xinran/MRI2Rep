@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is not cirrhotic. The hepatic vasculature is patent. There is no HCC. There is mild questionable subsegmental intrahepatic biliary ductal dilation involving segment 6, this was not seen before however it may have been obscured by artifact on the prior images. There is no correlate identified on the T2 sequences.
+
+Cholelithiasis is noted. There is an unchanged 5 mm simple cystic lesion in the uncinate process of the pancreas, likely a side branch IPMN. The pancreas, spleen, and adrenals are otherwise unremarkable.
+
+Bilateral renal cysts are noted.
+
+There is no adenopathy, ascites, or obstruction.Unchanged exam. No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is not cirrhotic." This indicates a normal liver without cirrhosis. According to the task rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis". The previously extracted status is "NoFibrosis/Cirrhosis", which matches the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=342 / Out=85
+Cost: $0.000131

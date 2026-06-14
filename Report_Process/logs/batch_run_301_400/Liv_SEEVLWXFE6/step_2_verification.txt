@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant and partial resection of segment 7. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent. The spleen is enlarged to 17.6 cm.
+
+The pancreas and adrenal glands are are unremarkable. Horseshoe kidney is redemonstrated with a hemorrhagic cyst in the right moiety. 
+
+There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, regenerative nodules, or portal hypertension signs like varices or splenomegaly due to portal hypertension). It states the patient is status post liver transplant and partial resection, with no evidence of hepatocellular carcinoma, and the hepatic vasculature is patent. The spleen is enlarged, but the cause is not specified as related to cirrhosis. The liver parenchyma description is absent, but there is no indication of cirrhosis. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is consistent with the report's lack of cirrhosis mention.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=285 / Out=154
+Cost: $0.000144

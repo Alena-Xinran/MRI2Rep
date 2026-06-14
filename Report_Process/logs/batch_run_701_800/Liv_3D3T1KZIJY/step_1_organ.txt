@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is a new transplant liver with trace perihepatic ascites but no organized collection. There is mild irregularity of the common bile duct at the anastomosis without biliary ductal dilatation. The hepatic veins and hepatic artery are patent. The portal veins are patent. Incidentally noted is variant portal and biliary anatomy involving the right hepatic lobe.
+
+There are small peripheral regions of late arterial enhancement in the right hepatic lobe without correlate on any other sequence, likely perfusion related. There is no evidence of HCC.
+
+The adrenal glands, spleen, pancreas, and kidneys are unremarkable. There is no upper abdominal adenopathy.Status post liver transplant without evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a "new transplant liver" and mentions "trace perihepatic ascites" and "mild irregularity of the common bile duct at the anastomosis," but there are no keywords indicating cirrhosis, fibrosis, nodular surface, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not explicitly described as unremarkable, normal, or smooth, but the context is a post-transplant evaluation without signs of recurrent HCC or parenchymal disease. Given the criteria, the absence of any fibrosis/cirrhosis indicators suggests classification as "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=360 / Out=139
+Cost: $0.000127

@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A small right pleural effusion has slightly decreased.
+
+Cirrhotic liver morphology is again noted. There is no intra or extrahepatic biliary ductal dilatation or choledocholithiasis. The hepatic vasculature is patent.
+
+-On series 15, image 17, a 5.4 x 4.2 cm ablation cavity previously measured 5.9 x 4.7 cm. Linear enhancement along the inferior margin is unchanged.
+
+- On series 15, image 40, a 2.9 cm segment III arterial enhancing lesion with washout and pseudocapsule previously measured 2.6 cm (image 40, series 15), consistent with OPTN 5B HCC.
+
+-On series 15, image 16, a new 1.7 cm arterial enhancing segment VIII lesion just medial to the resection cavity contains fat and demonstrates washout and pseudocapsule, consistent with OPTN 5A HCC.
+
+- On series 15, image 16, a 1.0 cm segment 8 arterial enhancing lesion is unchanged in size, and again demonstrates washout, with newly appreciated pseudocapsule consistent with a OPTN 5A HCC.
+
+-On series 15, image 17, a 1.1 cm arterially enhancing lesion adjacent to the ablation cavity, does not demonstrate washout or pseudocapsule and is therefore indeterminate. This appears separate from an adjacent new 1.7 cm OPTN 5A HCC. Attention on follow-up.
+ 
+Cholelithiasis is noted. The pancreas, spleen, adrenal glands and kidneys are unremarkable other than small scattered renal cysts and right renal cortical scarring.
+
+There is no ascites or abdominal lymphadenopathy. Mild ectasia of the infrarenal abdominal aorta is noted. No aggressive osseous lesion.Slight increase in size of a segment III OPTN 5B HCC.
+
+New 1.7cm segment VIII OPTN 5A HCC, adjacent to the ablation cavity.
+
+A 1.0 cm segment VIII lesion, now meets OPTN 5A criteria for HCC.
+
+Indeterminate 1.1 cm arterially enhancing lesion in segment VII, does not meet the OPTN criteria. Attention on follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Cirrhotic liver morphology is again noted," which explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=655 / Out=56
+Cost: $0.000207

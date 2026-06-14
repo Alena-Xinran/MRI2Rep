@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Left lower lobe scarring is redemonstrated.
+
+Patient is status post liver transplantation. Cirrhotic liver morphology is redemonstrated with sequela portal hypertension as evidenced by a splenorenal shunt. A subcentimeter T1 hyperintense focus in segment 6 (series 12, image 55) demonstrates no definite arterial phase enhancement or washout and is nonspecific. There are no definite findings of HCC. No biliary ductal dilatation is seen. Chronic thrombosis of portal vein is redemonstrated.
+
+Kidneys are atrophic and contain tiny cysts. The pancreas, spleen and adrenal glands are unremarkable. There is no upper abdominal adenopathy or ascites.No findings to suggest HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated," which directly indicates cirrhosis. Additionally, there is mention of sequelae of portal hypertension (splenorenal shunt) and chronic portal vein thrombosis, both consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=369 / Out=69
+Cost: $0.000100

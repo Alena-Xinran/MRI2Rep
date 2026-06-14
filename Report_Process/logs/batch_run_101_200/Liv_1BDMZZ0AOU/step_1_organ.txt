@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: There is a noncirrhotic appearance of the transplanted liver. Biliary stents are again noted with T2 dark, T1 bright filling defects at the confluence of the left and right hepatic ducts which again presumably represent stones/debris. Degree of intrahepatic biliary ductal dilatation is similar to prior exam. Signal loss on in phase images within the central bile ducts is compatible with pneumobilia. There has been interval decrease in size of a hemorrhagic cyst in hepatic segment 6, currently measuring 0.7 cm, previously 1.1 cm (series 8, image 45). There are no findings of HCC.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Stably enlarged to 14 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left-sided renal cysts are again noted. The right kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Bones and soft tissue: No aggressive osseous lesions are identified.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "noncirrhotic appearance of the transplanted liver," indicating no signs of cirrhosis. There are no mentions of fibrosis, nodular surface, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not described as unremarkable or normal directly, but the specific term "noncirrhotic" clearly indicates absence of cirrhosis/fibrosis in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=463 / Out=96
+Cost: $0.000138

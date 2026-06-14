@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of liver mass. Hepatic vasculature is patent.
+
+There is an indeterminant 5.6 x 5.7 cm mass in the spleen. This is unchanged when compared to the most recent previous exam, but measured 2.3 cm in 2017.
+
+The spleen, right adrenal gland, and kidneys are unremarkable. A small left adrenal adenoma is unchanged. There is no abdominal adenopathy. Gallstones are present. A small umbilical hernia contains fat. There is a small hiatal hernia.No evidence of HCC.
+
+No significant change in the splenic lesion in the short interval, but interval growth since 2017.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "There is no evidence of liver mass" and "Hepatic vasculature is patent," but does not explicitly mention cirrhosis or features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, portal hypertension signs, etc.). It also does not state "normal liver" directly, but the absence of reported abnormalities implies the liver is unremarkable. According to the rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis." Since no cirrhosis features are described, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=335 / Out=145
+Cost: $0.000155

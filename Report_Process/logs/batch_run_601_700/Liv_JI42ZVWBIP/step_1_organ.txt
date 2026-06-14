@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. Hepatic steatosis is present. There are no findings to suggest HCC.    There is a 5 mm arterial phase enhancing focus bordering segments 2 and 3 (series 19 image 31) which contains contrast, and is unchanged in size. This is mildly hyperintense on T2, and is presumably a hemangioma.    An approximately 8.5 cm hemorrhagic pseudocyst centered at the pancreatic head and neck is essentially unchanged in size. This is associated with thrombosis of the splenic vein, SMV, and portal vein, with cavernous transformation.    Findings of chronic pancreatitis involving the remainder of the pancreas is again noted. The spleen is prominent in size. The adrenal glands and kidneys are unremarkable.    Sludge is noted within the gallbladder. There is no ascites. There is no abdominal adenopathy.No findings of HCC.    Stable appearance of hemorrhagic pseudocyst.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis," which directly indicates cirrhosis. Additionally, there is mention of "cavernous transformation" of the portal vein, which is often associated with chronic liver disease and portal hypertension, further supporting the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=420 / Out=70
+Cost: $0.000115

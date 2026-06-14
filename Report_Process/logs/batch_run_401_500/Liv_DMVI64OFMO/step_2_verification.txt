@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver demonstrates morphological features of cirrhosis and there are findings of portal hypertension including splenomegaly and upper abdominal varices. Diffuse hepatic steatosis is seen without focal hepatic lesion. The patient is post cholecystectomy. There are several nonspecific cystic lesions within the pancreas, the largest measures up to 1.2 cm within the uncinate process and appears minimally increased in size since 2014. These small pancreatic cysts likely represent side branch IPMNs and are amenable to follow-up. The adrenal glands and kidneys are unremarkable.Cirrhosis with portal hypertension. No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver demonstrates morphological features of cirrhosis" and later summarizes "Cirrhosis with portal hypertension." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=322 / Out=65
+Cost: $0.000117

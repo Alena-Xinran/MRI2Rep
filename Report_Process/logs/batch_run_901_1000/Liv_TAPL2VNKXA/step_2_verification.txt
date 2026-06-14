@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Exam is limited by motion artifact. Please refer to same day CT chest report for intrathoracic findings.
+
+Again seen is cirrhotic morphology of the liver and sequela of portal hypertension as evidenced by upper abdominal varices and splenorenal shunt. There is mild decrease in size of 2.9 x 1.5 cm ablation cavity in hepatic segment 5/6, previously measuring 3.4 x 1.7 cm. No definite findings of recurrent disease are seen and no new lesion is identified, within the limitations of this exam. A few hepatic cysts are noted. Hepatic vasculature is grossly patent. There is trace perihepatic fluid.
+
+The gallbladder, spleen, adrenal glands, and kidneys are unremarkable except for stable nonspecific subcentimeter pancreatic cystic lesions, possibly representing IPMNs.
+
+Again seen is diffuse gastric wall thickening. There is no abdominal lymphadenopathy. 
+
+No aggressive osseous lesion is identified.No evidence of HCC, within the limitations of motion degraded exam.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Again seen is cirrhotic morphology of the liver," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=406 / Out=82
+Cost: $0.000148

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There has been interval decrease in size of a large right hepatic lobe HCC measuring 14.1 x 7.8 x 7.8 cm, previously 15 x 8.8 x 8.6 cm. There is decreased mass effect on the right kidney.
+
+Previously seen extensive tumor thrombus has improved. Thrombus is still noted throughout the portal venous system to the level of the portosplenic confluence, however it is decreased in caliber and now avascular, likely representing a combination of bland and necrotic tumor thrombus.
+
+The spleen, adrenal glands, pancreas, and kidneys are unremarkable except for a right renal cyst. There is no adenopathy or ascites.Decreased large right hepatic lobe HCC and portal vein thrombosis, as described.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes findings related to hepatocellular carcinoma (HCC) and portal vein thrombus, but does not mention any keywords indicating fibrosis or cirrhosis, such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not characterized as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis descriptors and the focus on tumor-related changes suggests no direct evidence of fibrotic or cirrhotic changes in the liver parenchyma from this excerpt.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=381 / Out=134
+Cost: $0.000131

@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post orthotopic liver transplant. There is no evidence of HCC. The hepatic vasculature is patent.    There is mild splenomegaly. A 1.0 cm unilocular cyst in the pancreatic head is unchanged. The kidneys and adrenal glands are unremarkable.    There is trace perihepatic fluid. There is no abdominal adenopathy.    A wide-mouth ventral abdominal wall hernia contains loops of nonobstructed bowel.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described, but the patient has a history of orthotopic liver transplant, which implies underlying liver disease. However, based strictly on the provided criteria and the absence of direct descriptors of fibrosis or cirrhosis in the current findings, the liver is not explicitly noted as abnormal. There is no mention of "unremarkable", "normal", or "smooth" specifically for the liver either, but the overall context does not meet the criteria for "Fibrosis/Cirrhosis" based on the keywords listed.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=326 / Out=167
+Cost: $0.000129

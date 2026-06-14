@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with sequela of portal hypertension manifested by a recanalized umbilical vein and upper abdominal varices.
+
+On image 29, series 10, there is a stable arterially enhancing 0.9 cm lesion within segment VIII without corresponding washout, pseudocapsule or T2 correlate, compatible with a LIRADS-3 observation. A few additional punctate arterially enhancing foci, without correlate on other sequences, are also stable, consistent with LIRADS-3 observations and likely perfusional anomalies (image 15 and 45, series 10).
+
+On image 29, series 13, a hemorrhagic segment V/VIII ablation cavity is unchanged in size measuring 2.9 x 1.5 cm with no evidence of recurrent HCC.
+
+No new suspicious hepatic lesions are seen. The hepatic vasculature is patent.
+
+The patient is status post cholecystectomy. The spleen, adrenal glands, and kidneys are unremarkable with the exception of stable bilateral subcentimeter renal cysts. There is an unchanged 5 mm cystic lesion in the pancreatic tail, likely a side branch IPMN or sequela of pancreatitis (image 24, series 4).
+
+There is no bowel obstruction, adenopathy or ascites.1.  No evidence of recurrent HCC in V/VIII ablation cavity.
+2.  Unchanged LIRADS-3 observations.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=509 / Out=42
+Cost: $0.000128

@@ -1,0 +1,62 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with evidence of portal hypertension including a recanalized umbilical vein, mild splenomegaly, upper abdominal varices. There is interval improvement in previously seen large amount of bland thrombus within the main and right portal vein, with a small amount of residual bland thrombus in the main portal vein. There is also a tiny amount of tumor thrombus within the intrahepatic portions of the anterior right portal vein. Trace perihepatic ascites is seen.
+
+Multifocal hepatocellular carcinoma and treatment cavities are again noted. 
+
+Arterially enhancing observations (all measured on series 13,001):
+
+-On image 11, a segment VIII/IVA 2.2 cm arterially enhancing observation, does not demonstrate a pseudocapsule or washout and is slightly increased from 2.0 cm (LR4). 
+
+-On image 22, a segment VII 1.1 cm arterially enhancing observation with washout and pseudocapsule is slightly decreased in size, previously 1.6 cm (LR5). 
+
+-On image 24, the dominant segment VIII/VII 5.1 x 3.0 cm HCC with pseudocapsule and washout has slightly decreased in size, previously 5.3 x 3.8 cm with persistent adjacent tumor thrombus (LR5TIV). This extends to and is contiguous with the hemorrhagic ablation cavity in segment VII.
+
+There are multiple stable arterially enhancing observations without washout or pseudocapsule in the left hepatic lobe, LR3 (for example on images 35 and 50).
+
+Multiple ablation cavities are present, all decreased in size without evidence of recurrent HCC, although the dominant hemorrhagic cavity in segment VII is inseparable from the dominant viable HCC described above (all measured on series 18,001):
+
+-On image 18, a segment VII 4.7 x 3.9 cm cavity is decreased from 5.5 x 4.3 cm.
+On image 21, a segment V/IVA 2.6 x 1.4 cm cavity is decreased from 2.8 x 1.5 cm.
+On image 50, a segment V/VI 2.5 x 1.5 cm cavity is decreased from 3.2 x 1.3 cm.
+
+
+A right pleural effusion is not significantly changed. The gallbladder, pancreas,, spleen, and adrenal glands are unremarkable with the exception of cholelithiasis, a splenic cyst and siderotic nodules in the spleen. Bilateral renal cysts, including hemorrhagic/proteinaceous cyst on the left are unchanged. Prominent periportal lymph nodes are not significantly changed. No aggressive osseous lesion is seen.Increased size of a segment VIII/IVA HCC at the hepatic dome (LR4). The two other LR5 lesions (including the dominant HCC with tumor thrombus adjacent to the segment VII ablation cavity) are slightly decreased in size. No new HCC.
+
+Multiple ablation cavities are all decreased in size without evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic in morphology" and describes features consistent with cirrhosis (portal hypertension, recanalized umbilical vein, splenomegaly, varices). Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=821 / Out=73
+Cost: $0.000261

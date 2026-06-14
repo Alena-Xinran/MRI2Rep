@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Trace ascites, slightly improved.
+
+Liver: Cirrhotic morphology. New nonobstructive bland thrombus in posterior right portal vein. Other portal veins and hepatic veins are patent.
+Ablation cavities as follows:
+
+3.2 x 4.0 cm segment 7 (image 18 series 8) the arterially enhancing focus adjacent to the ablation cavity on the prior study is no longer present. No residual/recurrent viable HCC.
+
+2.9 x 1.8 cm segment 6 (image 53 series 8), previously 2.9 x 1.6 cm. No recurrent viable HCC
+
+2.0 x 1.2 cm segment 4 (image 50 series 8), previously 1.9 x 1.3 cm. No recurrent viable HCC.
+
+9 mm arterial enhancing nodule in segment 8 (image 9 series 5) previously measured 9 mm. Washout and pseudocapsule identified on the prior study are not seen on this exam.
+
+Other subcentimeter arterial phase enhancing nodules, for example on image 27 series 5 in segment 7, do not demonstrate washout or pseudocapsule and are unchanged. There are no new hepatic masses.
+
+Gallstones are again seen. The pancreas, spleen (except for a unchanged 12 mm cyst), adrenal glands, and kidneys are unremarkable aside from bilateral simple and hemorrhagic renal cysts
+
+No lymphadenopathy.Status post successful ablation. No viable HCC.
+New nonobstructive bland thrombus posterior right portal vein
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver: Cirrhotic morphology," which directly indicates the presence of cirrhosis. This satisfies the criteria for classification as "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=543 / Out=50
+Cost: $0.000141

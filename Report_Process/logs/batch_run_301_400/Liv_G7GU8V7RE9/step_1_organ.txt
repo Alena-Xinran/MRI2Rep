@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Previously seen large right pleural effusion has nearly resolved. A trace right pleural effusion with adjacent atelectasis remains.
+
+The liver is cirrhotic. The hepatic vasculature is patent. There is evidence of portal hypertension, as manifested by mild splenomegaly and paraesophageal varices.
+
+There is a new 1.8 cm arterially enhancing lesion in segment 5/6 that demonstrates washout and a pseudocapsule, consistent with HCC (image 37, series 12).
+
+Previously seen 1.4 cm arterially enhancing lesion with washout in segment 2 is essentially unchanged, also likely HCC (image 23, series 12).
+
+A 1.0 cm arterially enhancing focus in segment 5 is indeterminate (image 30, series 12).
+
+The patient is status post cholecystectomy. The adrenal glands, kidneys, spleen and spleen, and pancreas are unremarkable.
+
+A small amount of ascites is present. No abdominal lymphadenopathy is identified.1. New 1.8 cm arterially enhancing lesion in the right hepatic lobe consistent with HCC (OPTN 5A).
+2. Unchanged 1.4 cm lesion in segment 2, likely HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=475 / Out=38
+Cost: $0.000117

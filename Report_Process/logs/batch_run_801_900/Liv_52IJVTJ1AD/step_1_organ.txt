@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is again noted to be cirrhotic in morphology with sequelae of portal hypertension including splenomegaly, upper abdominal and paraesophageal varices and mild perihepatic ascites.
+
+Multiple treatment cavities are again noted, as follows:
+Segment 2 measuring 3.2 x 2.5 cm (series 17 image 20), previously 4.3 x 2.5 cm. There is no evidence of recurrent HCC.
+
+Segment 1 measuring 3.1 x 1.5 cm (series 17 image 29), previously 3.2 x 2.0 cm. There is no evidence of recurrent HCC.
+
+Scattered nodular arterially enhancing foci, without washout or pseudocapsule are stable, for example segment 7 (series 14 image 33), segment 2 (series 14 image 25),, and segment 6 (series 14 image 34). There are no lesions meeting criteria for HCC.
+
+The hepatic vasculature is patent. Mild aneurysmal dilatation of the celiac axis is again noted.
+
+There is a stable right pararenal retroperitoneal nodule measuring 1 cm (series 13 image 47).
+
+There is a 8 mm cystic lesion at the pancreatic body (series 4 image 18), although this is stable from the prior MR, it is increased from the MR dated back to 1/21/2018 where it measured up to 3 mm.
+
+Patient is status post cholecystectomy. There is no intra or extrahepatic biliary dilatation. The adrenal glands and kidneys are unremarkable except for stable subcentimeter right renal indeterminate cystic lesions.  Stable mildly prominent periportal and peripancreatic lymph nodes, which are probably reactive.
+
+There is no aggressive osseous lesion. There is resolved enhancement of the left eighth and ninth ribs.No evidence of HCC. Stable scattered nodular arterially enhancing foci are indeterminate and amenable to follow-up MRI.
+
+8mm cystic lesion at the pancreatic body is stable from the prior exam, although increased from MRI dating back to 1/21/2018 where it measured up to 3 mm. Findings again may represent small side branch IPMN or sequelae of prior pancreatitis, and amenable to follow-up MR to ensure stability.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to be cirrhotic in morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension (splenomegaly, varices, ascites), which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=694 / Out=68
+Cost: $0.000062

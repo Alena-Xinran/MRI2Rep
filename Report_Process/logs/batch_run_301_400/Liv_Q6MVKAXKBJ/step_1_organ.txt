@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. Sequela of portal hypertension include a large recannulized paraumbilical vein. The hepatic vasculature is patent. There are innumerable hepatic cysts. There is stable intra and extrahepatic biliary dilatation status post cholecystectomy.     Hepatic observations are as follows:    -Decreased size of the segment 8 treatment cavity measuring 2 cm, previously 2.3 cm (series 12001, image 13) without evidence of recurrent disease. LR-TR nonviable.  -Decreased size of the segment 7 treatment cavity measuring 2.1 cm, previously 2.5 cm (series 12001, image 19) without evidence of recurrent disease. LR-TR nonviable.    -Multiple stable arterially enhancing observations without washout or pseudocapsule. For example in segment 3 measuring 1.2 cm (series 12001, image 43) and in the hepatic dome measuring 0.8 cm (series 12001, image 12). LR-3.    The pancreas, spleen, adrenal glands and kidneys are unremarkable except for stable punctate cystic foci in the pancreas and small renal cysts. There is no abdominal adenopathy or ascites.No lesions meeting criteria for HCC.    Stable LR-3 observations.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=502 / Out=49
+Cost: $0.000129

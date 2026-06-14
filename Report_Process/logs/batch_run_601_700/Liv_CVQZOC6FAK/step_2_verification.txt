@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Exam is  limited due to failed fat saturation, respiratory motion and misregistration artifact. 
+
+The liver is cirrhotic with sequela of portal hypertension, characterized by splenomegaly and upper abdominal varices. On series 17, image 26, a 2.3 x 2.0 cm ablation cavity at the junction of medial lateral segments has slightly decreased in size, previously 2.9 x 2.3 cm. There is no evidence of recurrent disease. There are no new findings of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+A stable 1.7 cm splenic hemangioma is seen. The adrenal glands, kidneys, pancreas, and gallbladder are unremarkable, except for tiny renal cysts.
+
+There is trace perihepatic ascites. No enlarged abdominal lymph nodes are seen. No aggressive osseous lesion is identified.No findings of recurrent HCC with limitations as detailed.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic with sequela of portal hypertension", which directly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=383 / Out=57
+Cost: $0.000131

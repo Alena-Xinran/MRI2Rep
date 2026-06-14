@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant. Previously seen perihepatic hematomas have decreased in size. For instance, a 2.6 x 2.5 cm hematoma between the right lobe of the liver and right hemidiaphragm previously measured 8 x 4.1 cm.
+
+There is a 0.9 cm arterial enhancing focus within hepatic segment 7 (image 35 series 12). This becomes isointense on more delayed phase imaging without washout or pseudocapsule. This is nonspecific and possibly a shunt. There are no lesions meeting criteria for HCC. There is no intra or extrahepatic biliary dilatation. The hepatic vasculature is patent. 
+
+An 8 mm cystic lesion along the pancreatic body is stable, nonspecific. The adrenal glands and kidneys are unremarkable with the exception of a few tiny bilateral renal cysts.
+
+There is no abdominal lymphadenopathy. Small pleural effusions are noted, right greater than left.No evidence of HCC. Single arterial enhancing focus is indeterminant and amenable to follow-up on MRI.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of post-transplant status and findings like a hematoma and an arterial enhancing focus, but the parenchyma itself is not characterized as unremarkable, normal, or smooth. However, the absence of fibrosis/cirrhosis indicators and the lack of any description suggesting chronic liver disease or architectural distortion implies no active signs of fibrosis or cirrhosis are reported. The classification defaults to "NoFibrosis/Cirrhosis" when such signs are not present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=444 / Out=157
+Cost: $0.000158

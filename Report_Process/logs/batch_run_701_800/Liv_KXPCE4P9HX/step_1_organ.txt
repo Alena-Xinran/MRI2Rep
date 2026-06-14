@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is again noted.
+
+There is a new arterially enhancing 1 cm lesion identified in segment VI (image 43 series 6), which demonstrates a pseudocapsule, but no washout. This is is highly suspicious for HCC but does not meet OPTN criteria. 
+
+The previously identified multiple, hyperintense indeterminate T1 lesions are again seen and have remained stable, the largest in the right hepatic lobe (segment VI) measuring 1.6 cm (previously 1.6 cm) (image 47 series 4). 
+
+The hepatic vasculature is patent. A few subcentimeter hepatic cysts are again identified. Again seen is sequela of portal hypertension including a small amount of ascites and varices as well as a splenorenal shunt.
+
+Cholelithiasis is again identified. The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts and a small stable pancreatic cyst. Small splenic subcapsular hematoma is stable. There is no upper abdominal lymphadenopathy.New arterially enhancing lesion at hepatic segment VI concerning for HCC, however does not meet OPTN criteria.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is again noted," which directly indicates cirrhosis. Additionally, there is mention of sequelae of portal hypertension including ascites and varices, which are commonly associated with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=464 / Out=59
+Cost: $0.000122

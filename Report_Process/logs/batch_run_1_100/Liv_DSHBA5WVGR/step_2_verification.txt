@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology and sequela of portal hypertension are again noted as evidenced by upper abdominal varices and splenomegaly. There are no suspicious hepatic lesions. No intra or extrahepatic biliary ductal dilatation.
+
+Cholelithiasis is noted. The pancreas, adrenals, and kidneys are unremarkable aside from left renal cysts. The visualized bowel is unremarkable. No adenopathy or ascites.No HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Cirrhotic liver morphology and sequela of portal hypertension are again noted", which directly indicates the presence of cirrhosis. Additionally, features such as upper abdominal varices and splenomegaly are mentioned as evidence, further supporting the diagnosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=288 / Out=87
+Cost: $0.000117

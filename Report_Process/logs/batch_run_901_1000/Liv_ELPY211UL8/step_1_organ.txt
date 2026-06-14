@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is again noted to have cirrhotic morphology with associated sequela of portal hypertension as evidenced by splenomegaly and abdominal varices. The hepatic vasculature is patent.
+ - There is slight interval increase in size of previously seen arterially hyperenhancing observation at the hepatic dome measuring 1.2 x 1.0 cm (previously measuring 1.2 x 0.7 cm) (series 9 image 15) without associated washout or pseudocapsule. This lesion does not meet criteria for threshold growth. (LIRADS-3). Other foci of arterial enhancement, some of which are suggestive of perfusional abnormalities, are unchanged.
+ - Essentially unchanged size of hepatic segment 4A ablation cavity measuring 3.4 x 1.5 cm (series 11 image 20) without evidence for recurrence.
+ - Stable size of hepatic segment 6/7 ablation cavity measuring 3.8 x 1.6 cm (series 11 image 35) without evidence for recurrence.
+
+Cystic lesions are again noted within the pancreas, largest measuring up to 1.2 cm in the pancreatic head, unchanged in size and appearance since prior study, likely representing sequela of prior pancreatitis versus sidebranch IPMN.
+
+Overall similar appearance of bilateral subcentimeter renal cysts, some of which are proteinaceous/hemorrhagic. There is trace ascites. No abdominal lymphadenopathy is noted. The right adrenal gland is unremarkable. Nodular thickening of the left adrenal gland is stable.No evidence for HCC. Slight interval increase in size of arterially hyperenhancing observation in hepatic dome without associated washout or pseudocapsule (LIRADS-3). Attention on followup is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to have cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions associated sequelae of portal hypertension (splenomegaly and varices), which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=583 / Out=65
+Cost: $0.000158

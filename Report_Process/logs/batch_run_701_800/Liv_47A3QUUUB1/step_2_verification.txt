@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic. A 1.2 cm arterially enhancing lesion in segment 4A is stable in size but is less conspicuous on this examination (image 25, series 10). Washout is again seen. No new liver lesion is identified. The hepatic vasculature is patent. There is portal hypertension, as manifested by splenomegaly measuring 19.5 cm and abdominal varices.
+
+The kidneys and adrenal glands are unremarkable, except for small bilateral renal cysts. A 3 mm cystic lesion in the pancreatic body is stable (image 26, series 3). Layering sludge/stones are noted in the gallbladder.
+
+There is trace perihepatic ascites. No abdominal lymphadenopathy is seen.Stable 1.2 cm lesion in segment 4A suspicious for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=365 / Out=87
+Cost: $0.000139

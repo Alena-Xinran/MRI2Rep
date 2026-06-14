@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Status post partial right hepatectomy. A 10 cm loculated fluid collection within the surgical bed is unchanged. Scattered hepatic cysts are again noted.
+
+Hepatic observations are as follows, measured on series 13,001:
+-Segment 4A observation measuring 11mm (image 32 series 15001), now with non rim arterial enhancement, washout, and pseudocapsule. LIRADS 5 (previously LR3)
+
+-Segment 1 ablation cavity stably measures 2.6 x 3.1 cm without any definitive internal enhancement; series 16,001, image 32. LR TR nonviable.
+
+-Segment 2 ablation cavity has decreased in size measuring 7.7 x 5.7 cm (previously 8.9 x 5.9 cm), contains some internal hemorrhage/debris but without evidence of recurrent disease. LR TR nonviable.
+
+A few other scattered tiny arterial enhancing foci without washout or pseudocapsule are noted. LR3.
+
+A 9 mm enhancing nodule along the margin of the left hepatic lobe is unchanged (series 11001 image 50). 
+
+A 7 mm cystic lesion at the margin of the pancreatic uncinate is stable since 5/16/2019, either a side branch IPMN or sequela of prior pancreatitis. The spleen, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts. Retroaortic left renal vein is incidentally seen. Small nodule adjacent to the right adrenal gland is unchanged (series 15001 image 35).
+
+No ascites or lymphadenopathy. Redemonstrated fat-containing ventral abdominal hernia.Enlarged segment 4A 1.1 cm observation now consisted with HCC (LR 5).
+
+Ablation cavities appear stable without any definitive recurrence. No definitive extrahepatic metastatic disease identified in the abdomen.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, morphologic changes, portal hypertension findings, etc.). The liver findings described include post-surgical changes, fluid collection, cysts, observations with LI-RADS classifications, and ablation cavities, but no statement about cirrhosis or fibrosis. Therefore, the liver cannot be assumed to have fibrosis/cirrhosis based on this report alone. The previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=589 / Out=124
+Cost: $0.000217

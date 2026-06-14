@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. A wedge-shaped focus of peripheral arterial enhancement has no correlate on subsequent sequences and likely reflects perfusional abnormality. There is no HCC. Several hepatic cystic lesions are noted.
+
+Sequela of portal hypertension is appreciated as indicated by recannulized paraumbilical vein and splenomegaly.
+
+Gallbladder adenomyomatosis is noted. There is no biliary duct dilatation. Stable pancreatic cysts or simple sidebranch I PMN are noted measuring up to 0.6 cm. These may reflect the sequela of prior pancreatitis or side branch IPMN. There is no main duct dilatation.
+
+The adrenals are unremarkable. A stable left renal cyst is appreciated.
+
+There is no adenopathy, ascites, or bowel obstruction.Hepatic cirrhosis. No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology" and later concludes with "Hepatic cirrhosis." Additionally, there are findings consistent with chronic liver disease, such as sequelae of portal hypertension (recannulized paraumbilical vein and splenomegaly). These keywords and descriptions meet the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=391 / Out=86
+Cost: $0.000113

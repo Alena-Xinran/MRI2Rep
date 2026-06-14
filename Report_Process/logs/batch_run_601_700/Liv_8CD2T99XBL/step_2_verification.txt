@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology is again noted, with evidence of portal hypertension including ascites and upper abdominal varices.
+
+- Treatment cavity in segment 8 is stable in size, measuring 5.6 x 3.3 cm (image 29, series 12).  There is no evidence of residual or recurrent disease.
+
+- Treatment cavity in segment 7 has slightly decreased in size, measuring 3.2 x 3.1 cm (image 34, series 12). There is no evidence of residual or recurrent disease.
+
+- Treatment cavity in segment 2 is stable in size, measuring 1.3 x 1.2 cm (image 32, series 12). Superior to the cavity, there is interval development of a 2.2 cm lesion, which demonstrates arterial enhancement, washout and pseudocapsule (image 30, series 8), compatible with recurrent HCC.
+
+- There is a 2.4 cm arterially enhancing lesion in segment 8 (image 24, series 8), with washout, compatible with OPTN 5B HCC.
+
+- A 2.4 cm exophytic lesion arising from segment 4A (image 32, series 8) demonstrates arterial enhancement and washout, compatible with OPTN 5B HCC.
+
+- A 0.9 cm lesion in segment 7 demonstrates arterial enhancement (image 24, series 8) and washout. While it does not meet OPTN criteria, the findings are suspicious for HCC.
+
+- A 4.0 cm exophytic lesion arising from segment 4A is again noted (image 24, series 8), without arterial enhancement or washout.
+
+- A 1.9 cm hypoenhancing focus in segment 4A is unchanged (image 35, series 12) and remains nonspecific.
+
+The hepatic vasculature is patent. There is no biliary ductal dilatation.
+
+The gallbladder, spleen, pancreas, and adrenal glands are unremarkable. Visualized portions of the kidneys are unremarkable.1. Interval development of recurrent HCC superior to the treatment cavity in segment 2, as well as HCCs in segments 4A and 8. Additional subcentimeter lesion in segment 7 is also suspicious for HCC.
+
+2. Treatment cavities in segment 7 and 8 without evidence of residual or recurrent disease.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report begins with "Cirrhotic liver morphology is again noted," which explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=684 / Out=58
+Cost: $0.000216

@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Redemonstration of cirrhotic morphology of the liver.    Redemonstration of a 1.8 x 1.5 cm ablation cavity in the segment 5/8 (image 39, series 13001). There is unchanged delayed rim enhancement (image 39, se 16001). No evidence of recurrence disease. No evidence of HCC elsewhere. Hepatic vasculature is patent.    Spleen, kidneys, bilateral adrenals appear unremarkable, with the exception of renal cysts and a hemorrhagic/proteinaceous cyst in the lower pole of the right kidney (image 69, series 7001). Unchanged subcentimeter cystic lesions in the pancreatic head, body and tail, which may represent sequela of prior pancreatitis versus side branch IPMN. There is cholelithiasis.    No bowel obstruction. There is small hiatal hernia. There are unchanged subcentimeter periportal lymph nodes, nonspecific. There is no ascites.    No aggressive osseous lesions.Unchanged ablation cavity in the segment 5/8, without recurrence or new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic morphology of the liver," which directly indicates cirrhosis. This satisfies the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=451 / Out=55
+Cost: $0.000117

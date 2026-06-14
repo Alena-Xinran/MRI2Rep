@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Redemonstration of cirrhotic liver morphology with portal hypertension as evidenced by splenomegaly measuring up to 18 cm, perisplenic varices and shunts. There is no finding compatible with hepatocellular carcinoma. Punctate hepatic cysts are present. 
+
+The common bile duct is distended measuring up to 2 cm, similar to 2020 and tapering at the ampulla with no evidence of choledocholithiasis.. Cholelithiasis is present.
+
+Multilocular cystic lesion measuring 2.5 cm in the spleen is present, likely a lymphangioma. A few other punctate T2 hyperintensities the spleen are noted.
+
+The adrenal glands and pancreas are unremarkable. There are punctate benign-appearing renal cysts.
+
+There is trace perihepatic fluid. Prominent periportal lymph nodes are noted.No evidence for HCC.
+
+Stable bile duct dilation without evidence of choledocholithiasis or obstructing mass.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Redemonstration of cirrhotic liver morphology with portal hypertension", which directly indicates cirrhosis. Additionally, it mentions features consistent with portal hypertension (splenomegaly, varices, shunts). Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=395 / Out=80
+Cost: $0.000144

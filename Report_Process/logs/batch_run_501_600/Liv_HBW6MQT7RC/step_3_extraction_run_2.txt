@@ -1,0 +1,95 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+The liver is cirrhotic with findings of portal hypertension, manifested by mild splenomegaly and trace ascites. There is redemonstration of a 3.4 x 2.0 cm ablation cavity in hepatic segment IVb (image 53, series 15) not significantly and without evidence of recurrent disease. There are no new hepatic lesions. The hepatic vasculature is patent.
+
+Cholelithiasis is noted. There is a stable 2.8 cm ablation cavity (image 27, series 4) in the left kidney with similar simple bilateral renal cysts. Left adrenal gland nodularity is unchanged. The pancreas and right adrenal glands are unremarkable.
+
+There is no abdominal adenopathy. There is an unchanged 1.8 cm nodule in the subcutaneous tissues of the back.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: The liver is cirrhotic with findings of portal hypertension, manifested by mild splenomegaly and trace ascites. -> Reasoning: Background description of liver morphology and signs of portal hypertension. No focal lesion described.  
+Sentence 2: There is redemonstration of a 3.4 x 2.0 cm ablation cavity in hepatic segment IVb (image 53, series 15) not significantly and without evidence of recurrent disease. -> Reasoning: Found focal observation. Description: "ablation cavity" indicates a treated lesion. According to TYPE MAPPING rule 5 (RIM_ATYP), treated lesions/scars belong to RIM_ATYP. Location: Segment IVb maps to L_MED. Quantity: 1.  
+Sentence 3: There are no new hepatic lesions. -> Reasoning: Statement about absence of new lesions. No positive focal finding.  
+Sentence 4: The hepatic vasculature is patent. -> Reasoning: Description of vasculature. No focal lesion.  
+Sentence 5: Cholelithiasis is noted. -> Reasoning: Finding in gallbladder, not liver. Ignore.  
+Sentence 6: There is a stable 2.8 cm ablation cavity (image 27, series 4) in the left kidney with similar simple bilateral renal cysts. -> Reasoning: Finding in kidney, not liver. Ignore.  
+Sentence 7: Left adrenal gland nodularity is unchanged. -> Reasoning: Finding in adrenal gland, not liver. Ignore.  
+Sentence 8: The pancreas and right adrenal glands are unremarkable. -> Reasoning: No liver finding.  
+Sentence 9: There is no abdominal adenopathy. -> Reasoning: No liver finding.  
+Sentence 10: There is an unchanged 1.8 cm nodule in the subcutaneous tissues of the back. -> Reasoning: Finding in subcutaneous tissue, not liver. Ignore.  
+Sentence 11: No evidence of HCC. -> Reasoning: Negative statement, no positive finding.
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | L_MED | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | L_MED | 1
+
+--- USAGE ---
+Tokens: In=1005 / Out=443
+Cost: $0.000226

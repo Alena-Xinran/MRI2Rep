@@ -1,0 +1,117 @@
+=== STEP: step_3_extraction_run_3 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Status post left hepatectomy. Multiple liver lesions are as follows:
+
+1.Segment 7 T2 hyperintense, arterial enhancing 1.3 cm lesion with washout has decreased arterial enhancement and no longer demonstrates a pseudocapsule, however it is unchanged in size from the prior study (image 20, series 12).
+2.1.7 cm segment 6 liver lesion (image 59, series 16) has increased in size from the prior study where it measured 0.9 cm. It demonstrates arterial enhancement, washout, and pseudocapsule and is compatible with hepatocellular carcinoma (OPTN class 5a)
+3.0.7 cm segment 6 arterial enhancing lesion is less conspicuous on today's examination (image 41, series 12), previously 0.8 cm. There is again no T2 correlate or washout. 
+4.2 new ablation cavities are seen in segment 7 measuring 3.2 x 3.2 cm (image 26, series 17) and 3.2 x 2.7 cm (image 20, series 17).
+5.Stable hepatic hemangiomas in segments 1/5, 5/6 (image 19, series 3), and segment 8 (image 17, series 3). 
+
+Hepatic and portal veins are patent. The hepatic artery is replaced to the superior mesenteric artery. 
+
+Cholelithiasis is present without cholecystitis. The adrenal glands, kidneys, spleen, and pancreas are unremarkable. A small umbilical hernia is noted. Anterior abdominal wall mesh is seen in place. Trace perihepatic ascites is present. There is no lymphadenopathy. Stable L2 vertebral body hemangiomas are noted.1.7 cm HCC in segment 6 (OPTN 5a) and residual HCC in segment 7.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: Status post left hepatectomy. Multiple liver lesions are as follows: -> Background info, no focal lesion.  
+Sentence 2: 1.Segment 7 T2 hyperintense, arterial enhancing 1.3 cm lesion with washout has decreased arterial enhancement and no longer demonstrates a pseudocapsule, however it is unchanged in size from the prior study (image 20, series 12). -> Found lesion. Features: Arterial enhancement + Washout (APHE + Washout). Maps to APHE_WO. Loc: Seg 7 (R_POST).  
+Sentence 3: 2.1.7 cm segment 6 liver lesion (image 59, series 16) has increased in size from the prior study where it measured 0.9 cm. It demonstrates arterial enhancement, washout, and pseudocapsule and is compatible with hepatocellular carcinoma (OPTN class 5a) -> Found lesion. Features: Arterial enhancement + Washout + pseudocapsule (APHE + Washout). Maps to APHE_WO. Loc: Seg 6 (R_POST).  
+Sentence 4: 3.0.7 cm segment 6 arterial enhancing lesion is less conspicuous on today's examination (image 41, series 12), previously 0.8 cm. There is again no T2 correlate or washout. -> Found lesion. Features: Arterial enhancement + No washout. Maps to APHE_NoWO. Loc: Seg 6 (R_POST).  
+Sentence 5: 4.2 new ablation cavities are seen in segment 7 measuring 3.2 x 3.2 cm (image 26, series 17) and 3.2 x 2.7 cm (image 20, series 17). -> Found observation. Ablation cavities are treated lesions/scars. Maps to RIM_ATYP. Loc: Seg 7 (R_POST). Quantity: 2.  
+Sentence 6: 5.Stable hepatic hemangiomas in segments 1/5, 5/6 (image 19, series 3), and segment 8 (image 17, series 3). -> Found lesions. Features: Hemangiomas. Maps to HEM. Loc: Seg 1/5 (boundary between CAUDATE and R_ANT? Rule: "Boundary (5/6, 6/7, 5/8) -> R_JUNCTION" but 1/5 not listed; 1 is CAUDATE, 5 is R_ANT, so boundary not defined, treat as separate locations: Seg 1 (CAUDATE) and Seg 5 (R_ANT). Also "5/6" maps to R_JUNCTION. Also Seg 8 (R_ANT). Quantity: Multiple (words "hemangiomas" plural).  
+Sentence 7: Hepatic and portal veins are patent. The hepatic artery is replaced to the superior mesenteric artery. -> Background info, no focal lesion.  
+Sentence 8: Cholelithiasis is present without cholecystitis. -> Other organ, ignore.  
+Sentence 9: The adrenal glands, kidneys, spleen, and pancreas are unremarkable. -> Other organs, ignore.  
+Sentence 10: A small umbilical hernia is noted. -> Other finding, ignore.  
+Sentence 11: Anterior abdominal wall mesh is seen in place. -> Background, no lesion.  
+Sentence 12: Trace perihepatic ascites is present. -> Background, no lesion.  
+Sentence 13: There is no lymphadenopathy. -> Background, no lesion.  
+Sentence 14: Stable L2 vertebral body hemangiomas are noted. -> Other organ, ignore.  
+Sentence 15: 1.7 cm HCC in segment 6 (OPTN 5a) and residual HCC in segment 7. -> Summary/reiteration of lesions already captured (Segment 6 APHE_WO and Segment 7 APHE_WO). No new finding.
+
+Step 2: Structured Output  
+TUMOR_RECORD: APHE_WO | R_POST | 1  
+TUMOR_RECORD: APHE_WO | R_POST | 1  
+TUMOR_RECORD: APHE_NoWO | R_POST | 1  
+TUMOR_RECORD: RIM_ATYP | R_POST | 2  
+TUMOR_RECORD: HEM | CAUDATE | Multiple  
+TUMOR_RECORD: HEM | R_JUNCTION | Multiple  
+TUMOR_RECORD: HEM | R_ANT | Multiple
+
+--- EXTRACTED INFO ---
+APHE_WO | R_POST | 1  
+APHE_WO | R_POST | 1  
+APHE_NoWO | R_POST | 1  
+RIM_ATYP | R_POST | 2  
+HEM | CAUDATE | Multiple  
+HEM | R_JUNCTION | Multiple  
+HEM | R_ANT | Multiple
+
+--- USAGE ---
+Tokens: In=1231 / Out=974
+Cost: $0.000447

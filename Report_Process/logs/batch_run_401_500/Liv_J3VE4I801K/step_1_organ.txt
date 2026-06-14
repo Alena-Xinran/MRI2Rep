@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with sequela of portal hypertension including recanalized umbilical vein. The patient is status post segment 6 resection with the cavity measuring 3.6 x 3.9 cm (series 15, image 37), unchanged in comparison with prior when measured similarly. 
+
+There is interval increase in size of an arterially enhancing mass adjacent to the cavity with washout and pseudocapsule appearance, measuring up to 3.4 cm (series 11, image 34), previously 2.6 cm. There is also interval development of tumor thrombus within the adjacent segment 6/7 portal venous branches with associated segmental perfusion abnormalities.
+
+There is also interval increase in size of a segment 8 arterial enhancing lesion measuring 0.9 cm (series 11, image 49), previously 0.6 cm with new questionable washout, highly concerning for HCC. 
+
+There are multiple other small indeterminate arterial enhancing foci scattered throughout the liver, which are essentially stable in comparison with priors (for example, image 26, 28, series 11). These lesions do not have correlates on any of the other sequences and remain nonspecific.
+
+Status post cholecystectomy. The spleen, adrenal glands and kidneys are unremarkable except for stable bilateral renal cysts. 1.5 cm cystic structure at the head of the pancreas is unchanged. No main pancreatic ductal dilatation. There is no abdominal lymphadenopathy. Trace fluid at Morison's pouch.
+
+No aggressive osseous lesions are identified.Interval progression of HCC with new tumor thrombus.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions sequelae of portal hypertension, which are direct indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=551 / Out=46
+Cost: $0.000141

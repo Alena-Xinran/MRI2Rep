@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Small right pleural effusion is again seen. There is cardiomegaly. AICD leads are partially visualized.
+
+There is redemonstration of cirrhotic morphology of the liver with evidence of portal hypertension including splenomegaly and upper abdominal varices. There is trace perihepatic ascites.
+
+There is interval decrease in size of the segment 2/3 ablation cavity which now measures 1.1 x 0.7 cm (previously 1.7 x 0.8 cm). 
+
+Previously seen partially exophytic arterial enhancing nodule anterior and adjacent to the ablation cavity has increased in size measuring 1.4 x 1.3 cm with arterial enhancement and portal venous and delayed washout compatible with HCC (image 49 series 10). 
+
+There is a subcentimeter arterially enhancing lesion in segment 2, measuring 0.8 cm (image 47 series 10), demonstrating portal venous and delayed washout, similar to previously seen lesion on MRI dated 2/12/2014, consistent with HCC.
+
+There is a focus of arterial hyperenhancement in segment 5 (image 61 series 10) with no correlates on other sequences, nonspecific. 
+
+Previously described arterially enhancing perihepatic soft tissue anterior to the segment 2 is no longer visualized. There are 2 new foci of arterial hyperenhancement within the soft tissues anterior to the liver, measuring 0.6 and 0.8 cm respectively (image 44 series 10). Multiple additional perihepatic arterial hyperenhancing foci along the inferior border of the right hepatic lobe are also noted with the largest measuring 1.4 x 1.1 cm (image 73 series 10), and 2 smaller subcentimeter foci (image 58 series 10). Portal veins and hepatic veins are patent.
+
+Again noted are multiple bilateral renal cysts. The pancreas and adrenal glands are unremarkable.1. Interval increase in size of a 1.4 x 1.3 cm partially exophytic lesion anterior to the ablation cavity in segment 2/3, consistent with HCC.
+
+2. 0.8 cm arterially enhancing focus within segment 2 consistent with HCC, however not meeting OPTN criteria.
+
+3. A new arterially enhancing focus within segment 5 with no correlating washout is nonspecific and amenable to follow-up.
+
+4. Multiple new perihepatic enhancing peritoneal nodules.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic morphology of the liver" and provides evidence of portal hypertension including splenomegaly and varices, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=725 / Out=50
+Cost: $0.000192

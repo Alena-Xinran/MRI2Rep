@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Cirrhotic liver morphology with heterogeneous enhancement 
+
+2.8 cm arterial enhancing severity with mosaic architecture and washout (most evident at the superior aspect) in segment 5/8 has increased in size (previously 2.4 cm), LR 5 (image 41 series 13).
+
+4.0 cm arterial enhancing observation with washout in segment 6 has increased in size (previously 2.7 cm), LR 5 (image 53 series 13).
+
+Cholelithiasis is noted. No biliary dilatation.
+
+Hepatic vasculature: Patent. Signs of portal hypertension evidenced by portosystemic shunts.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small cysts bilaterally.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: Prominent periportal and retroperitoneal nodes.
+
+Peritoneum: Moderate amount of ascites. Other: Small pleural effusions.Enlarging 2.8 cm and 4.0 cm LR 5 observations (HCC).
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic liver morphology" and also mentions signs of portal hypertension with portosystemic shunts, which are features consistent with cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=430 / Out=70
+Cost: $0.000150

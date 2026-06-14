@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A 2.0 cm right lower lobe nodule is unchanged in size as compared to prior imaging dating back to February 2018.
+
+The liver is cirrhotic in morphology with evidence of portal hypertension, characterized by recanalized paraumbilical vein and portosystemic shunts. There is heterogeneous enhancement of the liver parenchyma. No HCC. The main portal vein and remainder of the hepatic vasculature is patent. Tiny liver cyst is noted. There is no biliary ductal dilatation.
+
+There is cholelithiasis. The pancreas, spleen, adrenal glands, and kidneys are unremarkable. There is no bowel obstruction, ascites, or adenopathy.No HCC. Patent hepatic vasculature.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions evidence of portal hypertension, which are direct indicators of cirrhosis. Additionally, there is a description of heterogeneous enhancement of the liver parenchyma, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=371 / Out=64
+Cost: $0.000099

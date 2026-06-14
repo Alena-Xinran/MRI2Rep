@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. A 1.2 cm arterially enhancing lesion in segment 4A is stable in size but is less conspicuous on this examination (image 25, series 10). Washout is again seen. No new liver lesion is identified. The hepatic vasculature is patent. There is portal hypertension, as manifested by splenomegaly measuring 19.5 cm and abdominal varices.
+
+The kidneys and adrenal glands are unremarkable, except for small bilateral renal cysts. A 3 mm cystic lesion in the pancreatic body is stable (image 26, series 3). Layering sludge/stones are noted in the gallbladder.
+
+There is trace perihepatic ascites. No abdominal lymphadenopathy is seen.Stable 1.2 cm lesion in segment 4A suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis. Additional supporting findings include portal hypertension with splenomegaly and varices, as well as trace ascites, all consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=393 / Out=65
+Cost: $0.000105

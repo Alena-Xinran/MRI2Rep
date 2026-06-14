@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluation was limited secondary to patient motion.
+
+Cirrhotic morphology with multiple hepatic cysts some of which are peribiliary cyst are again seen. Previously characterized sclerosis hemangiomas in the right hepatic lobe are stable. The 2.3 x 1.2 cm ablation cavity in segment IVA is unchanged in size and demonstrates no evidence of recurrence. There are nonspecific multiple arterial enhancing foci some of which were previously seen. None of these lesions have imaging features of HCC. 
+
+There is increased prominence of the extra and intrahepatic ducts to the level of the ampulla. Cholelithiasis is noted. Portal hypertensive changes include splenomegaly. A stable 9 mm cyst in the uncinate process of the pancreas likely reflects a side branch IPMN or sequela of pancreatitis. Nodularity of the right adrenal gland has been stable since 2015. The kidneys and adrenal glands are unremarkable aside from bilateral renal cysts. Periportal and retroperitoneal adenopathy is unchanged. There is trace perisplenic ascites.Cirrhosis of the liver. No evidence of new or recurrent HCC. Multiple indeterminate arterial enhancing foci are again seen, these do not meet imaging criteria for HCC, recommend continued attention on short-term follow-up to these lesions.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "Cirrhotic morphology" and "Cirrhosis of the liver," which directly indicate the presence of chronic liver disease with fibrosis/cirrhosis. Additional supporting findings include portal hypertensive changes such as splenomegaly and trace ascites.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=486 / Out=68
+Cost: $0.000132

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Multiple scattered subcentimeter arterially enhancing foci are noted throughout the liver, similar to prior imaging (series 11, images 41-43, 46, 57, 64), without correlates on other sequences, likely perfusional. There are no lesions which meet criteria for hepatocellular carcinoma. The 0.5 cm T2 hyperintense lesion in the left hepatic lobe is stable and may represent a sclerosed hemangioma (image 13, series 7).
+
+The patient is status post cholecystectomy with similar dilatation of the CBD. The spleen, pancreas, adrenals, and kidneys are unremarkable, except for renal cysts and stable left adrenal gland thickening.
+
+There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, segmental atrophy/hypertrophy, or signs of portal hypertension). It describes scattered arterially enhancing foci (likely perfusional) and a stable T2 hyperintense lesion, but these are not indicative of cirrhosis. The liver is not explicitly described as "normal," but the absence of cirrhosis-related findings and the statement "no lesions which meet criteria for hepatocellular carcinoma" suggest no evidence of cirrhosis. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=356 / Out=149
+Cost: $0.000162

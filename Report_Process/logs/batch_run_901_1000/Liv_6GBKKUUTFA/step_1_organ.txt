@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver appears cirrhotic. There are no lesions that meet imaging criteria for hepatocellular carcinoma. A few arterially enhancing foci in the inferior right hepatic lobe, measuring up to 0.6 cm (series 17, image 37, 46), without a correlate on subsequent phases may represent perfusion anomalies. A stable left hepatic cyst is seen. The hepatic vasculature is patent. No ascites or findings of portal hypertension.
+
+Cholelithiasis is noted. The adrenal glands, and spleen are unremarkable. A few punctate nonspecific cystic pancreatic lesions are noted, largest within the pancreatic head measuring 4 mm. No dilatation the main pancreatic duct or internal complexity. Some benign left renal cysts are noted. Kidneys appear otherwise unremarkable. No adenopathy.
+
+
+No aggressive osseous lesions. Large amount of susceptibility artifact is seen along the ventral abdominal wall secondary to prior surgeries.Cirrhotic liver. No lesions meeting imaging criteria of HCC.
+
+Incidental punctate pancreatic cysts. Differential includes sequelae of pancreatitis or side branch IPMNs.  Follow up can be obtained with noncontrast abdominal MRI in 2 years.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver appears cirrhotic" and later repeats "Cirrhotic liver." These are direct keywords indicating cirrhosis, which falls under the classification criteria for "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=459 / Out=57
+Cost: $0.000120

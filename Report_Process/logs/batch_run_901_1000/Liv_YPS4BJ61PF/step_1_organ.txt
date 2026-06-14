@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. Sequela of portal hypertension include abdominal varices. The hepatic vasculature is patent.    Hepatic observations/treatment cavities are as follows:    - Unchanged right hepatic lobe treatment cavity measuring 9.9 x 7.9 cm (series 7, image 57) without recurrent disease. There is similar appearing enhancement of the adjacent liver parenchyma likely treatment-related. Biliary ductal dilatation upstream from the cavity is stable (LR-TR nonviable).    - Decreased size of the segment III treatment cavity measuring 1.0 x 2.3 cm, previously 1.5 x 2.4 cm (series 7, image 56) without recurrent disease (LR-TR nonviable).    - Numerous arterially enhancing foci throughout the liver are similar in distribution though demonstrate increased conspicuity when compared to prior exam. For example, in the left hepatic lobe measuring 1.4 cm (series 7, image 43). However, no washout or pseudocapsule is seen (LR-3).    The pancreas, spleen, adrenal glands and kidneys are unremarkable except for renal cysts, as well as nonspecific susceptibility artifact in the spleen. Mildly enlarged retroperitoneal lymph nodes measuring up to 1.0 cm are stable.1. No evidence of recurrent or new HCC.    2. Numerous LR 3 observations similar in distribution to prior study but increased in conspicuity. These can be watched on follow-up exams.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=538 / Out=49
+Cost: $0.000139

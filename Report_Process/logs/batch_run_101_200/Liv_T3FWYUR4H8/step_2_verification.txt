@@ -1,0 +1,46 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Findings in the chest are dictated separately.
+
+There has been interval decrease in size of the right lobe HCC, now measuring up to 6.7 cm in axial plane, previously 10.4 cm. The previously seen new lesion in segment 8 has nearly completely resolved.
+Extensive thrombosis of the intrahepatic portal veins and main portal vein is unchanged, with cavernous transformation. There is a decreased, small amount of thrombus extending to the SMV confluence. The splenic vein is patent.
+
+Stable mild splenomegaly. The pancreas, adrenal glands and kidneys are unremarkable other than a right renal cyst. Patient is status post cholecystectomy. Mild intrahepatic biliary dilatation is stable.
+
+There is no abdominal lymphadenopathy.Interval improvement of right hepatic HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension aside from the noted portal vein thrombosis which is due to malignancy). It also does not explicitly state "normal liver." However, the absence of any mention of cirrhosis or its features, and the focus on HCC and vascular changes without describing cirrhotic morphology, suggests the liver parenchyma itself is not described as cirrhotic. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is consistent with the report content.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=362 / Out=139
+Cost: $0.000160

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic and steatotic. Small hepatic cysts are noted. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent.
+
+There is evidence of portal hypertension, as manifested by splenomegaly and paraesophageal varices. The kidneys, adrenal glands, and pancreas are unremarkable, except for a 0.8 cm hemorrhagic cyst in the left upper renal pole and sub-5 mm cystic lesions in the pancreas that likely represent sidebranch IPMNs or sequela of prior pancreatitis. Cholelithiasis is noted.
+
+There is trace ascites. No abdominal lymphadenopathy is identified. Posterior lumbar spine fusion hardware is present. Small bilateral pleural effusions are noted, increased on the right.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic and steatotic," which directly indicates the presence of cirrhosis. According to the task rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=352 / Out=92
+Cost: $0.000137

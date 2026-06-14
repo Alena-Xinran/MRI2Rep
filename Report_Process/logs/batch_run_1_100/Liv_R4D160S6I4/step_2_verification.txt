@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Multiplanar T1 and T2-weighted MRI of the abdomen was performed with and without contrast. A total of 14 mL Dotarem was administered intravenously. 
+
+FINDINGS
+A cirrhotic liver is again noted. No findings of recurrent HCC.
+
+Ablation cavity in segment 5/8 measures 0.9 cm.
+
+Ablation cavity in segment IVb measures 1.5 cm.
+
+Intrahepatic biliary dilatation, worse within the caudate and left lobe appears stable. This is secondary to posttreatment related stricture. Vasculature remains patent.
+
+Remaining abdominal organs appear unremarkable with stable renal cysts. No adenopathy. There is trace ascites.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "A cirrhotic liver is again noted," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=348 / Out=79
+Cost: $0.000131

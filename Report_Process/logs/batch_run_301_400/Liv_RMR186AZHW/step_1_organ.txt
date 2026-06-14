@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver appears normal in morphology without findings to suggest advanced cirrhosis. There is no suspicious lesion with characteristics of HCC. There are a few stable nonspecific enhancing peripheral foci (example images 59 and 63 of series 12) without correlate on additional sequences which may be perfusional. One of these foci appears stable demonstrates persistent enhancement and T2 hyperintensity suggestive of focal nodular hyperplasia (series 13 image 62).  Multiple hepatic cysts are again noted. The portal and hepatic veins are patent.
+
+The small focus of gallbladder fundal adenomyomatosis is unchanged. The spleen, pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable renal cysts. There is no upper abdominal adenopathy or ascites. No focal osseous lesion is seen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "The liver appears normal in morphology without findings to suggest advanced cirrhosis." It does not contain keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit mentions of "chronic liver disease." Instead, it describes the liver as having "normal morphology" and notes no findings to suggest advanced cirrhosis, which aligns with a "NoFibrosis/Cirrhosis" classification.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=390 / Out=111
+Cost: $0.000124

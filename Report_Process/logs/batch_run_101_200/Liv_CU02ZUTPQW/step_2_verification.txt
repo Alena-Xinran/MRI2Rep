@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Unchanged small loculated left pleural effusion.
+
+Liver: Status post  right hepatectomy. Unchanged 1 cm cyst anteriorly. No recurrent or new HCC. No bile duct dilatation. Patent hepatic vasculature.
+
+Pancreas, spleen, adrenal glands, and kidneys are unremarkable.
+
+No lymphadenopathy or ascites. No aggressive osseous lesions.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes the liver as "Status post right hepatectomy" and notes an unchanged cyst, no recurrent or new HCC, no bile duct dilatation, and patent hepatic vasculature. There is no mention of cirrhosis, morphologic features of cirrhosis, fibrosis, nodularity, surface irregularity, or other signs of chronic liver disease. The liver is not explicitly called "normal," but the findings are focused on post-surgical status and absence of tumor, with no indication of parenchymal disease. Therefore, based on the provided rules, the absence of any mention of cirrhosis or its features means the status should remain "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=280 / Out=153
+Cost: $0.000143

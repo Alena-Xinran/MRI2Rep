@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is steatotic, and cirrhotic in morphology without imaging signs of portal hypertension.
+
+Treatment cavities are not significantly changed as follows:
+
+-On image 34, series 16, a 1.3 x 1.6 cm subcapsular, segment II cavity demonstrates no evidence of recurrent HCC.
+
+-On image 44, series 16, a 2.6 x 1.1 cm segment V cavity adjacent to the gallbladder demonstrates stable peripheral enhancement as well as some low-level enhancement only on the delayed venous imaging within the cavity, likely a degree of intracavitary fibrosis/treatment related changes. No definite evidence of viable HCC is seen.
+
+There are two discrete arterially enhancing observations within the right hepatic lobe as follows:
+
+-On image 31, series 12, a centrally located segment VI/VII 1.7 cm non-rim arterially hyperenhancing observation demonstrates no washout or pseudocapsule, and centrally demonstrates persistent enhancement on the delayed venous images. This has increased in size, previously 1.3 cm. Based on T2 hyperintensity, this is upgraded from a LI-RADS 3 to LI-RADS 4.
+
+-On image 25, series 12, a segment VII, 7 mm non-rim arterially hyperenhancing observation demonstrates no washout or pseudocapsule, and is minimally increased from 5 mm. There is also subtle T2 hyperintensity associated with this lesion (image 24, series 8), although not as pronounced as the aforementioned lesion; this is kept as a LI-RADS 3.
+
+No new observations are seen in the liver.
+
+Cholelithiasis is again noted. There is stable moderate biliary dilatation extending to the ampulla. The pancreas, spleen, and kidneys are unremarkable. Bilateral adrenal adenomas are unchanged.
+
+No aggressive osseous lesions are detected.1.  Interval increase in size of a segment VI/VII 1.7 cm arterially enhancing observation, now designated as LI-RADS 4 (upgraded on the basis of T2 hyperintensity).
+2.  Slight increased size of a segment VII 7 mm arterially enhancing observation, LI-RADS3.
+3.  Stable treatment cavities without evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is steatotic, and cirrhotic in morphology," which directly includes the keyword "cirrhotic" and indicates chronic liver disease with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=691 / Out=51
+Cost: $0.000183

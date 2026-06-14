@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Arterial phase images are adequate.
+
+The liver demonstrates manifestations of cirrhosis and there are findings of portal hypertension with splenomegaly and enlarged varices. Gallstones are seen in the lumen of the gallbladder.
+
+The portal and hepatic veins are patent.
+
+On image 22 series 21 in segment 7 there is an 9mm nodule which is hyperintense on the hepatobiliary phase and hypointense on the subtraction of the portal venous phase image 25 series 13. It is isointense on other sequences and phases.  This is unchanged compared to the prior examination.
+
+ On image 17 series 21 in segment 8, there is a stable 8mm nodule that is hyperintense on the hepatobiliary phase and isointense on other sequences.
+
+There are no new findings suspicious for hepatocellular carcinoma.
+
+There is a 3 mm stable cyst in segment 6 on image 48 series 21.
+
+There is no ascites or adenopathy. The pancreas, adrenal glands, and kidneys are unremarkable aside from bilateral simple renal cysts.No HCC.
+ There are two stable indeterminate subcentimeter hepatic lesions.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates manifestations of cirrhosis" and also notes findings of portal hypertension with splenomegaly and enlarged varices, which are consistent with advanced chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=458 / Out=53
+Cost: $0.000118

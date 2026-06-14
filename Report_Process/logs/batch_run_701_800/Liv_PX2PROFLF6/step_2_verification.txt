@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial hepatic segmentectomy. A 1.1 x 0.8 cm ablation cavity in segment IVa has decreased in size, previously 1.4 x 1.3 cm, without findings of recurrent disease. There are no new hepatic lesions meeting the criteria for HCC. Scattered hepatic cysts and hemangiomas are unchanged. Hepatic vasculature is patent. 
+
+The gallbladder is surgically absent, with expected mild prominence of intra- and extrahepatic bile ducts. The spleen, pancreas, adrenal glands and kidneys are unremarkable with the exception of stable few renal cysts, some of which demonstrate layering hemorrhage.
+
+There is no abdominal ascites or lymphadenopathy. No aggressive osseous lesion is identified.Interval shrinkage of the segment IVa ablation cavity without new or recurring HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, morphologic changes, portal hypertension findings, etc.). It describes post-surgical and ablation changes, cysts, hemangiomas, and patent vasculature, but does not indicate cirrhosis. Since the liver is not explicitly described as normal but there is no evidence of cirrhosis, and the previously extracted status is "NoFibrosis/Cirrhosis", this aligns with the absence of cirrhosis features in the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=367 / Out=123
+Cost: $0.000154

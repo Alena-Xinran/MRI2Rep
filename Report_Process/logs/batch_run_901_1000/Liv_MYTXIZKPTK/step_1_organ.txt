@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology with sequela of portal hypertension manifested splenomegaly up to 15.2 cm is redemonstrated.
+
+Essentially unchanged size of the segment II ablation cavity now measuring 2.5 cm, previously 2.6 cm. There is no enhancement or worrisome features to suggest HCC recurrence. There is no abnormally enhancing mass lesion throughout the remainder of the liver.
+
+There is cholelithiasis. There is a cystic structure in the uncinate process measuring 5 mm on image 37 series 14,001, possibly represents sequela of prior pancreatitis versus side branch IPMN. It is stable since the prior exam however is not confidently identified on more remote studies. There are subcentimeter bilateral renal cysts. The adrenal glands are unremarkable.
+
+1.0 cm lymph node in the gastrohepatic ligament on image 39 series 18,001 previously measured 1.2 cm on 6/19/2019.1. No evidence of recurrent HCC. Stable appearance of segment II ablation cavity.
+
+2. 5 mm cystic structure in the uncinate process of the pancreas is stable since the prior but cannot be confidently identified on more remote exams. Attention on follow-up imaging is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=479 / Out=41
+Cost: $0.000119

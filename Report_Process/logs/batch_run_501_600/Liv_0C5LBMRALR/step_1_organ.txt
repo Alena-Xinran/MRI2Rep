@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is again noted to be status post partial right hepatectomy without findings of recurrent disease along the cut margin of the liver. A few mildly dilated biliary radicles within the posterior right hepatic lobe are unchanged. There are no new liver lesions with imaging characteristics of hepatocellular carcinoma. Hepatic vasculature is patent.
+
+Patient is status post cholecystectomy. There is similar extrahepatic biliary duct dilatation with the common bile duct measuring up to 8 mm, which gradually tapers towards the ampulla.
+
+ The spleen, kidneys, adrenal glands, and pancreas are unremarkable with the exception of a stable centimeter right renal angiomyolipoma.
+
+There is no abdominal adenopathy or ascites.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotextur", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described as "unremarkable", "normal", or "smooth", but the absence of positive findings and the lack of any descriptors indicating fibrosis or cirrhosis suggest no evidence of that condition. The findings focus on post-surgical changes, biliary dilation, and absence of new lesions, without indicating parenchymal disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=370 / Out=130
+Cost: $0.000126

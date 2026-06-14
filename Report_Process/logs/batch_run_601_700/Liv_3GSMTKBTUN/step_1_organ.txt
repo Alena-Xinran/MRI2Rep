@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+with and without 17 cc of intravenous Dotarem. Axial and coronal T2, axial EPI, and axial T1-weighted images with and without fat suppression were performed. After contrast, dynamic axial fat-suppressed T1-weighted images were performed.
+
+Compared to 12/22/2018.
+
+The liver demonstrates morphologic features of cirrhosis. The spleen is enlarged and varices are present compatible with portal hypertension. Hepatic vasculature is patent. A few tiny hepatic cysts are noted. There is no evidence of HCC. The pancreas and adrenal glands are unremarkable. Renal cysts, some of which are hemorrhagic, are noted. There is no biliary dilatation. The gallbladder is unremarkable.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis." This directly meets the criteria for keywords indicating cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=375 / Out=39
+Cost: $0.000089

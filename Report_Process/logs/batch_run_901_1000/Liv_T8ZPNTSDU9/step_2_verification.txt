@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Multifocal HCC with interval increase in size of several lesions and there is interval development of increased internal T1 signal which may represent hemorrhage/proteinaceous material with associated new internal nonenhancement seen in many lesions which may be due to ongoing treatment. For example, a segment 6/7 lesion now measures 8.1 cm (series 13001, image 34), previously 7.0 cm, and a segment 5 lesion measuring 4.0 cm is unchanged in size (series 13001, image 27). Previously noted HCC in the posterior right hepatic lobe now measures 8.6 x 6.8 cm (series 13001, image 60), previously 8.4 x 4.2 cm by same measurements, with most of the mass still demonstrating low-level enhancement. There is interval decrease in size of a segment 5/8 mass which now measures 1.5 cm (series 12001, image 42), previously 2.6 cm. There is unchanged intrahepatic biliary ductal dilatation.
+
+Hepatic vasculature: Chronic thrombosis of the portal vein with cavernous transformation and minimal extension into the SMV is again seen. There is also persistent heterogeneous enhancement of the liver, most pronounced on the arterial phase, likely secondary to the chronic thrombosis/mass effect.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable except for stable mild thickening of the left adrenal gland.
+
+Kidneys: Stable right renal cysts, otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace amount of ascites.Mixed response of multifocal HCC with interval increase in size of several lesions, interval decrease in size of a few other lesions and interval development of internal necrosis/hemorrhage in several lesions which may be due to ongoing treatment.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not explicitly mention "cirrhosis" or describe any morphologic features of cirrhosis (such as nodular liver contour, segmental atrophy/hypertrophy, or signs of portal hypertension aside from the known portal vein thrombosis). The findings are focused on multifocal HCC, changes in lesion size, internal necrosis/hemorrhage, and chronic portal vein thrombosis with cavernous transformation. Portal vein thrombosis can occur in cirrhosis but is not specific to it, and no statement about liver parenchymal architecture consistent with cirrhosis is provided. Therefore, based on the given instructions, since the report does not state "cirrhosis" or features of it, the status should remain "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=598 / Out=164
+Cost: $0.000236

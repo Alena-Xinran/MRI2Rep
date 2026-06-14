@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic morphology. Unchanged left lobe cyst. No steatosis. No HCC.Portal and hepatic veins are patent.
+
+Biliary: Gallbladder unremarkable. Unchanged diffuse dilatation of the CBD, 13 mm, with normal tapering at the level of the ampulla. No obstructing masses or calculi. Mild intrahepatic bile duct dilatation. 
+Portal hypertension with recanalized paraumbilical vein, esophageal varices, and unchanged splenomegaly.
+Millimeter hypointense lesion in the spleen only seen on postcontrast images is of uncertain significance almost certainly benign.
+
+Pancreas, kidneys, adrenal glands are unremarkable. No lymphadenopathy, ascites, bowel obstruction, or aggressive osseous lesions.
+
+Again seen is diffuse increased density of fat around the celiac access and origin of the SMA with no constriction or thrombosis of the vessels.Unchanged exam. No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" in the liver section, which directly indicates cirrhosis. Additionally, there are findings consistent with chronic liver disease such as portal hypertension with recanalized paraumbilical vein and esophageal varices.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=63
+Cost: $0.000111

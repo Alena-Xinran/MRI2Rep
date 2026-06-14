@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Ablation cavity within segment 7 is essentially stable in size measuring 1.2 x 0.6 cm (image 28, series 16), given differences in technique. There is no evidence of recurrent or residual disease. There are a few scattered nonspecific arterially enhancing foci throughout the liver, the largest measuring up to 1.2 cm (image 59, series 11) without corresponding washout or pseudocapsule. The hepatic vasculature is patent.
+
+The spleen, gallbladder, adrenal glands, and kidneys are unremarkable. Sub-4 mm cystic foci throughout the pancreas are again noted, likely representing side branch IPMNs versus sequelae of prior pancreatitis.
+
+There is no abdominal adenopathy or ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension, etc.). It describes an ablation cavity, nonspecific enhancing foci, and patent hepatic vasculature, but does not state the liver is normal overall. However, the absence of explicit cirrhosis findings and the lack of any statement about fibrosis or morphologic changes consistent with cirrhosis means the previous extraction "NoFibrosis/Cirrhosis" is appropriate based on the provided criteria.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=355 / Out=128
+Cost: $0.000153

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates cirrhotic morphology with signs of portal hypertension as evidenced by stable portosystemic shunt. Confluent hepatic fibrosis is again seen. No suspicious hepatic lesions are seen.  Hepatic vasculature is patent.
+
+The gallbladder is surgically absent. The adrenal glands, spleen and kidneys are unremarkable.
+
+There is a tiny 4 mm lesion in the pancreatic tail, which may represent IPMN or be sequela of prior pancreatitis. Pancreatic divisum is again noted. 
+
+There is no abdominal adenopathy or upper abdominal fluid.Hepatic cirrhosis with no lesions concerning for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic morphology" and "confluent hepatic fibrosis," which are direct indicators of fibrosis and cirrhosis. It also mentions "portal hypertension" and concludes with "Hepatic cirrhosis," confirming the condition.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=62
+Cost: $0.000091

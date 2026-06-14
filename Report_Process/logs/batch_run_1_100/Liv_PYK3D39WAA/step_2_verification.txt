@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+For findings in the chest, please see the CT chest report dictated separately.
+
+The patient is status post liver transplant. Mild intrahepatic biliary ductal dilatation is unchanged. There are no findings of HCC. The hepatic vasculature is patent. The spleen remains mildly enlarged, measuring 14 cm. Paraesophageal varices are again noted. 
+
+The adrenal glands, kidneys, and pancreas are unremarkable, except for a stable 0.7 cm cystic lesion in the pancreatic body, which may represent sequela of prior pancreatitis or side branch IPMN. The pancreatic duct is normal in caliber. There is no abdominal ascites or lymphadenopathy.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not explicitly mention "cirrhosis" or describe specific morphologic features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension aside from splenomegaly and varices). The patient is status post liver transplant, and the findings noted include mild intrahepatic biliary ductal dilatation (unchanged), patent hepatic vasculature, splenomegaly, and paraesophageal varices. While splenomegaly and varices can be associated with portal hypertension, which may occur in cirrhosis, the report does not state cirrhosis directly, nor does it describe typical cirrhotic morphology of the liver. The absence of explicit mention or description means the liver cannot be confirmed as cirrhotic based solely on this report. Therefore, the previous extraction "Fibrosis/Cirrhosis" is not supported.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=334 / Out=189
+Cost: $0.000173

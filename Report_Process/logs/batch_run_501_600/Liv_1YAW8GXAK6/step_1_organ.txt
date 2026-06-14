@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant with diffuse hepatic steatosis. There are no lesions with imaging findings compatible with hepatocellular carcinoma. Wedge shaped perfusional abnormality in segment 5 is again seen. The hepatic vasculature is patent.    Mild splenomegaly is again seen. Multiple subcentimeter pancreatic cysts are again seen, nonspecific but likely reflect sidebranch IPMN versus sequelae of pancreatitis. The adrenal glands and kidneys are unremarkable.    There is no abdominal adenopathy or ascites. Again seen are at least 2 areas of focal dilatation of the hepatic artery measuring up to 0.9 cm (image 46 of series 13), which are unchanged. A portosystemic shunt from the SMV to the IVC is also again seen.. There is a small hiatal hernia with circumferential thickening of the distal esophagus, likely related to small varices.    Trace bilateral pleural effusions are present. No aggressive osseous lesions are seen.No HCC.    Diffuse hepatic steatosis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "diffuse hepatic steatosis" and "mild splenomegaly," but does not include keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit mentions of "chronic liver disease." The liver parenchyma is not described as "unremarkable," "normal," or "smooth" either. However, the presence of a portosystemic shunt and esophageal varices (likely small varices) are indirect signs that could suggest portal hypertension, which is often associated with cirrhosis. Despite these indirect signs, the primary criteria require direct keywords or descriptions of the liver parenchyma itself, which are absent. Therefore, based on the provided criteria, the classification is "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=435 / Out=181
+Cost: $0.000166

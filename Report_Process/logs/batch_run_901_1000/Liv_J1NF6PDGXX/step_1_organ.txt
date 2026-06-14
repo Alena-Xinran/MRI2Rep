@@ -1,0 +1,63 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Image quality is degraded by motion.
+
+Hepatobiliary system: Liver is again noted to be cirrhotic in morphology with sequelae of portal hypertension, including upper abdominal varices and recanalization of the paraumbilical vein. 
+
+There is no HCC.
+
+The gallbladder is collapsed, limiting evaluation although there is diffuse mural edema and cholelithiasis noted.
+
+There is unchanged extrahepatic biliary dilatation, with the common bile duct measuring up to 1.6 cm diameter (series 4 image 25). This appears to gradually taper distally however to the level of the pancreas. Mild intrahepatic biliary dilatation is also noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: There is unchanged dilatation of the main pancreatic duct and multiple side branches.
+
+Spleen: Increased splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable bilateral renal cysts, including a hemorrhagic cyst at the right superior pole.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: There is large volume ascites.Cirrhosis with increased sequelae of portal hypertension. No evidence for HCC within the limitations of the motion degraded study.
+
+Unchanged dilatation of the main pancreatic duct and multiple side branches, suggestive of a mixed type IPMN.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to be cirrhotic in morphology" and later concludes with "Cirrhosis with increased sequelae of portal hypertension." These are direct mentions of cirrhosis, satisfying the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=497 / Out=67
+Cost: $0.000135

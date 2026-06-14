@@ -1,0 +1,46 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post orthotopic liver transplant. Again noted are blooming artifacts from coils in the right lobe. There is no abnormal arterial enhancement to suggest hepatoma. There is no intrahepatic ductal dilatation. There is mild narrowing at the arterial anastomotic site; however, the vasculature is patent.
+
+Patient is status post splenectomy and surgical formation of a splenorenal shunt. There is enhancing soft tissue interposed between the stomach and diaphragm which is stable compared to the prior study. When reviewing more remote studies, it appears that the spleen extended to this position, favoring residual splenic tissue.
+
+Pancreas, adrenal glands and kidneys are unremarkable except for multiple small bilateral renal cysts.
+
+Previously noted fluid collection has resolved. There is no adenopathy or ascites.1.No evidence of HCC. 
+2.Interval resolution of intra-abdominal fluid collection.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, portal hypertension signs like varices or splenomegaly, etc.). The patient has a history of liver transplant, and the liver findings described are related to post-transplant status (blooming artifacts, patent vasculature, no hepatoma). There is no statement indicating a normal liver either, but the absence of cirrhosis descriptors means the previous extraction of "NoFibrosis/Cirrhosis" is appropriate based on the provided rules.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=378 / Out=138
+Cost: $0.000164

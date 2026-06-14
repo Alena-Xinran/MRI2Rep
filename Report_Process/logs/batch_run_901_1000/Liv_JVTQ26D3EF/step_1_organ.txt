@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with evidence of portal hypertension including splenomegaly and abdominal varices. Extensive tumor/bland portal venous thrombus is unchanged. Splenic vein remains occluded with collateral vessel formation noted in the abdomen and around the pancreatic head from cavernous transformation. Circumaortic left renal vein is again seen.
+
+On series 14, image 32, the 2.9 x 1.5 cm segment VII ablation cavity is decreased in size previously 2.5 x 1.8 cm. There is irregular enhancement along the superolateral aspect of the cavity measuring at least 3 cm (image 30) without definite washout and older exam, especially when compared to November 2018. This remains indeterminate and differences in imaging appearance from more recent exams may relate to earlier arterial phase on the current study.
+
+On series 16, image 40, a 1.2 cm low-level enhancing T2 hyperintense lesion in the periphery of segment 8 is unchanged, possibly sclerosed hemangioma.
+
+No new lesions meeting criteria for HCC.
+
+There are stable nonspecific T2 hyperintense, nonenhancing foci in the spleen. There is a stable 1.0 cm cystic lesion in the pancreatic body, likely the sequela prior pancreatitis or sidebranch IPMN. The main pancreatic duct is not dilated. The adrenal glands and kidneys are unremarkable except for renal cysts. There is no abdominal adenopathy or ascites.No new liver lesions meeting imaging  criteria for HCC. Prominent periablation cavity arterial enhancement is again noted but appears similar to the older exams and does not display washout. This is amenable to continued surveillance.
+
+
+Additional findings remain stable as noted above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions evidence of portal hypertension, which is consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=573 / Out=44
+Cost: $0.000147

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post partial right lobectomy and ablation of segment 1 lesion. There is no evidence of recurrence. The arterial phase is limited by motion, however no new foci of arterial enhancement are seen. There is a stable oval cystic structure in segment 4A, of no clinical significance. 
+
+A new wedge-shaped area of decreased hepatocyte uptake is seen in the lateral segment of the left hepatic lobe on hepatobiliary imaging. The hepatic vasculature appears patent without evidence for thrombosis. 
+
+The gallbladder, spleen, pancreas, kidneys, and adrenal glands are unremarkable.  There is no intra or extrahepatic biliary ductal dilatation.
+
+There is no ascites or lymphadenopathy.No evidence of new or recurrent HCC.  New wedge-shaped area of decreased hepatocyte uptake in the lateral segment of the left hepatic lobe, likely postprocedural.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the focus is on postprocedural changes and stability of known findings without indicating underlying fibrotic or cirrhotic changes. Based on the provided criteria, absence of the specified keywords suggests no evidence of fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=402 / Out=128
+Cost: $0.000134

@@ -1,0 +1,24 @@
+{
+  "id": "Liv_1BDMZZ0AOU",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "R_POST",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"CYST | R_POST | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0012060439999999999,
+    "timestamp": "2026-02-08 16:49:41",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis.
+
+On series 11 image 36, a 4 cm arterial phase enhancing mass in segment 6 demonstrates washout and is consistent with HCC (OPTN 5B). This previously measured 1.5 cm.
+
+On series 11 image 21, there is a 1.5 cm arterial phase enhancing mass in segment 4A which demonstrates washout and pseudocapsule, consistent with HCC (OPTN 5A). This was not present on the previous exam.
+
+On series 14 image 43, a 1.6 x 0.8 cm treatment cavity in segment 3 has decreased in size, previously 2.1 x 1.1 cm. However, there is adjacent new tumor thrombus within segment 3 branches of the portal vein, extending to the left main portal vein.
+
+On series 11 image 18, there is a 7 mm treatment cavity in segment 8 without evidence of recurrent neoplasm, unchanged. There are regions of nodular arterial phase enhancement adjacent to the cavity, stable, nonspecific.
+
+The hepatic veins are patent.
+
+The nonspecific 1.8 cm cystic structure in the tail the pancreas is unchanged. Again noted is dilatation of both renal pelves, possibly UPJ obstructions, unchanged. The spleen and adrenal glands are unremarkable. There is no abdominal adenopathy.New HCC as described with new associated left portal vein tumor thrombus.
+
+
+
+A Yellow message has been communicated to this patient's provider via the PowerScribe 360 Critical Results application on 4/25/2019 2:05 PM, Message ID 3324983.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver demonstrates morphologic features of cirrhosis," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions cirrhosis or features of it, the status must be "Fibrosis/Cirrhosis". The previously extracted status matches this requirement.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=538 / Out=75
+Cost: $0.000182

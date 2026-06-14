@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic morphology. Segment 4 ablation cavity measures 3.5 x 3.8 cm with no findings of residual/recurrent viable tumor.
+On image 14 series 10 there is a 1.5 cm arterial phase hyperenhancing nodule in segment 8 which previously measured 8 mm.
+It fades to isointensity on subsequent phases but does not demonstrate washout or pseudocapsule capsule appearance.
+
+Portal and hepatic veins are patent.
+
+Biliary: Gallbladder wall edema likely secondary to ascites. No bile duct dilatation.
+
+Manifestations of portal hypertension include esophageal and upper abdominal varices and splenomegaly. Small ascites is unchanged.
+
+Pancreas, adrenal glands, and kidneys are unremarkable aside from bilateral simple cysts. There is no lymphadenopathy. There are no aggressive osseous lesions.No recurrent/residual viable tumor in segment 4 ablation cavity.
+
+Segment 8 arterial phase hyperenhancing nodule measures 1.5 cm compared to 8 mm on the prior study. Since there has been greater than 50% increase in diameter of the lesion in the past 6 months, this meets criteria for OPTN 5A-g HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" in the liver description, and also notes manifestations of portal hypertension including varices and splenomegaly, which are consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=475 / Out=53
+Cost: $0.000123

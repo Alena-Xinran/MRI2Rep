@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Multiple unchanged nodules throughout the liver many of which are T2 hypointense and T1 hyperintense. On image 32 series 8 in segment 8 a 1.6 cm T2 hypointense encapsulated enhancing nodule with washout is unchanged. Unchanged 2.5 cm cavernous hemangioma in the liver dome. Again seen is occlusion of the intrahepatic IVC and hepatic veins, consistent with knownUnchanged exam, including 1.6 cm enhancing encapsulated hepatic nodule with washout. Given long-term stability and in a setting of Budd-Chiari, this is likely an FNH type nodule rather than HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multiple nodules, including a likely FNH-type nodule, but does not mention specific keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit "chronic liver disease." The findings are attributed to a known setting of Budd-Chiari (a vascular disorder) and long-term stability, without indicating parenchymal changes typical of fibrosis or cirrhosis. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis criteria suggests no evidence of that condition.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=141
+Cost: $0.000129

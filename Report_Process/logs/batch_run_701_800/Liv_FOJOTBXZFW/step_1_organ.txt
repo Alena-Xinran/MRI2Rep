@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Bibasilar subsegmental atelectasis is noted.
+
+The liver is cirrhotic in morphology with atrophy of the right hepatic lobe and findings of portal hypertension, including splenomegaly, small volume ascites, and small upper abdominal portosystemic varices (recanalized umbilical vein, paraesophageal varices and probable small splenorenal shunt). There are no suspicious lesions in the liver. The hepatic vasculature is patent.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for punctate left renal cyst. There is mild thickening of the colon at the hepatic flexure that could be related to portal colopathy. There is no lymphadenopathy.Cirrhotic liver with portal hypertension. No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and includes findings consistent with cirrhosis such as atrophy of the right hepatic lobe and portal hypertension (splenomegaly, ascites, varices). The conclusion also directly states "Cirrhotic liver with portal hypertension."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=381 / Out=72
+Cost: $0.000105

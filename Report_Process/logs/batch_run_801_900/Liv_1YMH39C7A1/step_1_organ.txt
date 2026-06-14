@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension. The background hepatic parenchyma is also noted to be steatotic. A 3.5 cm segment 2 ablation cavity is again noted with some upstream biliary dilatation. No findings of recurrent HCC. A 1.7 cm region of arterial enhancement immediately adjacent to the cavity is noted without washout or pseudocapsule. This is likely perfusional with a larger region seen on the older January 15 exam. 
+
+A few scattered subcentimeter arterially enhancing foci without washout or pseudocapsule (LI-RADS 3) are noted and amenable to routine surveillance.
+
+Cholelithiasis is again noted. A subcentimeter polyp is also seen within the gallbladder lumen. No significant surrounding fat stranding is appreciated with some third spacing again noted involving the gallbladder wall, presumably related to the underlying cirrhosis. Trace ascites is also noted. Portal venous system and SMV remain patent.
+
+Bilateral renal cysts are again seen. No pancreatic duct dilatation or mass. Adrenal glands appear unremarkable. The small bowel loops are again noted to be mildly dilated, better assessed on recent CT. Some wall thickening and edema is also seen involving the ascending colon, presumably related to portal colopathy but should be correlated for any clinical findings of colitis.No definitive findings of recurrent HCC. Region of arterial enhancement adjacent to the ablation cavity without washout or pseudocapsule is likely perfusional. This can be watched on follow-up MRI in 3-6 months. Vasculature remains patent.
+
+Cholelithiasis. No choledocholithiasis or definitive findings to suggest acute cholecystitis however if there is high clinical suspicion can correlate with HIDA scan.
+
+Additional findings as noted above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis. Additionally, there is mention of trace ascites and third spacing involving the gallbladder wall, presumably related to underlying cirrhosis, further supporting the classification.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=589 / Out=68
+Cost: $0.000193

@@ -1,0 +1,24 @@
+{
+  "id": "Liv_NA7ODJ9U3V",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "L_DIFFUSE",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_NoWO | L_DIFFUSE | Multiple\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0011259640000000001,
+    "timestamp": "2026-02-09 00:01:56",
+    "model": "deepseek/deepseek-chat"
+  }
+}

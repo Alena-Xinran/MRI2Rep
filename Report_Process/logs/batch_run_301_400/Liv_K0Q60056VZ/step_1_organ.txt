@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Redemonstration of cirrhotic morphology and sequela of portal hypertension as manifested by splenomegaly, a recannulated umbilical vein perisplenic varices and splenorenal shunt. No hepatoma. The portal vein is patent.
+
+The gallbladder is filled with calculi without evidence of acute cholecystitis. Bilateral simple and hemorrhagic left renal cysts are stable. A stable subcentimeter cystic lesion in the tail of the pancreas may be related to prior pancreatitis or a side branch IPMN. There is no ascites or abdominal adenopathy. Susceptibility artifact from lumbar fusion hardware is noted.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=354 / Out=49
+Cost: $0.000087

@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver is again noted to have cirrhotic morphology with sequela of portal hypertension characterized by splenomegaly, abdominal varices, recanalization of the umbilical vein. There is slight interval decrease in trace ascites. 
+
+A segment 8 ablation cavity measures approximately 4.2 x 3.2 cm, unchanged without definite evidence of recurrent neoplasm. Previously described focus of linear enhancement at the inferior margin of the ablation cavity is overall unchanged in appearance (series 6 image 21), nonspecific. There is no definite evidence of HCC. 
+
+Segmental biliary dilatation predominantly in segment 5 is unchanged, possibly treatment related.
+
+There is interval improvement in the previously seen bland thrombus within the right portal vein which is now partially recanalized. The hepatic veins are patent.
+
+Kidneys, adrenal glands, and pancreas are unremarkable except for subcentimeter renal cysts. Gallstones are again noted within the gallbladder.No evidence of recurrent HCC.
+
+Interval improvement in right portal vein thrombosis..
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Liver is again noted to have cirrhotic morphology" and describes sequelae of portal hypertension (splenomegaly, varices, recanalized umbilical vein), which are definitive features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=400 / Out=79
+Cost: $0.000145

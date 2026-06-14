@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is a laparoscopic gastric band in place.
+
+There is hepatic steatosis and the patient is status post segment V wedge resection. There is no evidence of recurrent or residual tumor. There is a stable arterially enhancing 8 mm focus in segment VIII which is persistent on the portal venous and equilibrium phases. In addition there is a linear 9 mm focus of arterial enhancement in the gallbladder fossa (segment V) which doesn't have a correlate on other sequences and may represent a vessel, however attention on follow-up is recommended on future exams. There is heterogeneous arterial enhancement of the left hepatic lobe which is non-masslike and has no correlate on other sequences, likely representing shunting. The hepatic vasculature is patent.
+
+The spleen, gallbladder, pancreas, adrenal glands and kidneys are unremarkable aside from bilateral renal cysts and a cortical defect in the lower pole of the right kidney.
+
+There is no lymphadenopathy or ascites. There is a stable 3.1 cm infrarenal abdominal aortic aneurysm.No evidence of recurrent HCC.
+
+Stable indeterminant 8 mm lesion in segment VIII.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions hepatic steatosis and a history of segment V wedge resection, but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of specific fibrosis/cirrhosis indicators suggests no clear evidence of fibrosis or cirrhosis based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=446 / Out=121
+Cost: $0.000143

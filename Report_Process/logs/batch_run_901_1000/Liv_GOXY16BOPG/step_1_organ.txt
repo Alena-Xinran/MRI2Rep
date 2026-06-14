@@ -1,0 +1,62 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Shrunken, nodular morphologically cirrhotic liver. No arterial phase enhancement are portal venous phase washout to suggest hepatocellular carcinoma identified. 
+
+Innumerable gallstones within an otherwise normal gallbladder.
+
+Again seen are clustered, tubular cystic changes involving the porta hepatis extending along the anterior and anteroinferior margins of the liver. On coronal images, there is clearly a tubular, branching morphology for example series 4001 image 16. The abnormality involves the porta hepatis and periphery of the liver and does not extend into the liver parenchyma arguing against biliary ductal dilatation. Moreover on coronal images, the prominent 10 mm common bile duct is extends into the porta hepatis and becomes inseparable from the abnormality but it does not appear to be contiguous with that. There is been no progression since the prior study 10/9/2022.
+
+As described above, no intrahepatic biliary ductal dilatation noted and the common bile duct measures 1.0 cm with smooth tapering to the level of the ampulla, similar to prior study. 
+
+Hepatic vasculature: Patent. Large portosystemic collaterals as before.
+
+Pancreas: Innumerable small cystic lesions in the pancreas measuring up to 7 mm without soft tissue/nodular enhancement. No main pancreatic ductal dilatation.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral simple renal cysts.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  No significant change since 10/9/22.
+2. No hepatocellular carcinoma identified.
+3. Multiple pancreatic cysts likely sequelae of prior pancreatitis versus sidebranch IPMN. Consider 2 year MRI pancreatic cyst follow-up for further evaluation.
+ 4. Extensive dilated tubular structures in the porta hepatis and along the anterior and inferior margins of the liver are similar in appearance to the prior study as well. The anatomic distribution is consistent with the superficial lymphatic drainage of the liver suggesting hepatic lymphatic obstruction or less likely a lymphatic malformation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly describes the liver as "Shrunken, nodular morphologically cirrhotic liver," which directly uses the keyword "cirrhotic" and indicates a nodular surface, meeting the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=662 / Out=62
+Cost: $0.000179

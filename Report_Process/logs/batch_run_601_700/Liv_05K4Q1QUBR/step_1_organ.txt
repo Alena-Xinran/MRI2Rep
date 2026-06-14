@@ -1,0 +1,61 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic morphology
+
+There are two new arterial phase hyperenhancing observations demonstrating washout :
+-A 0.8 cm segment II (image 4 series 10001 and 14001). LR-4.
+-A 0.9 cm segment II  (image 40 series 10001 and 14001). LR-4.
+
+Redemonstrated segment 2/3 ablation cavity measuring 2.3 x 2.2 cm (previously 2.5 x 2.3 cm) without evidence of recurrent viable tumor (image 56 series 13001). LR-TR nonviable. 
+
+Numerous benign cysts are present. There is redemonstrated mild intrahepatic ductal dilatation distal to the ablation cavity. TIPS catheter is again noted. Gallbladder unremarkable.
+
+Pancreas: Unchanged 0.4 cm unilocular cystic lesion in the body of the pancreas without ductal dilatation, likely representing sidebranch IPMN versus sequela of prior pancreatitis.
+
+Spleen: Splenomegaly
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for bilateral renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Two new subcentimeter arterial phase hyperenhancing observations in segment II with washout.. Probable HCC. LR-4.
+
+Stable segment 2/3 ablation cavity. LR-TR nonviable.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" under the hepatobiliary system section, which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=538 / Out=41
+Cost: $0.000136

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver with findings of portal hypertension including ascites, splenomegaly and portosystemic varices. 
+
+The examination is essentially nondiagnostic for evaluation of HCC since the T2 sequences and postcontrast images are degraded by motion and poor contrast timing. The recently described lesions are not well evaluated. There is diffuse heterogeneous enhancement of the liver, especially on the delayed images. New thrombosis is seen in the right anterior portal vein, differentiation between tumor thrombus and bland thrombus is not possible. Sludge is redemonstrated in the gallbladder. The pancreas, adrenal glands, and kidneys appear unremarkable accounting for limitations of motion.
+
+There is no bowel obstruction or adenopathy. Anasarca is noted.Nondiagnostic examination for the evaluation of HCC. 
+
+New thrombus in the right anterior portal vein.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver" in the opening line, which directly meets the criteria for classification as Fibrosis/Cirrhosis. Additional supporting findings include portal hypertension, ascites, splenomegaly, and portosystemic varices, all consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=395 / Out=77
+Cost: $0.000111

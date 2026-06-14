@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is again noted to be cirrhotic in morphology. There are no observations with imaging findings of HCC. There is a 0.7 cm the right hepatic lobe T1 intrinsic hyperintensity, not significantly changed from prior, previously 0.8 cm (image 32, series 12,001). There is geographic area of heterogeneous arterial enhancement in the right hepatic lobe without correlate on other sequences, likely perfusional.
+
+A patent TIPS is noted. The portal vein is patent. Atretic but patent left hepatic vein is again seen (image 32, series 15,001). The right hepatic vein is patent. The middle hepatic vein is again not visualized.
+
+There is decreased distention of the gallbladder with gallbladder sludge without evidence of acute cholecystitis. The spleen, adrenal glands and kidneys are unremarkable except for bilateral renal cysts including small right hemorrhagic cyst. Multiple pancreatic cystic lesions have not significantly changed from prior, with the largest measuring 1.1 cm in the pancreatic head and 1.1 cm in the pancreatic uncinate process, previously 0.9 cm and 1.3 cm, respectively (images 32 and 30, series 3001), nonspecific but could represent sidebranch IPMN or sequela of prior pancreatitis.
+
+There is stable trace perihepatic ascites. There is no abdominal lymphadenopathy. Bilateral gynecomastia is redemonstrated. There is trace left pleural effusion.1.  Cirrhotic liver without evidence of HCC.
+2.  Essentially stable pancreatic cystic lesions. This can be reevaluated on follow-up MRI liver imaging or in one year.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is again noted to be cirrhotic in morphology" and later summarizes "Cirrhotic liver without evidence of HCC." The term "cirrhotic" directly meets the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=565 / Out=66
+Cost: $0.000154

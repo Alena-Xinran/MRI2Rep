@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 14 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+The patient is status post liver transplant. Again seen is low signal within the inferior portion of the donor IVC which may represent postsurgical changes versus small amount of intraluminal thrombus (image 27 series 11). There is no evidence of recurrent hepatocellular carcinoma.
+
+Common bile duct stents with associated mild intrahepatic biliary ductal dilatation and pneumobilia are noted. There is a stable 3 mm mm cystic lesion within the pancreatic uncinate process, likely representing a sidebranch IPMN.
+
+The spleen, adrenal glands and kidneys are unremarkable with the exception of stable left renal cysts.
+
+There is no bowel obstruction or ascites.
+
+There is no abdominal lymphadenopathy.
+
+A 7.0 cm left pleural mass is essentially unchanged. There is a small amount of left pleural effusion, slightly increased from prior study.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described, but the findings focus on post-transplant status, biliary stents, and absence of recurrent HCC, without indicating any abnormal texture or morphology suggestive of fibrosis or cirrhosis. There is no description of the liver as "unremarkable", "normal", or "smooth" either, but the absence of positive fibrosis/cirrhosis indicators leads to the default classification of "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=465 / Out=158
+Cost: $0.000164

@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Image quality is severely limited.
+
+The liver demonstrates morphologic features of cirrhosis. Varices are present compatible with portal hypertension. Hepatic steatosis is noted. There is a 1.5 cm cystic mass bordering segments 7 and 8 of the liver, containing high attenuation material on the precontrast T1-weighted sequences, presumably a cyst containing either hemorrhage or protein, unchanged when compared to 2016. There are no definite findings of HCC, however exam quality is limited. 
+
+The spleen, adrenal glands, and kidneys are unremarkable. A few prominent periportal/peripancreatic nodes are nonspecific and likely reactive. There are a few sub-5 mm cystic structures within the pancreas, these are nonspecific and may represent sidebranch IPMN or be from previous pancreatitis. The patient is status post cholecystectomy.Cirrhosis with portal hypertension.
+
+No findings of HCC.
+
+Nonspecific cystic structures in the pancreas, likely sidebranch IPMN or from previous pancreatitis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis with portal hypertension." These are direct keywords indicating chronic liver disease and advanced fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=429 / Out=52
+Cost: $0.000110

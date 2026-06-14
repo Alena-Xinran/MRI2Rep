@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is noted. Heterogeneous enhancement in the right hepatic lobe is noted that persists on portal venous phase and corresponds to areas of increased T2 signal, likely secondary to  fibrosis that is increased when compared to the prior studies. No definite areas of washout are visualized to suggest infiltrative HCC and no additional focal lesion with arterial enhancement and washout is identified.
+
+3.1 cm ablation cavity is visualized in segment 5 at site of prior HCC with internal hemorrhage. No residual enhancement or nodularity is visualized to suggest residual disease.
+
+Incidentally noted is a replaced right hepatic artery originating from the superior mesenteric artery. Trace perihepatic ascites is noted. Prominent posterior and anterior phrenic lymph nodes are stable compared to the prior study. The spleen, pancreas, adrenal glands, and kidneys are unremarkable with a few small renal cysts.
+
+Visualized osseous structures are unremarkable.Interval bland-embolization and RFA of previously noted segment 5 HCC. No findings of residual disease and no new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is noted" and mentions "fibrosis" in the context of heterogeneous enhancement, which aligns with the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=442 / Out=53
+Cost: $0.000114

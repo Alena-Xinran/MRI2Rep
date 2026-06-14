@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatic steatosis is noted. There is no evidence of HCC. The hepatic vasculature is patent. The previously described 1 cm nodules in the right upper quadrant are essentially are unchanged (series 4 image 23 and 24). The spleen, pancreas, adrenal glands, and kidneys are unremarkable with exception of small renal cysts. There is no adenopathy or ascites. The gallbladder is decompressed. There is no biliary dilatation.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions hepatic steatosis but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the lack of any nodularity or architectural distortion suggests no clear evidence of fibrosis or cirrhosis. However, based strictly on the given criteria, since the required keywords for "Fibrosis/Cirrhosis" are absent and the liver is not explicitly described with terms like "unremarkable" or "normal", the classification defaults to "NoFibrosis/Cirrhosis" as per the instruction that only those specific positive terms trigger the fibrosis classification.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=323 / Out=188
+Cost: $0.000137

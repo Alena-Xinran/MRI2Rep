@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplantation. There is no HCC. 1.7 cm tubular cystic structure within segment 6 is unchanged, possibly a biloma. The hepatic vasculature is patent.
+
+There is interval decrease in size of the previously seen perihepatic fluid collections. For instance, on series 4 image 27, 2 cm fluid collection adjacent to the caudate previously measured 8.5 cm. On series 4 image 12, a 3 cm fluid collection  between the stomach and the liver previously measured 7 cm. A small amount of free ascites is noted.
+
+Mild splenomegaly is unchanged. The pancreas, kidneys, and adrenal glands are unremarkable, except for bilateral renal cysts and nonspecific thickening of the left adrenal gland. 
+
+The prominent subcentimeter left para-aortic lymph nodes are unchanged, reactive.Status post liver transplantation, without evidence of HCC.
+
+Interval decrease in perihepatic fluid collections.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a patient status post liver transplantation and does not mention any features of cirrhosis, such as nodular liver contour, atrophy/hypertrophy patterns, or signs of portal hypertension aside from mild splenomegaly (which is noted as unchanged and can occur post-transplant without cirrhosis). The liver parenchyma itself is not described as abnormal in texture or morphology. Therefore, based on the provided information, the liver is considered normal in the context of no evidence of fibrosis or cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=395 / Out=118
+Cost: $0.000160

@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver demonstrate cirrhotic morphology. No HCC is identified. There Is evidence of portal hypertension with recanalized paraumbilical vein, abdominal varices, and splenomegaly.
+Portal and hepatic veins are patent.
+
+Cholelithiasis with dilated gallbladder but no gallbladder thickening or other findings of cholecystitis.
+
+Pancreas, adrenal glands, and kidneys are unremarkable aside from simple cyst on the left.
+
+No lymphadenopathy or ascites.
+
+No aggressive osseous lesions.Cirrhosis and portal hypertension.
+
+No HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Liver demonstrate cirrhotic morphology" and later concludes "Cirrhosis and portal hypertension." This confirms the presence of cirrhosis. According to the task rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=310 / Out=89
+Cost: $0.000124

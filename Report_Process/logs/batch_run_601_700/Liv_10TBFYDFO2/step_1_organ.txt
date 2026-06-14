@@ -1,0 +1,62 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Liver morphology is not definitively cirrhotic. Cholelithiasis. No biliary dilatation.
+Hepatic observations are as summarized:
+路  A 0.5 cm observation in segment 7, T2 hyperintense with arterial hyperenhancement and without washout or pseudocapsule (image 59 series 11,001), previously 0.7 cm. LI-RADS 3
+路  Previously identified LI-RADS 3 observation in segment 4A/B is not seen on this examination.
+路  A 0.4 cm observation in segment 3, T2 hyperintense with likely progressive enhancement (image 20 series 3001). LI-RADS 3, possibly a small hemangioma. 
+路  A 0.6 cm observation in medial segment 6/7, T2 hyperintense with delayed enhancement (image 19 series 3001). LI-RADS 3, possibly a small hemangioma.
+
+A 0.5 cm observation in segment 5 could represent a small cyst or hemangioma image 25 series 3001.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence of HCC.
+
+Multiple small LI-RADS 3 hepatic observations could be revaluated in 6 months.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "Liver morphology is not definitively cirrhotic," which explicitly indicates no definitive signs of cirrhosis. There are no mentions of keywords like "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit chronic liver disease. The liver is not described as "unremarkable," "normal," or "smooth" directly, but the phrasing suggests absence of cirrhotic morphology, aligning with no fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=549 / Out=117
+Cost: $0.000171

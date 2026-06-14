@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 11 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+The liver has a cirrhotic appearance. Since the previous exam, there is increasing HCC tumor burden throughout the liver. Examples include a segment 4B lesion measuring 3.0 x 2.9 cm, previously 2.0 x 1.7 cm (image 41 of series 12) and a segment 6 lesion on image 48 measuring 2.7 x 2.4 cm, previously 1.7 x 1.1 cm.
+Arterial enhancing lesions with washout and pseudocapsule appearance are identified within the majority of the left hepatic lobe, which has progressed since the previous exam (best seen on image 51 of series 12). Scattered subcentimeter arterial enhancing lesions with washout in the right hepatic lobe are new from the previous exam. An example includes a lesion on image 58 of series 12.
+
+The adrenal glands, pancreas and kidneys are unremarkable. Cholelithiasis is again seen. Splenomegaly is again noted. The previously seen pancreatic cystic lesions are not seen on the current study.
+
+There is a small amount of ascites, which is increased from the previous exam. Trace right pleural effusion is seen.
+
+No abdominal lymphadenopathy is identified.Progression of HCC with increase in tumor burden throughout the liver.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic appearance," which directly indicates cirrhosis. Additionally, findings such as splenomegaly and ascites are supportive features of chronic liver disease and portal hypertension often associated with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=571 / Out=60
+Cost: $0.000153

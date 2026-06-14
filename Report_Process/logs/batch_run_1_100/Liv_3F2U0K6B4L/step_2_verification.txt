@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology is redemonstrated. There are no new liver lesions with imaging features of hepatocellular carcinoma. Posttreatment related. The posterior right hepatic lobe is redemonstrated. Observations are as follows:
+
+- On image 30, series 7, in segment VII, a 1.4 cm treated HCC is not significantly changed in size when remeasured in a similar manner. Internally, this appears mostly necrotic with only a persistent linear enhancing focus present, similar to the prior exam (LR-TR equivocal).
+
+- On image 32, series 7, in segment VII 4 medially, a 0.9 cm treated HCC is not significantly changed in size when remeasured; internally, this demonstrates more conspicuous necrosis, with the previously described nodular enhancing component identified (LR TR nonviable).
+
+- On image 38, series 7, in segment VIII, a 1.1 cm HCC is unchanged in size and appearance demonstrating thick rim enhancement and central necrosis, similar to the prior exam (LR TR equivocal).
+
+- On image 29, series 7, at the periphery of segment VIII, there is a 0.9 cm observation with arterial phase hyperenhancement, without washout or pseudocapsule is unchanged in size though more conspicuous (LR 3).
+
+Portal venous thrombus is unchanged as is the diminutive caliber of the intrahepatic portal veins. Prominent splenorenal shunt is again noted. The patient is status post cholecystectomy. Prominent periportal nodes measuring up to 1.3 cm stable.
+
+Indeterminate subcentimeter splenic lesion is stable (image 41, series 7). Few nonspecific subcentimeter pancreatic cystic lesions are also unchanged, with no dilatation of the main pancreatic duct present. Trace ascites is noted. No aggressive osseous lesions are detected. Lower lobe atelectasis is present.Overall liver findings are stable to improving with no new disease identified.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report begins with "Cirrhotic liver morphology is redemonstrated," which explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=605 / Out=58
+Cost: $0.000194

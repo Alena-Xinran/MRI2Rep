@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequela of portal hypertension, including upper abdominal varices and a splenorenal shunt.
+
+Redemonstrated hyperperfusion of the posterior right hepatic lobe from prior treatment.
+
+The previously seen HCC's in segment 7 are very difficult to confidently identify against the background hepatic parenchyma. These are grossly unchanged and still enhance and are therefore viable. One is seen on series 20,001 image 29 measuring 2.8 cm, and the other is on image 33, measuring 3.1 cm. Both are LR TR viable.
+
+In segment 8 peripherally, the 1 cm observation (series 17001, image 26) with arterial hyperenhancement but without washout or sizable capsule is stable; LR 3.
+
+In segment 8 there is a 1.5 cm arterial phase enhancing lesion (series 18,001 image 36) which appears to centrally washout and may contain a pseudocapsule, highly suspicious for HCC (LR-5). This can be identified in retrospect on the previous study and is unchanged.
+
+Again noted is bland thrombus within the main portal vein. The right and left portal veins are diminutive.
+
+A subcentimeter T2 hyperintense splenic lesion is nonspecific but stable. Multiples subcentimeter cystic lesions are stable, corresponding to side branch IPMNs or sequela of prior pancreatitis. The main pancreatic duct is not dilated.
+
+The adrenal glands and kidneys are unremarkable except for a few bilateral small renal cysts.
+
+No ascites or lymphadenopathy.1.  The segment 7 lesions are very difficult to confidently identify but appear unchanged and viable.
+
+2.  Small segment 8 lesion is highly suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions "sequela of portal hypertension," which are direct indicators of cirrhosis. Additionally, there is mention of "bland thrombus within the main portal vein" and "diminutive" portal veins, which are often associated with chronic liver disease and portal hypertension.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=584 / Out=83
+Cost: $0.000166

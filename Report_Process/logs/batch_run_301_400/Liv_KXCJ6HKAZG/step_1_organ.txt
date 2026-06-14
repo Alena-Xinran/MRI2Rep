@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: Status post partial right hepatectomy.   Segment 1 ablation cavity measures 3.1 x 4.1 cm (image 31 series 14), previously measured 3.2 x 4.5 cm with no recurrent/residual viable tumor  . No new hepatic masses. Unchanged scattered small cysts  . Unchanged 10.7 cm round fluid collection along the cut surface of the liver  . Portal and hepatic veins patent. Status post cholecystectomy.    Pancreas: Unchanged 8 mm unilocular cystic lesion in the uncinate.    Spleen and adrenals unremarkable    Kidneys: Bilateral simple cysts    No ascites or lymphadenopathy.    No aggressive osseous lesions.No new or recurrent/residual viable HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes status post partial right hepatectomy and an ablation cavity, but does not mention keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not described as abnormal in texture or contour; findings are related to prior surgery/treatment and cysts. There is no statement indicating normal or unremarkable liver parenchyma explicitly, but the absence of fibrosis/cirrhosis keywords and the lack of ascites or other signs of portal hypertension suggest no active mention of fibrosis/cirrhosis. However, based strictly on the criteria, since the liver is not described as "unremarkable", "normal", or "smooth" either, the classification defaults to "NoFibrosis/Cirrhosis" only if those terms are present. In this case, the liver is not explicitly characterized, but the criteria require positive keywords for "Fibrosis/Cirrhosis"; since none are present, and the spleen is noted as unremarkable but not the liver, the safest interpretation per the given binary classification is absence of mentioned fibrosis/cirrhosis findings.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=393 / Out=259
+Cost: $0.000187

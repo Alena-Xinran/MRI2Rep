@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Image quality is limited due to respiratory motion artifact.
+
+
+-1.7 cm arterial enhancing segment 8 lesion corresponds to the previously described 1.1 cm lesion on CT (image 25, series 15). (image 23, series 19), and displays increased T2 signal intensity, although there is no definite pseudocapsule. This meets OPTN 5a growth criteria for HCC. 
+
+-Additional 1.4 cm arterial enhancing lesion within segment 6, previously measured 1.3 cm and displays no definite pseudocapsule or washout on delayed imaging, although evaluation on delayed images is limited by motion artifact (image 37, series 15). There is associated increased T2 signal making this lesion highly suspicious for HCC but not yet meeting OPTN criteria.
+
+-Wedge-shaped arterial enhancement within segment 6 does not have a T2 correlate and is felt to represent perfusional abnormality (image 25, series 15).
+
+Few additional punctate hepatic cysts are present. The hepatic vasculature is patent.
+
+A gallstone is present within a moderately distended gallbladder. There is a small right renal cyst. The spleen, pancreas, adrenal glands and kidneys are otherwise unremarkable.
+
+There is no bowel obstruction, ascites or abdominal adenopathy. No aggressive osseous lesion.Motion degraded MRI.
+
+Slight interval enlargement of 1.7 cm segment 8 HCC (OPTN 5A-G). Little interval change to more inferior segment 6 lesion highly suspicious for HCC but not yet meeting OPTN criteria. 
+
+No findings of extrahepatic metastases in the abdomen.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis descriptors and the presence of lesions suspicious for HCC without mention of underlying cirrhotic morphology suggests the liver background is not explicitly noted as fibrotic or cirrhotic. The findings focus on focal lesions and other incidental findings without characterization of the liver parenchyma's texture or surface.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=553 / Out=146
+Cost: $0.000184

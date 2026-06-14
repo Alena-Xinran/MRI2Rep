@@ -1,0 +1,61 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly (15.9 cm) and portosystemic shunts.
+
+Similar to mildly decreased size of multiple hepatic treatment cavities are detailed below on series 15. The treatment cavities are without evidence of recurrence (LR-TR nonviable).
+路  In hepatic segment 2, there is a 3.0 x 2.4 cm treatment cavity which previously measured 2.7 x 3.2 cm (image 26).
+路  In hepatic segment segment 4A, there is a 2.8 x 1.4 cm treatment cavity which previously measured 3.1 x 1.7 cm (image 30).
+路  In hepatic segment 2, there is a 0.9 x 0.6 cm treatment cavity which previously measured 1.1 x 0.8 cm (image 34).
+路  In hepatic segment 5/8, there is a 3.4 x 3.2 cm treatment cavity which previously measured 3.9 x 3.3 cm (image 39).
+
+No new suspicious hepatic lesion is identified.
+
+No biliary dilatation. Note is made of cholelithiasis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are bilateral renal cysts, some of which are proteinaceous/hemorrhagic.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Overall, slight decrease in size of hepatic treatment cavities without evidence of recurrent disease (LR-TR nonviable). No new findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=583 / Out=42
+Cost: $0.000149

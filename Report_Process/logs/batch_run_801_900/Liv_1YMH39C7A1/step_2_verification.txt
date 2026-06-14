@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension. The background hepatic parenchyma is also noted to be steatotic. A 3.5 cm segment 2 ablation cavity is again noted with some upstream biliary dilatation. No findings of recurrent HCC. A 1.7 cm region of arterial enhancement immediately adjacent to the cavity is noted without washout or pseudocapsule. This is likely perfusional with a larger region seen on the older January 15 exam. 
+
+A few scattered subcentimeter arterially enhancing foci without washout or pseudocapsule (LI-RADS 3) are noted and amenable to routine surveillance.
+
+Cholelithiasis is again noted. A subcentimeter polyp is also seen within the gallbladder lumen. No significant surrounding fat stranding is appreciated with some third spacing again noted involving the gallbladder wall, presumably related to the underlying cirrhosis. Trace ascites is also noted. Portal venous system and SMV remain patent.
+
+Bilateral renal cysts are again seen. No pancreatic duct dilatation or mass. Adrenal glands appear unremarkable. The small bowel loops are again noted to be mildly dilated, better assessed on recent CT. Some wall thickening and edema is also seen involving the ascending colon, presumably related to portal colopathy but should be correlated for any clinical findings of colitis.No definitive findings of recurrent HCC. Region of arterial enhancement adjacent to the ablation cavity without washout or pseudocapsule is likely perfusional. This can be watched on follow-up MRI in 3-6 months. Vasculature remains patent.
+
+Cholelithiasis. No choledocholithiasis or definitive findings to suggest acute cholecystitis however if there is high clinical suspicion can correlate with HIDA scan.
+
+Additional findings as noted above.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Again noted is a cirrhotic liver with sequelae of portal hypertension." This confirms the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=561 / Out=63
+Cost: $0.000184

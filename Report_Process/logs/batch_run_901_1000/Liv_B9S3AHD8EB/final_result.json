@@ -1,0 +1,48 @@
+{
+  "id": "Liv_B9S3AHD8EB",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 5,
+    "winner_count": 1,
+    "details": {
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_NoWO | R_DIFFUSE | 1\", \"APHE_WO | DIFFUSE | Multiple\", \"APHE_WO | R_DIFFUSE | 1\", \"RIM_ATYP | R_ANT | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_WO | DIFFUSE | Multiple\", \"RIM_ATYP | R_ANT | 1\"]": 1,
+      "[\"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | Multiple\", \"APHE_WO | R_DIFFUSE | 1\", \"RIM_ATYP | R_ANT | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | 1\", \"APHE_WO | DIFFUSE | Multiple\", \"APHE_WO | R_DIFFUSE | 1\", \"RIM_ATYP | R_ANT | 1\"]": 1,
+      "[\"APHE_NoWO | DIFFUSE | Multiple\", \"APHE_WO | DIFFUSE | Multiple\", \"APHE_WO | R_DIFFUSE | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.001709568,
+    "timestamp": "2026-02-08 23:18:58",
+    "model": "deepseek/deepseek-chat"
+  }
+}

@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A 1.4 cm segment 8 lesion (13:81) has slightly grown from prior exams when it measured 1 cm and displays washout and partial pseudocapsule consistent with an HCC (OPTN 5a). A few adjacent small arterial enhancing satellite nodules are nonspecific without discrete washout.
+
+No other lesions displaying arterial enhancement and washout to suggest HCC are identified. Multiple peripherally peripheral wedge-shaped regions of arterial enhancement without washout are noted with some increased T2 signal intensity likely related to regions of confluent fibrosis.
+
+Several avascular ablation cavities are again noted as follows (measured on series 17):
+
+Segment 7 measuring 2 cm
+More inferiorly in segment 7 measuring 3.3 cm
+Segment IVb measuring 1.6 cm
+Segment 4A/4B measuring 1.4 cm
+Vague segment 3 subcentimeter cavity
+
+No findings of tumor thrombus or extrahepatic metastases. Portal system remains patent with large varices again noted. Abnormal enhancement and adhesion formation is noted along the ventral abdominal wall.  16 cm spleen remains enlarged. A few punctate renal cysts are unchanged. Pancreas, adrenal glands, and visualized bowel appear unremarkable. No adenopathy. There is trace perihepatic ascites.Interval growth of OPTN 5A segment 8 HCC.
+
+No findings of recurrence at other sites of treated disease.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report mentions "regions of confluent fibrosis" and notes portal hypertension features such as splenomegaly (16 cm spleen remains enlarged) and large varices, which are consistent with cirrhosis. Although the term "cirrhosis" is not explicitly stated, the findings strongly indicate underlying cirrhosis. Therefore, the previous extraction of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=486 / Out=96
+Cost: $0.000176

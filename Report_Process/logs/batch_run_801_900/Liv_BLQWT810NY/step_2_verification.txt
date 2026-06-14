@@ -1,0 +1,72 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Liver is again noted to be cirrhotic morphology with sequelae of portal hypertension including splenomegaly, upper abdominal varices and recanalization of the paraumbilical vein. 
+
+Multiple ablation cavities are again noted as follows:
+ Segment 2 measuring 2.8 x 2.2 cm (series 18 image 23), previously 2.7 x 2.2 cm. There is no evidence of recurrent neoplasm. There is unchanged mild intrahepatic biliary dilatation cranial to this cavity.
+Segment 4A measuring 1.9 x 1.2 cm (series 18 image 36), previously 1.9 x 1.3 cm. There is no evidence of recurrent neoplasm.
+Segment 5 measuring 2.3 x 2.2 cm (series 18 image 41), previously 2.7 x 2.3 cm. There is unchanged minimal enhancement along the caudal margin, with no washout or evidence of viable disease.
+
+The gallbladder is collapsed with multiple gallstones and unchanged diffuse mild wall thickening, nonspecific in the setting of adjacent ascites.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There is a stable exophytic 2.8 cm neoplasm at the inferior pole of the right kidney. Multiple bilateral renal cysts, several of which are hemorrhagic, are stable.
+
+Bowel: There is persistent concentric mural thickening and enhancement at the hepatic flexure (series 18 image 60). There is no bowel obstruction..
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Mild ascites, decreased since the prior exam.
+
+Retroperitoneal vasculature: There is unchanged ectasia of the celiac artery.
+
+Body wall: The previously noted ventral hernia and adjacent fat necrosis is not included in this exam.
+
+Musculoskeletal system: No aggressive osseous lesions.No viable HCC.
+
+Unchanged concentric mural thickening and enhancement involving the hepatic flexure. Colonoscopy is again suggested if not recently performed.
+
+Stable exophytic right inferior pole renal neoplasm.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "Liver is again noted to be cirrhotic morphology with sequelae of portal hypertension including splenomegaly, upper abdominal varices and recanalization of the paraumbilical vein." This confirms the presence of cirrhosis and its associated features. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=646 / Out=88
+Cost: $0.000218

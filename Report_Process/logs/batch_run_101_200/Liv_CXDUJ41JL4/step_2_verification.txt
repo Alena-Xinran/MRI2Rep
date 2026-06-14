@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post partial right hepatectomy. There are similar multiple scattered arterially enhancing foci, for example the largest measuring 1.0 cm at the hepatic dome (image 21, series 13), which does not demonstrate washout or pseudocapsule, and may be perfusional in nature. Attention on follow-up exams. Hepatic vasculature is patent.
+
+The spleen, gallbladder, pancreas, adrenal glands, and kidneys are unremarkable.
+
+There is no abdominal adenopathy or free fluid.Stable exam. No evidence for recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, regenerative nodules, portal hypertension findings, etc.). It describes post-surgical changes and arterially enhancing foci, but does not comment on liver parenchymal texture or morphology indicative of fibrosis or cirrhosis. The spleen, gallbladder, pancreas, adrenal glands, and kidneys are noted as unremarkable, but there is no explicit statement about the liver being normal. However, the absence of any mention of cirrhosis or its features, and the lack of any description of abnormal liver morphology, suggests that cirrhosis is not present. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is consistent with the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=314 / Out=169
+Cost: $0.000159

@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Cirrhotic morphology. No HCC. Patent portal and hepatic veins. No bile duct dilatation.
+
+Gallbladder: Unremarkable
+
+Pancreas: 11 mm septated cystic structure (with no solid enhancing components) in the neck on image 13 series 2001. There are several other smaller cysts in the head and neck. The pancreatic duct is not dilated.
+
+Spleen: Unremarkable
+
+Adrenals: Unremarkable
+
+Kidneys: Bilateral small simple cyst
+
+No lymphadenopathy.
+
+Small ascites, decreased in comparison to CT from 4/15/2019.
+
+No aggressive osseous lesion.No HCC.
+Comparison ascites since CT 4/15/2019
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Cirrhotic morphology" for the liver, which explicitly indicates features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=55
+Cost: $0.000120

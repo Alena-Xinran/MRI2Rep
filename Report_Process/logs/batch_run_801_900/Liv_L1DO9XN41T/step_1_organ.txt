@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver demonstrates a cirrhotic morphology. Numerous tiny hepatic cysts are again noted without change. There is a tiny 7 mm arterially enhancing focus adjacent to the gallbladder (image 52, series 12). No washout or T2 correlate. No lesions meeting imaging criteria for HCC. There is cholelithiasis and choledocholithiasis without evidence for acute cholecystitis. 
+
+The portal vasculature is patent. Artifact from a tips shunt is noted. There is stable intrahepatic dilatation. The kidneys, adrenal glands and pancreas are unremarkable with the exception of a few renal cysts and tiny stable cyst in the pancreatic tail, possibly sidebranch IPMN.
+
+Bibasilar pleural effusions are present with atelectasis and volume loss in the left lower lobe. The right effusion has increased in size compared to prior.No lesions meeting imaging criteria for HCC with a few subcentimeter arterial enhancing foci amenable to follow-up.
+
+Unchanged cholelithiasis and choledocholithiasis.
+
+Interval enlargement of right pleural effusion.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver demonstrates a cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=442 / Out=51
+Cost: $0.000113

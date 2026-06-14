@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is again noted to be cirrhotic morphology. There is moderate ascites.
+
+Evaluation of the contrast-enhanced images impeded by motion artifact, although there is no evidence of large HCC. The portal and hepatic veins are patent.
+
+There are stable cystic lesions throughout the pancreas, probably representing small side branch IPMN's or sequelae of prior pancreatitis, and are amenable to follow-up.
+
+There is cholelithiasis. The spleen, adrenal glands and kidneys are unremarkable. There is an unchanged hiatal hernia.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive appearing osseous lesion.1.  Study is markedly degraded by significant patient motion.
+2.  The superior mesenteric vein, main portal vein, Central left and right portal vein are well visualized and do not contain thrombus.
+3.  Limited study due to motion artifact for evaluation of HCC. No gross evidence of a large tumor is identified. Suggest continued follow-up of the patient is better able to cooperate with MRI.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to be cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=431 / Out=53
+Cost: $0.000111

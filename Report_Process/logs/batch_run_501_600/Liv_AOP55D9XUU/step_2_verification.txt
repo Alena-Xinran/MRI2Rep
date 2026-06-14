@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic, with sequelae of portal venous hypertension including splenomegaly and esophageal and abdominal varices. Hepatic vasculature is patent. The patient is status post left lateral segmentectomy.
+
+
+-A 2.2 x 1.9 cm segment VI/VII ablation cavity is stable without recurrent disease (image 49, series 9). A wedge-shaped region of arterial enhancement inferior to the ablation cavity is stable.
+
+-On series 12 image 32, there is a 1 cm avascular region adjacent to the IVC in segment 8 without definite evidence of residual neoplasm. However, on series 8 image 32, there is a punctate region of arterial phase enhancement in this vicinity of uncertain significance, this should be watched on further follow-up exams.
+
+
+
+The pancreas, adrenal glands and kidneys are unremarkable other than bilateral renal cysts. Patient is status post cholecystectomy.
+
+There is no ascites or abdominal adenopathy.Successful treatment of previously seen segment 8 HCC. There is a punctate region of enhancement within this which is of uncertain significance, and should be reevaluated at the next follow-up exam.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic" in the first sentence, confirming the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=434 / Out=57
+Cost: $0.000145

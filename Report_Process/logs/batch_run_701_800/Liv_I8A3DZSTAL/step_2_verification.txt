@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. There is no evidence of hepatocellular carcinoma with post contrast images slightly limited due to artifact from adjacent gas in the stomach. There are tiny right hepatic lobe cysts. The hepatic vasculature is patent. Donor recipient size mismatch involving the bile duct is again noted with stable mild intrahepatic biliary dilatation. No frank stricture is appreciated. The pancreas, spleen, adrenal glands, and kidneys are unremarkable aside from tiny renal cysts. Atherosclerotic plaque is again noted involving the aorta.
+
+There is no adenopathy or ascites.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, atrophy/hypertrophy, signs of portal hypertension). It describes the patient as status post liver transplant, notes tiny hepatic cysts, patent vasculature, and mild intrahepatic biliary dilatation related to donor-recipient size mismatch, but no findings indicative of fibrosis or cirrhosis. The liver parenchyma itself is not described as abnormal aside from the cysts, and there is no evidence of hepatocellular carcinoma. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=320 / Out=139
+Cost: $0.000148

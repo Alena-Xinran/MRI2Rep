@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is fatty. No definite evidence of cirrhosis is seen. No hepatic mass is identified. The hepatic vasculature is patent.
+
+The spleen, kidneys, adrenal glands, pancreas, and gallbladder are unremarkable.
+
+No abdominal lymphadenopathy or ascites is seen.Hepatic steatosis. No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report states "No definite evidence of cirrhosis is seen" and does not mention any keywords such as cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver is described as fatty (steatosis), but this is not a criterion for fibrosis/cirrhosis in the given instructions. There is no description of the liver as unremarkable or normal, but the absence of fibrosis/cirrhosis indicators and the explicit statement of no definite evidence of cirrhosis supports a classification of no fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=291 / Out=129
+Cost: $0.000103

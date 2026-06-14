@@ -1,0 +1,119 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post right hepatectomy with increased size of loculated fluid/cyst in the right hepatectomy surgical margin measuring 3.5 cm, previously 2.8 cm (3:12) with possible communicate with the biliary system inferiorly (3:13, 2:19). Steatosis. No suspicious hepatic lesion. Scattered hepatic cysts. 
+
+Hepatic vasculature: Patent.
+
+Pancreas: Multiple pancreatic cystic lesions are again visualized with a dominant in the distal body/tail, measuring up to 2.2 x 2.5 cm versus 1.3 x 1.2 cm on the prior MRI dated 9/20/2022. The lesion also more prominent compared to the MRI dated 3/20/2023; exact comparison is difficult due to different slice positioning and lack of coronal images on the prior MRI. Redemonstration of dilated and tortuous main pancreatic duct distal to this lesion, now measures 0.8 cm versus 0.6 cm on the prior MRI.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral renal cysts of varying sizes with a dominant left renal cyst measuring up to 6.2 cm, some which demonstrates internal hemorrhagic/proteinaceous contents, as before.
+
+Bowel: No abnormal bowel loop dilatation
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Degenerative changes in the included spine. No suspicious focal marrow signal abnormality.1.  No evidence for HCC.
+2.   Interval increased size of lobulated pancreatic cystic lesion and dilatation of main pancreatic duct as above. Suggest GI consultation and additional imaging/EUS as advised.
+3.  Mild interval increased size of loculated fluid at the right hepatectomy margin.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Hepatobiliary system: Status post right hepatectomy with increased size of loculated fluid/cyst in the right hepatectomy surgical margin measuring 3.5 cm, previously 2.8 cm (3:12) with possible communicate with the biliary system inferiorly (3:13, 2:19). -> Found lesion. Features: Loculated fluid/cyst at surgical margin. Maps to CYST (fluid collection). Loc: Right hepatectomy margin (not a Couinaud segment, maps to DIFFUSE). Quantity: 1.
+Sentence 2: Steatosis. -> Background info, no focal lesion.
+Sentence 3: No suspicious hepatic lesion. -> Negative statement, no focal lesion.
+Sentence 4: Scattered hepatic cysts. -> Found lesion(s). Features: Simple cysts. Maps to CYST. Loc: Not specified (DIFFUSE). Quantity: Multiple.
+Sentence 5: Hepatic vasculature: Patent. -> Background info, no focal lesion.
+Sentence 6: Pancreas: Multiple pancreatic cystic lesions are again visualized with a dominant in the distal body/tail, measuring up to 2.2 x 2.5 cm versus 1.3 x 1.2 cm on the prior MRI dated 9/20/2022. -> Organ: Pancreas. Ignore per instructions.
+Sentence 7: The lesion also more prominent compared to the MRI dated 3/20/2023; exact comparison is difficult due to different slice positioning and lack of coronal images on the prior MRI. -> Continuation of pancreatic finding. Ignore.
+Sentence 8: Redemonstration of dilated and tortuous main pancreatic duct distal to this lesion, now measures 0.8 cm versus 0.6 cm on the prior MRI. -> Pancreatic duct finding. Ignore.
+Sentence 9: Spleen: Unremarkable. -> Background info, no focal lesion.
+Sentence 10: Adrenal glands: Unremarkable. -> Background info, no focal lesion.
+Sentence 11: Kidneys: Bilateral renal cysts of varying sizes with a dominant left renal cyst measuring up to 6.2 cm, some which demonstrates internal hemorrhagic/proteinaceous contents, as before. -> Organ: Kidneys. Ignore per instructions.
+Sentence 12: Bowel: No abnormal bowel loop dilatation -> Background info, no focal lesion.
+Sentence 13: Upper abdominal lymph nodes: No lymphadenopathy. -> Background info, no focal lesion.
+Sentence 14: Peritoneum: No ascites. -> Background info, no focal lesion.
+Sentence 15: Degenerative changes in the included spine. No suspicious focal marrow signal abnormality.1.  No evidence for HCC. -> Background info and negative statement, no focal lesion.
+Sentence 16: Interval increased size of lobulated pancreatic cystic lesion and dilatation of main pancreatic duct as above. Suggest GI consultation and additional imaging/EUS as advised. -> Pancreatic finding. Ignore.
+Sentence 17: Mild interval increased size of loculated fluid at the right hepatectomy margin. -> Found lesion. This is a restatement/reiteration of the finding in Sentence 1. It is the same lesion, so it should not be counted as a separate finding.
+
+Step 2: Structured Output
+TUMOR_RECORD: CYST | DIFFUSE | 1
+TUMOR_RECORD: CYST | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+CYST | DIFFUSE | 1
+CYST | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1217 / Out=721
+Cost: $0.000515

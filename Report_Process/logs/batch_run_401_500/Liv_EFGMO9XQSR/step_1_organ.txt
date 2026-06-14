@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Lung bases: No suspicious pulmonary nodules, pleural effusion, or pericardial effusion.
+
+Hepatobiliary system: Cirrhotic and steatotic appearance of the liver. Heterogeneity of the posterior right hepatic lobe likely related to the vascular occlusion described below, stable. Tiny liver cysts/hamartomas. No suspicious hepatic lesion; previously questioned left hepatic lesion is not definitively visualized on the current study. There is cholelithiasis. Gallbladder fundal adenomyomatosis. No intra or extrahepatic biliary dilatation.
+
+Hepatic vasculature: TIPS shunt is again noted.. Adjacent T1 hyperintense foci in the hepatic parenchyma may represent blood products likely represents thrombosed native vein right hepatic.
+
+Pancreas: Unremarkable.
+
+Spleen: There are stable subcentimeter cysts. Stably enlarged to 14.3 cm.
+
+Adrenal glands: 3 cm left adrenal nodule is again noted, with a gastrojejunostomy.
+
+Kidneys: There are subcentimeter renal cysts.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: Stable subcentimeter periportal lymph nodes, for example series 8 image 152.
+
+Peritoneum: No ascites.
+
+Vasculature: No abdominal aortic aneurysm. Major branches of the abdominal aorta are patent without significant stenosis. Azygous IVC.
+
+Bones and soft tissues: No aggressive osseous lesions. Asymmetric atrophy of the right rectus abdominis muscle.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic and steatotic appearance of the liver" in the hepatobiliary system section, which directly indicates cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=540 / Out=46
+Cost: $0.000138

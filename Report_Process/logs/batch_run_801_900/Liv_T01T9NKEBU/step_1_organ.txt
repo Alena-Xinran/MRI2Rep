@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are hepatic lesions which are enhancing on arterial phase, and washout on portal venous phase with pseudocapsule on delayed phase. 
+
+
+LI RADS 5 / OPTN 5b: 2.3 cm lesion in segment III (image 214, series 9), a 3.0 cm in segment VIII (image 221, series 9) and  a 2.2 cm lesion in segment VII (image 203, series 9).
+
+LI RADS 4: 2.4 cm segment 4a at the dome (artrial enhancement  and no washout or pseudocapsule not meeting OPTN criteria for definite HCC), image 26 series 9. 1.3 cm segment 3 (enhancing, no washout but  pseudocapsule, not meeting OPTN criteria.)
+
+There are additional subcentimeter arterial enhancing LI RADS 3 lesions.
+
+There is no hepatic biliary ductal dilatation. Liver is cirrhotic morphology. There is hepatic steatosis. Hepatic vasculatures is patent.
+
+Gallbladder is surgically absent. Pancreas, spleen, left adrenal gland and kidneys are unremarkable. As a 2.3 cm right adrenal adenoma. Prominent periportal nodes are seen.Multiple HCC.
+
+Three LI RADS 5 (OPTN 5B) and two LI RADS 4 (not meeting OPTN criteria).
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic morphology," which directly indicates cirrhosis. This meets the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=517 / Out=45
+Cost: $0.000131

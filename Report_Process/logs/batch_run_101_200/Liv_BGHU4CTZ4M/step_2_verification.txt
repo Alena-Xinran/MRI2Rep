@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic with sequela portal hypertension including a recanalized paraumbilical vein, splenomegaly, splenorenal shunt, and upper abdominal varices. There are bandlike regions of fibrosis noted at the liver dome. A small enhancing focus in segment 5 (image 44, series 9) appears elongated and is likely vascular in etiology; no washout or pseudocapsule seen. There are no findings suspicious for HCC. Small cyst is again noted at the liver dome. The hepatic vasculature is patent.
+
+The adrenal glands, pancreas, and kidneys are unremarkable. Cholelithiasis is noted.
+
+No upper abdominal lymphadenopathy or ascites.
+
+No enhancing osseous lesions.Cirrhosis with sequela of portal hypertension. No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic" and later summarizes "Cirrhosis with sequela of portal hypertension." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=66
+Cost: $0.000130

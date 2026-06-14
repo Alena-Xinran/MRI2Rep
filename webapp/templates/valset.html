@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MRI2Rep — Val Set Comparison</title>
+  <style>
+    :root {
+      --bg:#0f1117; --card:#1a1d27; --card2:#13151f; --border:#2a2d3a;
+      --accent:#4f8ef7; --green:#2ecc96; --red:#e05252; --orange:#f7944f;
+      --muted:#8892a4; --text:#e2e8f0; --radius:10px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;display:flex;min-height:100vh;}
+
+    /* sidebar */
+    #sidebar{width:280px;flex-shrink:0;background:var(--card2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;}
+    #sidebar-hdr{padding:14px 14px 8px;border-bottom:1px solid var(--border);}
+    #sidebar-hdr h2{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+    #search{width:100%;padding:6px 9px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:.82rem;outline:none;}
+    #filter-row{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;}
+    .fbtn{padding:2px 8px;border-radius:99px;font-size:.72rem;border:1px solid var(--border);cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;}
+    .fbtn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+    #stats-bar{display:flex;border-bottom:1px solid var(--border);}
+    .sp{flex:1;text-align:center;padding:8px 4px;border-right:1px solid var(--border);font-size:.68rem;}
+    .sp:last-child{border-right:none;}
+    .sv{font-size:1rem;font-weight:700;display:block;}
+    #case-list{overflow-y:auto;flex:1;}
+    .ci{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;display:flex;align-items:center;gap:8px;}
+    .ci:hover{background:rgba(79,142,247,.07);}
+    .ci.active{background:rgba(79,142,247,.15);border-left:3px solid var(--accent);}
+    .cf{font-size:.78rem;font-weight:700;min-width:36px;text-align:right;}
+    .cf.hi{color:var(--green)}.cf.mid{color:var(--orange)}.cf.lo{color:var(--red)}
+    .cm{font-size:.78rem;}.cid{font-weight:600;}.csub{color:var(--muted);font-size:.7rem;margin-top:1px;}
+
+    /* main */
+    #main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+    #main-hdr{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;flex-shrink:0;}
+    #main-hdr a{color:var(--muted);font-size:.82rem;text-decoration:none;}
+    #main-hdr a:hover{color:var(--accent);}
+    #main-hdr h1{font-size:.95rem;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    #placeholder{flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+    #placeholder.hide{display:none;}
+    #detail{flex:1;overflow-y:auto;padding:20px;display:none;}
+    #detail.show{display:block;}
+
+    /* 3-axis viewer */
+    .viewer-wrap{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+    .viewer-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:10px;flex:1;min-width:200px;text-align:center;}
+    .viewer-box label{display:block;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+    .viewer-box canvas{width:100%;aspect-ratio:1;border-radius:4px;background:#000;display:block;image-rendering:pixelated;}
+    .viewer-box input[type=range]{width:100%;margin-top:6px;accent-color:var(--accent);}
+    .slice-num{font-size:.65rem;color:var(--muted);margin-top:2px;}
+
+    /* channel toggle */
+    .ch-row{display:flex;gap:6px;margin-bottom:14px;align-items:center;}
+    .ch-row span{font-size:.72rem;color:var(--muted);margin-right:4px;}
+    .ch-btn{padding:3px 10px;border-radius:99px;font-size:.72rem;border:1px solid var(--border);cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;}
+    .ch-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+    /* comparison */
+    .cmp-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
+    .cmp-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+    .cmp-hdr h3{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+    .f1b{font-size:1.2rem;font-weight:800;padding:2px 10px;border-radius:6px;margin-left:auto;}
+    .f1b.hi{background:rgba(46,204,150,.15);color:var(--green);}
+    .f1b.mid{background:rgba(247,148,79,.15);color:var(--orange);}
+    .f1b.lo{background:rgba(224,82,82,.15);color:var(--red);}
+
+    /* reveal button */
+    #reveal-btn{padding:7px 18px;background:linear-gradient(135deg,var(--accent),#3a6ed4);color:#fff;border:none;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+    #reveal-btn:hover{opacity:.85;}
+    #reveal-btn.shown{background:rgba(79,142,247,.15);color:var(--accent);border:1px solid var(--accent);}
+
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+    .col-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px;}
+    .badge{display:flex;flex-direction:column;padding:7px 10px;border-radius:6px;margin-bottom:5px;font-size:.82rem;line-height:1.4;}
+    .badge .btype{font-weight:700;}.badge .bpos{opacity:.85;}.badge .bqty{opacity:.7;font-size:.74rem;}
+    .b-hit{background:rgba(46,204,150,.15);border:1px solid rgba(46,204,150,.4);color:var(--green);}
+    .b-miss{background:rgba(224,82,82,.12);border:1px solid rgba(224,82,82,.35);color:var(--red);}
+    .b-fp{background:rgba(247,148,79,.12);border:1px solid rgba(247,148,79,.35);color:var(--orange);}
+    .b-none{background:rgba(136,146,164,.1);border:1px solid var(--border);color:var(--muted);}
+    .chips{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap;}
+    .chip{padding:3px 10px;border-radius:99px;font-size:.75rem;}
+    .chip-hit{background:rgba(46,204,150,.12);color:var(--green);}
+    .chip-miss{background:rgba(224,82,82,.12);color:var(--red);}
+    .chip-fp{background:rgba(247,148,79,.12);color:var(--orange);}
+    #gt-col{display:none;}
+    #gt-col.show{display:block;}
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div id="sidebar-hdr">
+    <h2>Val Set ({{ stats.total }} cases)</h2>
+    <input id="search" type="text" placeholder="Search ID…" oninput="filterCases()"/>
+    <div id="filter-row">
+      <button class="fbtn active" onclick="setFilter('all',this)">All</button>
+      <button class="fbtn" onclick="setFilter('lesion',this)">Lesion</button>
+      <button class="fbtn" onclick="setFilter('hit',this)">✓ Correct</button>
+      <button class="fbtn" onclick="setFilter('fail',this)">✗ Failed</button>
+    </div>
+  </div>
+  <div id="stats-bar">
+    <div class="sp"><span class="sv" style="color:var(--accent)">{{ "%.4f"|format(stats.mean_f1) }}</span>Mean F1</div>
+    <div class="sp"><span class="sv" style="color:var(--green)">{{ stats.hits }}/{{ stats.lesion1p }}</span>Correct</div>
+    <div class="sp"><span class="sv" style="color:var(--red)">{{ stats.les_missed }}/{{ stats.lesion1p }}</span>Missed</div>
+  </div>
+  <div id="case-list">
+    {% for c in cases %}
+    <div class="ci"
+         data-idx="{{ c.idx }}" data-id="{{ c.id }}"
+         data-lesion="{{ 1 if c.lesion1p else 0 }}"
+         data-hit="{{ 1 if c.hit else 0 }}"
+         data-pf1="{{ c.pf1 }}"
+         onclick="selectCase(this)">
+      <span class="cf {% if c.pf1>=0.5 %}hi{% elif c.pf1>0 %}mid{% else %}lo{% endif %}">
+        {{ "%.3f"|format(c.pf1) }}
+      </span>
+      <div class="cm">
+        <div class="cid">{{ c.id }}</div>
+        <div class="csub">{% if c.lesion1p %}{{ c.gt_count }} GT pair(s){% else %}No lesion{% endif %} · #{{ c.idx }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="main-hdr">
+    <a href="/">← Upload</a>
+    <h1>MRI2Rep — Validation Set</h1>
+    <span style="margin-left:auto;color:var(--muted);font-size:.72rem;">{{ model_path.split('/')[-3] if model_path else '' }}</span>
+  </div>
+
+  <div id="placeholder">← Select a case</div>
+
+  <div id="detail">
+
+    <!-- 3-axis orthogonal viewer -->
+    <div class="ch-row">
+      <span>Channel:</span>
+      <button class="ch-btn" onclick="setCh(0,this)">Arterial</button>
+      <button class="ch-btn active" onclick="setCh(1,this)">Portal Venous</button>
+      <button class="ch-btn" onclick="setCh(2,this)">Mask</button>
+    </div>
+
+    <div class="viewer-wrap">
+      <div class="viewer-box">
+        <label>Axial (Z)</label>
+        <canvas id="cv-ax"></canvas>
+        <input type="range" id="sl-ax" min="0" value="0" oninput="updateSlice('ax')"/>
+        <div class="slice-num" id="num-ax"></div>
+      </div>
+      <div class="viewer-box">
+        <label>Coronal (Y)</label>
+        <canvas id="cv-cor"></canvas>
+        <input type="range" id="sl-cor" min="0" value="0" oninput="updateSlice('cor')"/>
+        <div class="slice-num" id="num-cor"></div>
+      </div>
+      <div class="viewer-box">
+        <label>Sagittal (X)</label>
+        <canvas id="cv-sag"></canvas>
+        <input type="range" id="sl-sag" min="0" value="0" oninput="updateSlice('sag')"/>
+        <div class="slice-num" id="num-sag"></div>
+      </div>
+    </div>
+
+    <!-- Comparison card -->
+    <div class="cmp-wrap">
+      <div class="cmp-hdr">
+        <h3 id="case-title"></h3>
+        <button id="reveal-btn" onclick="toggleGT()">👁 Reveal Ground Truth</button>
+        <span id="f1b" class="f1b"></span>
+      </div>
+
+      <div class="cols">
+        <div>
+          <div class="col-lbl">Model Prediction</div>
+          <div id="pred-list"></div>
+        </div>
+        <div id="gt-col">
+          <div class="col-lbl">Ground Truth (Radiologist)</div>
+          <div id="gt-list"></div>
+        </div>
+      </div>
+
+      <div class="chips" id="chip-row"></div>
+    </div>
+
+  </div><!-- /detail -->
+</div>
+
+<script>
+const CASES   = {{ cases | tojson }};
+const caseMap = {};
+CASES.forEach(c => caseMap[c.idx] = c);
+
+let activeFilter = 'all';
+let currentCase  = null;
+let currentCh    = 1;   // portal venous default
+let volShape     = {h:192, w:192, d:96};
+let gtShown      = false;
+
+// ── Sidebar filter ────────────────────────────────────────────────────────────
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCases();
+}
+function filterCases() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.ci').forEach(el => {
+    let show = el.dataset.id.toLowerCase().includes(q);
+    if (show && activeFilter === 'lesion' && el.dataset.lesion !== '1') show = false;
+    if (show && activeFilter === 'hit'    && el.dataset.hit    !== '1') show = false;
+    if (show && activeFilter === 'fail'   && (el.dataset.lesion !== '1' || el.dataset.hit === '1')) show = false;
+    el.style.display = show ? '' : 'none';
+  });
+}
+
+// ── Case selection ────────────────────────────────────────────────────────────
+function selectCase(el) {
+  document.querySelectorAll('.ci').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  const c = caseMap[parseInt(el.dataset.idx)];
+  loadCase(c);
+}
+
+async function loadCase(c) {
+  currentCase = c;
+  gtShown     = false;
+
+  document.getElementById('placeholder').classList.add('hide');
+  document.getElementById('detail').classList.add('show');
+
+  // Reset GT
+  const gtCol = document.getElementById('gt-col');
+  gtCol.classList.remove('show');
+  const btn = document.getElementById('reveal-btn');
+  btn.textContent = '👁 Reveal Ground Truth';
+  btn.classList.remove('shown');
+
+  // Title + F1
+  document.getElementById('case-title').textContent = c.id + '  #' + c.idx;
+  const f1b = document.getElementById('f1b');
+  f1b.textContent = 'F1 = ' + c.pf1.toFixed(3);
+  f1b.className   = 'f1b ' + (c.pf1 >= 0.5 ? 'hi' : c.pf1 > 0 ? 'mid' : 'lo');
+
+  // Fetch volume shape
+  try {
+    const r = await fetch('/vol_shape/' + c.id);
+    if (r.ok) volShape = await r.json();
+  } catch(_) {}
+
+  // Init sliders
+  initSlider('ax',  volShape.d);
+  initSlider('cor', volShape.h);
+  initSlider('sag', volShape.w);
+  updateSlice('ax'); updateSlice('cor'); updateSlice('sag');
+
+  // Render prediction
+  renderPred(c);
+  renderGT(c);
+  renderChips(c);
+}
+
+function initSlider(name, maxVal) {
+  const sl = document.getElementById('sl-' + name);
+  sl.max   = maxVal - 1;
+  sl.value = Math.floor(maxVal / 2);
+}
+
+// ── 3-axis viewer ─────────────────────────────────────────────────────────────
+// axis map: ax=2(axial/Z), cor=1(coronal/Y), sag=0(sagittal/X)
+const AXIS = {ax: 2, cor: 1, sag: 0};
+
+function updateSlice(name) {
+  if (!currentCase) return;
+  const sl   = document.getElementById('sl-' + name);
+  const idx  = parseInt(sl.value);
+  const axis = AXIS[name];
+  document.getElementById('num-' + name).textContent = `slice ${idx}`;
+  const url  = `/mri_slice/${currentCase.id}/${currentCh}/${axis}/${idx}`;
+  const cv   = document.getElementById('cv-' + name);
+  const img  = new Image();
+  img.onload = () => {
+    cv.width  = img.naturalWidth;
+    cv.height = img.naturalHeight;
+    const ctx = cv.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = url + '?t=' + Date.now();
+}
+
+function setCh(ch, btn) {
+  currentCh = ch;
+  document.querySelectorAll('.ch-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateSlice('ax'); updateSlice('cor'); updateSlice('sag');
+}
+
+// ── GT reveal ─────────────────────────────────────────────────────────────────
+function toggleGT() {
+  gtShown = !gtShown;
+  const gtCol = document.getElementById('gt-col');
+  const btn   = document.getElementById('reveal-btn');
+  if (gtShown) {
+    gtCol.classList.add('show');
+    btn.textContent = '🙈 Hide Ground Truth';
+    btn.classList.add('shown');
+  } else {
+    gtCol.classList.remove('show');
+    btn.textContent = '👁 Reveal Ground Truth';
+    btn.classList.remove('shown');
+  }
+}
+
+// ── Lesion badges ─────────────────────────────────────────────────────────────
+function badge(les, cls) {
+  return `<div class="badge ${cls}">
+    <span class="btype">${les.type_lbl}</span>
+    <span class="bpos">${les.pos_lbl}</span>
+    <span class="bqty">${les.qty_lbl}</span>
+  </div>`;
+}
+
+function renderPred(c) {
+  const el = document.getElementById('pred-list');
+  el.innerHTML = '';
+  if (!c.pred || c.pred.length === 0) {
+    el.innerHTML = '<div class="badge b-none"><span class="btype">No lesion predicted</span></div>';
+    return;
+  }
+  const seen = new Set();
+  c.pred.forEach(les => {
+    const key   = les.type + '|' + les.pos;
+    const isHit = c.hit.some(h => h.type === les.type && h.pos === les.pos);
+    const isDup = seen.has(key);
+    seen.add(key);
+    const cls = isHit ? (isDup ? 'b-none' : 'b-hit') : 'b-fp';
+    el.innerHTML += badge(les, cls);
+  });
+}
+
+function renderGT(c) {
+  const el = document.getElementById('gt-list');
+  el.innerHTML = '';
+  if (!c.gt || c.gt.length === 0) {
+    el.innerHTML = '<div class="badge b-none"><span class="btype">No lesion (GT)</span></div>';
+    return;
+  }
+  c.gt.forEach(les => {
+    const isHit = c.hit.some(h => h.type === les.type && h.pos === les.pos);
+    el.innerHTML += badge(les, isHit ? 'b-hit' : 'b-miss');
+  });
+}
+
+function renderChips(c) {
+  const el = document.getElementById('chip-row');
+  el.innerHTML = '';
+  (c.hit    || []).forEach(h => { el.innerHTML += `<span class="chip chip-hit">✓ ${h.type_lbl} · ${h.pos_lbl}</span>`; });
+  (c.missed || []).forEach(m => { el.innerHTML += `<span class="chip chip-miss">✗ Missed: ${m.type_lbl} · ${m.pos_lbl}</span>`; });
+  (c.false  || []).forEach(f => { el.innerHTML += `<span class="chip chip-fp">⚠ False+: ${f.type_lbl} · ${f.pos_lbl}</span>`; });
+}
+
+// Auto-select first case
+const first = document.querySelector('.ci');
+if (first) selectCase(first);
+</script>
+</body>
+</html>

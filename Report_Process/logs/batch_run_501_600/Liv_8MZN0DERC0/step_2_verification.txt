@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly with Gamna-Gandy bodies, upper abdominal varices (including gastroesophageal varices), and trace ascites. The patient is status post TIPS procedure. Patency of the TIPS stent cannot be assessed secondary to susceptibility artifact. The main portal vein is patent.    A treatment cavity in hepatic segment 2/3 measures 2.4 x 1.8 cm, unchanged from prior exam, and again without definite evidence for recurrent disease (LR TR nonviable).    Evaluation of postcontrast images is somewhat limited secondary to respiratory motion artifact. Within this limitation, there are no definite findings of new HCC.     On series 15 image 43, there is a 1.4 cm region of possible increased enhancement bordering segments 6 and 7. This is felt to be artifactual as nothing can be identified in this location on the precontrast images, the previous study or on the recent CT from 12/13/2021, and therefore attention at follow-up is suggested.    Cholelithiasis is again noted. Multiple cystic lesions scattered throughout the pancreas are again noted measuring up to 0.9 cm in the head neck junction, not significantly changed from prior exam, and again favored to represent sequelae of prior pancreatitis versus side branch IPMNs. There is no dilation of the main pancreatic duct. The adrenal glands and kidneys are unremarkable, with the exception of bilateral renal cysts.    There is no abdominal lymphadenopathy.    Soft tissue edema is noted along the inferior aspect of the right scapula, presumably secondary to patient's recent right scapular fracture. Right-sided rib fractures are better appreciated on recent prior CT examination.No definite evidence for new or recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "There is cirrhotic liver morphology", which directly indicates the presence of cirrhosis. According to the verification rule, if the report mentions "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=565 / Out=89
+Cost: $0.000196

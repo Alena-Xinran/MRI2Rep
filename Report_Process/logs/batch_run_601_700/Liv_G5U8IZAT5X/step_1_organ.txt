@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A 2.9 cm T2 hyperintense lesion in segment 5 has decreased in size, previously 4.7 cm. There remains heterogeneous enhancement and lipid within this mass. 
+
+New wedge-shaped perfusion in the right hepatic lobe, but no new HCC.. Multiple other small arterially enhancing foci in the right hepatic lobe without correlate on other sequences are not definitely changed, also favored to be perfusional.  Hepatic vasculature is patent.
+
+The spleen, adrenal glands, and pancreas are unremarkable. Numerous bilateral renal cysts are again noted, a few which are hemorrhagic. Focal adenomyomatosis again noted at the gallbladder fundus.
+
+Trace perihepatic ascites. No abdominal lymphadenopathy.Known HCC in segment 5 of the liver decreased in size size, although there remains internal enhancement indicating residual/recurrent viable tumor.
+
+No new HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes a known HCC lesion and perfusion changes but does not comment on the overall liver parenchyma texture or surface morphology. There is no mention of the liver being "unremarkable", "normal", or "smooth" either. However, the absence of fibrosis/cirrhosis indicators and the presence of trace ascites (which can be related to other causes like malignancy) do not meet the criteria for "Fibrosis/Cirrhosis". Based on the provided criteria, the classification defaults to "NoFibrosis/Cirrhosis" when explicit signs are not present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=404 / Out=175
+Cost: $0.000154

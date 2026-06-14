@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: No arterially enhancing mass is identified to suggest HCC. The liver is cirrhotic in morphology with unchanged dilated bile ducts within delayed enhancement of central confluent fibrosis secondary signs of portal hypertension, including splenomegaly measuring up to 18 cm, as well as paraesophageal and periumbilical varices. There are scattered hepatic cysts again noted. The common bile duct is dilated measuring up to 1.2 cm. There is no intrahepatic biliary ductal dilatation. There is a small amount of layering sludge and minimal gallbladder fundal adenomyomatosis. IVC filter is noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: There are few stable T2 hyperintense pancreatic cystic lesions measuring up to 1.6 cm in the mid body, up to 1.3 cm in the mid body/tail and up to 1.1 cm in the distal pancreatic tail, which may represent the sequela of prior pancreatitis versus side branch IPMN.
+
+Spleen: Numerous T2 hyperintense  nodules, many of which are likely benign cysts, are again noted, some of which contain fluid levels and corresponding.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are scattered subcentimeter T2 hyperintense bilateral renal cysts, some which demonstrate T1 hyperintensity, likely reflecting hemorrhagic components.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions "central confluent fibrosis" and secondary signs of portal hypertension, which are clear indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=537 / Out=56
+Cost: $0.000142

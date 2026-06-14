@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are increased small bilateral pleural effusions with bibasilar consolidations.
+
+The liver is enlarged, fatty and heterogeneous. There is no evidence of HCC. Secondary signs of portal hypertension include splenomegaly, varices and moderate amount of ascites. The hepatic vasculature is patent.
+
+The gallbladder, pancreas, kidneys, and adrenal glands are unremarkable.
+
+No lymphadenopathy is identified. Right colonic wall thickening is nonspecific in the setting of chronic liver disease.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not explicitly use the word "cirrhosis," but it describes multiple secondary signs of portal hypertension (splenomegaly, varices, ascites) in the setting of an enlarged, fatty, heterogeneous liver, which are highly indicative of cirrhosis. Additionally, it mentions chronic liver disease in the context of right colonic wall thickening. Therefore, the features of cirrhosis are present, aligning with the previously extracted status.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=299 / Out=105
+Cost: $0.000128

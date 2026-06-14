@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Left lower lobe scarring is redemonstrated.
+
+Patient is status post liver transplantation. Cirrhotic liver morphology is redemonstrated with sequela portal hypertension as evidenced by a splenorenal shunt. A subcentimeter T1 hyperintense focus in segment 6 (series 12, image 55) demonstrates no definite arterial phase enhancement or washout and is nonspecific. There are no definite findings of HCC. No biliary ductal dilatation is seen. Chronic thrombosis of portal vein is redemonstrated.
+
+Kidneys are atrophic and contain tiny cysts. The pancreas, spleen and adrenal glands are unremarkable. There is no upper abdominal adenopathy or ascites.No findings to suggest HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=341 / Out=59
+Cost: $0.000120

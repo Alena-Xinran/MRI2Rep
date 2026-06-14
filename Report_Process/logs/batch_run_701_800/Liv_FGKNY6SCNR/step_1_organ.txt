@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post orthotopic liver transplant. Again noted are blooming artifacts from coils in the right lobe. There is no abnormal arterial enhancement to suggest hepatoma. There is no intrahepatic ductal dilatation. There is mild narrowing at the arterial anastomotic site; however, the vasculature is patent.
+
+Patient is status post splenectomy and surgical formation of a splenorenal shunt. There is enhancing soft tissue interposed between the stomach and diaphragm which is stable compared to the prior study. When reviewing more remote studies, it appears that the spleen extended to this position, favoring residual splenic tissue.
+
+Pancreas, adrenal glands and kidneys are unremarkable except for multiple small bilateral renal cysts.
+
+Previously noted fluid collection has resolved. There is no adenopathy or ascites.1.No evidence of HCC. 
+2.Interval resolution of intra-abdominal fluid collection.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post orthotopic liver transplant, but does not mention any specific keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease" in relation to the current liver parenchyma. The liver itself is not described as "unremarkable", "normal", or "smooth" either; the focus is on post-transplant status, artifacts, enhancement, and vasculature. Without any direct evidence of fibrosis or cirrhosis in the parenchymal description, and based on the provided criteria which require explicit keywords or descriptions, the liver does not meet the classification for "Fibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=405 / Out=165
+Cost: $0.000150

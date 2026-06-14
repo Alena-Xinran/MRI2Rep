@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology demonstrating nodularity and areas of T2 hyperintensity most consistent with confluent fibrosis. No arterially enhancing lesions or areas of washout are noted. Diffuse hypointensity and T2 weighted imaging consistent with iron deposition. The hepatic vasculature is patent. There is a sequela of portal hypertension as evidenced by splenomegaly (17 cm previously 15 cm) and esophageal varices. Splenic cirrhotic nodules are noted in the spleen, finding most commonly encountered and portal hypertension.
+
+The pancreas, kidneys, and adrenal glands are unremarkable. Cholelithiasis is present.
+
+No abdominal adenopathy or ascites. Stable prominent peripancreatic node.
+
+Unchanged T2 hyperintense 0.8 cm lesion in L4 vertebral body and 0.6 cm lesion at the sacrum seen on localizer views when compared to CT from 2016 and likely reflect benign hemangiomas. No aggressive osseous lesion is seen. There is a fat-containing umbilical hernia.
+
+The visualized lung bases appear clear. There is a small hiatal hernia with esophageal varices.Cirrhosis with evidence of portal hypertension. No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology demonstrating nodularity" and later concludes with "Cirrhosis with evidence of portal hypertension." It also mentions findings consistent with confluent fibrosis, iron deposition, and sequelae of portal hypertension (splenomegaly, esophageal varices). These are clear indicators of chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=474 / Out=92
+Cost: $0.000139

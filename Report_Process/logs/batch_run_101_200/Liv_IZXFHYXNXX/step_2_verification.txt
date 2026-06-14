@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post right portal vein embolization. Previously seen large hepatocellular carcinoma centered in the right hepatic lobe appears to have increased in size and now measures up to 18 cm, previously 17 cm. A new area of hemorrhage/avascularity is noted within it however there are multiple regions of persistent arterial enhancement. There are now numerous new metastatic lesions throughout both hepatic lobes. For example a new 2.4 cm lesion is seen in hepatic segment 2 on image 39, series 20,001. A previously seen lesion in the right hepatic lobe has increased in size measuring 2.4 cm (image 62, series 20,001), previously 1.1 cm.     The left portal vein appears patent. The IVC and middle hepatic vein are distorted by mass effect but patent. The right hepatic vein is obscured by the mass.    The spleen, adrenal glands, pancreas and kidneys are unremarkable other than a left renal cyst. There is cholelithiasis.    There is no abdominal adenopathy or ascites.    Please see the separate report dictated by the chest service for chest findings.Worsening multifocal HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state that the liver is normal, but it focuses on describing the hepatocellular carcinoma and metastatic lesions without commenting on background liver parenchyma. Since there is no mention of cirrhosis or its features, the previously extracted status "NoFibrosis/Cirrhosis" is correct based on the provided information.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=437 / Out=115
+Cost: $0.000171

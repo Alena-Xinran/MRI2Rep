@@ -1,0 +1,67 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: The liver is cirrhotic in morphology with sequela of portal hypertension as evidenced by splenomegaly and upper abdominal collaterals. 
+
+The following treatment cavities are redemonstrated on series 15 without evidence of recurrent disease, LR TR nonviable:
+路  Image 23, a 3.0 x 1.2 cm segment 4A treatment cavity has not significant changed in size from prior, previously 2.9 x 1.4 cm.
+路  Image 26, a 1.8 x 1.1 cm segment 4A treatment cavity is stable in size.
+路  Image 41, a 3.0 x 1.3 cm segment 6/7 treatment cavity has not significantly changed in size, previously measured 3.2 x 1.4 cm.
+路  Image 51, a 1.2 x 1.1 cm segment 5 treatment cavity is stable in size.
+
+A 0.9 cm arterial enhancing observation in segment 7 is stable in size without washout or pseudocapsule (image 34, series 13), LR-3.
+
+Hepatic vasculature: Patent.
+
+Gallbladder: Unremarkable. No biliary dilatation.
+
+Pancreas: Multiple pancreatic cystic lesions are stable with the largest measuring 1.7 cm in the pancreatic uncinate process (image 20, series 4) which could represent sequela of prior pancreatitis or side branch IPMN. Those could be followed on HCC screening MRIs.
+
+Spleen: Stable splenomegaly measuring up to 17.8 cm. Splenic siderotic lesions are redemonstrated.
+
+Adrenal glands: Stable left adrenal gland thickening. The right adrenal gland is unremarkable.
+
+Kidneys: Bilateral renal cysts including hemorrhagic/proteinaceous cysts.
+
+Bowel: There is a small hiatal hernia. No bowel obstruction of the visualized bowel.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Musculoskeletal: No aggressive osseous lesion. There is a small/moderate fat and fluid containing anterior abdominal wall ventral hernia.Hepatic posttreatment changes without evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic in morphology" and mentions sequelae of portal hypertension, confirming the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=649 / Out=63
+Cost: $0.000208

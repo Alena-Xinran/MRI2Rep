@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver appears normal in morphology without findings to suggest advanced cirrhosis. There is no suspicious lesion with characteristics of HCC. There are a few stable nonspecific enhancing peripheral foci (example images 59 and 63 of series 12) without correlate on additional sequences which may be perfusional. One of these foci appears stable demonstrates persistent enhancement and T2 hyperintensity suggestive of focal nodular hyperplasia (series 13 image 62).  Multiple hepatic cysts are again noted. The portal and hepatic veins are patent.
+
+The small focus of gallbladder fundal adenomyomatosis is unchanged. The spleen, pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable renal cysts. There is no upper abdominal adenopathy or ascites. No focal osseous lesion is seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver appears normal in morphology without findings to suggest advanced cirrhosis." This indicates the liver morphology is normal and there are no features of advanced cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=363 / Out=75
+Cost: $0.000133

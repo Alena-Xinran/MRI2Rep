@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The exam is limited due to failed fat suppression on several sequences.
+
+Cirrhotic and steatotic liver with sequela of portal hypertension as evidenced by splenomegaly and paraesophageal varices. 
+
+A 3.9 x 2.9 cm ablation cavity in liver segment VII (series 15, image 28) is decreased, previously 3.9 x 3.7 cm, and demonstrates no recurrent disease.
+
+Previously seen arterially enhancing focus in liver segment VI is not identified on this exam. There are no new liver lesions with imaging features suspicious for HCC. Few tiny liver cysts are again seen. There is no biliary ductal dilatation. Hepatic vasculature is patent.
+
+Gallstones are present. Numerous cystic lesions in the pancreas measuring up to 1.8 cm are not significantly changed, presumably sequela of pancreatitis or sidebranch IPMNs. There is no associated enhancing nodularity. The downstream main pancreatic duct is again noted to be prominent measuring up to 5 mm, stable. Bilateral renal cysts, some of which are proteinaceous/hemorrhagic are unchanged. A 1.2 cm right adrenal adenoma is redemonstrated. Left adrenal gland is unremarkable. 
+
+There is no upper abdominal adenopathy or ascites.Limited study.
+
+No no evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic and steatotic liver", confirming the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=468 / Out=56
+Cost: $0.000155

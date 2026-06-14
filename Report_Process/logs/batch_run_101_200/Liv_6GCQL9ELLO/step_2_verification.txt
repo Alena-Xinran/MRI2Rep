@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are new small bilateral pleural effusions, left greater than right.
+
+The liver is cirrhotic in morphology with evidence of portal hypertension, as manifested by a recanalized periumbilical vein, upper abdominal varices, including a splenorenal shunt.
+
+On image 32, series 16, there is a new segment V/VIII hemorrhagic ablation cavity measuring 1.7 x 4.2 cm with no evidence of residual viable HCC.
+
+On image 19, series 16, a 3.0 x 3.4 cm a hemorrhagic segment VII ablation cavity has decreased in size, previously 3.5 x 3.8 cm. Peripheral enhancement around the cavity is unchanged. There is no evidence of viable HCC.
+
+No new hepatocellular carcinoma is seen.
+
+Gallstones are present. The pancreas, spleen, adrenal glands, and kidneys are unremarkable with the exception of bilateral renal cysts, some of which are proteinaceous/hemorrhagic.
+
+There is no adenopathy. Small volume ascites is present.New segment V/VIII ablation cavity with no evidence of residual HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic in morphology" and provides supporting evidence of portal hypertension, including a recanalized periumbilical vein and upper abdominal varices. This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=423 / Out=78
+Cost: $0.000151

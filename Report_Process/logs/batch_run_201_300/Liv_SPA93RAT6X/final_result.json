@@ -1,0 +1,18 @@
+{
+  "id": "Liv_SPA93RAT6X",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0008898399999999999,
+    "timestamp": "2026-02-07 00:25:23",
+    "model": "deepseek/deepseek-chat"
+  }
+}

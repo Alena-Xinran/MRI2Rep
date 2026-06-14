@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Stable postsurgical changes from right hemi-hepatectomy. No HCC. Patent portal and hepatic veins.    Gallbladder and biliary tree:Status post cholecystectomy. No intrahepatic biliary ductal dilatation.    Pancreas: Unremarkable.    Spleen: Unremarkable.    Adrenal glands: Unremarkable.    Kidneys: Unremarkable.    Bowel: No bowel obstruction.    Abdominal lymph nodes: No lymphadenopathy.No HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver as having "stable postsurgical changes from right hemi-hepatectomy" and explicitly states "No HCC." There is no mention of cirrhosis, fibrosis, or any morphological features suggestive of chronic liver disease such as nodularity, contour irregularity, or signs of portal hypertension. The portal and hepatic veins are patent. The previous extraction "NoFibrosis/Cirrhosis" aligns with the absence of any reported cirrhotic features, and the liver is not described as entirely normal due to the noted surgical history, but the status regarding fibrosis/cirrhosis is correctly negative.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=303 / Out=142
+Cost: $0.000144

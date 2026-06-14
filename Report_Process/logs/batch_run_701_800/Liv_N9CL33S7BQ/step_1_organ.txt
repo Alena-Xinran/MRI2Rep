@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: There is cirrhotic liver morphology. No suspicious hepatic lesion. No biliary dilatation. There is cholelithiasis.
+
+Vasculature: The hepatic vasculature is patent. Abdominal varices are present.
+
+Pancreas: There are scattered subcentimeter T2 hyperintense cystic lesions.
+
+Spleen: The spleen is enlarged and measures up to 18.0 cm in the AP direction.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There is a left renal cyst. The right kidney is unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: There is trace ascites.1.  No evidence for HCC.
+2.  Sequela of portal hypertension as above.
+3.  Scattered subcentimeter cystic pancreatic lesions may represent sequelae of prior pancreatitis versus side branch IPMNs. These can be reassessed on follow-up abdominal MRI in one year for future MRIs to evaluate for hepatocellular carcinoma.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is cirrhotic liver morphology," which directly indicates cirrhosis. Additionally, there are supporting findings such as abdominal varices, splenomegaly, and trace ascites, which are sequelae of portal hypertension often associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=437 / Out=70
+Cost: $0.000120

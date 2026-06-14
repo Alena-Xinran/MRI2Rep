@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is again noted, with evidence of portal hypertension including perihepatic ascites and splenomegaly. Nonocclusive thrombus in the right portal vein has slightly increased since prior exam.
+
+Multiple treatment cavities are again noted, including a 2.7 cm cavity in segment 3, a 0.9 cm cavity in segment 4A, and a 2.3 cm cavity in segment 6, stable in size, without evidence of residual or recurrent disease.
+
+Numerous arterially enhancing lesions are again noted, some of which demonstrate washout and many of which have increased in size, suspicious for HCC. For example:
+
+- There is a new 2.4 cm arterially enhancing lesion in segment 4A (image 28, series 6), with washout on delayed phase, consistent with HCC.
+
+- A 2.9 cm arterially enhancing lesion in segment 5 (image 40, series 6), with washout on delayed phase, previously 2.0 cm, consistent with HCC.
+
+- A 1.9 cm arterially enhancing lesion in segment 2 (image 27, series 6), with washout on delayed phase, previously 1.0 cm, consistent with HCC.
+
+There is moderate right hydronephrosis, although no T2 hypointense signal is seen in the right renal pelvis to suggest a large residual calculus. A 1.6 cm calculus is noted in the left renal pelvis, with mild upstream hydronephrosis. The gallbladder, pancreas and adrenal glands are unremarkable. There is no abdominal adenopathy.
+
+There is wall thickening of the cecum with enhancement. A small hiatal hernia is again noted.1. Interval worsening of multifocal HCC. No evidence of extrahepatic metastatic disease in the abdomen.
+
+2. Partially visualized thecal thickening, correlate for signs of colitis.
+
+3. Bilateral hydronephrosis, right greater than left.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is again noted," which directly indicates the presence of cirrhosis. Additionally, there is evidence of portal hypertension (perihepatic ascites and splenomegaly), which is commonly associated with advanced chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=627 / Out=69
+Cost: $0.000172

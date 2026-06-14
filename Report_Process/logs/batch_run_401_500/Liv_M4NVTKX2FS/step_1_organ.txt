@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. The spleen is enlarged and the paraumbilical vein is patent compatible with portal hypertension. There is no significant ascites.
+
+A 2.5 x 1.2 cm ablation cavity in segment 5 (series 14, image 49) is unchanged in size when measured similarly and without evidence of recurrent neoplasm.
+
+A 1.4 x 1.0  cm ablation cavity in segment 4 (series 14, image 46) is unchanged in size when measured similarly and without evidence of recurrent neoplasm.
+
+There is no evidence of HCC. Hepatic vasculature is patent. There is hepatic steatosis.
+
+The adrenal glands and kidneys are unremarkable. A nonspecific 8 mm cystic structure in the head of the pancreas is stable, which may represent a sidebranch IPMN versus sequela of previous pancreatitis. Scattered nonspecific subcentimeter periportal and retroperitoneal lymph nodes are stable.Cirrhotic liver with sequela of portal hypertension.
+
+No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhotic liver with sequela of portal hypertension." These are direct mentions of cirrhosis, meeting the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=441 / Out=64
+Cost: $0.000118

@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post partial hepatectomy. There has been interval enlargement of multiple T2 hyperintense, arterially enhancing lesions within the liver, some of which display washout. For example a prior conglomerate lesion now measures 3.8 cm, previously measured 3.4 cm (series 5, image 26). A prior 1.2 cm lesion now measures 2.7 cm (series 5, image 31). Previously identified 0.9 cm lesion in the right hepatic lobe now measures 1.7 cm (series 5, image 24). A prior 1.4 cm lesion now measures 2.4 cm (series 5, image 21).  Multiple other lesions also have increased in size. No new lesions are identified.
+
+The portal venous system remains patent. An elongated T2 hyperintense focus is again noted near the dome, unchanged.
+
+The adrenal glands, kidneys, pancreas, and spleen are unremarkable with the exception of a stable T1 signal artifact within the anterior spleen.
+
+Susceptibility artifact from prior surgical changes are seen in the anterior abdomen. There is no abdominopelvic lymphadenopathy or ascites.
+
+No aggressive osseous lesions are identified.Continued enlargement of multifocal HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multiple arterially enhancing lesions with washout and interval enlargement, consistent with hepatocellular carcinoma (HCC), but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators and the focus on metastatic/progressive HCC without parenchymal texture comments suggests no direct evidence of fibrosis or cirrhosis is provided.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=489 / Out=131
+Cost: $0.000160

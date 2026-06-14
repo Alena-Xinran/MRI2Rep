@@ -1,0 +1,70 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic morphology, with sequelae of portal hypertension including upper abdominal varices.
+
+Portable ablation cavities are again noted as follows:
+Segment 2 measures 2.7 x 1.8 cm (series 18 image 29), previously 2.8 x 1.8 cm. There is no evidence of recurrent residual or recurrent HCC. 
+
+Segment 2/3 lesion measuring 1.2 x 1.1 cm (series 18 image 33), previously 1.2 x 1.0 cm. There is no evidence of residual or recurrent HCC.
+
+Multiple arterially enhancing nodules without pseudocapsule are washout are again noted, as follows:
+
+Lesion within segment 7 has decreased, measuring 5 mm in (series 14 image 24), previously 1.2 cm. 
+Lesion within the caudate lobe is unchanged, measuring 1.8 cm (series 14 image 40), previously 1.8 cm.
+
+Scattered nodular arterially enhancing foci are overall unchanged, with no evidence of HCC.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Cholelithiasis is noted..
+
+Pancreas: Multiple cysts throughout the pancreas are stable, including multilobulated cystic lesion at the pancreatic body measuring 1.2 cm on (series 5 image 26). This again probably represents small side branch IPMN or sequelae of prior pancreatitis, and amenable to follow-up.
+
+Spleen: Splenomegaly is noted..
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Multiple bilateral renal cysts are stable, including 1.8 cm proteinaceous cyst at the superior pole of the left kidney.
+
+Bowel: Sliding hiatal hernia. No bowel obstruction..
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Minimal perihepatic ascites.
+
+Retroperitoneum: Stable 1.2 cm aortocaval cystic lesion (series 5 image 33) is nonspecific, probably prominent lymphatic duct.No viable HCC.
+ Stable to decreased nodular arterially enhancing foci, amenable to further follow up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" in the liver description, which directly indicates cirrhosis. Additionally, there are sequelae of portal hypertension including upper abdominal varices and splenomegaly, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=663 / Out=65
+Cost: $0.000181

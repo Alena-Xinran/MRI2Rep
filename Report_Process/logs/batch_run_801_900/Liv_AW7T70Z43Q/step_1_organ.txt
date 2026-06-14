@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Lung bases are clear. Again noted is a cirrhotic liver with findings of iron deposition. Regions of iron deposition in the spleen are also noted. Stable 2.9 cm segment 8 ablation cavity without any findings of recurrent disease. No new lesions suspicious for HCC.
+
+There is increased thrombus compared to the most recent comparison exam within the proximal main portal vein which is nonocclusive. Intrahepatic branches remain patent. Some varices/portosystemic shunts are again seen within the mesentery.
+
+Some scattered pancreatic cysts are noted in the head which appears stable without any dilatation the main pancreatic duct. No worrisome internal enhancement. Unchanged tiny renal cysts and some regions of scarring.  Adrenal glands appear unremarkable with stable thickening on the right.
+
+No adenopathy. No ascites.No findings of recurrent HCC.
+
+Increased nonocclusive bland appearing thrombus in the proximal main portal vein.
+
+
+These findings have been submitted to the YNHHS Radiology Communication Center to ensure provider is aware of findings.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "a cirrhotic liver" in the first sentence, which directly meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=435 / Out=46
+Cost: $0.000109

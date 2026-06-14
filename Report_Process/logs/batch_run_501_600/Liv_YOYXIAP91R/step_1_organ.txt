@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: Cirrhotic liver morphology. No HCC. Portal and hepatic veins are patent. No bile duct dilatation. Status post cholecystectomy.
+
+Portal hypertension with splenomegaly and gastroesophageal varices..
+
+Pancreas: 2.9 cm T1 hyperintense heterogeneous cystic mass in the pancreatic tail is unchanged in size (remeasured on the prior study). Internal enhancement cannot be evaluated on this exam due to motion. Pancreatic duct is not dilated.
+
+Adrenal glands and kidneys are unremarkable.
+
+Small ascites is unchanged. No lymphadenopathy. No aggressive osseous lesions.Cirrhosis and portal hypertension.. No HCC.
+
+Unchanged complex mass in the pancreatic tail. Enhancement cannot be evaluated on this exam due to motion.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and repeats "Cirrhosis and portal hypertension," which directly meet the criteria for keywords indicating fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=50
+Cost: $0.000097

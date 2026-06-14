@@ -1,0 +1,125 @@
+=== STEP: step_3_extraction_run_3 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Cirrhotic morphology of the liver is again noted with sequela of portal hypertension including splenomegaly, patent paraumbilical vein, and upper abdominal varices. Liver lesions are as follows:
+
+1.Segment 4B ablation cavity now measures 3.0 x 3.0 cm (image 26, series 11), decreased in size from the prior study where it measured 3.9 x 2.4 cm. New nodular areas of peripheral enhancement (image 22, 29, series 12) are nonspecific, however should be monitored on subsequent exams to exclude recurrent tumor.
+2.At the superior medial margin of the ablation cavity, a new 1.2 cm arterial enhancing liver mass with washout and pseudocapsule is compatible with HCC (image 21, series 11).
+3.Along the inferior medial aspect of segment 3, a new 1.3 cm arterial enhancing liver mass with washout and pseudocapsule is compatible with HCC (image 33, series 11).
+4.0.8 cm segment 8 arterial enhancing liver mass now demonstrates washout and pseudocapsule (image 16, series 11), previously measuring 1 cm. While this does not meet OPTN criteria, this is highly suspicious for HCC.
+5.2 new subcentimeter segment 3 arterial enhancing liver masses with washout and pseudocapsule do not meet OPTN criteria, however are highly suspicious for HCC (image 34, series 11).
+6.Multiple new subcentimeter peripheral arterial enhancing lesions without washout or T2 correlate are indeterminate. 
+
+Scattered liver cysts are again noted. The portal and hepatic veins are patent. Aneurysmal dilation of an anterior branch of the left portal vein is unchanged. Trace perihepatic ascites is noted.
+
+The adrenal glands, kidneys, gallbladder, and pancreas are unremarkable. There is no bowel wall thickening or dilation. There is no upper abdominal lymphadenopathy or focal osseous lesion.1.2 new liver masses compatible with HCC (OPTN class 5A) 
+2.Subcentimeter arterial enhancing liver masses with washout and pseudocapsule are highly suspicious for HCC, however do not meet OPTN criteria
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: Cirrhotic morphology of the liver is again noted with sequela of portal hypertension including splenomegaly, patent paraumbilical vein, and upper abdominal varices. -> Background info, no focal lesion.  
+Sentence 2: Liver lesions are as follows: -> Introduction, no lesion.  
+Sentence 3: 1.Segment 4B ablation cavity now measures 3.0 x 3.0 cm (image 26, series 11), decreased in size from the prior study where it measured 3.9 x 2.4 cm. -> Found lesion. Features: Ablation cavity (treated lesion). Maps to RIM_ATYP (treated lesion/scar). Loc: Seg 4B (L_MED).  
+Sentence 4: New nodular areas of peripheral enhancement (image 22, 29, series 12) are nonspecific, however should be monitored on subsequent exams to exclude recurrent tumor. -> Found observation. Features: Nodular peripheral enhancement (atypical). Maps to RIM_ATYP. Location not specified (DIFFUSE).  
+Sentence 5: 2.At the superior medial margin of the ablation cavity, a new 1.2 cm arterial enhancing liver mass with washout and pseudocapsule is compatible with HCC (image 21, series 11). -> Found lesion. Features: APHE + Washout + pseudocapsule. Maps to APHE_WO. Loc: At margin of ablation cavity in Seg 4B (L_MED).  
+Sentence 6: 3.Along the inferior medial aspect of segment 3, a new 1.3 cm arterial enhancing liver mass with washout and pseudocapsule is compatible with HCC (image 33, series 11). -> Found lesion. Features: APHE + Washout + pseudocapsule. Maps to APHE_WO. Loc: Seg 3 (L_LAT).  
+Sentence 7: 4.0.8 cm segment 8 arterial enhancing liver mass now demonstrates washout and pseudocapsule (image 16, series 11), previously measuring 1 cm. -> Found lesion. Features: APHE + Washout + pseudocapsule. Maps to APHE_WO. Loc: Seg 8 (R_ANT).  
+Sentence 8: While this does not meet OPTN criteria, this is highly suspicious for HCC. -> Additional qualifier, no new lesion.  
+Sentence 9: 5.2 new subcentimeter segment 3 arterial enhancing liver masses with washout and pseudocapsule do not meet OPTN criteria, however are highly suspicious for HCC (image 34, series 11). -> Found lesions. Features: APHE + Washout + pseudocapsule. Maps to APHE_WO. Loc: Seg 3 (L_LAT). Quantity: 2.  
+Sentence 10: 6.Multiple new subcentimeter peripheral arterial enhancing lesions without washout or T2 correlate are indeterminate. -> Found observations. Features: APHE + No Washout. Maps to APHE_NoWO. Location not specified (DIFFUSE). Quantity: Multiple.  
+Sentence 11: Scattered liver cysts are again noted. -> Found observations. Features: Simple cysts. Maps to CYST. Location not specified (DIFFUSE). Quantity: Multiple.  
+Sentence 12: The portal and hepatic veins are patent. -> Background, no lesion.  
+Sentence 13: Aneurysmal dilation of an anterior branch of the left portal vein is unchanged. -> Vascular finding, not a parenchymal lesion.  
+Sentence 14: Trace perihepatic ascites is noted. -> Background, no lesion.  
+Sentence 15: The adrenal glands, kidneys, gallbladder, and pancreas are unremarkable. -> Other organs, ignore.  
+Sentence 16: There is no bowel wall thickening or dilation. -> Negative finding.  
+Sentence 17: There is no upper abdominal lymphadenopathy or focal osseous lesion. -> Negative finding.  
+Sentence 18: 1.2 new liver masses compatible with HCC (OPTN class 5A) -> Summary/redundant with earlier sentences, no new lesion.  
+Sentence 19: 2.Subcentimeter arterial enhancing liver masses with washout and pseudocapsule are highly suspicious for HCC, however do not meet OPTN criteria -> Summary/redundant, no new lesion.
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | L_MED | 1  
+TUMOR_RECORD: RIM_ATYP | DIFFUSE | Multiple  
+TUMOR_RECORD: APHE_WO | L_MED | 1  
+TUMOR_RECORD: APHE_WO | L_LAT | 1  
+TUMOR_RECORD: APHE_WO | R_ANT | 1  
+TUMOR_RECORD: APHE_WO | L_LAT | 2  
+TUMOR_RECORD: APHE_NoWO | DIFFUSE | Multiple  
+TUMOR_RECORD: CYST | DIFFUSE | Multiple
+
+--- EXTRACTED INFO ---
+RIM_ATYP | L_MED | 1  
+RIM_ATYP | DIFFUSE | Multiple  
+APHE_WO | L_MED | 1  
+APHE_WO | L_LAT | 1  
+APHE_WO | R_ANT | 1  
+APHE_WO | L_LAT | 2  
+APHE_NoWO | DIFFUSE | Multiple  
+CYST | DIFFUSE | Multiple
+
+--- USAGE ---
+Tokens: In=1299 / Out=1086
+Cost: $0.000497

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant. There are no lesions with imaging appearance of hepatocellular carcinoma. Thrombus within the excluded portion of the donor IVC is again noted and does not involve the IVC anastomotic site (image 32, series 15). There has been interval placement of a stent within the common bile duct. There is no biliary ductal dilatation. Pneumobilia is noted.
+
+The spleen, adrenal glands, and kidneys are unremarkable with the exception of left renal cysts. A 3 mm cystic lesion within the pancreatic uncinate process is unchanged and may present a side branch IPMN or sequelae of previous pancreatitis (image 15, series 3).
+
+There is no abdominal ascites or adenopathy. A stable 7.1 cm mass within the left lower pleural space is again seen. There is trace left pleural fluid.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described, but the patient is status post liver transplant, which implies underlying liver disease history; however, the current description focuses on post-transplant findings (no HCC, thrombus, biliary stent) without stating the condition of the liver parenchyma. Since there is no direct evidence of fibrosis or cirrhosis in the provided text, and the spleen, adrenal glands, and kidneys are noted as unremarkable (though this does not directly describe the liver), the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of specified keywords.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=404 / Out=177
+Cost: $0.000155

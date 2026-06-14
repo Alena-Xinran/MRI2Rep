@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 17 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+There is a large hepatocellular carcinoma within the right hepatic lobe measuring 18.0 x 11.7 cm, with more cystic areas within it, likely due to treatment effect. There is hemorrhagic within the ablation cavity, and there are persistent large, arterially enhancing regions within the ablation cavity which are concerning for residual disease. 
+
+The right portal vein is attenuated. There is dilation of the right intrahepatic bile ducts due to mass effect from the large tumor.
+
+The gallbladder, spleen, kidneys, pancreas, and adrenal glands are unremarkable except for renal cysts.
+
+There is no adenopathy. There is trace perihepatic ascites. No aggressive osseous lesions are seen.Large right hepatic hepatocellular carcinoma with large areas of residual tumor status post TACE.
+No new HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension like varices or splenomegaly). It describes a large hepatocellular carcinoma and related findings, but the liver parenchyma outside the tumor is not characterized. The spleen is noted as unremarkable, and there is only trace ascites, which in this context is likely related to the tumor or treatment rather than chronic liver disease. Since the report does not explicitly state "cirrhosis" or describe features of cirrhosis, and does not state the liver is normal, the previous extraction "NoFibrosis/Cirrhosis" is appropriate based on the provided information.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=164
+Cost: $0.000191

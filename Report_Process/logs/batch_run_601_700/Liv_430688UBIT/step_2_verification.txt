@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The imaged lung bases demonstrate no abnormality.
+
+There is a cirrhotic liver morphology with sequelae of portal hypertension manifested as splenomegaly up to 14.1 cm, recanalization of the paraumbilical vein, and paraesophageal and perisplenic varices.
+
+There is a stable 0.5 cm arterially enhancing observation in segment 2 without washout or pseudocapsule (LI RADS 3). No new lesions concerning for HCC are noted. The hepatic vasculature is patent.
+
+There is cholelithiasis. Pancreas, adrenal glands, and kidneys are unremarkable.
+
+Once again a periampullary duodenal diverticulum is incidentally noted.
+
+There is no abdominal lymphadenopathy.
+
+Bone marrow signal is within normal limits.Cirrhosis with portal hypertension. No HCC. Stable 0.5 cm segment 2 observation (LR 3); amenable to continued follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "There is a cirrhotic liver morphology" and later summarizes "Cirrhosis with portal hypertension." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=389 / Out=65
+Cost: $0.000136

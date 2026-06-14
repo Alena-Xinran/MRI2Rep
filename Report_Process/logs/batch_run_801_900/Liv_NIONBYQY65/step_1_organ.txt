@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Lung bases are clear. Visualized adjacent structures are unremarkable.
+Subcapsular cyst in the left hepatic lobe is again noted. Liver appears morphologically similar. No lesion concerning for HCC noted. No intrahepatic or extrahepatic biliary ductal dilatation. No pancreatic parenchymal or ductal abnormality.
+Previously seen tiny pancreatic cystic lesion is probably unchanged, not well visualized. Spleen is nonenlarged. Adrenals are unremarkable. Kidneys appear symmetric with a few T2 hyperintense cystic lesions. T2 hyperintense cystic lesion in the upper pole of the left kidney is likely a small hemorrhagic cyst. Attention on follow-up. No hydronephrosis. Stable periportal lymph nodes. Stable splenic artery aneurysm. Otherwise no vascular abnormality. No free fluid. No omental or peritoneal nodularity. No osseous abnormality. Partially visualized breasts are unremarkable.1. No evidence of HCC. Arterial phase evaluation slightly limited in the areas of liver adjacent to the hepatic flexure due to bowel peristalsis. Also some of delayed phases limited due to patient motion, no definite washout.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described as "morphologically similar" with no concerning lesions, but there is no specific mention of "unremarkable", "normal", or "smooth" regarding the liver parenchyma itself. However, given the absence of any indicators of fibrosis or cirrhosis, and the overall stable appearance with no noted abnormalities in texture or contour, the condition aligns with no evidence of fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=465 / Out=142
+Cost: $0.000158

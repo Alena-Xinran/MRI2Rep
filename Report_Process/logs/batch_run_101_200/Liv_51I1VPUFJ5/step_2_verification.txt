@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 15 Dotarem was administered intravenously. Sequences include axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Patient is status post subtotal segment 2 resection. There is no HCC. The portal and hepatic veins are patent.
+
+The spleen, pancreas, gallbladder, adrenal glands and kidneys are unremarkable.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension). It only notes a prior segment 2 resection and states "There is no HCC" and "The portal and hepatic veins are patent," but does not explicitly describe the liver parenchyma as normal. However, the absence of any mention of cirrhosis or fibrosis, combined with the lack of described abnormalities in the liver aside from the resection, suggests the liver is considered unremarkable for cirrhosis. The previously extracted status "NoFibrosis/Cirrhosis" aligns with the report's silence on cirrhosis features.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=294 / Out=154
+Cost: $0.000147

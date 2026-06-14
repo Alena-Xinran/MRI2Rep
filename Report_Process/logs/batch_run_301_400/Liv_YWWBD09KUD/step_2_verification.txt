@@ -1,0 +1,65 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with sequela of portal hypertension including splenomegaly. The hepatic vasculature is patent. There is stable mild prominence of the intrahepatic biliary ducts.
+
+-On series 900, image 192, a segment 7 hemorrhagic ablation cavity measures 4.2 x 4.1 cm, previously 5.6 x 4.1 cm. No evidence of residual or recurrent disease.
+
+-On series 900, image 214, a segment 5/6 ablation cavity measures 5.4 x 2.2 cm, previously 6.2 x 2.8 cm. No evidence of residual or recurrent disease.
+
+-A conglomerate mass of multiple adjacent arterially enhancing lesions in segments 7 is overall increased in size measuring 5.4 cm on series 9, image 16-33, (measured on image 21), previously 4.5 cm and demonstrates washout and pseudocapsule (series 9, image 185-199). This is consistent with hepatocellular carcinoma, OPTN 5X.
+
+-There is a stable 1.8 cm arterially enhancing lesion in segment 8 (series 9, image 25) demonstrating washout and pseudocapsule (series 900, image 102). This is consistent with hepatocellular carcinoma, OPTN 5A.
+
+-There is a new 2.0 cm arterially enhancing lesion in segment 6 (series 9, image 40), demonstrating washout and pseudocapsule (series 900, image 117). This is consistent with hepatocellular carcinoma, OPTN 5B.
+
+-There is a new 1.9 cm arterially enhancing lesion in segment 5/6 (series 9, image 41) demonstrating washout and pseudocapsule (series 9, image 211). This is consistent with hepatocellular carcinoma, OPTN 5A.
+
+Numerous additional arterially enhancing lesions without pseudocapsule or washout are indeterminate but suspicious for additional sites of multifocal disease.
+
+The right adrenal ablation cavity is decreased in size measuring 2.4 x 2.1 cm, previously 3.0 x 2.8 cm. An implant inferior to the ablation cavity is increased in size measuring 5.0 cm, previously 2.9 cm (series 9, image 53).
+
+There is nonspecific gallbladder distention. The pancreas, left adrenal gland, and kidneys are unremarkable. There is no ascites or abdominal adenopathy.Multifocal HCC, with enlargement of a conglomerate of arterially enhancing lesions within segment 7, overall spanning at least 5 cm. OPTN 5X.
+
+New segment 6 lesion, meeting criteria for HCC, OPTN 5B. 
+
+New segment 5/6 lesion, meeting criteria for HCC, OPTN 5A. 
+
+Stable segment 8 lesion, meeting criteria for HCC, OPTN 5A.
+
+Enlarging right adrenal gland metastasis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver is cirrhotic in morphology", which directly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=816 / Out=53
+Cost: $0.000251

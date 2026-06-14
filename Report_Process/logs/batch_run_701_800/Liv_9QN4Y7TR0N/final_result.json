@@ -1,0 +1,46 @@
+{
+  "id": "Liv_9QN4Y7TR0N",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_POST",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "RIM_ATYP",
+      "position": "L_MED",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 5,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | R_JUNCTION | Multiple\", \"RIM_ATYP | L_MED | 1\", \"RIM_ATYP | R_JUNCTION | Multiple\", \"RIM_ATYP | R_POST | 1\"]": 1,
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_POST | Multiple\", \"RIM_ATYP | L_MED | 1\", \"RIM_ATYP | R_POST | 1\", \"RIM_ATYP | R_POST | Multiple\"]": 2,
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_POST | Multiple\", \"RIM_ATYP | R_POST | 1\"]": 2
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0016603720000000002,
+    "timestamp": "2026-02-08 02:07:08",
+    "model": "deepseek/deepseek-chat"
+  }
+}

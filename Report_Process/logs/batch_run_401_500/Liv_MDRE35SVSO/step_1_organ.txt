@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplantation. There is no HCC. 1.7 cm tubular cystic structure within segment 6 is unchanged, possibly a biloma. The hepatic vasculature is patent.
+
+There is interval decrease in size of the previously seen perihepatic fluid collections. For instance, on series 4 image 27, 2 cm fluid collection adjacent to the caudate previously measured 8.5 cm. On series 4 image 12, a 3 cm fluid collection  between the stomach and the liver previously measured 7 cm. A small amount of free ascites is noted.
+
+Mild splenomegaly is unchanged. The pancreas, kidneys, and adrenal glands are unremarkable, except for bilateral renal cysts and nonspecific thickening of the left adrenal gland. 
+
+The prominent subcentimeter left para-aortic lymph nodes are unchanged, reactive.Status post liver transplantation, without evidence of HCC.
+
+Interval decrease in perihepatic fluid collections.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a patient status post liver transplantation, but does not mention specific keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the context is a post-transplant evaluation focusing on fluid collections and other findings. Since no direct evidence of fibrosis or cirrhosis is stated in the provided text, and the absence of such keywords, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=422 / Out=137
+Cost: $0.000143

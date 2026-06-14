@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with an average mean stiffness of 10.2kPa consistent with cirrhosis (stage IV). There is hepatic steatosis. No hepatic lesion suspicious for HCC. There is splenomegaly which measures 20 cm craniocaudally. 
+
+Incidental note is made of a pelvic right kidney which is partially imaged. The left kidney is unremarkable. The pancreas, gallbladder and adrenal glands are unremarkable.
+
+There is no lymphadenopathy or ascites.
+
+Reference values: (Eur Radiol. 2016 May ; 26(5): 1431-1440. doi:10.1007/s00330-015-3949-z.)
+Optical cut-off (kPa): 
+2.88-3.53 kPa = Any fibrosis (stage 1)
+3.54- 3.76 kPa = Significant fibrosis (stage 2)
+3.77-4.08 kPa = Advanced fibrosis (stage 3)
+&gt; 4.09kPa = Cirrhosis (stage 4)No evidence of HCC.
+
+The average mean stiffness of the liver is 10.2kPA consistent with cirrhosis (stage IV)
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and includes an average mean stiffness of 10.2 kPa, which is noted as "consistent with cirrhosis (stage IV)". This directly meets the criteria for keywords indicating fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=468 / Out=67
+Cost: $0.000127

@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+See chest CT performed same day for thoracic findings.
+
+Patient is status post right hepatectomy. There are no findings of recurrent hepatocellular carcinoma. Postoperative fluid collection along the resection margin measures 10.4 cm, previously 11.2 cm. Scattered hepatic cysts are again seen.
+
+A 1.0 cm cystic lesion within the pancreatic uncinate process demonstrates little interval change and may reflect a sidebranch IPMN. There is no main pancreatic duct dilation. The kidneys, spleen, and adrenal glands are unremarkable, except for bilateral renal cysts. A retroaortic left renal vein is noted.
+
+There is no abdominal adenopathy. No aggressive osseous lesions identified.No findings of recurrent or residual HCC. Slight interval decrease in organized fluid collection along the resection margin.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). It only notes status post right hepatectomy, no recurrent HCC, postoperative fluid collection, and scattered hepatic cysts. There is no description of liver parenchyma morphology indicating fibrosis or cirrhosis. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=109
+Cost: $0.000146

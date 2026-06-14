@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Evaluations limited by patient motion artifact on multiple sequences.
+
+The liver is cirrhotic with sequela portal hypertension including splenomegaly and upper abdominal varices.. Small stable hepatic cysts are noted. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is grossly patent.
+
+The kidneys, adrenal glands, and pancreas are unremarkable, except for a stable subcentimeter hemorrhagic cyst in the left upper renal pole and grossly stable sub-5 mm cystic lesions in the pancreas that likely represent sidebranch IPMNs or sequela of prior pancreatitis (i.e. series 3, image 20). Gallstones are present in the gallbladder wall is mildly thickened, presumably secondary to liver disease.
+
+There is trace abdominal ascites. Multiple nonspecific retroperitoneal nodes are seen measuring up to 1.2 cm in short axis (series 15, image 52), slightly increased in size of uncertain significance. Partially visualized lumbar spine fusion hardware and laminectomy changes again noted. There has been interval increase in right pleural effusion, now moderate, and slight interval increase in small left pleural effusion. Increased signal on the T1-weighted sequences within the right pleural effusion is nonspecific, but felt to be artifactual.Evaluation is limited by patient motion artifact on multiple sequences.
+
+No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic", which directly indicates cirrhosis. According to the verification rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=465 / Out=75
+Cost: $0.000162

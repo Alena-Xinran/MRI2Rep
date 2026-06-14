@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver again demonstrates cirrhotic morphology with sequela of portal hypertension including gastroesophageal varices and splenomegaly. There is no intra or extrahepatic ductal dilatation. The hepatic vasculature is patent.
+
+A segment VIII ablation cavity now measures 1.9 x 1.4 cm, previously 2.1 x 1.4 cm. There is interval increased arterial enhancement surrounding the ablation cavity, with some areas appearing more nodular along the posterior aspect (image 21, series 12), highly suspicious for local recurrence. 
+
+There are new and increasing foci of arterial enhancement, for instance a segment III lesion now measures 1.1 cm (image 55, series 12) as compared to 0.8 cm on prior exam. This lesion also demonstrates pseudocapsule but no washout (LI-RADS 4.)
+
+A 1.3 cm arterially enhancing lesion in segment VII (image 14, series 12) measured 1.0 cm on prior exam and demonstrates pseudocapsule without washout (LI-RADS 4).
+
+There are multiple arterial phase enhancing nodular foci without washout or pseudocapsule. Some of these are new (image 19 and 28, series 12) (LIRADS 3).
+
+Bilateral renal cysts are redemonstrated. Stable appearance small cystic lesions within the pancreatic body, likely representing a sidebranch IPMN or sequela of prior pancreatitis. The gallbladder and adrenal glands are unremarkable.
+
+No abdominal lymphadenopathy. Trace ascites is again noted.Findings highly suspicious for recurrent neoplasm around the treatment cavity.
+
+Interval growth of 2 other lesions in the liver, suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver again demonstrates cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension (gastroesophageal varices and splenomegaly), which are commonly associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=574 / Out=65
+Cost: $0.000156

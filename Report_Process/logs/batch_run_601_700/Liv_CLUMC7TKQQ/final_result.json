@@ -1,0 +1,25 @@
+{
+  "id": "Liv_CLUMC7TKQQ",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "L_MED",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"RIM_ATYP | L_MED | 1\"]": 2,
+      "[\"RIM_ATYP | L_MED | 1\", \"RIM_ATYP | L_MED | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0012430040000000002,
+    "timestamp": "2026-02-08 00:42:48",
+    "model": "deepseek/deepseek-chat"
+  }
+}

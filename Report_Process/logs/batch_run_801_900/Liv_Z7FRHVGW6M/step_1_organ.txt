@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Small bilateral pleural effusions are present.
+
+The liver demonstrates morphologic features of cirrhosis. A splenorenal shunt and paraesophageal varices are compatible with portal hypertension. No definite HCC is identified, although evaluation of the liver is suboptimal. The hepatic vasculature is patent.
+
+Iron deposition in the liver and pancreas are noted. 
+
+Liver iron quantification is as follows:
+Red is exponential fit with offset. T2* = 4.8 ms with an offset of 6.9
+This corresponds to 5.45 mg / g iron based on the study cohort of Wood et al. Blood 2005; 106:1460-1465. 
+
+There is cholelithiasis. There is no biliary ductal dilatation or choledocholithiasis.
+
+The spleen, adrenal glands, and kidneys are unremarkable with exception of a small left renal cyst.Very limited examination.
+
+Cirrhosis with portal hypertension without definite findings of HCC.
+
+Liver iron quantification, as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis with portal hypertension". These are direct keywords indicating cirrhosis, which is advanced fibrosis. Additional findings like splenorenal shunt and varices support portal hypertension, a complication of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=429 / Out=72
+Cost: $0.000118

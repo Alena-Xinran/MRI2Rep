@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The majority of the right subcapsular HCC is now hypoenhancing or nonenhancing and has decreased in size now measuring 5.7 x 3.3 cm (image 45, series 6), previously 6.4 x 5.2 cm, however there continues to be nodular arterial enhancement along the posterior and medial aspect of the treatment cavity, suspicious for residual tumor. Multiple enlarged periportal lymph nodes continue to increase in size with the largest lymph node now measuring 4.0 cm (image 33, series 6). Scattered areas of arterial enhancement in segment 5/8 demonstrate persistent enhancement and are likely related to radioembolization. 
+
+The spleen, adrenal glands, and pancreas are unremarkable with the exception of pancreas divisum variant. Multiple bilateral renal cysts are unchanged and the kidneys are otherwise unremarkable. 
+
+There is no bowel wall thickening or bowel dilation. There is no upper abdominal ascites or focal osseous lesion. Infrarenal 3 cm abdominal aortic aneurysm is stable. Lipomatous hypertrophy of the interatrial septum is partially imaged.Decreased HCC status post radioembolization. Increased in periportal lymphadenopathy.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). It also does not explicitly state that the liver is normal, but the focus is on HCC status post-treatment and lymphadenopathy. Since there is no mention of cirrhosis or its features, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=109
+Cost: $0.000170

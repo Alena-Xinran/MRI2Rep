@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 15 Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: Patient is status post partial segmentectomy. Few nonspecific punctate foci of arterial enhancement in the right hepatic lobe are less conspicuous than on the previous exam, without washout. No new masses are identified. 
+
+Hepatic vasculature: Patent.
+
+Gallbladder:Surgically absent.
+
+Pancreas:Unremarkable.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys:Multiple bilateral renal cysts are again seen, some of which are hemorrhagic.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver findings describe post-surgical changes and nonspecific arterial enhancement without washout, but no descriptors indicating fibrosis or cirrhosis. The liver is not explicitly described as "unremarkable", "normal", or "smooth", but the absence of positive criteria for fibrosis/cirrhosis and the lack of any chronic liver disease indicators suggest no evidence of fibrosis or cirrhosis in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=434 / Out=137
+Cost: $0.000147

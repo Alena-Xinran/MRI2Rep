@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic morphology of the liver is again noted with sequela of portal hypertension including a small amount of ascites, splenomegaly, patent paraumbilical vein, and upper abdominal varices. Stable segment 8 ablation cavity again measures 1.7 cm (image 9, series 7). Arterial enhancement anterior to the ablation cavity is less conspicuous, again measuring 1.9 cm (image 10, series 7). 8mm peripheral arterial enhancing focus in segment 8 is unchanged (image 19, series 7).
+Stable nonocclusive bland thrombus in the main portal vein is again noted. The hepatic veins are patent.
+
+The adrenal glands, kidneys, gallbladder, and pancreas are unremarkable. No bowel wall thickening or bowel dilation.
+
+Prominent periportal lymph nodes are unchanged. No focal osseous lesion is identified.Treated HCC. No recurrent or residual tumor. No new HCC.
+ Stable nonocclusive bland main portal vein thrombus.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic morphology of the liver" and describes sequelae of portal hypertension (ascites, splenomegaly, varices), which are definitive features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=402 / Out=75
+Cost: $0.000144

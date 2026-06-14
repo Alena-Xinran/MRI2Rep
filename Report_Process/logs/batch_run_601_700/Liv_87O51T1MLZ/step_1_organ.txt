@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The treatment cavity in segment 6 measures 2.4 x 0.7 cm (previously 2.6 x 0.8 cm) without evidence of active or recurrent disease (series 16001, image 53).
+An arterially enhancing 10 mm lesion with increased T2 signal in segment 7 (series 14001, image 27) is stable in size and demonstrates no washout or pseudocapsule, this is suspicious for HCC (LI-RADS 4) but dose not meet OPTN criteria. The previously noted subcentimeter enhancing foci are not seen, possibly due to slightly early arterial phase compared to prior exam. The right hepatic lobe hemangioma is again seen. Hepatic vasculature is patent.
+
+No upper abdomen lymphadenopathy or ascites is seen.
+
+Pancreatic cystic lesions are stable measuring up to 1.1 cm. This may represent side branch IPMN or sequela of chronic pancreatitis. The main pancreatic duct appears normal.
+
+The gallbladder, spleen, right adrenal and kidneys are unremarkable except for bilateral renal cysts and a hemorrhagic left upper pole kidney cyst. The left adrenal is again noted to be nodular.No evidence of recurrent hepatocellular carcinoma at the ablation cavity.
+
+Stable 1 cm arterial enhancing lesion is suspicious for HCC, continued short term follow-up is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described, but there is mention of a hemangioma and lesions suspicious for HCC, which are focal findings, not diffuse parenchymal changes indicative of fibrosis or cirrhosis. The absence of ascites and the patent hepatic vasculature are noted, but these are not definitive for ruling out fibrosis. However, based on the provided criteria, since none of the specified keywords are present and the liver is not described as "unremarkable", "normal", or "smooth" either, the classification defaults to "NoFibrosis/Cirrhosis" as there is no positive evidence of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=499 / Out=185
+Cost: $0.000185

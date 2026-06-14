@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic liver morphology. Heterogeneous arterial enhancement without focal suspicious lesion. No biliary dilatation. Status post cholecystectomy.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly measuring 18.7 cm craniocaudal.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Partially included, visualized portions are unremarkable. A probable hemorrhagic or proteinaceous cyst from the lower pole of the right kidney is unchanged since 2/10/2018 although not fully characterized as it is not fully included.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: Unchanged 1.7 cm portacaval lymphadenopathy.
+
+Peritoneum: No ascites.Cirrhotic liver morphology and evidence of portal hypertension. No evidence for HCC.
+
+
+YNHHS Radiology Notify Critical Result system classification: Routine.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" in the hepatobiliary system section and reiterates "Cirrhotic liver morphology and evidence of portal hypertension" in the conclusion. These are direct keywords indicating cirrhosis, a form of advanced fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=420 / Out=65
+Cost: $0.000113

@@ -1,0 +1,36 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly, upper abdominal varices (including gastroesophageal varices), recannulization of the umbilical vein, and small volume ascites. The hepatic vasculature is patent.    Treatment cavities are as follows:  -An ablation cavity in hepatic segment 7 measures 1.5 cm, similar to on prior exam, and is without evidence of residual or recurrent disease (series 15, image 20).  -Larger treatment cavity in hepatic segment 8 measures 3.7 cm, decreased in size from prior exam when it measured 4.6 cm. There is no evidence of residual or recurrent disease (series 15, image 24).  -Smaller treatment cavity in hepatic segment 8 measures 2.7 cm, similar to on prior exam, and is without evidence of residual or recurrent disease (series 15, image 22).    There are no new findings of HCC.    The gallbladder wall is edematous, presumably secondary to liver disease/third spacing. The  adrenal glands, and kidneys are unremarkable, with the exception of bilateral renal cysts. There is some fat stranding and fluid around the pancreas that appears slightly increased from prior, could reflect acute pancreatitis. A left-sided infrarenal IVC is noted with prominent right gonadal vein and paralumbar branches on the right. There is no abdominal lymphadenopathy. Small bilateral pleural effusions.No findings or recurrent HCC.    Slightly increased fluid and fat stranding around the pancreas could reflect sequelae of acute pancreatitis. Consider correlation with lipase.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=559 / Out=42
+Cost: $0.000142

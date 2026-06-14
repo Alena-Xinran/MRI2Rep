@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is unchanged.
+
+A hepatic dome ablation cavity measures 5.9 x 4.7 cm, previously 5.8 x 5.1 cm. There is similar enhancement at the inferior aspect. 
+
+The 1.0 cm arterially hyperenhancing nodule in segment 8 (image 20 of series 12) with washout is stable and highly concerning for HCC.
+
+The 2.6 cm arterially hyperenhancing nodule in segment 3 (image 48 of series 14) with washout and pseudocapsule previously measured 2.6 cm.OPTN 5B HCC
+
+Abnormal T2 signal in the posterior right hepatic lobe( image 30 series 11) with associated enhancement on all 3 phases is less prominent on today's exam.
+
+Cholelithiasis is again seen. The adrenal glands, spleen, pancreas and left kidney are unremarkable. The hemorrhagic cyst in the right kidney is unchanged. There is similar scarring of the right kidney.
+
+No ascites or adenopathy is identified in the upper abdomen. The visualized bowel is unremarkable.
+
+Please see CT chest dated today for thoracic findings.Unchanged 2.6 cm segment 3 HCC (OBTN 5B). 
+Stable 1 cm segment 8 lesion highly concerning for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is unchanged," which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=502 / Out=36
+Cost: $0.000123

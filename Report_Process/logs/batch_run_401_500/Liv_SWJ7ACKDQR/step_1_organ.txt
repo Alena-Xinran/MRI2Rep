@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is cirrhotic morphology with sequelae of portal hypertension including splenomegaly and perihepatic ascites Post radioembolization changes noted throughout segment 7 and 8. The patient is status post left hepatectomy. There is a replaced right hepatic artery off the SMA. 
+
+Multiple treatment cavities are again noted as follows:
+
+Segment 8 measuring 2.5 x 1.5 cm (series 14 image 22), previously 2.5 x 1.6 cm. There is no evidence of recurrent disease.
+
+Segment 8 measuring 0.8 x 0.5 cm (series 14 image 16), previously 0.8x 0.8 cm. There is no evidence of recurrent disease.
+
+Segment 7 measuring 3.1 x 1.9 cm on (series 14 image 22), previously 3.1 x 1.9 cm. There is no evidence of recurrent disease.
+
+Segment 7, abutting the IVC measuring 2.1 x 1.4 cm (series 14 image 21), previously 2.4 x 1.5 cm. There is decreased internal enhancement but with no arterial enhancement on the current study, presumably post treatment related fibrosis. 
+
+Segment 5 measuring 2.2 x 1.3 cm (series 14 image 46), previously 2.2 x 1.3 cm. There is no evidence of recurrent disease.
+
+Segment 6 measuring 2.6 x 0.8 cm (series 14 image 45), previously 2.6 x 0.8 cm. There is no evidence of recurrent disease.
+
+Few subcentimeter arterially enhancing foci without washout are unchanged for example in segment 7 (series 12 images 30). Hepatic vasculature is patent.
+
+There is cholelithiasis and unchanged peripheral biliary dilatation. The pancreas, adrenal glands and kidneys are unremarkable except for subcentimeter left renal cysts.
+
+There is no upper abdominal lymphadenopathy.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic morphology" and also mentions "sequelae of portal hypertension including splenomegaly and perihepatic ascites," which are clear indicators of cirrhosis. Additionally, there is a mention of "post treatment related fibrosis" in a segment, further supporting fibrotic changes.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=651 / Out=78
+Cost: $0.000183

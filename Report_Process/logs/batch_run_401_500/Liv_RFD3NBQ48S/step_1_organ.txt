@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant. There is no hepatic mass. Peripheral hypointense signal seen on T1-weighted sequences, for instance along the right hepatic lobe on series 15 image 26, may represent susceptibility artifact from calcifications or hemosiderin. The portal and hepatic veins are patent.     There is splenomegaly. The gallbladder is surgically absent. The pancreas, adrenal glands, and kidneys are unremarkable except for renal cysts.    There is small volume abdominal ascites. There is no lymphadenopathy. Incompletely visualized is enhancing abnormality within the subcutaneous fat overlying the left anterior abdominal musculature (for instance, series 19 image 86). This likely corresponds with ultrasound findings from November 23, 2021.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a patient status post liver transplant but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators and the lack of any described structural abnormalities in the liver (aside from artifact) suggests no active fibrosis or cirrhosis is reported. However, the presence of splenomegaly and ascites could be indirect signs of portal hypertension, but these are not definitive for fibrosis/cirrhosis without direct liver parenchymal description. Given the criteria, since no direct keywords are present, the classification is "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=179
+Cost: $0.000151

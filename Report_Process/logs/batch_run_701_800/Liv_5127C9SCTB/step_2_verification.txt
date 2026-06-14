@@ -1,0 +1,42 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of hepatocellular carcinoma. The liver, spleen, adrenal glands, and gallbladder are unremarkable. The pancreas and kidneys are atrophic and demonstrate cysts, some of renal cysts are hemorrhagic. The largest pancreatic cystic lesion is at the neck measuring 1.2 cm (image 23, series 3). No solid or nodular components are seen. The pancreatic duct is normal in caliber.
+
+No ascites or lymphadenopathy is identified.1. No evidence of HCC.
+2. Small pancreatic cystic lesions measuring up to 1.2 cm, may represent sidebranch IPMNs or sequelae of pancreatitis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver, spleen, adrenal glands, and gallbladder are unremarkable." This indicates a normal liver without mention of cirrhosis or features of cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis", which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=328 / Out=76
+Cost: $0.000124

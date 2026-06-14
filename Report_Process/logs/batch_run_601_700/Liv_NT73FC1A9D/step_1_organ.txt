@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is post right hepatectomy and cholecystectomy. The remaining liver demonstrates cirrhotic morphology, as on prior examination. There is bandlike mildly hyperintense T2 signal involving the medial segment which demonstrates persistent enhancement and a few associated thrombosed portal venous branches. This is likely due to atrophy. There are no findings of hepatocellular carcinoma. The rest of the portal and hepatic veins are patent. 
+
+Note is made of hyperintense T1 signal in the SMV with and apparent filling defect in the postcontrast subtraction images without correlate on diffusion-weighted images which is likely explained by slow flow.
+
+Moderate splenomegaly and upper abdominal varices are again seen, evidence of portal hypertension. The pancreas, adrenal glands and kidneys are unremarkable.
+
+A moderate amount of ascites is stable. Loculated fluid along the anterior aspect of the chest is stable.
+
+Nonspecific subcentimeter hyperintense T2 lesion in the thoracic spine is stable. No aggressive osseous lesions are seen.No findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The remaining liver demonstrates cirrhotic morphology," which directly indicates cirrhosis. Additionally, there are findings of portal hypertension (moderate splenomegaly and upper abdominal varices), which is often associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=65
+Cost: $0.000117

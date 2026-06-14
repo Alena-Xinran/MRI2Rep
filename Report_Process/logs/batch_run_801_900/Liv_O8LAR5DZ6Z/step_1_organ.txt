@@ -1,0 +1,61 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: 
+A cirrhotic liver morphology with sequela of portal hypertension including worsened splenomegaly is redemonstrated.. No biliary dilatation.
+
+A nonspecific 6 mm arterially enhancing lesion in segment 8 (image 30, series 15) that demonstrates no washout or pseudocapsule remains stable since at least 4/9/2016 and is likely benign in nature.
+
+A similar nonspecific 7 mm arterially enhancing lesion in segment 5 adjacent to the gallbladder fossa (image 49, series 17) that demonstrates no washout or pseudocapsule remains stable.
+
+No discrete hepatic lesion that meets the criteria for HCC is identified.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly has slightly worsened and now measures up to 15.8 cm in the craniocaudal dimension (previously 14.4 cm).
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable with the exception of a left hepatic cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC. A few nonspecific subcentimeter arterially enhancing hepatic lesions are indeterminate and remain stable.
+\
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic liver morphology" and also mentions sequelae of portal hypertension including splenomegaly, which are clear indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=492 / Out=51
+Cost: $0.000127

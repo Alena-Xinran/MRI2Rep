@@ -1,0 +1,38 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic hepatic morphology and segmental intrahepatic biliary ductal dilatation compatible with primary sclerosing cholangitis is stable. No evidence of HCC or cholangiocarcinoma. 
+
+The spleen remains enlarged. The pancreas, adrenal glands and kidneys are unremarkable aside from two angiomyolipomas within the left kidney and bilateral renal cysts. The patient is status post removal of the previously seen duodenal lipoma. Findings of chronic inflammatory bowel disease affecting the right colon and proximal transverse colon are again noted. There is no abdominal adenopathy or ascites.  The patient is status post cholecystectomy.No evidence of HCC or cholangiocarcinoma.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic hepatic morphology," which directly indicates cirrhosis. This is further supported by the mention of "chronic liver disease" in the context of primary sclerosing cholangitis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=56
+Cost: $0.000092

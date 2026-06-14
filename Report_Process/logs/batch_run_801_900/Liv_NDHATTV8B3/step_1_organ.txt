@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic liver morphology with imaging findings of portal hypertension is noted. Paraesophageal and perigastric varices as well as a recanalized periumbilical vein are present. Perihepatic ascites is present. No enhancing hepatic mass is identified on exam degraded by patient motion.
+
+Hepatic vasculature: The main portal vein is patent. Right portal vein is diminutive as before, this may be due to chronic thrombosis.
+
+Gallbladder and biliary system: Cholelithiasis is noted. The common bile duct is prominent and measures up to 7 mm. Numerous peribiliary cysts are again noted. No choledocholithiasis.
+
+Pancreas: Unremarkable.
+
+Spleen: Spleen is enlarged and measures up to 14.2 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral renal cysts are noted.
+
+Bowel: No evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: A 1.6 cm portacaval node is unchanged (image 40, series 13).
+
+Peritoneum: Perihepatic ascites.Limited examination due to motion. Within this limitation, cirrhotic liver with portal hypertension but no evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions imaging findings of portal hypertension, including varices, recanalized periumbilical vein, and ascites, all consistent with cirrhosis. Keywords such as "cirrhotic" and "portal hypertension" are present, meeting the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=473 / Out=82
+Cost: $0.000135

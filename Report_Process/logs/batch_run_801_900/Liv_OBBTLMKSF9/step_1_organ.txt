@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Image quality is slightly limited due to respiratory motion artifact.
+
+
+Parenchymal liver disease is again noted with hypertrophy of the caudate and atrophy the medial segment, likely underlying fibrosis. No findings of advanced cirrhosis by imaging.
+
+There is redemonstration of multiple subcentimeter arterial enhancing focus such as a 6 mm focus within hepatic segment 8 (image 23 series 18) and which become isointense on later images. No liver lesions which meet imaging criteria for HCC. The 2.0 cm nonenhancing T2 hypointense ovoid lesion within the posterior aspect of segment 6 is unchanged, nonspecific (image 14 series 6). A few scattered tiny hepatic cysts are also noted. The hepatic vasculature is patent. 
+
+There is no intra or extrahepatic biliary ductal dilatation. There is cholelithiasis. The pancreas, spleen, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts.
+
+There is no ascites or lymphadenopathy.
+
+No aggressive osseous lesions.No imaging findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "Parenchymal liver disease" with "hypertrophy of the caudate and atrophy the medial segment, likely underlying fibrosis." This indicates chronic liver disease with fibrosis. Although it states "No findings of advanced cirrhosis by imaging," the presence of fibrosis and parenchymal changes meets the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=88
+Cost: $0.000129

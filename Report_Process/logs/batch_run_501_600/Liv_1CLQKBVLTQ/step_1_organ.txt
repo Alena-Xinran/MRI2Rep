@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver redemonstrates cirrhotic morphology. There are no findings of HCC. The portal and hepatic veins are patent. Multiple upper abdominal portosystemic shunts are noted including a shunt involving the right renal and gonadal vein which is dilated.
+
+Splenic cysts are present. The kidneys and adrenal glands are unremarkable. A few scattered pancreatic cysts are noted, largest measuring 5 mm in the tail (5:17).
+
+No enlarged abdominal lymph nodes are visualized. There is ectasia of the abdominal aorta.
+
+Airspace disease/atelectasis is noted at the right lung base.
+
+No aggressive osseous lesions are visualized.Cirrhotic liver with findings of portal hypertension. No HCC.
+
+Nonspecific small cystic pancreatic lesions which may reflect sequelae of pancreatitis or small sidebranch IPMNs. These can be watched on follow-up MRI.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic morphology" and later repeats "Cirrhotic liver with findings of portal hypertension," which directly indicates chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=401 / Out=52
+Cost: $0.000102

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic and mildly steatotic. There is no evidence of hepatocellular carcinoma. Scattered areas fibrosis are noted throughout the liver. The visualized hepatic vasculature is patent. TIPS is noted.
+
+The patient is status post cholecystectomy with mild stable biliary ductal dilatation. Splenomegaly is unchanged. The kidneys are malrotated. The pancreas and adrenal glands are unremarkable.
+
+A 4.7 cm loculated fluid pocket superior to the liver dome has increased from 3.5 cm (image 5, series 4). Trace free fluid is noted. There is no abdominal lymphadenopathy. Prominent paraesophageal lymph nodes remain subcentimeter. Supraumbilical ventral hernia contains fat and fluid.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions "Scattered areas fibrosis are noted throughout the liver." These are direct keywords indicating the presence of cirrhosis and fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=384 / Out=52
+Cost: $0.000097

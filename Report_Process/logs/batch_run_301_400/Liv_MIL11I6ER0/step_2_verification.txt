@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with evidence of portal hypertension including recanalized umbilical vein, splenomegaly, and upper abdominal varices, including large esophageal varices. Trace ascites is present. The hepatic vasculature is patent.
+
+On image 28, series 9, a subcapsular segment VIII 1.9 x 1.2 cm hemorrhagic treatment cavity with no evidence of recurrent HCC has slightly decreased in size, previously 2.4 x 1.3 cm when remeasured on the prior exam.
+
+There is no discrete ablation cavity around the previously treated deep segment VIII HCC adjacent to the gallbladder. However, there is no evidence of arterial hyperenhancement or washout in this location to suggest recurrent viable HCC.
+
+On image 41, series 7 in segment 6, a 5 mm focus of non-rim arterial hyperenhancement without washout or pseudocapsule is unchanged since MRI March 2020, LR-3. The other subcentimeter foci of arterial hyperenhancement are not visualized on this exam.
+
+No new areas of arterial hyperenhancement or washout are seen.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable. Multiple prominent mesenteric and periportal lymph nodes are unchanged. Bilateral gynecomastia is noted.No recurrent or new HCC.
+Unchanged (since March 2020) 5 mm LI-RADS 3 observations segment 6
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic in morphology" and describes features of portal hypertension (recanalized umbilical vein, splenomegaly, varices, ascites), confirming cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=500 / Out=76
+Cost: $0.000172

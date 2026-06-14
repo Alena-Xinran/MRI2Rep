@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A cirrhotic liver is again noted. No arterial enhancing lesions with washout to suggest HCC. No ascites. A recanalized paraumbilical vein and varices are again noted consistent with underlying portal hypertension. There is cholelithiasis without secondary findings of acute cholecystitis.  No choledocholithiasis or dilatation of the main pancreatic duct. Adrenal glands and kidneys appear unremarkable. No adenopathy. Vascular to remains patent. Left hepatic artery is replaced to the left gastric artery and right hepatic arteries replaced to the SMANo findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic liver is again noted," which directly indicates cirrhosis. Additionally, it mentions findings consistent with portal hypertension (recanalized paraumbilical vein and varices), which are often associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=67
+Cost: $0.000093

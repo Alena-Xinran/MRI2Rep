@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial orthotopic liver transplant. The hepatic vasculature is patent. There is no evidence of HCC.
+
+The gastrosplenic collection has essentially resolved status post placement of a cystogastrostomy stent and the collection adjacent to the lesser curvature has resolved. A subhepatic collection measures 2.1 cm, previously 2.9 cm (series 4, image 29).
+
+A 1.7 cm cystic lesion in the pancreatic head is unchanged. The main pancreatic duct is not dilated. Splenomegaly has improved measuring up to 13.8 cm, previously 15 cm the adrenal glands and kidneys are unremarkable except for renal cysts.
+
+There is no abdominal adenopathy or ascites.No evidence for HCC.
+
+Improved abdominal collections.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). It only notes the patient is status post partial orthotopic liver transplant and that the hepatic vasculature is patent, with no evidence of HCC. There is no description of liver morphology to indicate fibrosis or cirrhosis. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is consistent with the report content.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=120
+Cost: $0.000151

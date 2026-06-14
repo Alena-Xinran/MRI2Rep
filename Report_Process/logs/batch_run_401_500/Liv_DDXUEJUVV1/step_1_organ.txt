@@ -1,0 +1,36 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: No suspicious hepatic lesion. No biliary dilatation.    Hepatic vasculature: Patent.    Pancreas: Unremarkable.    Spleen: Unremarkable.    Adrenal glands: Unremarkable.    Kidneys: There are bilateral renal cysts.    Bowel: Unremarkable.    Upper abdominal lymph nodes: No lymphadenopathy.    Peritoneum: No ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described as having "No suspicious hepatic lesion" and the hepatic vasculature is patent, but there is no direct description of the liver parenchyma as "unremarkable", "normal", or "smooth". However, given the absence of any positive indicators for fibrosis or cirrhosis and the overall unremarkable findings in adjacent organs, the liver parenchyma is implied to be without significant pathology.  
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=319 / Out=142
+Cost: $0.000117

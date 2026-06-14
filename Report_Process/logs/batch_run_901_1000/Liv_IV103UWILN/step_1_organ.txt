@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The entire study, including the arterial phase images, are limited due to the patient's inability to cooperate with breath-holding.
+
+Segment 7 ablation cavity measures 3.0 x 2.5 cm, previously 3.6 x 3.1 cm.
+
+No new hepatic masses are identified. The
+
+The segment 3 lesion cavity is not visualized on this study due to motion artifact.
+
+The indeterminate 1 cm segment 8 lesion seen on the prior MRI only on the hepatobiliary phase is not identified on the current study.
+
+ Liver demonstrates cirrhotic morphology and there is evidence of portal hypertension with enlarged venous collaterals and splenomegaly. There is trace ascites. Portal and hepatic veins are patent.Although no new or recurrent HCC is identified, the study is extremely limited due to patient's inability to cooperate with breath-holding.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver demonstrates cirrhotic morphology" and also mentions evidence of portal hypertension with splenomegaly and ascites, which are consistent with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=399 / Out=48
+Cost: $0.000100

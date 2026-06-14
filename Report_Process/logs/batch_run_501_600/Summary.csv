@@ -1,0 +1,101 @@
+id,consistency,cost,sequence
+Liv_0C5LBMRALR,Yes,0.000951,NoFibrosis/Cirrhosis
+Liv_0OIB2VJKZJ,Yes,0.001346,NoFibrosis/Cirrhosis
+Liv_1AKYT9R4PH,Yes,0.001238,"Fibrosis/Cirrhosis, APHE_NoWO, L_LAT, 1"
+Liv_1CLQKBVLTQ,Yes,0.001059,Fibrosis/Cirrhosis
+Liv_1YAW8GXAK6,Yes,0.001189,"NoFibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1"
+Liv_21M9NL9NDP,Yes,0.000902,Fibrosis/Cirrhosis
+Liv_269NOKGP35,No,0.000941,"NoFibrosis/Cirrhosis, APHE_WO, R_POST, 1"
+Liv_29WXMZLFYC,Yes,0.001183,"NoFibrosis/Cirrhosis, RIM_ATYP, L_MED, 1"
+Liv_32KKLLK9LW,Yes,0.000790,NoFibrosis/Cirrhosis
+Liv_3QOGKIWDDY,Yes,0.000811,NoFibrosis/Cirrhosis
+Liv_489YBGD321,Yes,0.000834,Fibrosis/Cirrhosis
+Liv_4NFWXVOE2A,Yes,0.000951,NoFibrosis/Cirrhosis
+Liv_4W8OB5IYD1,No,0.001064,"Fibrosis/Cirrhosis, CYST, DIFFUSE, Multiple"
+Liv_5P9ZQIIQXD,Yes,0.001309,"Fibrosis/Cirrhosis, RIM_ATYP, R_POST, 1"
+Liv_5U9R3KFWQO,Yes,0.001147,"Fibrosis/Cirrhosis, APHE_NoWO, R_POST, 2"
+Liv_64I8ON6LNV,No,0.001573,"NoFibrosis/Cirrhosis, APHE_WO, R_POST, 1, APHE_NoWO, R_JUNCTION, 1, RIM_ATYP, R_POST, 1, CYST, L_DIFFUSE, 1"
+Liv_75ZDH026TZ,Yes,0.001367,"Fibrosis/Cirrhosis, APHE_WO, R_ANT, 2, RIM_ATYP, R_ANT, 1, CYST, DIFFUSE, Multiple"
+Liv_79GVYY6X8C,Yes,0.001250,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1"
+Liv_7EPEX1L4NB,No,0.001424,"NoFibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_ANT, 1"
+Liv_7KSCDD10OO,Yes,0.001109,"Fibrosis/Cirrhosis, APHE_NoWO, L_MED, 1"
+Liv_7Q6JJF2O5M,Yes,0.000722,Fibrosis/Cirrhosis
+Liv_7YJ33JMKUR,Yes,0.000813,Fibrosis/Cirrhosis
+Liv_89DV2T3USR,Yes,0.001135,"Fibrosis/Cirrhosis, HEM, R_DIFFUSE, 1"
+Liv_8DRXJSX0LX,Yes,0.000773,"Fibrosis/Cirrhosis, RIM_ATYP, L_LAT, 1"
+Liv_8DZIPOCCL7,Yes,0.001260,"Fibrosis/Cirrhosis, APHE_NoWO, R_DIFFUSE, 1, RIM_ATYP, R_JUNCTION, 1"
+Liv_8MZN0DERC0,Yes,0.001613,"Fibrosis/Cirrhosis, APHE_NoWO, R_JUNCTION, 1, RIM_ATYP, L_LAT, 1"
+Liv_91DBWBVDAD,Yes,0.001782,"Fibrosis/Cirrhosis, RIM_ATYP, L_LAT, 2, RIM_ATYP, L_MED, 1, RIM_ATYP, R_JUNCTION, 1"
+Liv_95D9C1V24L,Yes,0.001335,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_MED, 1, RIM_ATYP, R_JUNCTION, 1"
+Liv_9II3NT9JD1,Yes,0.000943,Fibrosis/Cirrhosis
+Liv_9JOVWAXL2U,Yes,0.000657,Fibrosis/Cirrhosis
+Liv_9P6I3JX1S2,Yes,0.000806,"NoFibrosis/Cirrhosis, RIM_ATYP, R_POST, 1"
+Liv_9ZCDOLDB3G,Yes,0.001472,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_POST, 2, HEM, R_DIFFUSE, 1"
+Liv_A5C8465UI0,No,0.001907,"Fibrosis/Cirrhosis, APHE_WO, DIFFUSE, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_LAT, 1, RIM_ATYP, R_JUNCTION, 3"
+Liv_AOP55D9XUU,Yes,0.001382,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, APHE_NoWO, R_POST, 1, RIM_ATYP, R_ANT, 1, RIM_ATYP, R_POST, 1"
+Liv_BD6WVMZNR6,Yes,0.000856,"NoFibrosis/Cirrhosis, RIM_ATYP, R_ANT, 1"
+Liv_BJ6N4QZA7X,Yes,0.001189,NoFibrosis/Cirrhosis
+Liv_BXV4PURW68,Yes,0.001134,"Fibrosis/Cirrhosis, APHE_NoWO, R_POST, 1"
+Liv_CCJUJV7YKY,Yes,0.000909,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple"
+Liv_CEYZZROEDN,Yes,0.001073,"Fibrosis/Cirrhosis, CYST, DIFFUSE, Multiple"
+Liv_CFK4VUY26L,No,0.001217,"Fibrosis/Cirrhosis, HEM, R_ANT, 2"
+Liv_CHJZ7FXA41,Yes,0.001289,"Fibrosis/Cirrhosis, CYST, DIFFUSE, Multiple"
+Liv_CLKRNMUB43,Yes,0.001090,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, APHE_NoWO, DIFFUSE, Multiple, CYST, R_DIFFUSE, 1"
+Liv_DC9M38A8UW,Yes,0.001073,"Fibrosis/Cirrhosis, RIM_ATYP, R_JUNCTION, 1"
+Liv_DGFQ4MGYNY,Yes,0.000870,"Fibrosis/Cirrhosis, APHE_NoWO, R_DIFFUSE, 1"
+Liv_DP5SA63VKO,Yes,0.000971,Fibrosis/Cirrhosis
+Liv_E1MHGX0V3H,Yes,0.000886,Fibrosis/Cirrhosis
+Liv_EAPUUC2XPZ,Yes,0.001125,"Fibrosis/Cirrhosis, RIM_ATYP, L_MED, 1, RIM_ATYP, R_POST, 1"
+Liv_EF39GV1KVZ,Yes,0.000932,"NoFibrosis/Cirrhosis, APHE_WO, R_DIFFUSE, 1"
+Liv_EI80E1DC7B,Yes,0.001056,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, 1, CYST, DIFFUSE, Multiple"
+Liv_F4SYZMSB7Y,No,0.001171,"Fibrosis/Cirrhosis, APHE_NoWO, L_LAT, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_LAT, 1, RIM_ATYP, R_ANT, 1"
+Liv_FO9JH3WI5P,Yes,0.001393,"Fibrosis/Cirrhosis, APHE_WO, R_ANT, 1, APHE_WO, R_POST, 1, RIM_ATYP, DIFFUSE, Multiple"
+Liv_G2CA9DLH8K,Yes,0.001552,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_MED, 1, RIM_ATYP, R_JUNCTION, 1"
+Liv_GXO7U1A4JY,No,0.001343,"NoFibrosis/Cirrhosis, APHE_NoWO, CAUDATE, Multiple, APHE_NoWO, R_ANT, 1, APHE_NoWO, R_POST, 1, APHE_NoWO, DIFFUSE, Multiple, CYST, DIFFUSE, Multiple"
+Liv_HBW6MQT7RC,Yes,0.001019,"Fibrosis/Cirrhosis, RIM_ATYP, L_MED, 1"
+Liv_HX09Q7AXR8,No,0.000997,"Fibrosis/Cirrhosis, RIM_ATYP, DIFFUSE, Multiple"
+Liv_HZR6GAACYL,No,0.001072,Fibrosis/Cirrhosis
+Liv_I09QCZGJQ5,No,0.001399,"NoFibrosis/Cirrhosis, CYST, R_ANT, 1, CYST, DIFFUSE, Multiple"
+Liv_I6KVCRXP3W,Yes,0.001190,"Fibrosis/Cirrhosis, APHE_NoWO, R_POST, 1, APHE_NoWO, DIFFUSE, Multiple, CYST, R_DIFFUSE, 1"
+Liv_IGIJK9C47B,Yes,0.000922,NoFibrosis/Cirrhosis
+Liv_INP0GW6302,Yes,0.001116,"Fibrosis/Cirrhosis, APHE_WO, R_POST, 1, CYST, DIFFUSE, Multiple"
+Liv_IS18O3U5Z7,Yes,0.001416,"Fibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_ANT, 1"
+Liv_ISRLODOC6B,No,0.001435,"Fibrosis/Cirrhosis, APHE_WO, L_LAT, 1, CYST, DIFFUSE, Multiple"
+Liv_J0X8257U7V,Yes,0.000804,Fibrosis/Cirrhosis
+Liv_JDFP0CE7GT,Yes,0.001080,NoFibrosis/Cirrhosis
+Liv_JH5BV4W4VL,Yes,0.000863,NoFibrosis/Cirrhosis
+Liv_K9WKS14QKY,No,0.001290,"Fibrosis/Cirrhosis, APHE_NoWO, L_LAT, 1, APHE_NoWO, R_ANT, 1, RIM_ATYP, R_DIFFUSE, 1"
+Liv_KGT5QAJVGX,Yes,0.001281,"Fibrosis/Cirrhosis, APHE_NoWO, R_POST, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_POST, 1"
+Liv_KQBFM5JK06,No,0.001938,"Fibrosis/Cirrhosis, APHE_WO, R_JUNCTION, 1, APHE_NoWO, R_JUNCTION, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_JUNCTION, 1, RIM_ATYP, L_DIFFUSE, 1, RIM_ATYP, R_DIFFUSE, 1, HEM, R_ANT, 1"
+Liv_L64CR0XIWM,Yes,0.001542,"Fibrosis/Cirrhosis, APHE_WO, R_POST, 1, APHE_NoWO, R_ANT, 1, RIM_ATYP, R_POST, 1, CYST, DIFFUSE, 1"
+Liv_LDF5BFB0NH,Yes,0.001384,"Fibrosis/Cirrhosis, RIM_ATYP, L_MED, 1, RIM_ATYP, R_ANT, 1, RIM_ATYP, R_POST, 1"
+Liv_LQECVNKLBD,Yes,0.001134,"Fibrosis/Cirrhosis, APHE_WO, L_LAT, 1, RIM_ATYP, R_ANT, 1"
+Liv_M0G9T2DJVX,Yes,0.000991,Fibrosis/Cirrhosis
+Liv_M1ODDGVGHE,Yes,0.001028,"Fibrosis/Cirrhosis, CYST, DIFFUSE, Multiple"
+Liv_M4I7TPZTWU,Yes,0.001042,"NoFibrosis/Cirrhosis, RIM_ATYP, R_ANT, 1, CYST, DIFFUSE, Multiple"
+Liv_M4SNN65SAB,Yes,0.002103,"Fibrosis/Cirrhosis, APHE_WO, L_LAT, 3, APHE_WO, L_MED, 1, APHE_WO, R_ANT, 1, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_MED, 1, RIM_ATYP, DIFFUSE, Multiple, CYST, DIFFUSE, Multiple"
+Liv_M7DU6Q97G5,Yes,0.000819,NoFibrosis/Cirrhosis
+Liv_MI683CW293,Yes,0.001037,Fibrosis/Cirrhosis
+Liv_N1AFAMQ9XC,No,0.001364,"NoFibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, 1, RIM_ATYP, DIFFUSE, Multiple"
+Liv_NTWYGCL7GB,Yes,0.001073,NoFibrosis/Cirrhosis
+Liv_O15GND2J37,Yes,0.000692,"Fibrosis/Cirrhosis, CYST, L_DIFFUSE, 1"
+Liv_O29A0RGTSW,Yes,0.000904,Fibrosis/Cirrhosis
+Liv_O8TLNP4D61,Yes,0.001786,"Fibrosis/Cirrhosis, APHE_NoWO, L_LAT, 1, RIM_ATYP, L_LAT, 2"
+Liv_P773WRRB4B,Yes,0.001243,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple, CYST, DIFFUSE, 1"
+Liv_PC16RWV027,Yes,0.000960,"Fibrosis/Cirrhosis, RIM_ATYP, R_POST, 1"
+Liv_PJGCE9YYCK,Yes,0.001290,Fibrosis/Cirrhosis
+Liv_PS0BSYZIIZ,Yes,0.001019,Fibrosis/Cirrhosis
+Liv_Q0YGL8EZGD,Yes,0.001247,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, R_ANT, 1, RIM_ATYP, R_POST, 1, RIM_ATYP, DIFFUSE, Multiple"
+Liv_Q1FYQRAXY9,Yes,0.000966,"Fibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple, RIM_ATYP, L_LAT, 1"
+Liv_QSSPS5XUE8,Yes,0.001543,"Fibrosis/Cirrhosis, APHE_WO, R_POST, 2, APHE_WO, DIFFUSE, Multiple"
+Liv_R0A2MKGTOS,Yes,0.001143,"Fibrosis/Cirrhosis, APHE_NoWO, L_LAT, 1"
+Liv_R1U1T8RQE9,Yes,0.001067,Fibrosis/Cirrhosis
+Liv_RHBUB4QT6L,No,0.001509,"Fibrosis/Cirrhosis, APHE_NoWO, L_MED, 1, APHE_NoWO, R_ANT, 1, CYST, DIFFUSE, Multiple"
+Liv_S3C8SGBZ5P,Yes,0.001142,"Fibrosis/Cirrhosis, APHE_WO, R_POST, 1, RIM_ATYP, R_POST, 1"
+Liv_SSU1PBM3RV,Yes,0.000873,"Fibrosis/Cirrhosis, RIM_ATYP, R_POST, 1"
+Liv_YN9PA6Q12Q,Yes,0.001114,"NoFibrosis/Cirrhosis, APHE_NoWO, DIFFUSE, Multiple"
+Liv_YOYXIAP91R,Yes,0.000888,Fibrosis/Cirrhosis
+Liv_ZCB02LC4U8,Yes,0.001346,"NoFibrosis/Cirrhosis, APHE_NoWO, R_ANT, 1, CYST, DIFFUSE, 1"
+Liv_ZEJDQUSXAG,Yes,0.000797,Fibrosis/Cirrhosis
+Liv_ZIAJ92AUGV,Yes,0.000903,"NoFibrosis/Cirrhosis, CYST, R_POST, 1"
+Liv_ZXF7F36ON5,Yes,0.000858,"Fibrosis/Cirrhosis, RIM_ATYP, R_ANT, 1"

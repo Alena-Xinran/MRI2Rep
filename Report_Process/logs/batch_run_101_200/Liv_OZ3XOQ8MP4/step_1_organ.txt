@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is steatotic and cirrhotic. There is evidence of portal hypertension including recanalization of the paraumbilical vein and small paraesophageal varices. The spleen measures 12 cm, upper limits of normal. There is no evidence of hepatocellular carcinoma. Several subcentimeter arterially enhancing foci are noted without any correlate on additional sequences, and therefore likely perfusional in etiology. The hepatic vasculature is patent.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable.
+
+A small periampullary duodenal diverticulum is again seen. Mildly enlarged, likely reactive, 1.5 cm periportal lymph node is stable (image 47, series 7). There is no abdominal ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is steatotic and cirrhotic," which directly indicates cirrhosis. Additionally, there is mention of portal hypertension and related findings (recanalization of the paraumbilical vein, varices), which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=382 / Out=72
+Cost: $0.000105

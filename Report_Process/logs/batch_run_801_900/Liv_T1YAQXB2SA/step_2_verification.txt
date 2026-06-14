@@ -1,0 +1,60 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 22 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: The liver is cirrhotic. The patient is status post TIPS. Intrahepatic biliary ductal dilatation is noted in the posterior right hepatic lobe. No arterially enhancing lesion is identified in the liver.
+
+Hepatic vasculature: Patent. Artifact from multiple splenic vascular coils is again seen. A splenorenal shunt and varices are noted. The main portal vein, confluence and superior mesenteric vein are patent. Unchanged thrombus in the right posterior portal vein. The TIPS patency is not evaluated secondary to artifact.
+
+Gallbladder: Cholelithiasis.
+
+Pancreas: Numerous pancreatic cysts are noted, the largest measuring up to 1.8 cm in the pancreatic body (image 27 of series 4), which may reflect side branch IPMNs versus sequela of pancreatitis. These are stable. No main pancreatic ductal or common bile duct dilatation.
+
+Spleen: The spleen is enlarged.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Prominent, symmetric low T2 signal is noted in the kidney cortices with mild signal drop is noted on image phase chemical shift imaging, likely reflecting iron deposition. There is a stable benign right renal cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Cirrhotic liver with no findings of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic" in the Liver findings section. This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=559 / Out=59
+Cost: $0.000181

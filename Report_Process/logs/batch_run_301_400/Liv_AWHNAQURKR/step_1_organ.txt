@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Patient is status post liver transplant. No evidence for HCC. Punctate arterially enhancing foci are noted in the liver parenchyma (series 11,001 image 38, image 34) without associated washout or T2 hyperintensity, likely perfusional.    Gallbladder and biliary tree: Patient is status post cholecystectomy. Stable mild intrahepatic biliary duct dilatation.    Pancreas: Nonenhancing 0.6 cm cystic lesion in the pancreatic body (series 3001 image 22) is unchanged in appearance and likely represents IPMN.    Spleen: Similar mild enlargement measuring 13.8 cm.    Adrenal glands: Unremarkable.    Kidneys: Subcentimeter right renal cyst.    Bowel: No bowel obstruction.    Abdominal lymph nodes: No lymphadenopathy.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of a post-transplant status and mentions punctate arterially enhancing foci without other concerning features, but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators in the provided text suggests no active mention of those conditions. Given the criteria, the classification defaults to "NoFibrosis/Cirrhosis" when such keywords are not present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=406 / Out=154
+Cost: $0.000146

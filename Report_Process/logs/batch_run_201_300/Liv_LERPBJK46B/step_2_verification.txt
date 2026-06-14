@@ -1,0 +1,60 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial in and out of phase, axial T2 fat saturated, axial pre and multiphasic postcontrast T1 vibe. 
+
+FINDINGS
+Liver: The patient is status post right hepatectomy and partial resection of segment IVb. The biliary ductal dilatation along the resection margin is unchanged. Just superior to the segment 2 resection cavities, a 3.3 cm lesion in segment II/IVa demonstrates arterial enhancement with washout, compatible with recurrent HCC. This involves the more superior segment to ablation cavity. The inferior segment to ablation cavity has decreased in size and measures 0.6 cm, previously 1.0 cm. 
+
+Hepatic vasculature: Patent.
+
+Gallbladder: Surgically removed.
+
+Pancreas:Unremarkable.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Bilateral renal cysts are again seen.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Recurrent 3cm HCC involving segment II/IVa (OPTN 5B). No extrahepatic metastatic disease identified.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver in the context of post-surgical changes and recurrent HCC but does not mention cirrhosis, morphologic features of cirrhosis, or any findings suggestive of fibrosis. The liver parenchyma itself is not described as abnormal aside from the resection and recurrent lesion. Therefore, the appropriate status is "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=474 / Out=95
+Cost: $0.000173

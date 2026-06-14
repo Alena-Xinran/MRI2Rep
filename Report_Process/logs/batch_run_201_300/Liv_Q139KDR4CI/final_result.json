@@ -1,0 +1,19 @@
+{
+  "id": "Liv_Q139KDR4CI",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[]": 2,
+      "[\"CYST | R_ANT | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0009233,
+    "timestamp": "2026-02-07 00:19:52",
+    "model": "deepseek/deepseek-chat"
+  }
+}

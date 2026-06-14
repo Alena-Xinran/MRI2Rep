@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluations limited by patient motion artifact on multiple sequences.
+
+The liver is cirrhotic with sequela portal hypertension including splenomegaly and upper abdominal varices.. Small stable hepatic cysts are noted. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is grossly patent.
+
+The kidneys, adrenal glands, and pancreas are unremarkable, except for a stable subcentimeter hemorrhagic cyst in the left upper renal pole and grossly stable sub-5 mm cystic lesions in the pancreas that likely represent sidebranch IPMNs or sequela of prior pancreatitis (i.e. series 3, image 20). Gallstones are present in the gallbladder wall is mildly thickened, presumably secondary to liver disease.
+
+There is trace abdominal ascites. Multiple nonspecific retroperitoneal nodes are seen measuring up to 1.2 cm in short axis (series 15, image 52), slightly increased in size of uncertain significance. Partially visualized lumbar spine fusion hardware and laminectomy changes again noted. There has been interval increase in right pleural effusion, now moderate, and slight interval increase in small left pleural effusion. Increased signal on the T1-weighted sequences within the right pleural effusion is nonspecific, but felt to be artifactual.Evaluation is limited by patient motion artifact on multiple sequences.
+
+No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and mentions sequelae of portal hypertension, which directly indicates chronic liver disease with fibrosis/cirrhosis.  
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=493 / Out=48
+Cost: $0.000126

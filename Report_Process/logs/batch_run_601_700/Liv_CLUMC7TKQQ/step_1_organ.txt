@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Image quality is degraded by motion.
+
+The liver is cirrhotic with sequela portal hypertension including splenomegaly and mild abdominal varices.
+
+Interval ablation of a 1.2 cm arterially enhancing lesion in segment 4A with the ablation cavity measuring 3.5 x 1.6 cm (series 15, image 33) without evidence of residual/recurrent tumor. There is small amount of non-masslike enhancement surrounding the ablation cavity, likely postprocedural. The ablation cavity is abutting the middle hepatic vein, the vein is attenuated but patent.
+
+No new liver lesions are identified. The hepatic vasculature is patent.
+
+The kidneys and adrenal glands are unremarkable, except for stable small bilateral renal cysts. A 3 mm nonspecific cystic lesion in the pancreatic body is stable (image 28, series 3) and may represent sidebranch IPMN or sequela of prior pancreatitis. Trace layering sludge/stones are noted in the gallbladder.
+
+There is trace perihepatic ascites. No abdominal lymphadenopathy is seen. Mild bilateral gynecomastia.Status post interval HCC ablation without evidence of residual/recurrent tumor.
+
+No new lesions suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions sequelae of portal hypertension including splenomegaly and varices, which are consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=468 / Out=50
+Cost: $0.000120

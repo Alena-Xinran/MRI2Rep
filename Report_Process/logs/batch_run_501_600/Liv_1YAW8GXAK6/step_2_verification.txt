@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant with diffuse hepatic steatosis. There are no lesions with imaging findings compatible with hepatocellular carcinoma. Wedge shaped perfusional abnormality in segment 5 is again seen. The hepatic vasculature is patent.    Mild splenomegaly is again seen. Multiple subcentimeter pancreatic cysts are again seen, nonspecific but likely reflect sidebranch IPMN versus sequelae of pancreatitis. The adrenal glands and kidneys are unremarkable.    There is no abdominal adenopathy or ascites. Again seen are at least 2 areas of focal dilatation of the hepatic artery measuring up to 0.9 cm (image 46 of series 13), which are unchanged. A portosystemic shunt from the SMV to the IVC is also again seen.. There is a small hiatal hernia with circumferential thickening of the distal esophagus, likely related to small varices.    Trace bilateral pleural effusions are present. No aggressive osseous lesions are seen.No HCC.    Diffuse hepatic steatosis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the patient as status post liver transplant with diffuse hepatic steatosis. It does not mention any findings of cirrhosis, such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs (aside from mild splenomegaly and varices which are noted but not explicitly linked to cirrhosis in this context), or features of fibrosis. The previously extracted status is "NoFibrosis/Cirrhosis," which aligns with the absence of explicit mention of cirrhosis or its features in the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=408 / Out=121
+Cost: $0.000165

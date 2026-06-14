@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Image quality is slightly limited due to respiratory motion artifact.
+
+
+Parenchymal liver disease is again noted with hypertrophy of the caudate and atrophy the medial segment, likely underlying fibrosis. No findings of advanced cirrhosis by imaging.
+
+There is redemonstration of multiple subcentimeter arterial enhancing focus such as a 6 mm focus within hepatic segment 8 (image 23 series 18) and which become isointense on later images. No liver lesions which meet imaging criteria for HCC. The 2.0 cm nonenhancing T2 hypointense ovoid lesion within the posterior aspect of segment 6 is unchanged, nonspecific (image 14 series 6). A few scattered tiny hepatic cysts are also noted. The hepatic vasculature is patent. 
+
+There is no intra or extrahepatic biliary ductal dilatation. There is cholelithiasis. The pancreas, spleen, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts.
+
+There is no ascites or lymphadenopathy.
+
+No aggressive osseous lesions.No imaging findings of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Parenchymal liver disease is again noted with hypertrophy of the caudate and atrophy the medial segment, likely underlying fibrosis. No findings of advanced cirrhosis by imaging." This indicates features consistent with fibrosis and morphological changes (caudate hypertrophy, medial segment atrophy) that are often seen in cirrhosis, even though it specifies no *advanced* cirrhosis. The presence of these features qualifies for the "Fibrosis/Cirrhosis" status as per the rule that if the report mentions features of cirrhosis, the status must be "Fibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=417 / Out=134
+Cost: $0.000173

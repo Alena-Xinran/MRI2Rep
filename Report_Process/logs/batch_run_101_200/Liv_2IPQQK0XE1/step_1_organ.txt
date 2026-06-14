@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is limited by motion artifact.
+
+There is cirrhotic morphology liver. Again, there are numerous scattered site of arterial hyperenhancement throughout the liver, demonstrate interval stability. 
+
+Region of arterial enhancement of the right hepatic lobe measures 2.5 cm, image 25 series 11001, stable since December 2018, without washout or pseudocapsule. Previously described region of arterial hyperenhancement of the lateral left hepatic lobe is not visualized, presumably due to motion artifact. Numerous additional foci of arterial hyperenhancement are stable as well since December 2018.  Additional hemangiomas and cysts are unchanged.
+
+There are no findings of HCC.
+
+Previously described nonocclusive thrombus along the course of the right hepatic vein, from 9/24/2019 study, is barely appreciable.
+
+There is cholelithiasis. The spleen, pancreas, adrenal glands and kidneys are unremarkable aside from tiny right renal cyst. Visualized bowel is unremarkable.
+
+ There is no ascites. A 1.2 cm periportal/peripancreatic node, image 19 series 3001, is unchanged. Few additional retroperitoneal nodes are stable. 
+
+A 5 mm nodule of the greater omentum, image 22 series 3001, is stable.
+
+ There is no aggressive osseous lesion.No HCC. Unchanged exam.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is cirrhotic morphology liver," which directly indicates the presence of cirrhosis. This satisfies the criteria for keywords such as "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=514 / Out=54
+Cost: $0.000134

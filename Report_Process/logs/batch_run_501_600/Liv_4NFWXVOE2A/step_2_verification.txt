@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is expected hemosiderin deposition and artifact secondary to prior hepatic transplant. Residual Gamma Gandy bodies are noted within the spleen consistent with prior portal hypertension. No steatosis. No mass to suggest recurrent HCC or biliary dilatation. Vasculature remains patent with no findings of stenosis. Stable splenic artery 2 cm aneurysm. 
+
+There is trace perisplenic ascites and mild soft tissue anasarca.  Remaining intra-abdominal organs display no change from the January 2 exam with a few punctate hemorrhagic right renal cysts.No findings of recurrent HCC.
+
+Patent vasculature.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "expected hemosiderin deposition and artifact secondary to prior hepatic transplant" and "no steatosis," but does not explicitly describe cirrhosis or features of cirrhosis such as nodularity, contour irregularity, or signs of portal hypertension directly attributed to liver parenchymal disease. The mention of "prior portal hypertension" is linked to residual Gamma Gandy bodies in the spleen from a prior condition, not necessarily indicating current cirrhosis. There is no statement of a normal liver either. However, the absence of any mention of cirrhosis or its features, along with no indication of recurrent HCC or biliary issues, suggests the liver status is not described as cirrhotic. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is consistent with the report's content.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=320 / Out=173
+Cost: $0.000162

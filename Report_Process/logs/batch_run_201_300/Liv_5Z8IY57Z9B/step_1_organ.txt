@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Intrathoracic findings are reported separately.
+
+Liver: Status post left hepatectomy. Hemorrhagic ablation cavity within segment VII is not significantly changed, measuring 1.7 x 3.1 cm (image 147, series 8), previously 1.6 x 3.1 cm. No evidence of recurrent HCC. Again seen are multiple arterial phase hyperenhancing subcentimeter foci without evidence of washout or pseudocapsule, likely perfusional. A stable wedge-shaped area of arterial hyperenhancement is again seen in segment VIII.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Intrahepatic biliary ductal dilatation at the cut surface of the liver and dilatation of the CBD, unchanged. Status post cholecystectomy.
+
+Pancreas: Atrophied. Mild ductal dilatation. Pancreas divisum.
+
+Spleen: Status post splenectomy.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Visualized bowel is unremarkable.
+
+Upper abdominal lymph nodes: No adenopathy.
+
+Peritoneum: No abdominal ascites.
+
+Musculoskeletal system and soft tissue: No aggressive osseous lesion is identified.Stable examination. No evidence of recurrent or new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of post-surgical changes (left hepatectomy) and an ablation cavity, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as unremarkable or normal, but the absence of fibrosis/cirrhosis indicators and the lack of ascites or other stigmata of chronic liver disease suggest no active fibrosis or cirrhosis is reported. However, the criteria specify that if the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis". Since none of these specific terms are used for the liver parenchyma, but also no positive signs of fibrosis/cirrhosis are present, based on the strict criteria, the classification defaults to "NoFibrosis/Cirrhosis" due to absence of positive findings.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=487 / Out=222
+Cost: $0.000197

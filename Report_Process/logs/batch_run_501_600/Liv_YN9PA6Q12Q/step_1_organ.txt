@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Please refer to CT chest performed the same day for thoracic findings.
+
+Patient is status post right hepatectomy and cholecystectomy. There are multiple new subcentimeter foci of arterial enhancement within the liver without washout or pseudocapsule.  Hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable. There is no abdominal adenopathy or ascites.Nonspecific subcentimeter arterial enhancing foci without washout amenable to follow up in 3-6 months. No lesions meeting imaging criteria for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes the liver in the context of post-surgical changes and new arterial enhancing foci, but does not comment on the parenchymal texture or surface morphology. The spleen, pancreas, adrenal glands, and kidneys are described as "unremarkable", but this description is not applied to the liver parenchyma itself. Without positive findings for fibrosis or cirrhosis, and lacking descriptors like "normal", "smooth", or "unremarkable" specifically for the liver parenchyma, the classification defaults to "NoFibrosis/Cirrhosis" based on the absence of criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=415 / Out=179
+Cost: $0.000159

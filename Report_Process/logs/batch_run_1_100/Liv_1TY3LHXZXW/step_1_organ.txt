@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multiplanar multisequence MRI images of the abdomen were obtained without and with IV contrast. 15 cc of Dotarem intravenous contrast was administered.
+
+FINDINGS
+The patient is status post right hepatic lobe transplant. The liver is steatotic. No hepatocellular carcinoma is identified. The visualized hepatic vasculature is patent. Gastroesophageal varices are noted. Embolization coils are present in the gastrohepatic ligament.
+
+The spleen, kidneys, and adrenal glands are unremarkable. The pancreas is atrophic.
+
+There is no abdominal lymphadenopathy or ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver as "steatotic" (indicating fatty liver) and notes "gastroesophageal varices," which are often associated with portal hypertension, a common complication of cirrhosis. However, there is no explicit mention of "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or "chronic liver disease." The liver is not described as "unremarkable," "normal," or "smooth" either. Given the criteria, the keywords for fibrosis/cirrhosis are not directly stated, but the presence of varices strongly suggests underlying portal hypertension, typically due to cirrhosis. However, strictly following the criteria, since the specific keywords are absent, the classification should be based on their absence.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=346 / Out=174
+Cost: $0.000138

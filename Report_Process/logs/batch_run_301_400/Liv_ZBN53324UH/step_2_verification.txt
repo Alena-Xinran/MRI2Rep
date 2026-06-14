@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: The liver is cirrhotic. There is an unchanged treatment cavity in segment 2 without evidence of viable disease. Scattered cysts are redemonstrated, some mildly enlarged. No suspicious hepatic lesion. There is similar of focal intrahepatic biliary ductal dilation just distal to the treatment cavity in segment 2.    Hepatic vasculature: There is a TIPS in place, cannot evaluate patency due to artifact.    Pancreas: Tiny cyst in the pancreas, probably sequela of pancreatitis or possibly a sidebranch IPMN on series 5 image 17 is unchanged.    Spleen: Borderline splenomegaly.    Adrenal glands: Unremarkable.    Kidneys: Unremarkable.    Bowel: Unremarkable.    Upper abdominal lymph nodes: Unchanged periportal prominent lymph nodes.    Peritoneum: No ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis. According to the task rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=88
+Cost: $0.000145

@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 19 Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast. Subtraction images are submitted.
+
+FINDINGS
+The liver is cirrhotic. Hepatic cysts are noted. 
+
+There are nodular arterial foci of enhancement adjacent to the segment 5 resection cavity, measuring up to 1.2 cm (image 43, series 8) and demonstrating washout, consistent with recurrent disease.
+
+Stable pancreatic cysts measuring up to 4 mm are compatible with sidebranch IPMNs or sequela from prior pancreatitis. The gallbladder, spleen, adrenals, and kidneys are unremarkable. There is no abdominal ascites or lymphadenopathy.Findings consistent with recurrent HCC adjacent to the segment 5 resection cavity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=416 / Out=38
+Cost: $0.000100

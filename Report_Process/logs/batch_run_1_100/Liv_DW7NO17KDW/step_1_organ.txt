@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic morphology of liver. There is a 1.8 cm treatment cavity in segment 4A (image 24 series 11) without significant enhancement (LRTR nonviable), previously 1.6 cm when measured similarly. There is also an unchnaged 2.3 cm ablation cavity in segment 8 (image 29 series 11) without significant internal enhancement (LRTR nonviable); internal T1 hyperintense signal likely represents blood products. No new suspicious lesions are identified. There are a few scattered subcentimeter hepatic cysts. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unchanged size of the spleen, measuring 11.7 cm. There is a 2.6 cm mildly T2 hyperintense lesion in the spleen with mild enhancement on all phases (image 20 series 18), unchanged from prior and likely a hemangioma.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are multiple, punctate bilateral renal cysts. There is a retroaortic left renal vein.
+
+Bowel: No abnormal bowel loop dilatation.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Multilevel degenerative changes in the included spine.1.  Cirrhotic liver morphology with overall unchanged treatment cavities. No evidence for recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of liver" in the hepatobiliary system section and later reiterates "Cirrhotic liver morphology" in the conclusion. This directly meets the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=519 / Out=64
+Cost: $0.000140

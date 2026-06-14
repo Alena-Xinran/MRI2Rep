@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Gynecomastia.
+Liver: Cirrhotic morphology. No HCC. Patent portal and hepatic veins. No bile duct dilatation. Gallbladder unremarkable.
+
+Portal hypertension with unchanged splenomegaly and small ascites, recanalized paraumbilical vein, and paraesophageal/esophageal varices
+
+Multiple sub-5 mm unilocular pancreatic cystic lesions are unchanged.
+
+Unchanged benign splenic lesions, likely infarcts. 
+
+Kidneys and adrenal glands are unremarkable.
+
+No lymphadenopathy or aggressive osseous lesions.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Liver: Cirrhotic morphology," which directly indicates features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=312 / Out=54
+Cost: $0.000110

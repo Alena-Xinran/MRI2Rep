@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic morphology of the liver is again noted with evidence of portal hypertension as manifested by upper abdominal varices, splenorenal shunt, splenomegaly and a recanalized umbilical vein. There are no liver lesions with imaging characteristics of hepatocellular carcinoma. Hepatic vasculature is patent. Right portal vein remains attenuated.
+
+There is a stable 2.0 cm T2 hyperintense lesion within the inferior aspect of the spleen. Patient is status post cholecystectomy with similar prominence of the common bile duct measuring up to 1.0 cm, likely postsurgical in nature. There is no intrahepatic duct dilatation. The pancreas, adrenal glands, and kidneys are unremarkable with the exception of right renal cysts. 
+
+There is no abdominal adenopathy or ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Cirrhotic morphology of the liver" and describes features consistent with cirrhosis (portal hypertension, varices, splenorenal shunt, splenomegaly, recanalized umbilical vein). Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=364 / Out=78
+Cost: $0.000135

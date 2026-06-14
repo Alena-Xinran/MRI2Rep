@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are no arterially enhancing lesions with washout to suggest HCC. Numerous peribiliary cysts are again seen.
+
+Main portal vein is severely attenuated with cavernous transformation. There is a patent, surgically created splenorenal shunt.
+
+There has been no significant change in a 7 mm cystic lesion in the pancreatic body (image 13, series 4; image 17, series 5) since 11/27/2020, likely sidebranch IPMN versus sequela of pancreatitis.
+
+Patient is status post splenectomy. There is left renal cortical scarring. There are bilateral simple renal cysts. The gallbladder and adrenal glands are unremarkable. 
+
+There is no abdominal adenopathy or ascites.
+
+Trace left pleural effusion, decreased from prior examinations. There are no aggressive bone lesions.1. No evidence of HCC.
+2. Interval decrease in previously seen small left pleural effusion, now trace.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain direct keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth". However, the presence of "severely attenuated main portal vein with cavernous transformation" and a "surgically created splenorenal shunt" are strong indirect indicators of portal hypertension, which is commonly associated with advanced liver fibrosis or cirrhosis. Despite the lack of direct parenchymal description, these findings are highly suggestive of underlying chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=413 / Out=157
+Cost: $0.000149

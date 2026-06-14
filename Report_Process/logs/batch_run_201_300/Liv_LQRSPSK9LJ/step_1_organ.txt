@@ -1,0 +1,38 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluation for HCC is not possible due recent ferumoxytol administration which resulted in poor enhancement of the liver post contrast.
+
+ Low signal is noted in liver, spleen, adrenal glands, kidneys and bone marrow due to ferumoxytol administration. Liver has a cirrhotic morphology. There are signs of portal hypertension evidenced by portosystemic shunts and splenomegaly. Small renal cysts are seen. Trace perihepatic ascites is seen. Prominent periportal nodes and noted.Evaluation for HCC is not possible due to recent ferumoxytol administration.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver has a cirrhotic morphology" and also mentions signs of portal hypertension (portosystemic shunts and splenomegaly), which are consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=344 / Out=54
+Cost: $0.000087

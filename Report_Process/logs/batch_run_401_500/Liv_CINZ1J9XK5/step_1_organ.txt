@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Again seen is an infiltrative HCC within the right hepatic lobe, measuring approximately 8.5 x 5.5 cm, stable in size from prior. While some areas of arterial hyperenhancement appear decreased (for example, on image 31, series 12), some previously avascular areas now demonstrate arterial enhancement (for example, image 25, series 12). A separate 1.8 cm arterially enhancing lesion which demonstrates washout is stable. No biliary ductal dilatation. Cholelithiasis and adenomyomatosis is again noted.     Hepatic vasculature: No significant change in bland portal vein thrombus burden (initially tumor thrombus). Portosystemic varices again noted    Pancreas: Scattered cystic lesions within the pancreas without main duct dilation (image 21, series 4)     Spleen: Stable splenomegaly measuring up to 14 cm.    Adrenal glands: Unremarkable.    Kidneys: Bilateral renal cysts. Stable mild perinephric stranding, nonspecific.    Bowel: Unremarkable.    Upper abdominal lymph nodes: Stable upper abdominal adenopathy do not 1.8 cm (image 56, series 11)    Peritoneum: No ascites.Overall stable size of an infiltrative HCC within the right hepatic lobe.      No significant change in portal vein thrombosis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "portosystemic varices" and "splenomegaly," which are indirect signs of portal hypertension often associated with chronic liver disease and cirrhosis. However, there is no explicit mention of cirrhosis, cirrhotic morphology, nodular surface, fibrosis, coarse echotexture, or direct statement of chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the findings are focused on HCC and vascular changes. Based on the provided criteria, which require direct keywords or explicit mentions, the report does not meet the threshold for "Fibrosis/Cirrhosis" classification.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=518 / Out=145
+Cost: $0.000174

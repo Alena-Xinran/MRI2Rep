@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is no evidence of hepatocellular carcinoma. There is a 6.0 cm cystic lesion in hepatic segments 8/4a with multiple internal serpiginous structures, compatible with an echinococcal cyst with detached membranes. There is no enhancing solid component. This lesion is unchanged in size since 2014. There are a few additional scattered subcentimeter cysts. The hepatic vasculature is patent. There is no biliary ductal dilatation.
+
+Mild splenomegaly is again noted. The gallbladder, adrenal glands, and kidneys are unremarkable except for left renal cysts, one of which is hemorrhagic/proteinaceous. There are few scattered sub-5 mm cystic lesions in the pancreas, likely the sequela of prior pancreatitis and/or side branch IPMN. The main pancreatic duct is not dilated. 
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC. 6 cm hepatic echinococcal cyst, stable in size since 2014.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a cystic lesion (echinococcal cyst) and scattered subcentimeter cysts, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not specifically described as abnormal, unremarkable, normal, or smooth. However, the presence of mild splenomegaly could be a secondary sign, but without direct liver parenchymal findings, it does not meet the specified criteria for fibrosis/cirrhosis based on the provided keywords. The absence of ascites and biliary ductal dilatation also does not directly indicate fibrosis. Since the criteria require explicit keywords or descriptions of the liver parenchyma, and none are present, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=425 / Out=189
+Cost: $0.000166

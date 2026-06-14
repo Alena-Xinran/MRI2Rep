@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatic ablation cavities are again noted with a slight interval decrease in size:
+
+- On series 14, image 22, there is a 6.9 x 5.3 cm ablation cavity in segment 7 without evidence of recurrent or residual disease.
+
+- On series 14, image 33, there is a 5.7 x 6.0 cm ablation cavity bordering segments 6 and 7 without evidence of recurrent or residual disease.
+
+Again seen are multiple subcentimeter arterially enhancing foci throughout the liver without washout, stable and nonspecific.
+
+The hepatic vasculature is patent. Cholelithiasis is noted. The spleen, pancreas, kidneys, and adrenal glands are unremarkable, except for left renal atrophy. There is no abdominal ascites or lymphadenopathy.
+
+A small right pleural effusion is again seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes hepatic ablation cavities, arterially enhancing foci, and notes the hepatic vasculature is patent. There is no mention of cirrhosis, fibrosis, nodular liver contour, or other features of chronic liver disease. The liver is not explicitly described as "normal," but the absence of any cirrhosis-related findings and the presence of only ablation cavities and nonspecific stable foci suggests no evidence of cirrhosis. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=377 / Out=116
+Cost: $0.000154

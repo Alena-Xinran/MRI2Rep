@@ -1,0 +1,109 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Multiplanar multisequence MRI was performed through the abdomen before and following intravenous administration of 10 cc Dotarem.
+
+COMPARISON: MRI 1/10/2020
+
+Findings
+
+Liver: Cirrhotic morphology. Unchanged right lobe cavernous hemangioma and cyst. No new hepatic masses. Patent portal and hepatic veins. No bile duct dilatation. Status post cholecystectomy.
+
+Portal hypertension with recanalized paraumbilical vein. No ascites.
+
+Pancreas, spleen, adrenal glands, and kidneys are unremarkable.
+
+No lymphadenopathy. No aggressive osseous lesions.No HCC
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Multiplanar multisequence MRI was performed through the abdomen before and following intravenous administration of 10 cc Dotarem. -> [Reasoning: Technical description, no focal liver finding.]
+Sentence 2: COMPARISON: MRI 1/10/2020 -> [Reasoning: Comparison statement, no focal liver finding.]
+Sentence 3: Findings -> [Reasoning: Section header, no focal liver finding.]
+Sentence 4: Liver: Cirrhotic morphology. -> [Reasoning: Background parenchymal description, no focal lesion.]
+Sentence 5: Unchanged right lobe cavernous hemangioma and cyst. -> [Reasoning: Found two distinct focal observations. 1) "cavernous hemangioma" maps to Type HEM. Location "right lobe" is general, maps to R_DIFFUSE. Quantity implied as 1. 2) "cyst" maps to Type CYST. Location "right lobe" is general, maps to R_DIFFUSE. Quantity implied as 1.]
+Sentence 6: No new hepatic masses. -> [Reasoning: Negative statement, no new focal lesion identified.]
+Sentence 7: Patent portal and hepatic veins. -> [Reasoning: Vascular finding, not a parenchymal lesion.]
+Sentence 8: No bile duct dilatation. -> [Reasoning: Negative finding, no lesion.]
+Sentence 9: Status post cholecystectomy. -> [Reasoning: Surgical history, no liver lesion.]
+Sentence 10: Portal hypertension with recanalized paraumbilical vein. -> [Reasoning: Vascular finding, not a parenchymal lesion.]
+Sentence 11: No ascites. -> [Reasoning: Negative finding, no lesion.]
+Sentence 12: Pancreas, spleen, adrenal glands, and kidneys are unremarkable. -> [Reasoning: Other organs, no liver finding.]
+Sentence 13: No lymphadenopathy. -> [Reasoning: Negative finding, no lesion.]
+Sentence 14: No aggressive osseous lesions. -> [Reasoning: Negative finding, no lesion.]
+Sentence 15: No HCC -> [Reasoning: Negative statement, no lesion.]
+
+Step 2: Structured Output
+TUMOR_RECORD: HEM | R_DIFFUSE | 1
+TUMOR_RECORD: CYST | R_DIFFUSE | 1
+
+--- EXTRACTED INFO ---
+HEM | R_DIFFUSE | 1
+CYST | R_DIFFUSE | 1
+
+--- USAGE ---
+Tokens: In=966 / Out=494
+Cost: $0.000349

@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of emphysema at the lung bases as well as multiloculated cavitary lesion of the left lower lobe, better characterized on prior chest CT from 1/22/2020.
+
+There is been interval ablation of previously described lesion posterior to the prior segment 8 ablation cavity, with ablation cavity now measuring 4.5 x 3.3 cm along segment 7/8, image 92 series 10. There is no evidence of residual recurrent HCC.
+
+Ablation cavity of segment 8 measures 4.4 x 3.4 cm, image 92 series 10, stable in size. There is no evidence of residual recurrent HCC.
+
+Ablation cavity of segment 5 measures 2.7 x 1.7 cm, image 111 series 10, previously 2.6 x 1.9 cm. There is no evidence of residual recurrent HCC.
+
+The hepatic vasculature is patent. There is no biliary ductal dilatation. The gallbladder, pancreas, spleen, adrenals, and kidneys are unremarkable aside from tiny right renal cyst. A previously described indeterminate 0.70 right renal lesion is not visualized, possibly due to motion artifact.
+
+There is no bowel obstruction or ascites. A 1.0 cm periportal node is noted on image 208 series 10, previously 1.1 cm (remeasured). There is no aggressive osseous lesion.Interval ablation of lesion posterior to the prior segment 8 ablation cavity. No evidence of residual or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver in the context of ablation cavities for HCC treatment, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The hepatic vasculature is patent, and there is no biliary ductal dilatation. The liver parenchyma itself is not described as abnormal, unremarkable, normal, or smooth. However, the presence of multiple HCC ablation sites suggests underlying chronic liver disease, but the specific criteria for fibrosis/cirrhosis are not explicitly stated in the text provided.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=546 / Out=143
+Cost: $0.000213

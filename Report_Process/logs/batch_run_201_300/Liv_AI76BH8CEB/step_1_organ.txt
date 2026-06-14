@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is no evidence of intrahepatic mass, biliary ductal dilation, or fatty infiltration. There is a tiny cyst in the left hepatic lobe. There are several tiny arterial enhancing foci without a correlate on any other sequences, likely perfusional in etiology. The hepatic vasculature is patent. 
+
+The gallbladder, spleen and adrenal glands are unremarkable. Incidentally noted is pancreatic divisum. Multiple cystic lesions are again seen throughout the pancreas, possibly representing prior episodes of pancreatitis or multiple sidebranch IMPN's. Multiple bilateral renal cysts are again noted, some in the left kidney are hemorrhagic. 
+
+There is no upper abdominal ascites or lymphadenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is described indirectly with no evidence of mass, biliary dilation, or fatty infiltration, but terms like "unremarkable", "normal", or "smooth" are not explicitly applied to the liver itself. However, the absence of any positive indicators of fibrosis or cirrhosis, along with the patent hepatic vasculature and no ascites, suggests no signs of fibrosis/cirrhosis are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=365 / Out=141
+Cost: $0.000129

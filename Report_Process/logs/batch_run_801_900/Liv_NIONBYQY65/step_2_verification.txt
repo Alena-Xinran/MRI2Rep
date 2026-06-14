@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Lung bases are clear. Visualized adjacent structures are unremarkable.
+Subcapsular cyst in the left hepatic lobe is again noted. Liver appears morphologically similar. No lesion concerning for HCC noted. No intrahepatic or extrahepatic biliary ductal dilatation. No pancreatic parenchymal or ductal abnormality.
+Previously seen tiny pancreatic cystic lesion is probably unchanged, not well visualized. Spleen is nonenlarged. Adrenals are unremarkable. Kidneys appear symmetric with a few T2 hyperintense cystic lesions. T2 hyperintense cystic lesion in the upper pole of the left kidney is likely a small hemorrhagic cyst. Attention on follow-up. No hydronephrosis. Stable periportal lymph nodes. Stable splenic artery aneurysm. Otherwise no vascular abnormality. No free fluid. No omental or peritoneal nodularity. No osseous abnormality. Partially visualized breasts are unremarkable.1. No evidence of HCC. Arterial phase evaluation slightly limited in the areas of liver adjacent to the hepatic flexure due to bowel peristalsis. Also some of delayed phases limited due to patient motion, no definite washout.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Liver appears morphologically similar" and "No lesion concerning for HCC noted." There is no mention of cirrhosis, nodularity, contour irregularity, or features of fibrosis/cirrhosis. The liver is described without abnormal morphologic findings, implying a normal appearance. Therefore, the correct status should be "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=438 / Out=93
+Cost: $0.000162

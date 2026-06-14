@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI liver elastography and MRI of the abdomen without and with contrast.
+
+FINDINGS
+
+Elastography demonstrates advanced fibrosis (stage 3). Liver stiffness: 4.15 kPa.
+
+There no hepatic steatosis, the fat fraction signal is 1.2 %. 
+
+No evidence of iron deposition with iron quantification of 0.7 mg of iron per gram of liver.
+
+Cirrhotic/fibrotic liver. No evidence of HCC. Normal intrahepatic bile ducts. Unchanged prominent CBD measures 1.1 cm with normal taper at the ampulla without obstructing stone or mass. Layering gallbladder sludge.
+
+Stable splenic and bilateral renal cysts. Tiny pancreatic cysts are stable. Normal pancreatic duct.
+
+No bowel obstruction. No ascites. No lymphadenopathy. No aggressive osseous lesions.Evidence of stage 3 advanced hepatic fibrosis. No evidence of HCC.
+
+
+YNHHS Radiology Notify Critical Result system classification: Routine. (accession E122979076), Routine. (accession E123316248)
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "Cirrhotic/fibrotic liver" and "advanced fibrosis (stage 3)" as well as "Evidence of stage 3 advanced hepatic fibrosis," which are direct indicators of fibrosis/cirrhosis according to the criteria.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=437 / Out=65
+Cost: $0.000117

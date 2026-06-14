@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is steatotic and cirrhotic. A 3.5 x 2.3 cm segment VII ablation cavity is unchanged and demonstrates no findings of recurrent disease. There are multiple subcentimeter scattered foci of arterial enhancement throughout the liver, for example on series 13, image 30, without washout or T2 correlate, many of which are unchanged and remain indeterminate. There are no lesions with imaging features suspicious for HCC. A few tiny liver cysts are noted. No biliary ductal dilatation is seen. The hepatic vasculature is patent.
+
+A 4 mm cystic lesion in the pancreatic body is unchanged without pancreatic duct dilatation seen. The gallbladder, spleen, adrenal glands and kidneys are unremarkable except for tiny renal cysts.
+
+There is no abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is steatotic and cirrhotic," which directly includes the keyword "cirrhotic" indicating chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=393 / Out=51
+Cost: $0.000099

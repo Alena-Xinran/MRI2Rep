@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are no imaging findings of advanced cirrhosis. Hepatic steatosis has increased, ranging from 18.5-21.9% (previously 16%). There is no abnormal iron deposition. There are no findings meeting criteria for hepatocellular carcinoma. A subcentimeter arterial enhancing focus in the right hepatic lobe is unchanged, without findings on other sequences, likely perfusional (image 23, series 31). The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable other than few bilateral renal cysts.
+
+There is no ascites or abdominal adenopathy.
+
+No enhancing osseous lesion is seen.Increased hepatic steatosis, without abnormal iron deposition or HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "There are no imaging findings of advanced cirrhosis." This indicates the absence of cirrhosis. No other features of fibrosis or cirrhosis are described. Therefore, the correct status should be "NoFibrosis/Cirrhosis", which matches the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=342 / Out=74
+Cost: $0.000127

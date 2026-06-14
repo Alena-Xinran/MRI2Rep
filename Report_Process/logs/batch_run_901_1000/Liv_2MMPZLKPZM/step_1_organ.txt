@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Again noted is a cirrhotic liver with sequelae of portal hypertension. 
+
+There is continued decrease in size to the segment 5/6 ablation cavity. Progressive enhancement along its more inferior aspect likely relates to post procedural fibrosis with a more  linear region of enhancement extending into the inferior aspect of the cavity appearing more prominent compared to most recent MRI  but similar to the 10/14/2013 study. This can be watched on follow-up. The cavity is otherwise avascular.
+
+A 1.2 x 1.3 cm segment 7/8 lesion (10:17) is minimally changed in size compared to most recent exam when it was 1cm but displays slow growth, measuring approximately 8 mm on 3/15/2013. There is washout and pseudocapsule consistent with HCC (OPTN 5a).
+
+Several other subcentimeter arterially enhancing foci within the medial segment and right lobe are hypointense on the hepatobiliary phase but without clear washout or T2 correlate. All are stable from most recent exam but some display similar slow growth. For example the largest within the right lobe measuring approximately 8 mm has enlarged from 5mm on 3/15/2013.  These lesions are nonspecific with differential including small foci of HCC or dysplastic nodules (do not meet OPTN HCC criteria currently). 
+
+Vasculature remains patent. The remaining abdominal organs appear unremarkable with the exception of a few scattered renal cysts. No adenopathy or aggressive osseous lesions.Continued slow growth to segment 7/8 HCC. No findings of recurrence within the ablation cavity.
+
+Additional subcentimeter foci as detailed above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Again noted is a cirrhotic liver with sequelae of portal hypertension." The term "cirrhotic" directly indicates the presence of cirrhosis, which is a form of advanced fibrosis. This satisfies the criteria for classification as "Fibrosis/Cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=571 / Out=71
+Cost: $0.000157

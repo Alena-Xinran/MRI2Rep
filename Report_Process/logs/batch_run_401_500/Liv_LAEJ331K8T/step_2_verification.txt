@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no pleural or pericardial effusion.
+
+Patient is again noted to be status post liver transplant. Mild intrahepatic biliary ductal dilatation is stable in appearance. No suspicious arterially enhancing lesions are noted within the liver. No findings of arterial or biliary stricture.
+
+The spleen, adrenals and kidneys are unremarkable with the exception of small bilateral renal cysts. Pancreas divisum is incidentally noted.
+
+There is no abdominal adenopathy.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, signs of portal hypertension, etc.). It describes a status post liver transplant with stable mild intrahepatic biliary ductal dilatation and no suspicious lesions, but does not indicate cirrhosis. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis for this classification purpose.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=295 / Out=106
+Cost: $0.000127

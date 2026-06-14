@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Small right pleural effusion and atelectatic changes persist.
+
+On series 12, image 28, a 6.8 x 4.9 cm segment 7/8 ablation cavity is not significant changed in size. However at the posterior aspect of the cavity (series 9, image 23) there is further enlargement of a 1.0 cm nodular arterial enhancement, most consistent with recurrent disease. Punctate region of arterial enhancement is also seen more medially along the cavity on image 26.
+
+On series 12, image 36, a 5.8 x 5.6 segment 6/7 ablation cavity demonstrates no definite findings of recurrent disease. 
+
+On series 9, image 40 in segment IVb there are 1 cm and 8cm arterial enhancing lesions with washout and pseudocapsule consistent with HCC, LIRADS 5.
+
+On series 9 image 41 there is a 9 mm arterially enhancing lesion that displays slightly increased T2 signal and low signal on precontrast T1-weighted images also suspicious for HCC. No washout or pseudocapsule. LIRADS 4.
+
+On series 9, image 64 at there is a 1 cm arterial enhancing lesion in segment 6 with washout and pseudocapsule, LIRADS 5.
+
+There are several other subcentimeter tail enhancing lesions, without washout or pseudocapsule, largest on series 9, images 22, 41, and 58 (LIRADS 3)
+
+The pancreas, spleen, adrenal glands and right kidney are unremarkable. Cholelithiasis and left renal atrophy are again noted. There is no upper abdominal adenopathy. Trace perihepatic fluid is present. No aggressive osseous lesions are identified. There is atheromatous disease in the aorta. There is possible occlusion of the ostia of the celiac axis which is poorly seen. Portal venous system remains patent.Recurrent multifocal HCC predominantly involving the right lobe and medial segment including recurrent tumor around the segment 7/8 ablation cavity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes findings related to recurrent and multifocal hepatocellular carcinoma (HCC), ablation cavities, and other lesions, but does not include any keywords or descriptions indicating fibrosis or cirrhosis. There is no mention of "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not characterized as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis descriptors suggests no evidence of that condition is reported. The findings focus on tumor recurrence and specific lesions without commenting on the background liver texture or morphology.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=659 / Out=146
+Cost: $0.000214

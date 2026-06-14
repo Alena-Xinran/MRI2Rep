@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post liver transplantation. No hepatic mass is seen. The hepatic vasculature is patent. There is no bile duct dilation.
+
+Splenomegaly and upper abdominal varices with splenorenal shunt are again noted.
+
+A 1.1 cm cystic lesion within the pancreatic neck (image 17 series 5) is apparently slightly decreased in size from prior study dated 4/2/2020, where it measured 1.4 cm. However, this size discrepancy may be related to differences in technique, as this lesion also measured 1.1 cm on the study performed 12/9/2019. A 1.1 cm cystic lesion within the tail of the pancreas is stable. No definite communication with the main pancreatic duct is seen. There is no main pancreatic ductal dilatation.
+
+The kidneys and adrenals are unremarkable aside from stable bilateral renal cysts.
+
+There is no ascites or lymphadenopathy.Transplant liver without evidence of HCC.
+
+Stable cystic lesions within the pancreatic neck and tail, likely reflecting sidebranch IPMNs. Continued surveillance on future MRI studies is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post liver transplantation and notes splenomegaly and upper abdominal varices with splenorenal shunt, which are indirect signs of portal hypertension often associated with chronic liver disease or cirrhosis. However, there is no explicit mention of keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or direct statements about chronic liver disease in the liver parenchyma itself. The liver is not described as "unremarkable", "normal", or "smooth" either. Given the presence of findings suggestive of portal hypertension (splenomegaly, varices, shunt) in a transplant liver context, this likely indicates underlying fibrosis or cirrhosis, but the criteria require explicit keywords or descriptions of the liver parenchyma. Since those specific keywords are absent, based on the strict criteria, the classification leans toward "NoFibrosis/Cirrhosis" due to lack of direct evidence, though clinically suspicious.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=456 / Out=217
+Cost: $0.000187

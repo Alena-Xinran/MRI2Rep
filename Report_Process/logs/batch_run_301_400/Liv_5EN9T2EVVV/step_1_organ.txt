@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with findings of portal hypertension as evidenced by splenomegaly, recanalization of the umbilical veins, and upper abdominal varices. There are no findings of hepatocellular carcinoma. There is focal arterial enhancement without correlate on other sequences adjacent to the gallbladder fossa, likely perfusional. There is diffuse hepatic steatosis. The hepatic vascular is patent.
+
+On series 8001, image 32, posterior to the intrahepatic IVC, there is a small collection of vessels which may represent an arteriovenous malformation, stable to prior imaging. 
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable.
+
+Prominent periportal and pancreatic nodes are seen.
+
+There are no aggressive osseous lesions.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions findings of portal hypertension, which are direct indicators of cirrhosis. Keywords such as "cirrhotic" and "portal hypertension" align with the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=67
+Cost: $0.000104

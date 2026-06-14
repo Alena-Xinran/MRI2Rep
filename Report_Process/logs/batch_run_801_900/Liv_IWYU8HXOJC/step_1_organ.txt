@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. There is a small amount of ascites and multiple varices are present compatible with portal hypertension. Innumerable nodules are noted within the liver. A previously described 1.7 cm T1 hyperintense nodule bordering segments 2 and 3 (series 11,001 image 31) does not demonstrate arterial phase enhancement or washout and is unchanged. The portal vein is patent. The hepatic veins are not identified, presumably related to Budd-Chiari.
+
+There is mild intrahepatic biliary dilatation which is unchanged.
+
+The patient is status post splenectomy. Mild edema adjacent to the head pancreas is again noted, presumably secondary to portal hypertension. A small cystic structure in the pancreatic head/neck is stable. The adrenal glands are unremarkable. A horseshoe kidney is present.Cirrhosis with portal hypertension.
+
+No definite findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis with portal hypertension." Additional supporting findings include "innumerable nodules," ascites, varices, and portal hypertension, all consistent with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=410 / Out=64
+Cost: $0.000109

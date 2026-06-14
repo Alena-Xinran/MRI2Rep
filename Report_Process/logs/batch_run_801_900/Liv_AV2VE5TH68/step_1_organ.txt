@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Diffuse hepatic steatosis. No enhancing hepatic lesions are visualized. No biliary dilatation. The gallbladder is unremarkable.
+
+Hepatic vasculature: Patent.
+
+Pancreas: A 5 mm cyst is visualized within the tail the pancreas (series 2001 image 21.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral simple renal cyst. Diffuse renal parenchymal thinning is noted, which may be seen with chronic medical renal disease.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  Hepatic steatosis. No evidence of HCC,
+2.  5 mm pancreatic cyst is noted. Consider follow-up imaging with pancreatic protocol CT or MRI in one year. (http://dx.doi.org/10.1016/j.jacr.2017.03.010)
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "diffuse hepatic steatosis" but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of fibrosis/cirrhosis indicators and the presence of steatosis alone do not meet the criteria for "Fibrosis/Cirrhosis". Based on the provided criteria, since no signs of fibrosis or cirrhosis are noted, the classification should be "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=420 / Out=151
+Cost: $0.000149

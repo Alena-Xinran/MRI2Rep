@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+15
+
+No charge for this interpretation
+
+History: 73-year-old female with HCV cirrhosis and HCC that underwent TACE x2 and resection. Evaluate for HCC
+
+Sequences submitted for evaluation include coronal and axial T2-weighted Haste, axial fat-suppressed T2-weighted Haste, axial DWI, axial in phase and opposed phase T1-weighted, and axial 3-D fat suppressed T1-weighted before and then several times up to 3 minutes following intravenous administration of OptiMARK. Subtractions are provided.
+
+Comparison to prior MRI from 3/2/15No findings suspicious for viable HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states the patient's history includes "HCV cirrhosis", which directly indicates the presence of cirrhosis. This satisfies the criteria for keywords like "cirrhosis" or explicit mentions of chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=351 / Out=57
+Cost: $0.000090

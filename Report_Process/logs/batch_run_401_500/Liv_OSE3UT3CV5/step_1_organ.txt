@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post left hepatectomy.Intrahepatic biliary ductal dilatation at the cut surface of the liver and dilatation of the common bile duct extending to the ampulla is unchanged
+The hemorrhagic ablation cavity within segment VII is stable to slightly decreased in size measuring 1.6 x 3.1 cm, previously 1.6 x 3.3 cm with no evidence of recurrent HCC.
+ There are a few new subcentimeter, subcapsular wedge-shaped areas of arterial phase hyperenhancement with no corresponding washout or pseudocapsule, likely perfusional (images 25, 33, 38 of series 10). A stable wedge-shaped area of arterial hyperenhancement is present within segment VIII.
+The hepatic vasculature is patent. 
+
+The patient is status post cholecystectomy and splenectomy. . 
+
+Pancreatic atrophy, mild pancreatic ductal dilatation measuring 4 mm the pancreatic head, and pancreatic divisum are again noted. 
+
+The adrenal glands are unremarkable.
+
+ The kidneys are unremarkable with the exception of areas of bilateral renal cortical scarring, particularly in the right lower lobe.
+
+Small periampullary duodenal diverticula are present.
+
+ No abdominal adenopathy or ascites is seen. The visualized bowel is unremarkable.No recurrent or new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It also does not describe the liver parenchyma as "unremarkable", "normal", or "smooth" explicitly, but the absence of fibrosis/cirrhosis indicators and the focus on post-surgical changes, ablation cavity, and vascular patency suggest no reported signs of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=502 / Out=119
+Cost: $0.000158

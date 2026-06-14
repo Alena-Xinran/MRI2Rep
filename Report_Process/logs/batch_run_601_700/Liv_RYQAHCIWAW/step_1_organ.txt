@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is a trace right pleural effusion.
+
+Patient is status post partial liver transplant. There is no evidence of hepatocellular carcinoma or liver mass. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts.
+
+There is no abdominal adenopathy or ascites. A fat-containing ventral abdominal hernia is stable.No evidence of HCC or liver mass.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of a partial transplant and absence of masses, but the parenchyma itself is not characterized as unremarkable, normal, or smooth. However, the absence of positive findings for fibrosis/cirrhosis and the lack of any abnormal descriptors for the liver parenchyma in this context suggests no evidence of fibrosis or cirrhosis is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=308 / Out=132
+Cost: $0.000109

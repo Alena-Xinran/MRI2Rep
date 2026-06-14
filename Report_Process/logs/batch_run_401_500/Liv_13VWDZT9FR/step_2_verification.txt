@@ -1,0 +1,44 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There are two left lower lobe lung nodules, measuring 8 and 7 mm, increased from chest CT on 10/18/2014.
+
+The liver is cirrhotic. A 3.4 x 2.7 cm ablation cavity in segment 4A has decreased from 3.6 x 3.2 cm and demonstrates no evidence of recurrent disease. A subcentimeter avascular focus posterior to the ablation cavity is also stable. No new lesions are identified. Again demonstrated are extensive abdominal varices, consistent with portal hypertension.
+
+Cholelithiasis is noted. The spleen, kidneys, adrenal glands, and pancreas are unremarkable. No ascites or lymphadenopathy is identified.1. No evidence of HCC.
+2. Slowly increasing left lower lobe lung nodules. Follow-up with chest CT is recommended.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic," which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis." Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=367 / Out=78
+Cost: $0.000136

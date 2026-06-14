@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post partial hepatectomy. There is no evidence of hepatocellular carcinoma. A small cyst in the left hepatic lobe is unchanged. The visualized hepatic vasculature is patent.    The spleen, kidneys, adrenal glands, and pancreas are unremarkable.    No abdominal lymphadenopathy or ascites is seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, portal hypertension signs, etc.). It only notes a history of partial hepatectomy, no hepatocellular carcinoma, a stable small cyst, and patent vasculature. The liver parenchyma is not explicitly described as normal, but the absence of cirrhosis-related findings and the lack of any mention of fibrosis or cirrhosis implies the liver is not cirrhotic. Therefore, the correct status should be "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=270 / Out=133
+Cost: $0.000131

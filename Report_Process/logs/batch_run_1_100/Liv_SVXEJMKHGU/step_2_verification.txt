@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+No arterially enhancing liver lesions are identified. Several small liver cysts are again noted. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable. The gallbladder is absent. No biliary ductal dilatation is seen.
+
+No abdominal lymphadenopathy or ascites is identified.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs, splenomegaly, or varices). It describes no arterially enhancing liver lesions, several small cysts, and patent hepatic vasculature, which are not indicative of cirrhosis. The spleen and other organs are unremarkable. Therefore, the liver is considered normal in the context of fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=267 / Out=115
+Cost: $0.000123

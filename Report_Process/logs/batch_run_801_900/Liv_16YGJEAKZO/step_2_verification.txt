@@ -1,0 +1,52 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T1 in and opposed phase, axial T1 fat-sat pre and multiphase postcontrast. The arterial phase is slightly early limiting sensitivity for patient of HCC.
+
+FINDINGS
+There are multiple areas of arterial enhancement seen in the left greater than right hepatic lobes, some which persist into portal venous phase, but normalizes on the more delayed postcontrast sequence. There are no focal lesions which meet criteria for hepatocellular carcinoma. Hepatic steatosis is seen. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts, one on the right which contains hemorrhagic material.
+
+There is focal fusiform aneurysmal dilatation of the infrarenal abdominal aorta measuring up to 3.3 cm, stable to prior exam when measured similarly.
+
+There is no abdominal ascites. Prominent periportal nodes are seen.
+
+Partially visualized artifact at the ventral abdominal wall may relate to previous hepatic resection.No hepatic lesions meeting imaging criteria for HCC. 
+
+Nonspecific areas of enhancement in the left greater than right hepatic lobes which normalizes on delayed sequences are likely perfusional, amenable to follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs like varices or splenomegaly). It notes hepatic steatosis and nonspecific perfusional enhancement, but these are not diagnostic of fibrosis or cirrhosis. The liver is not explicitly described as "normal," but the absence of cirrhosis findings and the statement that no lesions meet HCC criteria imply no cirrhosis is reported. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=482 / Out=132
+Cost: $0.000078

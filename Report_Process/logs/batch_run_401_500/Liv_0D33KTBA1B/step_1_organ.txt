@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver redemonstrates cirrhotic morphology. There are a few stable nonspecific subcentimeter hyperintense lesions on T1 precontrast and hepatobiliary phase throughout the liver, for example measuring 0.8 cm in segment V/VIII (series 8 image 35), as on prior exam (0.8 cm). No HCC is demonstrated. The portal and hepatic veins are patent.
+
+Mild splenomegaly and upper abdominal varices are again noted, evidence of portal hypertension. The pancreas, adrenal glands and kidneys are unremarkable except for a stable subcentimeter hemorrhagic right renal cyst. No enlarged abdominal lymph nodes are visualized.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic morphology" and also mentions "mild splenomegaly and upper abdominal varices... evidence of portal hypertension," which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=366 / Out=56
+Cost: $0.000094

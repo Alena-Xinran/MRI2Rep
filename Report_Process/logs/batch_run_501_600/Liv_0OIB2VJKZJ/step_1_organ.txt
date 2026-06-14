@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Elastography demonstrates no fibrosis. Liver stiffness: 2.4 kPa.
+
+Reference: (Clin Gastroenterol Hepatol. 2015 Mar; 13(3): 440-451.e6. Published online 2014 Nov 20. doi:  10.1016/j.cgh.2014.09.046)
+
+Optical cut-off (kPa): 
+3.45-3.65 kPa = Any fibrosis (stage 1)
+3.66- 4.10 kPa = Significant fibrosis (stage 2)
+4.11- 4.70 kPa = Advanced fibrosis (stage 3)
+&gt; 4.71 kPa = Cirrhosis (stage 4)
+
+There is no iron overload. Liver iron content is 1.1 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload
+
+There is diffuse hepatic steatosis, the fat fraction signal is 17%. The liver is not cirrhotic in morphology. The spleen, pancreas, adrenal glands and kidneys are unremarkable. Patient is status post cholecystectomy with stable biliary ductal dilatation. The common bile duct measures 1 cm. The hepatic vasculature is patent.
+
+There is no abdominal lymphadenopathy or ascites.Diffuse hepatic steatosis. No evidence of HCC, cirrhosis, hepatic fibrosis or iron deposition.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver: Elastography demonstrates no fibrosis" and later repeats "No evidence of HCC, cirrhosis, hepatic fibrosis or iron deposition." It also notes "The liver is not cirrhotic in morphology." There are no keywords indicating fibrosis or cirrhosis; instead, findings are consistent with no fibrosis/cirrhosis despite the presence of diffuse hepatic steatosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=554 / Out=90
+Cost: $0.000161

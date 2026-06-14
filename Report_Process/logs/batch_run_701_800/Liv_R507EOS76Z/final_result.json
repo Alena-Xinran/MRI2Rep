@@ -1,0 +1,24 @@
+{
+  "id": "Liv_R507EOS76Z",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"RIM_ATYP | R_ANT | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.001586816,
+    "timestamp": "2026-02-08 03:03:42",
+    "model": "deepseek/deepseek-chat"
+  }
+}

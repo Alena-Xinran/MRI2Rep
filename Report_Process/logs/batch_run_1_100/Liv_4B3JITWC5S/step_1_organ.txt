@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post liver transplant, as before. No suspicious hepatic lesion. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Stable tiny cyst in the pancreas neck body junction series 3 image 17, may be a very small sidebranch IPMN or sequela of prior pancreatitis.
+
+Spleen: Unchanged splenomegaly: 17 cm craniocaudal.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: There is no evidence of bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+Large portal systemic collateral veins again seen in the retroperitoneum.Stable exam. No evidence for HCC.
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a status post liver transplant with no suspicious hepatic lesion, and does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of chronic liver disease. However, it notes "Large portal systemic collateral veins again seen in the retroperitoneum," which can be associated with portal hypertension, often secondary to cirrhosis. This finding, in the context of a liver transplant, suggests possible underlying chronic liver disease or portal hypertension, but the liver parenchyma itself is not described with specific fibrotic or cirrhotic features. The criteria specify direct keywords or descriptions of the liver parenchyma (e.g., nodular surface, coarse echotexture), which are absent here. Therefore, based on the provided criteria, the classification is "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=394 / Out=192
+Cost: $0.000159

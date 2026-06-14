@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates imaging features compatible with cirrhosis. Liver observations are as follows:
+- Stable 1.3 cm T2 hyperintense observation in segment V/VIII, which demonstrates an enhancing capsule, nonrim arterial phase enhancement, and nonperipheral washout compatible with HCC (image 36, series 14001) (LR5). Mild intrahepatic biliary duct dilatation peripheral to this lesion is unchanged (image 31, series 14,001).
+- Increased size of the segment IVa/VIII rim-arterial enhancing observation with delayed filling in, which now measures 1.6 cm (previously 0.7 cm; image 30, series 14001) (LR-M).
+- Stable 1.3 cm arterial enhancing observation at the interface of segment VII/VIII (image 32, series 14001) (LR-3).
+-A few additional scattered punctate arterially enhancing foci (LR 3) are also seen. 
+
+The ablation cavity in the peripheral right hepatic lobe and a smaller ablation cavity more inferiorly within left hepatic lobe are unchanged. The 2.1 cm segment VIII hemangioma is stable.
+
+A few enlarged periportal nodes are stable, for instance a 1.3 cm node (image 44, series 14001).
+
+Cholelithiasis is present. Multiple stable subcentimeter cystic lesions of the pancreas likely reflect sequelae of prior pancreatitis versus side branch IPMNs. The spleen, kidneys, and adrenal glands are unremarkable with the exception of stable renal cysts. There is no abdominal ascites.
+
+Right lower lobe pulmonary neoplasm is suboptimally visualized.1.  Stable 1.3 cm segment V/VIII HCC. No additional liver observations with imaging features compatible with HCC.
+2.  Increased size of a segment IVa/VIII LR-M lesion concerning for worsening neoplasm. Tissue sampling is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates imaging features compatible with cirrhosis." This directly meets the criteria for classification as "Fibrosis/Cirrhosis" based on the keyword "cirrhosis."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=615 / Out=54
+Cost: $0.000163

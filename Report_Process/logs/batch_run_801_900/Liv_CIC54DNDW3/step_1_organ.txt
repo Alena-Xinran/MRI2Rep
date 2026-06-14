@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates a cirrhotic morphology. There are findings of portal hypertension including upper abdominal venous collaterals. The arterial phase on the study is obtained early, decreasing the sensitivity for HCC detection. There are areas of non masslike enhancement which were more focal on the prior MRI. One lesion in segment 7 is stable in size measuring 0.8 cm (image 30, series 12) without washout or pseudocapsule, likely perfusional. There is a stable 0.8 cm T1 hyperintense lesion in segment 4A without arterial enhancement, image 29 series 10. There are no lesions suspicious for HCC. There are confluent areas of arterial enhancement and T2 signal compatible with fibrosis especially within the posterior right hepatic lobe. 
+
+There is cholelithiasis with mild gallbladder distention. No other signs to suggest cholecystitis. The pancreas, spleen, kidneys, and adrenal glands are normal with the exception of a stable 1.2 cm left adrenal adenoma.
+
+There is no significant upper abdominal lymphadenopathy or ascites.
+
+Stable nodule seen within the right medial lung base.No lesion suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates a cirrhotic morphology" and later mentions "confluent areas of arterial enhancement and T2 signal compatible with fibrosis especially within the posterior right hepatic lobe." These are direct indicators of cirrhosis and fibrosis, meeting the criteria for classification.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=467 / Out=69
+Cost: $0.000127

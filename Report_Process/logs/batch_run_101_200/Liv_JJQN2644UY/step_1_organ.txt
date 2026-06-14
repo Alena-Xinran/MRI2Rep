@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Stable steatotic and cirrhotic liver with sequelae of portal hypertension. Mild ascites. No arterially enhancing lesions with washout to suggest HCC. TIPS is in place, cannot assess stent patency. Some reactive appearing periportal lymph nodes are again seen.
+
+Unchanged thyromegaly. Scattered benign renal cysts are again noted, including some hemorrhagic cyst on the left. Multiple simple appearing pancreatic cystic lesions are noted without any dilatation the main pancreatic duct. The largest lesion in the pancreatic head appears stable measuring 2 cm.
+
+No aggressive osseous lesions.No evidence for HCC.
+
+Multiple cystic pancreatic lesions measuring up to 2 cm in the head. Differential includes sequelae of pancreatitis or side branch IPMN. These can be watched on routine HCC surveillance imaging.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver" and mentions "sequelae of portal hypertension," which are direct indicators of cirrhosis and chronic liver disease.  
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=386 / Out=47
+Cost: $0.000096

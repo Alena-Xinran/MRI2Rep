@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Patient is status post partial left hepatectomy and partial right hepatectomy. No evidence of hepatocellular carcinoma. Hepatic vasculature is patent.
+
+Gallbladder and biliary tree: Cholelithiasis. Stable focal intrahepatic biliary ductal dilatation in the right hepatic remnant.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Subcentimeter bilateral simple renal cysts.
+
+Bowel: No bowel obstruction. Postsurgical changes of partial gastrectomy.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: A simple fluid collection is again seen in the left abdomen measuring approximately 5.7 x 4.3 x 7.1 cm.
+
+Lung bases: Unremarkable.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report mentions "status post partial left hepatectomy and partial right hepatectomy" and "no evidence of hepatocellular carcinoma," but does not describe any features of cirrhosis such as nodularity, contour irregularity, atrophy, hypertrophy, or signs of portal hypertension. The liver is not explicitly described as normal, but the absence of cirrhosis-related findings and the lack of any mention of fibrosis or cirrhosis suggests the liver is not cirrhotic. The previously extracted status "NoFibrosis/Cirrhosis" aligns with the report's content.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=367 / Out=129
+Cost: $0.000157

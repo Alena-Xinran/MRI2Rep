@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Multiple hepatic ablation cavities are again noted as follows:
+
+Segment 8, subcapsular ablation cavity measuring 4.8 x 1.4 cm, previously 5.5 x 1.3 cm. There is no recurrent or residual disease.
+
+Segment 8, subcapsular cavity just inferiorly, measuring 1.8 x 1.8 cm. There is no recurrent or residual disease.
+
+Segment 7, subcapsular measuring 2.8 x 1.2 cm, previously 3.0 x 1.1 cm. A nodular focus of internal enhancement is less prominent and does not demonstrate washout.
+
+Scattered foci of arterial enhancement throughout the bilateral hepatic lobes (for example segment 3 series 10 image 63), do not demonstrate washout.
+
+The spleen, gallbladder, pancreas, adrenal glands and kidneys are unremarkable except for 1 cm left renal cyst.
+
+There is no abdominal lymphadenopathy or ascites.No evidence of recurrent or residual HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes multiple hepatic ablation cavities and scattered foci of arterial enhancement but does not mention cirrhosis, morphologic features of cirrhosis, or any specific findings indicating fibrosis or cirrhosis. The liver parenchyma itself is not explicitly described as normal, but the absence of any mention of cirrhosis or its features, along with the focus on ablation cavities and enhancement patterns without noting cirrhotic morphology, suggests that the liver is not reported as cirrhotic. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=403 / Out=123
+Cost: $0.000165

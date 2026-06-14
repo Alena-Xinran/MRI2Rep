@@ -1,0 +1,70 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: No biliary dilatation.No evidence for HCC. No hepatic steatosis. There is no iron overload.
+
+Liver iron content is 0.79 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral cysts otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Visualized chest: Mediastinal and hilar lymphadenopathy is again seen.No iron overload. 
+
+No morphologic signs of cirrhosis. If there is concern for fibrosis MRI elastography can be performed.
+
+No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "No morphologic signs of cirrhosis." This indicates a normal liver without features of cirrhosis. According to the task rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis". The previously extracted status matches this finding.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=417 / Out=75
+Cost: $0.000148

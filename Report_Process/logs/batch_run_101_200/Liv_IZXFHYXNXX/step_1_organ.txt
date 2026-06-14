@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right portal vein embolization. Previously seen large hepatocellular carcinoma centered in the right hepatic lobe appears to have increased in size and now measures up to 18 cm, previously 17 cm. A new area of hemorrhage/avascularity is noted within it however there are multiple regions of persistent arterial enhancement. There are now numerous new metastatic lesions throughout both hepatic lobes. For example a new 2.4 cm lesion is seen in hepatic segment 2 on image 39, series 20,001. A previously seen lesion in the right hepatic lobe has increased in size measuring 2.4 cm (image 62, series 20,001), previously 1.1 cm.     The left portal vein appears patent. The IVC and middle hepatic vein are distorted by mass effect but patent. The right hepatic vein is obscured by the mass.    The spleen, adrenal glands, pancreas and kidneys are unremarkable other than a left renal cyst. There is cholelithiasis.    There is no abdominal adenopathy or ascites.    Please see the separate report dictated by the chest service for chest findings.Worsening multifocal HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a large hepatocellular carcinoma with new metastatic lesions, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" either; the focus is on the tumor and metastases. Since there is no positive evidence of fibrosis or cirrhosis based on the given criteria, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=464 / Out=131
+Cost: $0.000153

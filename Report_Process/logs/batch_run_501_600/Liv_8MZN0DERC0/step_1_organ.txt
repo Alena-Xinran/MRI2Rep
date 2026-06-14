@@ -1,0 +1,36 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly with Gamna-Gandy bodies, upper abdominal varices (including gastroesophageal varices), and trace ascites. The patient is status post TIPS procedure. Patency of the TIPS stent cannot be assessed secondary to susceptibility artifact. The main portal vein is patent.    A treatment cavity in hepatic segment 2/3 measures 2.4 x 1.8 cm, unchanged from prior exam, and again without definite evidence for recurrent disease (LR TR nonviable).    Evaluation of postcontrast images is somewhat limited secondary to respiratory motion artifact. Within this limitation, there are no definite findings of new HCC.     On series 15 image 43, there is a 1.4 cm region of possible increased enhancement bordering segments 6 and 7. This is felt to be artifactual as nothing can be identified in this location on the precontrast images, the previous study or on the recent CT from 12/13/2021, and therefore attention at follow-up is suggested.    Cholelithiasis is again noted. Multiple cystic lesions scattered throughout the pancreas are again noted measuring up to 0.9 cm in the head neck junction, not significantly changed from prior exam, and again favored to represent sequelae of prior pancreatitis versus side branch IPMNs. There is no dilation of the main pancreatic duct. The adrenal glands and kidneys are unremarkable, with the exception of bilateral renal cysts.    There is no abdominal lymphadenopathy.    Soft tissue edema is noted along the inferior aspect of the right scapula, presumably secondary to patient's recent right scapular fracture. Right-sided rib fractures are better appreciated on recent prior CT examination.No definite evidence for new or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=593 / Out=42
+Cost: $0.000151

@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: Redemonstration of cirrhotic morphology and postsurgical changes status post segment VI resection. The 2.2 x 3.1 cm fluid collection in the resection bed is stable to minimally decreased in size. Foci of arterial enhancement are less conspicuous on the current study and demonstrate no washout. No new lesions identified.
+
+Hepatic vasculature: Patent.
+
+Gallbladder:Unremarkable.
+
+Pancreas: A 1.4 cm cyst in the pancreatic head is unchanged. No pancreatic ductal dilatation.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Unremarkable except for stable subcentimeter bilateral renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Stable to minimally decreased fluid collection in the resection bed.
+Nonspecific arterial enhancing foci without evidence for recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Redemonstration of cirrhotic morphology" in the liver findings, which explicitly indicates the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=463 / Out=60
+Cost: $0.000139

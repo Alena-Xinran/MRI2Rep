@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The liver is cirrhotic with left lateral and caudate lobe hypertrophy. The spleen measures at the upper limits of normal at 13 cm. There are upper abdominal and paraesophageal varices. There is a 1.6 cm mildly T1 and T2 hyperintense lesion with no arterial enhancement and questionable washout at the junction of liver segments 5/6/7/8 (series 14001 and 17001, image 25), corresponding to the area in question on recent ultrasound.
+
+A punctate T2 hyperintensity in segment 7 (series 2001, image 8) is too small to characterize, however presumably is a cyst.
+
+The gallbladder contains small gallstones in the gallbladder wall is thickened and edematous, however the gallbladder is not abnormally dilated. There is cavernous transformation of the right anterior portal vein. Remaining vasculature is patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: There is a 1.3 cm periportal node, in the context of cirrhosis probably reactive. 
+
+Peritoneum: No ascites.
+
+Other: Gynecomastia is partially imaged.1. 1.6 cm right hepatic lobe lesion likely corresponding to the ultrasound abnormality is indeterminate, and does not definitively meet the criteria for HCC at this time. Short-term follow-up (3 months with MR) is recommended.
+2. Cirrhotic liver morphology with sequela of portal hypertension.
+3. Gallstone and presumably chronic gallbladder wall thickening, but no definite findings of acute cholecystitis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and later notes "Cirrhotic liver morphology with sequela of portal hypertension," which directly indicates cirrhosis. Additionally, there are findings consistent with chronic liver disease such as varices, splenomegaly at the upper limit of normal, and cavernous transformation of the portal vein.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=582 / Out=82
+Cost: $0.000165

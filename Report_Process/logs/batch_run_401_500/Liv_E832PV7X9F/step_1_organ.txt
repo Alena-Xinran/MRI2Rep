@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatic ablation cavities are again noted with a slight interval decrease in size:
+
+- On series 14, image 22, there is a 6.9 x 5.3 cm ablation cavity in segment 7 without evidence of recurrent or residual disease.
+
+- On series 14, image 33, there is a 5.7 x 6.0 cm ablation cavity bordering segments 6 and 7 without evidence of recurrent or residual disease.
+
+Again seen are multiple subcentimeter arterially enhancing foci throughout the liver without washout, stable and nonspecific.
+
+The hepatic vasculature is patent. Cholelithiasis is noted. The spleen, pancreas, kidneys, and adrenal glands are unremarkable, except for left renal atrophy. There is no abdominal ascites or lymphadenopathy.
+
+A small right pleural effusion is again seen.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" explicitly, but the absence of fibrosis/cirrhosis indicators and the presence of stable, nonspecific findings without mention of parenchymal abnormality suggest no evidence of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=404 / Out=115
+Cost: $0.000129

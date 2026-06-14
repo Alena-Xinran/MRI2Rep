@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Findings in the chest are evaluated on dedicated chest CT performed the same day.
+
+Liver:
+
+The patient is status post orthotopic liver transplant. There are no findings meeting criteria for hepatocellular carcinoma. The previously described indeterminant arterial enhancing lesion in the mid liver is no longer appreciated.
+
+A newly seen 0.6 cm arterial enhancing nodule in segment VI without washout or pseudocapsule is nonspecific (image 30, series 10). Ill-defined hematoma along the dome of the liver is not significantly changed. A 2.8 x 1.4 cm region of hematoma along the inferior right hepatic lobe has decreased from 3.4 x 1.7 cm (image 43, series 8). The hepatic vasculature is patent.
+
+Mild splenomegaly to 13.9 cm is unchanged. The adrenal glands and kidneys are unremarkable. Few cystic lesions in the pancreas, the largest in the pancreatic body measuring 0.7 cm, are unchanged and likely represent sidebranch IPMN versus sequelae of prior pancreatitis. The main pancreatic duct is normal in caliber.
+
+There is no ascites. A 1.2 cm gastrohepatic lymph node is stable.
+
+Diastases of the anterior abdominal musculature is unchanged. No aggressive osseous abnormality.No HCC.
+New 6 mm arterial phase enhancing nodule in segment VI. LI-RADS 3. Amenable to follow-up
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post orthotopic liver transplant, but does not mention any specific keywords indicating fibrosis or cirrhosis such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators and the presence of a transplant context without active disease description suggests no current signs of fibrosis/cirrhosis are reported. The findings focus on post-transplant nodules and hematoma, not parenchymal texture or morphology indicative of fibrosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=520 / Out=149
+Cost: $0.000176

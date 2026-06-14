@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver appears normal in morphology. There are no hepatic masses suspicious for hepatocellular carcinoma. Redemonstrated are multiple nonspecific foci of nodular arterial-phase hyperenhancement without correlates on other pulse sequences. The hepatic and portal veins are patent.
+
+The spleen, kidneys, adrenal glands, pancreas and gallbladder are unremarkable other than a 2 mm gallbladder polyp. No abdominal adenopathy or ascites is seen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver appears normal in morphology" and does not mention any features of cirrhosis such as nodularity, contour irregularity, or signs of portal hypertension. Therefore, the correct status should be "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=287 / Out=78
+Cost: $0.000113

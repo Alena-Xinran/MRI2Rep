@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Cirrhotic liver morphology with caudate lobe hypertrophy is redemonstrated. Large upper abdominal and paraesophageal varices are redemonstrated, compatible with the sequelae of portal hypertension.
+
+Heterogenous/nodular liver enhancement is again noted throughout the liver, without specific findings compatible with HCC. Scattered subcentimeter hepatic cysts are redemonstrated. Dilation of the intrahepatic IVC with a slitlike appearance of the patent intrahepatic IVC is unchanged. The portal veins are patent. The hepatic veins are not identified.
+
+Gallbladder wall edema is present, and there may be cholelithiasis (series 2001, image 10).
+
+The spleen is surgically absent. A horseshoe kidney is partially visualized. The adrenal glands and pancreas are unremarkable.
+
+There is slight interval increase in ascites, which remains mild involving. No abdominal lymphadenopathy is seen.1.  No findings of HCC. Unchanged hepatic vascular findings.
+2.  Slight increase in mild volume ascites.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Cirrhotic liver morphology with caudate lobe hypertrophy is redemonstrated" and later mentions "heterogenous/nodular liver enhancement" and "portal hypertension," all of which are direct features of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=408 / Out=83
+Cost: $0.000149

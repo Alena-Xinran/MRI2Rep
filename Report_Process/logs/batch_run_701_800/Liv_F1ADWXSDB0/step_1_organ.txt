@@ -1,0 +1,63 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: There is a nodular/cirrhotic liver morphology. Sequelae of portal hypertension include splenomegaly, recanalization of the umbilical vein, and trace ascites. There is cholelithiasis without evidence of cholecystitis. There is no intrahepatic ductal dilatation.
+
+Hepatic observations are as follows:
+
+There is a stable 3.4 x 9 cm hepatic segment 8 treatment cavity with no suspicious enhancing components (LR TR nonviable).
+
+Subcentimeter arterially enhancing observation in segment 6 without washout or pseudocapsule, stable from baseline MRI dated 10/21/21. 
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: 2.9 cm neoplasm of the right kidney with central hemorrhage/necrosis is unchanged. Left kidney is unremarkable. There is no hydronephrosis.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Vasculature: An IVC filter is noted.
+
+Peritoneum: Trace ascites1.  Stable segment 8 treatment cavity with no evidence of local recurrence (LR TR nonviable). 
+2.  No evidence of new HCC.
+3.  Unchanged 2.9 cm right renal neoplasm.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "nodular/cirrhotic liver morphology" and mentions sequelae of portal hypertension including splenomegaly, recanalized umbilical vein, and ascites, all consistent with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=520 / Out=57
+Cost: $0.000137

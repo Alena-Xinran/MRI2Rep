@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post partial left hepatectomy with postsurgical changes at the margins. There is a new 1.2 cm arterial enhancing lesion in segment 4A with washout and pseudocapsule compatible with HCC (OPTN 5a / LI-RADS 5), image 56 series 11. 4 mm arterial enhancing focus is noted in the right hepatic lobe without washout. Small cyst is see.
+
+No biliary dilatation. Adenomyomatosis of the fundus of the gallbladder and cholelithiasis are noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: 8 mm arterial enhancing node in the gastrohepatic ligament is nonspecific, attention on follow-up.
+
+Peritoneum: No ascites.New 1.2 cm HCC in segment 4A.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes postsurgical changes and a new HCC lesion, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of positive fibrosis/cirrhosis indicators means the classification defaults to "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=118
+Cost: $0.000139

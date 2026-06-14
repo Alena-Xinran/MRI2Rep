@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver has a cirrhotic appearance with multiple nodules and features of active fibrosis. There is no mass suspicious for HCC. There are arterial enhancing foci without washout, likely shunts. There is a hepatic cyst. The hepatic vasculature is patent. There are portosystemic shunts and splenomegaly compatible with portal hypertension. Gamna-Gandy bodies are noted in the spleen. There are small amount of ascites. The pancreas, adrenal glands and kidneys are unremarkable except for renal cysts. 
+
+The ascending colon at the hepatic flexure and the proximal transverse colon are slightly edematous, likely due to portal hypertension.
+
+There are prominent peripancreatic nodes. There is retroperitoneal lymphadenopathy, for example a paraortic node measures 1.1 cm, image 63 series 18.No mass suspicious for HCC.
+
+Hepatic cirrhosis with fibrosis and signs of portal hypertension. Small amount of ascites.
+
+Retroperitoneal lymphadenopathy.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver has a cirrhotic appearance with multiple nodules and features of active fibrosis," and later reiterates "Hepatic cirrhosis with fibrosis and signs of portal hypertension." Keywords such as "cirrhotic," "nodules," "fibrosis," and "portal hypertension" are present, all indicating chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=425 / Out=88
+Cost: $0.000124

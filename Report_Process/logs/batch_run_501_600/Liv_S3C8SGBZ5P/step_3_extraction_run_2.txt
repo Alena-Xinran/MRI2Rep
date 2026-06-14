@@ -1,0 +1,114 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Hepatobiliary system: Segment 6 ablation cavity measures 3.6 cm 1.5 cm, no evidence of recurrent disease. There is a new 1.3 cm segment 7 arterial enhancing lesion with washout and pseudocapsule compatible with HCC (image 43 series 12), OPTN 5a. Cirrhotic liver morphology.. No biliary dilatation.
+
+Hepatic vasculature: Patent. A TIPS is noted which cannot be made for patency.
+
+Pancreas: Unremarkable.
+
+Spleen: Unchanged splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Right cyst, otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace ascites.
+
+There is a moderate left pleural effusion.New 1.3 cm segment 7 HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: Hepatobiliary system: Segment 6 ablation cavity measures 3.6 cm 1.5 cm, no evidence of recurrent disease. -> Found observation. This is a treated lesion (ablation cavity) with no active recurrence, fitting the description of a treated lesion/scar. Maps to RIM_ATYP. Loc: Seg 6 (R_POST).  
+Sentence 2: There is a new 1.3 cm segment 7 arterial enhancing lesion with washout and pseudocapsule compatible with HCC (image 43 series 12), OPTN 5a. -> Found lesion. Features: Arterial enhancement + Washout + Pseudocapsule, classic HCC pattern. Maps to APHE_WO. Loc: Seg 7 (R_POST).  
+Sentence 3: Cirrhotic liver morphology.. -> Background info, no focal lesion.  
+Sentence 4: No biliary dilatation. -> Background info, no focal lesion.  
+Sentence 5: Hepatic vasculature: Patent. -> Background info, no focal lesion.  
+Sentence 6: A TIPS is noted which cannot be made for patency. -> Background info (TIPS), no focal liver lesion.  
+Sentence 7: Pancreas: Unremarkable. -> Other organ, ignore.  
+Sentence 8: Spleen: Unchanged splenomegaly. -> Other organ, ignore.  
+Sentence 9: Adrenal glands: Unremarkable. -> Other organ, ignore.  
+Sentence 10: Kidneys: Right cyst, otherwise unremarkable. -> Other organ, ignore.  
+Sentence 11: Bowel: Unremarkable. -> Other organ, ignore.  
+Sentence 12: Upper abdominal lymph nodes: No lymphadenopathy. -> Background info, no focal liver lesion.  
+Sentence 13: Peritoneum: Trace ascites. -> Background info, no focal liver lesion.  
+Sentence 14: There is a moderate left pleural effusion.New 1.3 cm segment 7 HCC. -> This sentence contains two statements. "There is a moderate left pleural effusion." -> Other organ/space, ignore. "New 1.3 cm segment 7 HCC." -> This is a duplicate finding of the lesion already described in Sentence 2. It refers to the same lesion (HCC in segment 7). Features: HCC implies APHE with washout. Maps to APHE_WO. Loc: Seg 7 (R_POST).  
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | R_POST | 1  
+TUMOR_RECORD: APHE_WO | R_POST | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_POST | 1  
+APHE_WO | R_POST | 1
+
+--- USAGE ---
+Tokens: In=1020 / Out=561
+Cost: $0.000279

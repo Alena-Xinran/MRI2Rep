@@ -1,0 +1,26 @@
+{
+  "id": "Liv_AUGBPW9T2G",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"CYST | R_DIFFUSE | 1\"]": 1,
+      "[\"APHE_NoWO | R_DIFFUSE | 1\"]": 1,
+      "[\"HEM | R_DIFFUSE | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00117544,
+    "timestamp": "2026-02-08 00:36:28",
+    "model": "deepseek/deepseek-chat"
+  }
+}

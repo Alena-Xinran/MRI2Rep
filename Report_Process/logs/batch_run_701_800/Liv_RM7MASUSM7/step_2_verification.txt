@@ -1,0 +1,51 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is right lower lobe subsegmental atelectasis.
+
+The liver is cirrhotic with evidence of portal hypertension characterized by splenomegaly and upper abdominal varices. There is trace perihepatic ascites.
+
+-On series 6, image 48, a 1.5 cm arterially enhancing focus associated with the segment 4b ablation cavity is unchanged.
+
+-On series 9, image 55, a segment 3 ablation cavity is decreased measuring 1.8 x 0.9 cm, previously 3.8 x 1.5 cm. Previously noted peripheral enhancement is decreased. No residual or recurrent viable HCC
+
+-On series 9, image 29, a contiguous ablation cavity spanning segments 4a, 2, and 3 is decreased measuring 3.1 x 2.2 cm at its superior aspect, previously 2.7 x 2.7 cm. No residual or recurrent viable HCC
+
+-On series 7, image 42, an indeterminate 1.0 cm persistently enhancing lesion in segment 3 is stable, and may represent a vascular malformation.
+
+Cholelithiasis is noted. The pancreas is atrophic with scattered subcentimeter cystic lesions, likely the sequela prior pancreatitis or sidebranch IPMNs. The adrenal glands and kidneys are unremarkable. Prominent peripancreatic lymph nodes are stable.Unchanged 1.5 cm arterially enhancing focus (no washout) associated with segment 4b ablation cavity, concerning for viable HCC. Continued short-term follow-up recommended
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic with evidence of portal hypertension characterized by splenomegaly and upper abdominal varices." This confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=516 / Out=69
+Cost: $0.000173

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+with and without 6.6 cc of intravenous Gadavist. Precontrast sequences include axial and coronal T2, axial fat-suppressed T2, axial EPI, and axial T1-weighted images with and without fat suppression. After contrast, dynamic axial fat-suppressed T1-weighted images were performed. Compared to exam dated 12/10/2014.
+
+A subcentimeter hemangioma is noted in the medial segment of the left lobe of the liver. There is no evidence of HCC. Liver morphology is unremarkable. There are no findings to suggest iron deposition in the liver.
+
+The spleen, pancreas, and adrenal glands are unremarkable. Renal cysts and hemorrhagic cysts are noted.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "Liver morphology is unremarkable" and there is no mention of cirrhosis, fibrosis, nodularity, or any features suggestive of chronic liver disease. The only liver finding is a subcentimeter hemangioma, which is benign and not related to fibrosis or cirrhosis. Therefore, the correct status should be "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=349 / Out=93
+Cost: $0.000056

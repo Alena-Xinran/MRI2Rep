@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is again seen, with evidence of portal hypertension including moderate ascites and splenomegaly.
+
+- There is an ablation cavity in segment 5/6, measuring 5.2 x 2.9 cm. A 6 mm arterial enhancing nodule with washout in the periphery of the cavity is compatible residual disease, image 39 series 7. Adjacent bland thrombus in the branches right portal vein is again seen, with segmental perfusional abnormality in the right hepatic lobe.
+
+- A 1.5 cm arterially enhancing lesion in segment 5 is unchanged (image 39, series 7), with washout and pseudocapsule, compatible with OPTN 5A HCC.
+
+- A 1.2 cm arterially enhancing lesion in segments 3 is also unchanged (image 50, series 7), with washout and pseudocapsule, compatible with OPTN 5A HCC.
+
+- Other subcentimeter arterially enhancing foci are also noted (images 26 and 63, series 7), without washout on delayed phase and nonspecific.
+
+The pancreas, adrenal glands and kidneys are unremarkable. Cholelithiasis is seen. 
+
+Remote splenic infarcts and calcifications are again noted. There is no abdominal adenopathy.
+
+Small bilateral pleural effusions.1. Interval ablation of segment 5/6 HCC which is almost completely avascular.  A small 6 mm arterial enhancing nodule in the periphery with washout is compatible residual disease. 
+2. Segment 3 and segment 5 HCC are stable in size.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is again seen," which directly indicates cirrhosis. Additionally, there is evidence of portal hypertension including ascites and splenomegaly, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=557 / Out=57
+Cost: $0.000148

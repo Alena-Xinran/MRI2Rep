@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is a small right pleural effusion with adjacent compressive atelectasis.    Multifocal liver metastasis with sequela of prior transarterial embolization are noted. Patient is most recently status post interval chemoembolization of the left hepatic metastasis which is now largely centrally necrotic. There is a persistent 3.7 x 3.1 cm heterogeneously enhancing solid component more superiorly within the left hepatic metastasis, (series 13, image 66), consistent with residual disease. The remaining in multifocal HCC also displays increased necrosis compared to the March examination but with multifocal sites of residual disease. The segment 4B lesion displays increased peripheral tumor compared to the prior MRI along its medial where the tumor now measures up to 1.5 cm in thickness previously 0.8 cm. When correlating with the intraprocedural images, no significant contrast staining is seen in this region.    The portal venous system is patent. The middle hepatic vein is not visualized and there is redemonstrated compression of the hepatic IVC, central right and left hepatic veins by the segment 4A mass/chemoembolization cavity which are otherwise patent.     The pancreas, spleen, kidneys and adrenal glands are unremarkable aside from a stable subcentimeter right renal cyst.    There is no abdominal lymphadenopathy.When compared to the prior MRI there is interval partial treatment response involving the dominant left lateral segment HCC which was recently treated. While increased tumor is seen within the segment 4B lesion medially, the rest of the multifocal disease displays decreased internal enhancement consistent with partial treatment response compared to prior MRI (all have internal viable components).    No definite sites of extrahepatic metastatic disease in the abdomen.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multifocal liver metastasis, HCC, and treatment changes, but does not mention keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators suggests no direct evidence of fibrotic or cirrhotic changes. The focus is on metastatic and primary liver tumors and treatment response, not on chronic parenchymal disease.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=579 / Out=130
+Cost: $0.000184

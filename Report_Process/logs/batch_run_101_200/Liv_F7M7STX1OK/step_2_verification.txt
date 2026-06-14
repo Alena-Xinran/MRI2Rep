@@ -1,0 +1,57 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Status post resection of segment 7.No recurrent or new HCC. Unchanged 5 mm arterial phase enhancing focus in segment 4b which does not demonstrate washout but rather persistent enhancement likely due to a small hemangioma or possibly vascular malformation.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Status post left lateral segmentectomy. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for small simple cyst lower pole left kidney..
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Unchanged trace ascitesNo HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver in the context of post-resection status and mentions a small arterial enhancing focus likely benign, but does not mention any features of cirrhosis, fibrosis, or morphologic changes suggestive of chronic liver disease. The liver is not explicitly described as "normal," but the absence of any mention of cirrhosis or its features, along with the focus on post-surgical changes and a likely benign finding, supports the classification of "NoFibrosis/Cirrhosis." The previously extracted status is consistent with this interpretation.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=342 / Out=124
+Cost: $0.000148

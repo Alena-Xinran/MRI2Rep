@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Segment VIII ablation cavity measures 3.5 x 2.1 cm (image 10, series 10), previously measuring 4.2 x 2.7 cm. There is no residual or recurrent disease identified. 
+
+Segment VI ablation cavity measures 2.4 x 2.2 cm (image 28, series 10), previously measuring 2.9 x 2.4 cm. There is no residual or recurrent disease identified. There is internal T1 hyperintensity within the ablation cavity likely representing hemorrhage, similar to the prior exam.
+
+No new lesions are identified meeting imaging criteria for hepatocellular carcinoma
+
+Hepatic vasculature: Patent.
+
+Biliary system: The gallbladder is unremarkable. There is no biliary ductal dilatation.
+
+Pancreas: Subcentimeter cystic lesions within the pancreas are stable for example in the pancreatic body measuring 0.4 cm (image 22 series 2) and likely represent sidebranch IPMNs versus sequela of prior pancreatitis. There is no pancreatic ductal dilatation.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable with exception of subcentimeter renal cysts.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Ablation cavities as described without recurrent or residual disease.
+
+No new lesions suspicious for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It describes ablation cavities and no new lesions, but does not comment on the background liver parenchyma or indicate cirrhosis. Since the report does not state "cirrhosis" or features of it, and the liver is not explicitly described as normal but there is no evidence of fibrosis/cirrhosis mentioned, the appropriate status based on the given rules is "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=482 / Out=137
+Cost: $0.000193

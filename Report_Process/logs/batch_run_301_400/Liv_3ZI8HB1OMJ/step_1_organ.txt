@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post liver transplant. Hepatic vasculature is patent. There is no evidence of HCC. There is no biliary dilatation. The spleen is mildly enlarged and varices are noted. A few small cystic structures in the pancreas are nonspecific, unchanged, possibly sidebranch I PMN. The adrenal glands and kidneys are unremarkable. A 5.4 cm fluid collection in the anterior abdominal wall associated with an incision is unchanged. There is no adenopathy. Minimal ascites is noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described, but the findings of mild splenomegaly, varices, and minimal ascites are indirect signs that could suggest portal hypertension, often associated with cirrhosis. However, the patient is status post liver transplant, so these findings may be related to the transplant or other causes, and the criteria specify direct keywords or descriptions of the liver parenchyma. Since the liver is not explicitly described as having fibrosis or cirrhosis features, and no direct keywords are present, the classification should be based on the absence of those terms.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=333 / Out=167
+Cost: $0.000131

@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post partial left hepatectomy. 
+
+There is interval decrease in size of a 1.4 x 1.1 cm segment 6/7 ablation cavity, previously 1.5 x 1.4 cm. There is stable delayed rim enhancement without nodularity to suggest residual disease. There is stable mild intrahepatic biliary ductal dilatation distal to the ablation cavity.
+
+There are few scattered subcentimeter arterially enhancing foci, which are less conspicuous and without washout or pseudocapsule.  Hepatic vasculature is patent.
+
+The spleen, adrenal glands, and pancreas are unremarkable. Bilateral renal cysts, some of which are hemorrhagic, are noted.
+
+Stable nonspecific mildly prominent upper abdominal lymph nodes, for example a 1.0 cm gastrohepatic node (image 40, series 13), unchanged. There is no ascites.No evidence of HCC.
+
+Decreased conspicuity of few nonspecific subcentimeter arterially enhancing foci (LI-RADS 3), which are amenable to follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs, or fibrosis). It describes post-surgical and post-ablation changes, biliary ductal dilatation, and arterially enhancing foci, but these are not indicative of cirrhosis. The liver parenchyma itself is not described as abnormal in a way that suggests chronic liver disease or fibrosis. Therefore, the status should reflect no evidence of cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=120
+Cost: $0.000167

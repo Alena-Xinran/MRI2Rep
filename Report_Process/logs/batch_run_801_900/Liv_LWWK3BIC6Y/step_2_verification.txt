@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Punctate hepatic cysts. Previously seen nonspecific enhancing focus in segment 7 is not well visualized on the current exam. There is no finding to suggest hepatocellular carcinoma. No biliary dilatation. Again noted is 4 mm gallbladder polyp (series 13, image 52), essentially unchanged compared to prior exam.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: Periportal adenopathy measuring up to 2.5 and 1.8 cm portacaval adenopathy, not significantly changed from the prior study. Some smaller lymph nodes in the hepatic hilum may have slightly increased.
+
+Peritoneum: No ascites.No evidence for HCC.
+
+Bulky portacaval adenopathy measuring up to 2.5 cm in short axis, not significantly changed to mildly increased from 3/16/2023 but as described previously, significantly increased from 5/10/2021. Continued attention on follow-up in 3 months.
+
+Stable subcentimeter gallbladder polyp.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes punctate hepatic cysts, a previously seen enhancing focus not well visualized, and no finding to suggest hepatocellular carcinoma. There is no mention of cirrhosis, morphologic features of cirrhosis, nodularity, surface irregularity, caudate lobe hypertrophy, or other signs of chronic liver disease. The liver is not explicitly described as "normal," but the absence of any cirrhosis-related findings and the presence of only benign cysts and stable incidental findings supports the classification of "NoFibrosis/Cirrhosis." The previously extracted status is therefore correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=130
+Cost: $0.000179

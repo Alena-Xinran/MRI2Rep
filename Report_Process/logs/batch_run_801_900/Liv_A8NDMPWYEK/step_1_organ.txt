@@ -1,0 +1,58 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A moderate right pleural effusion is partially imaged.
+
+Hepatobiliary system: Cirrhotic morphology of the liver with sequelae of portal hypertension as evidenced by formation of varices, intra-abdominal ascites, and splenomegaly. The hepatic vasculature remains patent, although again noted is a diminutive caliber of the main portal vein compatible sequale of prior thrombus. No new thrombus is seen. No biliary dilatation. Cholelithiasis is present.
+
+Again noted is a treatment cavity in segment 2 of the liver which measures 4.3 x 2.6 cm, previously 6.0 x 3.3 cm (series 13 image 15). Peripheral enhancement predominantly anterior lateral has improved.  No new observations demonstrating arterial enhancement, washout, or pseudocapsule formation. Evaluation is difficult given the artifact in this region.
+
+Pancreas: Unremarkable.
+
+Spleen: Stable splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Simple left renal cyst and other subcentimeter cysts, some hemorrhagic.. Small wedge-shaped defect in the interpolar region of the right kidney without edema, image 52 series 15.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace ascites is seen in the right paracolic gutter.Interval decrease in size of treatment cavity with improved peripheral enhancement. LR TR-Nonviable.
+
+No new observations to suggest hepatocellular carcinoma.
+
+New small wedge-shaped defect in the interpolar region of the right kidney could represent sequel of infarct or prior pyelonephritis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of the liver" and describes sequelae of portal hypertension including varices, ascites, and splenomegaly, which are clear indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=561 / Out=56
+Cost: $0.000148

@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is again noted status post prior segment 3 HCC resection. No evidence for residual recurrent disease. No new lesions identified. A subcentimeter cyst in the right hepatic lobe is again noted. The hepatic vasculature is patent. Hepatic steatosis is noted.
+
+The gallbladder, pancreas, spleen, and kidneys are unremarkable with exception of bilateral renal cysts. There is no upper abdominal lymphadenopathy or ascites. A small hiatal hernia is noted.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "Hepatic steatosis" (fatty liver) but does not mention "cirrhosis" or any specific features of cirrhosis such as nodularity, surface irregularity, caudate lobe hypertrophy, or portal hypertension. The liver is described with a prior resection and a cyst, but there is no statement indicating fibrosis or cirrhosis. The absence of explicit mention of cirrhosis or its features means the liver should be considered without fibrosis/cirrhosis for this extraction purpose. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=298 / Out=137
+Cost: $0.000141

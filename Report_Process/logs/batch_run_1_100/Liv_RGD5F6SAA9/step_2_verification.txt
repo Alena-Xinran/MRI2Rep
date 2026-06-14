@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Postsurgical changes are again seen from right hepatic lobe transplant with biliary enteric anastomosis and gastrojejunostomy. No findings of recurrent HCC. Hepatic vasculature remains patent. No biliary dilatation.
+
+Spleen, adrenal glands, pancreas, and kidneys appear unremarkable. Tiny left renal cyst is stable. No findings of bowel obstruction with formation of ventral abdominal wall. No adenopathy. No ascites. Some residual collateral vessel formation consisting of a splenorenal shunt is again seen.
+
+No aggressive osseous lesions.No evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes postsurgical changes from a right hepatic lobe transplant but does not mention cirrhosis or any specific features of cirrhosis (such as nodularity, contour irregularity, or signs of portal hypertension aside from the noted splenorenal shunt, which is described as residual collateral vessel formation and may be related to prior surgery or other causes). The liver parenchyma itself is not characterized as abnormal aside from the transplant status, and there is no explicit statement of cirrhosis. Therefore, the liver is considered normal in terms of fibrosis/cirrhosis for this context.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=313 / Out=132
+Cost: $0.000143

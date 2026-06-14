@@ -1,0 +1,63 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Ablation cavity traversing segments 5/8 measures 3.1 x 1.4 cm (series 15 image 39). There is no evidence of recurrent or residual disease.
+
+There is a 2.3 cm (2.0 cm 7/28/2018) arterial enhancing lesion in the caudate lobe with questionable washout, no pseudocapsule, highly suspicious for HCC, image 40 series 11. 
+
+Liver is again noted to be cirrhotic in morphology with sequelae of portal hypertension including upper abdominal and paraesophageal varices.
+
+Scattered hepatic cysts are noted.
+
+Hepatic vasculature: Patent.
+
+Biliary system: Gallbladder is contracted with cholelithiasis. There is no biliary dilatation.
+
+Pancreas: Multiple cystic lesions throughout the pancreatic body and tail measuring up to 1.2 cm at the body (series 4 image 27), unchanged from prior exam and amenable to follow-up on subsequent MR.
+
+Spleen: Splenomegaly
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Bilateral subcentimeter renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.2.3 cm caudate lesion highly suspicious for HCC, although not meeting OPTN criteria.
+
+Segment 5/8 HCC ablation, with no recurrent or residual disease.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to be cirrhotic in morphology" and also mentions sequelae of portal hypertension, including varices and splenomegaly, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=517 / Out=59
+Cost: $0.000137

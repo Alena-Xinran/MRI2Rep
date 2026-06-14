@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+See chest CT performed same day for thoracic findings.
+
+Patient is status post right hepatectomy. There are no findings of recurrent hepatocellular carcinoma. Postoperative fluid collection along the resection margin measures 10.4 cm, previously 11.2 cm. Scattered hepatic cysts are again seen.
+
+A 1.0 cm cystic lesion within the pancreatic uncinate process demonstrates little interval change and may reflect a sidebranch IPMN. There is no main pancreatic duct dilation. The kidneys, spleen, and adrenal glands are unremarkable, except for bilateral renal cysts. A retroaortic left renal vein is noted.
+
+There is no abdominal adenopathy. No aggressive osseous lesions identified.No findings of recurrent or residual HCC. Slight interval decrease in organized fluid collection along the resection margin.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes postoperative changes, hepatic cysts, and no recurrent HCC, but does not comment on the liver parenchyma texture or surface morphology. Without any positive indicators of fibrosis or cirrhosis, and in the absence of terms like "unremarkable" or "normal" specifically for the liver parenchyma, the default based on the provided criteria is to classify as "NoFibrosis/Cirrhosis" when no signs are present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=144
+Cost: $0.000136

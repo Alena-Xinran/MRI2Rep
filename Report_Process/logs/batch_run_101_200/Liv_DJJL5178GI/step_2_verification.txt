@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Post-surgical change of right hepatic lobe transplant are redemonstrated. Stable region of enhancement along the medial right hepatic lobe surface (series 8, image 44) is likely perfusional. Stable right hepatic lobe cyst. No hepatic mass identified. Stable mild intrahepatic biliary ductal prominence. 
+
+The spleen, adrenals, kidneys, and pancreas are unremarkable with the exception of renal cysts.
+
+No abdominal lymphadenopathy or ascites is seen.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes post-surgical changes from a right hepatic lobe transplant, stable enhancement likely perfusional, a stable cyst, no hepatic mass, and stable mild intrahepatic biliary ductal prominence. There is no mention of "cirrhosis" or specific features of cirrhosis (such as nodularity, contour irregularity, atrophy/hypertrophy, or signs of portal hypertension). The liver is not explicitly described as "normal," but the findings are stable and no evidence of cirrhosis is reported. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=298 / Out=138
+Cost: $0.000141

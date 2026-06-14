@@ -1,0 +1,64 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 14 mL Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: Liver is cirrhotic morphology. There is evidence of portal hypertension, including mild splenomegaly and recanalization of the periumbilical vein.
+
+There is a stable 6 mm focus of arterial enhancement in segment 6 which demonstrates persistent washout (series 14 image 42, series 18 image 44). No pseudocapsule is present.
+
+There are stable scattered nodular foci of arterial phase hyperenhancement which do not demonstrate washout or pseudocapsule.
+
+Peribiliary cysts are again noted.
+
+Hepatic vasculature: Patent.
+
+Gallbladder:Surgically absent.
+
+Pancreas:Unremarkable.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys:Multiple stable bilateral renal cysts, several of which are hemorrhagic.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No liver lesion meeting criteria for HCC. Stable subcentimeter lesion in segment 6 remains indeterminate.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "Liver is cirrhotic morphology" and mentions evidence of portal hypertension, which are direct indicators of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=478 / Out=60
+Cost: $0.000159

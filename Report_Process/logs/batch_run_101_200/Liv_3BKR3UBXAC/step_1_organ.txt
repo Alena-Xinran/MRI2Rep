@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: There is a new 7.0 cm mass in segment 6/7 (image 29 series 16 0001) and a new 4.0 cm mass in segment 8 (image 23). These are compatible with HCC, however they do not demonstrate the classic enhancement pattern. Infiltrative HCC in the posterior right hepatic lobe has increased measuring 6.4 cm (previously 5.7 cm), image 61. There is mild unchanged intrahepatic biliary ductal dilatation. Status post cholecystectomy. 
+
+
+Hepatic vasculature: Thrombosis of the portal vein with cavernous transformation and  minimal extension into the SMV is again seen. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Right cyst, otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace amount of ascites.New and enlarging HCCs as detailed.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes multiple hepatocellular carcinomas (HCCs) and portal vein thrombosis with cavernous transformation, which are often associated with underlying chronic liver disease or cirrhosis. However, the liver parenchyma itself is not explicitly described with keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or direct mentions of chronic liver disease. The findings are focused on masses, vascular changes, and mild biliary ductal dilatation, but no specific statement about the liver parenchymal texture or surface is provided. Based on the given criteria, the absence of those specific keywords means the classification should be "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=156
+Cost: $0.000158

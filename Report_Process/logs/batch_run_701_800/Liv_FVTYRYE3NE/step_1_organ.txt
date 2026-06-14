@@ -1,0 +1,38 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic morphology of the liver is noted with sequela of portal hypertension including splenomegaly, small amount of ascites, and gastroesophageal varices. Hepatic mass previously occupying segments 6 and 7 now nearly occupies the entire right lobe of the liver, without evidence of significant necrosis. Tumor thrombus within the portal vein now extends down the main portal vein and to the portal splenic confluence and into the left portal vein, extending into segmental branches of the left portal vein. A segment 2 liver mass now measures 3.5 cm, previously 3.0 cm. A new 5 cm segment 3 mass is present. Hepatic veins are patent.
+
+Biliary sludge is present, however the gallbladder is otherwise unremarkable. Simple left renal cyst is noted and the kidneys are otherwise unremarkable. The pancreas and adrenal glands are unremarkable. A small right pleural effusion is noted.Increase in multifocal HCC now with tumor thrombus throughout the portal venous system extending to the portal splenic confluence.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of the liver" and mentions sequelae of portal hypertension (splenomegaly, ascites, varices), which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=438 / Out=56
+Cost: $0.000114

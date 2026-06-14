@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+No effusions. Spleen, and adrenal glands appear unremarkable. No adenopathy. A few subcentimeter left renal cysts are incidentally noted. Small gallstones are present without findings of choledocholithiasis. The liver displays slight surface irregularity consistent with cirrhosis with no lesions suspicious for HCC or findings of advanced portal hypertension. Mild iron deposition is noted within the liver and spleen. Scattered punctate pancreatic cysts remaining stable measuring up to 5 mm in the pancreatic tail. Differential includes sequelae of pancreatitis versus tiny side branch IPMN. No dilatation of the main pancreatic duct. No ascites.No findings of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver displays slight surface irregularity consistent with cirrhosis," which directly matches the keywords "cirrhosis" and "surface irregularity" (related to nodular surface) as criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=356 / Out=63
+Cost: $0.000094

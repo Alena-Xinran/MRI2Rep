@@ -1,0 +1,33 @@
+# MRI2Rep — Python dependencies
+# Install with:  pip install -r requirements.txt
+#
+# CUDA note: install PyTorch matching your CUDA version first:
+#   pip install torch==2.5.1 torchvision --index-url https://download.pytorch.org/whl/cu124
+# Then install the rest:
+#   pip install -r requirements.txt
+
+# ── Core deep learning ────────────────────────────────────────────────────────
+torch>=2.1.0
+# torchvision not strictly required but useful for debugging
+
+# ── Medical imaging ───────────────────────────────────────────────────────────
+monai>=1.2.0            # ResizeWithPadOrCrop, ScaleIntensityRangePercentiles
+nibabel>=5.0.0          # NIfTI file I/O (preprocess_data.py)
+SimpleITK>=2.3.0        # optional, used by some MONAI internals
+
+# ── Data science ──────────────────────────────────────────────────────────────
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0           # optional: used by some elastic deformation variants
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.7.0
+
+# ── NLG metrics ───────────────────────────────────────────────────────────────
+nltk>=3.8.0             # BLEU, METEOR
+rouge-score>=0.1.2      # ROUGE-L
+bert-score>=0.3.13      # BERTScore (semantic NLG evaluation; optional but recommended)
+# For Bio_ClinicalBERT (better for radiology text), bert-score downloads it automatically
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm>=4.65.0

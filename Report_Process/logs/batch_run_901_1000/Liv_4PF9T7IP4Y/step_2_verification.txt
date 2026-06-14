@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+This exam is slightly limited by patient motion artifact.
+
+The liver is cirrhotic in morphology. Hepatic steatosis is present. There are simple cysts within the hepatic parenchyma. There are no lesions suspicious for hepatocellular carcinoma. The hepatic vasculature is patent. The sequela portal hypertension is present including mild splenomegaly and multiple abdominal varices.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for renal cysts, some are hemorrhagic.
+No ascites or lymphadenopathy is seen.1. Cirrhotic liver morphology with findings of portal hypertension.
+2. No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic in morphology" and later summarizes "Cirrhotic liver morphology with findings of portal hypertension." This confirms the presence of cirrhosis. According to the task rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". The previously extracted status matches this requirement.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=323 / Out=94
+Cost: $0.000130

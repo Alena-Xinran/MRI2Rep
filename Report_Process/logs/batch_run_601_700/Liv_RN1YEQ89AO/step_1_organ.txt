@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are no imaging findings of advanced cirrhosis. Hepatic steatosis has increased, ranging from 18.5-21.9% (previously 16%). There is no abnormal iron deposition. There are no findings meeting criteria for hepatocellular carcinoma. A subcentimeter arterial enhancing focus in the right hepatic lobe is unchanged, without findings on other sequences, likely perfusional (image 23, series 31). The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable other than few bilateral renal cysts.
+
+There is no ascites or abdominal adenopathy.
+
+No enhancing osseous lesion is seen.Increased hepatic steatosis, without abnormal iron deposition or HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There are no imaging findings of advanced cirrhosis." It also does not mention any keywords such as "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or explicit chronic liver disease. The liver is not described as "unremarkable" or "normal" in direct terms, but the absence of cirrhosis findings and the focus on steatosis without fibrosis indicators suggests no evidence of fibrosis/cirrhosis. The spleen is noted as unremarkable, but the liver parenchyma itself is not explicitly called normal or smooth. However, based on the criteria, since there are no positive signs of fibrosis/cirrhosis, the classification should be "NoFibrosis/Cirrhosis."
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=369 / Out=166
+Cost: $0.000141

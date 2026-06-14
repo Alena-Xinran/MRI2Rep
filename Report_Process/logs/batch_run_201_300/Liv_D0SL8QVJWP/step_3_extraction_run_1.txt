@@ -1,0 +1,109 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Hepatobiliary system: No evidence for HCC. No biliary dilatation. 6 mm not arterial enhancing lesion hypo-intense on the later phases (image 20 series 12) is unchanged, LI-RADS 2. There is diffuse heterogeneous arterial enhancement  without focal lesion. Liver has a cirrhotic morphology.
+
+Hepatic vasculature: Patent. There are signs of portal hypertension evidenced by portosystemic shunts
+
+Pancreas: Unremarkable.
+
+Spleen: Splenomegaly is unchanged.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: Hepatobiliary system: No evidence for HCC. No biliary dilatation. -> Reasoning: Background statement, no focal lesion described.  
+Sentence 2: 6 mm not arterial enhancing lesion hypo-intense on the later phases (image 20 series 12) is unchanged, LI-RADS 2. -> Reasoning: Found lesion. Features: Not arterial enhancing, hypo-intense on later phases, LI-RADS 2 (benign). This is a simple cyst (LI-RADS 2). Maps to CYST. Location not specified, so DIFFUSE. Quantity: 1.  
+Sentence 3: There is diffuse heterogeneous arterial enhancement without focal lesion. -> Reasoning: Describes diffuse enhancement pattern, explicitly states "without focal lesion," so no discrete finding to map.  
+Sentence 4: Liver has a cirrhotic morphology. -> Reasoning: Background morphology, no focal lesion.  
+Sentence 5: Hepatic vasculature: Patent. -> Reasoning: Vascular patency, no focal lesion.  
+Sentence 6: There are signs of portal hypertension evidenced by portosystemic shunts -> Reasoning: Describes shunts (vascular finding), but these are not focal liver parenchymal lesions as per mapping rules (they are vascular anomalies, not classified under the 5 allowed types for parenchymal observations). Ignore.  
+Sentence 7: Pancreas: Unremarkable. -> Reasoning: Other organ, ignore.  
+Sentence 8: Spleen: Splenomegaly is unchanged. -> Reasoning: Other organ, ignore.  
+Sentence 9: Adrenal glands: Unremarkable. -> Reasoning: Other organ, ignore.  
+Sentence 10: Kidneys: Unremarkable. -> Reasoning: Other organ, ignore.  
+Sentence 11: Bowel: Unremarkable. -> Reasoning: Other organ, ignore.  
+Sentence 12: Upper abdominal lymph nodes: No lymphadenopathy. -> Reasoning: Lymph nodes, not liver parenchyma, ignore.  
+Sentence 13: Peritoneum: No ascites.No evidence for HCC. -> Reasoning: No focal lesion.
+
+Step 2: Structured Output  
+TUMOR_RECORD: CYST | DIFFUSE | 1
+
+--- EXTRACTED INFO ---
+CYST | DIFFUSE | 1
+
+--- USAGE ---
+Tokens: In=988 / Out=460
+Cost: $0.000341

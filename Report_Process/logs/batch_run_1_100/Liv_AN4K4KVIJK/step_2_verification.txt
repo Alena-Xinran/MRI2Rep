@@ -1,0 +1,55 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Status post liver transplant. No suspicious hepatic lesion. 1.5 cm focal bulging at the posterior right hepatic lobe is unchanged compared to 2021. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: 4 mm cystic lesion at the neck/body is unchanged, image 19 series 3.
+
+Spleen: No splenomegaly. Small splenorenal renal shunt is again noted
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small simple renal cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a status post liver transplant with no suspicious hepatic lesion and no mention of cirrhosis or features of cirrhosis (such as nodularity, contour irregularity, or signs of portal hypertension aside from a small splenorenal shunt which is noted but not attributed to cirrhosis). The liver is described without evidence of fibrosis or cirrhosis. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=341 / Out=105
+Cost: $0.000140

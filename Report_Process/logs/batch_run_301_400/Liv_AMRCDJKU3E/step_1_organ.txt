@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is steatotic. The previously noted indeterminant T2 hyperintense lesion in the right inferior hepatic lobe does not enhance and is decreased in size measuring 0.5 cm, and likely represents a decompressed cyst (series 6, image 24). Additional tiny scattered cysts are again noted. A 1 cm arterial focus of enhancement at the hepatic dome (series 9, image 77) without correlate on other sequences is likely perfusional.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for a stable 6 mm right renal angiomyolipoma.
+
+There is no abdominal ascites or adenopathy.No findings suggestive of HCC.
+
+Previously noted indeterminant liver lesion is decreased in size and likely represents a decompressed cyst.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the liver as "steatotic" (indicating fatty liver) and notes cysts and a perfusional enhancement focus, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the lack of ascites or other stigmata suggest no reported signs of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=385 / Out=137
+Cost: $0.000133

@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is markedly degraded secondary to significant motion artifact. 
+
+The liver is cirrhotic. A subcentimeter arterially enhancing focus of segment IVb, image 38 series 16, is again seen but can not be well evaluated. Increased T2 signal at the dome is likely due to fibrosis.
+
+ The patient is status post cholecystectomy. The common bile duct is prominent, measuring 11 mm, unchanged.  The spleen is enlarged.  Few subcentimeter T2 hyperintense foci of the pancreas, likely side branch IPMNs, are not well evaluated due to motion artifact.  There are bilateral renal cysts. Post contrast evaluation of the solid organs are marked limited.Markedly limited evaluation for HCC. No definite HCC is seen. 
+
+Consider CT for further follow-up. The last 2 MRI studies were limited.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions "Increased T2 signal at the dome is likely due to fibrosis." These are direct keywords indicating the presence of cirrhosis and fibrosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=397 / Out=55
+Cost: $0.000102

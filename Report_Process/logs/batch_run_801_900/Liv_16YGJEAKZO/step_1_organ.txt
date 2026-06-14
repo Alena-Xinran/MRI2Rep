@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T1 in and opposed phase, axial T1 fat-sat pre and multiphase postcontrast. The arterial phase is slightly early limiting sensitivity for patient of HCC.
+
+FINDINGS
+There are multiple areas of arterial enhancement seen in the left greater than right hepatic lobes, some which persist into portal venous phase, but normalizes on the more delayed postcontrast sequence. There are no focal lesions which meet criteria for hepatocellular carcinoma. Hepatic steatosis is seen. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts, one on the right which contains hemorrhagic material.
+
+There is focal fusiform aneurysmal dilatation of the infrarenal abdominal aorta measuring up to 3.3 cm, stable to prior exam when measured similarly.
+
+There is no abdominal ascites. Prominent periportal nodes are seen.
+
+Partially visualized artifact at the ventral abdominal wall may relate to previous hepatic resection.No hepatic lesions meeting imaging criteria for HCC. 
+
+Nonspecific areas of enhancement in the left greater than right hepatic lobes which normalizes on delayed sequences are likely perfusional, amenable to follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It notes hepatic steatosis, but steatosis alone is not a direct indicator of fibrosis or cirrhosis. The liver parenchyma is not described as unremarkable, normal, or smooth in this specific section, but the absence of fibrosis/cirrhosis indicators and the presence of other findings (like steatosis and perfusional changes) without mention of structural chronic disease suggests no evidence of fibrosis or cirrhosis is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=509 / Out=143
+Cost: $0.000090

@@ -1,0 +1,60 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 15 Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: Patient is status post partial segmentectomy. Few nonspecific punctate foci of arterial enhancement in the right hepatic lobe are less conspicuous than on the previous exam, without washout. No new masses are identified. 
+
+Hepatic vasculature: Patent.
+
+Gallbladder:Surgically absent.
+
+Pancreas:Unremarkable.
+
+Spleen:Unremarkable.
+
+Adrenal glands:Unremarkable.
+
+Kidneys:Multiple bilateral renal cysts are again seen, some of which are hemorrhagic.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No evidence for recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver as "status post partial segmentectomy" and notes "few nonspecific punctate foci of arterial enhancement" without washout, but does not mention any features of cirrhosis such as nodularity, contour irregularity, segmental atrophy/hypertrophy, or signs of portal hypertension. There is no statement indicating cirrhosis or fibrosis. The liver is not explicitly described as "normal," but the absence of cirrhosis-related findings and the lack of any mention of fibrosis or cirrhosis supports the previous extraction of "NoFibrosis/Cirrhosis."
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=407 / Out=132
+Cost: $0.000169

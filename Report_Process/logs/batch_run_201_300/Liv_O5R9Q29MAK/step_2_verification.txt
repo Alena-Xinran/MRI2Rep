@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post right partial hepatectomy. Multiple subcentimeter arterially enhancing foci are again noted throughout the liver, not significantly changed since prior studies, without correlate on additional sequences, again likely perfusional. Stable small T2 hyperintense focus in the left hepatic lobe (image 20, series 4), possibly a sclerosed hemangioma.
+
+Patient is status post cholecystectomy, with stable dilatation the common bile duct. The spleen, adrenal glands, pancreas, and kidneys are unremarkable with exception of renal cysts.
+
+No upper abdominal lymphadenopathy or ascites. Stable subcentimeter peripancreatic lymph node.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver in the context of post-surgical status and notes multiple arterially enhancing foci and a stable T2 hyperintense focus, but it does not mention any features of cirrhosis such as nodularity, contour irregularity, atrophy, hypertrophy, or signs of portal hypertension. The liver is not explicitly described as "normal," but the absence of any mention of cirrhosis or its features, combined with the lack of ascites (except for the specific note "No upper abdominal lymphadenopathy or ascites"), supports the classification of no cirrhosis. Therefore, the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=337 / Out=150
+Cost: $0.000157

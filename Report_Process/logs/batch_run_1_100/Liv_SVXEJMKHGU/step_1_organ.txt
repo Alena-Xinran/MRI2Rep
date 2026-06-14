@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+No arterially enhancing liver lesions are identified. Several small liver cysts are again noted. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable. The gallbladder is absent. No biliary ductal dilatation is seen.
+
+No abdominal lymphadenopathy or ascites is identified.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not directly described, but the findings noted (no arterially enhancing lesions, small cysts, patent vasculature) do not indicate fibrosis or cirrhosis. The spleen and other organs are described as unremarkable, but the liver itself is not explicitly stated as "unremarkable", "normal", or "smooth". However, the absence of any positive signs of fibrosis or cirrhosis, along with no mention of ascites or other stigmata of chronic liver disease, suggests no evidence of fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=294 / Out=168
+Cost: $0.000121

@@ -1,0 +1,67 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Lesions suspicious for HCC :
+
+0.9 cm arterially enhancing lesion in the liver dome is unchanged in size (series 13, image 72) and demonstrates questionable washout and suspicious for HCC. 
+
+Several subcentimeter lesions with arterial enhancement are seen in the left lobe, some more prominent than on previous exam, for example on series 13, images 46, 64 and 66, with suggestion of washout, indeterminate but  suspicious for HCC.
+
+Additionally there are multiple lesions in the left hepatic lobe which demonstrate only washout and increased T2 signal, concerning for HCC, for example 1.1 cm segment 3 (image 46 series 16) or 1.1 cm segment 3 (image 49 series 16).
+
+Treatment cavities without evidence of recurrence:
+
+A 2.5 x 1.7 cm ablation cavity in segments 2/3 decreased and demonstrates no recurrent disease (series 13, image 51), previously 3.0 x 1.8 cm.
+
+A 5.6 x 5.4 cm ablation cavity in segment 8 is decreased and demonstrates no recurrent disease (series 13, image 59), previously 6.8 x 6.9 cm.
+
+A 2.5 x 1.3 cm ablation cavity in segment 5 is decreased and demonstrates no recurrent disease (series 13, image 35), previously 3.3 x 1.1 cm.
+
+A 2.2 x 1.9 cm ablation cavity in segment 6/7 decreased demonstrates no recurrent disease (see series 13, image 54), previously 2.5 x 2.3 cm.
+
+There are several new ablation cavities, including:
+
+A 3.2 x 2.1 cm ablation cavity in segment 3 demonstrates no residual disease (series 13, image 34).
+
+A 2.6 x 1.4 cm cavity in segment 2 demonstrates no residual disease (see series 13, image 67).
+
+Cirrhotic liver morphology is redemonstrated with sequela portal hypertension as evidenced by splenomegaly and upper abdominal, including paraesophageal varices. Few small liver cysts are unchanged. Right portal vein is again noted to be thrombosed. 
+
+Multilobulated 1.4 cm cystic lesion in the pancreatic uncinate process is unchanged. Main pancreatic duct is not dilated. Adrenal glands and kidneys unremarkable except for stable tiny renal cysts. Gallbladder is underdistended.
+
+There is no upper abdominal adenopathy or ascites.Multiple left hepatic lobe lesion concerning for infiltrative HCC.
+
+New and old treatment cavities without evidence of residual or recurrent disease.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated," which directly indicates the presence of cirrhosis. Additionally, there is mention of sequelae of portal hypertension (splenomegaly and varices), which is commonly associated with cirrhosis. No descriptors such as "unremarkable," "normal," or "smooth" are applied to the liver parenchyma in this context.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=774 / Out=94
+Cost: $0.000224

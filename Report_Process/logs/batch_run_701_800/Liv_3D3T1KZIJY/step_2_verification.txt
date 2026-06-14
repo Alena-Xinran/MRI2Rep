@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is a new transplant liver with trace perihepatic ascites but no organized collection. There is mild irregularity of the common bile duct at the anastomosis without biliary ductal dilatation. The hepatic veins and hepatic artery are patent. The portal veins are patent. Incidentally noted is variant portal and biliary anatomy involving the right hepatic lobe.
+
+There are small peripheral regions of late arterial enhancement in the right hepatic lobe without correlate on any other sequence, likely perfusion related. There is no evidence of HCC.
+
+The adrenal glands, spleen, pancreas, and kidneys are unremarkable. There is no upper abdominal adenopathy.Status post liver transplant without evidence of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a "new transplant liver" and does not mention any features of cirrhosis, such as nodularity, contour irregularity, or signs of portal hypertension. The liver is assessed in the context of a transplant without evidence of recurrent HCC, and there is no statement indicating cirrhosis. Therefore, the liver status should be considered normal in terms of fibrosis/cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=333 / Out=96
+Cost: $0.000134

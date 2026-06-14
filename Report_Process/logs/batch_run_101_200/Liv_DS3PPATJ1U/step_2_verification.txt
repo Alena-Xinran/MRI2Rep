@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Surgical changes are again seen from prior left hepatectomy. Stable segment 7 ablation cavity without any findings of recurrent disease (LR TR nonviable). Stable subcentimeter segment 7 (series 8 image 34) arterial enhancing lesion for many years, likely benign. No new foci are seen to suggest HCC.
+
+Status post splenectomy and cholecystectomy with unchanged biliary dilatation. Splenules are again seen in the left upper quadrant. Stable pancreatic divisum. Remaining intra-abdominal solid organs appear unremarkable.
+
+No adenopathy or ascites. Atherosclerotic disease is seen involving the aorta without frank aneurysmal dilatation. Circumaortic left renal vein is incidentally seen. 
+
+No aggressive osseous lesions.No findings of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes surgical changes from a prior left hepatectomy and a stable ablation cavity, but does not mention cirrhosis, fibrosis, or any morphologic features suggestive of cirrhosis (such as nodularity, contour irregularity, or signs of portal hypertension). The remaining liver parenchyma is not explicitly described as "normal," but the absence of any mention of cirrhosis or its features, along with the focus on stable post-treatment findings and no new HCC, implies no active cirrhosis is reported. Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=359 / Out=136
+Cost: $0.000158

@@ -1,0 +1,26 @@
+{
+  "id": "Liv_SO775ZB230",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 1,
+    "details": {
+      "[\"RIM_ATYP | DIFFUSE | 1\"]": 1,
+      "[]": 1,
+      "[\"APHE_WO | DIFFUSE | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00147896,
+    "timestamp": "2026-02-08 19:29:06",
+    "model": "deepseek/deepseek-chat"
+  }
+}

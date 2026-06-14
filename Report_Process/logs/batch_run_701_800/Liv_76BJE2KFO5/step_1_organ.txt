@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 20 cc Dotarem was administered intravenously. Sequences include axial T2 fat-sat and axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver is cirrhotic in morphology with some evidence of portal hypertension. Stable mildly dilated pancreatic side branches, splenomegaly and cholelithiasis. The  adrenals, and kidneys are unremarkable. There is no abdominal lymphadenopathy.
+
+Segment 8 ablation cavity measures 1.5 x 1.6 cm (series 6, image 39), and previously measured 1.8 x 2.1 cm. There is mild increased surrounding enhancement, likely perfusional.
+Segment 6 ablation cavity measures 2.7 x 0.9 cm (series 6, image 47), and previously measured 1.9 x 2.9 cm.
+Segment 6 ablation cavity, (more inferior and lateral) measures 2.0 x 1.8 cm (series 6, image 52) and previously measured 2.4 x 1.7 cm.
+
+There are several foci of nonspecific foci of arterial enhancement. For instance:
+
+Segment 2 focus measuring 1.3 cm (series 6, image 34) without demonstration of washout on delayed phases was not seen on prior studies.
+Segment. 7 focus of arterial enhancement measuring 1.1 cm (previously measuring 1.0 cm) without demonstration of washout.
+Segment 8/4 a focus of arterial enhancement measuring 9 mm without demonstration of washout.
+
+These lesions can be followed on subsequent imaging studiesNo definite recurrent HCC with indeterminate arterially enhancing foci as detailed above amenable to continued surveillance.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic in morphology" and also mentions "evidence of portal hypertension," which are direct indicators of cirrhosis. These keywords meet the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=593 / Out=58
+Cost: $0.000158

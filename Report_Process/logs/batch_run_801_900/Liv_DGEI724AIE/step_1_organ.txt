@@ -1,0 +1,59 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Segment VIII ablation cavity measures 3.5 x 2.1 cm (image 10, series 10), previously measuring 4.2 x 2.7 cm. There is no residual or recurrent disease identified. 
+
+Segment VI ablation cavity measures 2.4 x 2.2 cm (image 28, series 10), previously measuring 2.9 x 2.4 cm. There is no residual or recurrent disease identified. There is internal T1 hyperintensity within the ablation cavity likely representing hemorrhage, similar to the prior exam.
+
+No new lesions are identified meeting imaging criteria for hepatocellular carcinoma
+
+Hepatic vasculature: Patent.
+
+Biliary system: The gallbladder is unremarkable. There is no biliary ductal dilatation.
+
+Pancreas: Subcentimeter cystic lesions within the pancreas are stable for example in the pancreatic body measuring 0.4 cm (image 22 series 2) and likely represent sidebranch IPMNs versus sequela of prior pancreatitis. There is no pancreatic ductal dilatation.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable with exception of subcentimeter renal cysts.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Ablation cavities as described without recurrent or residual disease.
+
+No new lesions suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes ablation cavities in the liver but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit chronic liver disease. The liver parenchyma itself is not specifically described as unremarkable or normal, but there are no signs of fibrosis or cirrhosis indicated. The hepatic vasculature is patent, and there is no ascites or other stigmata of chronic liver disease. Given the absence of positive criteria for fibrosis/cirrhosis, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=509 / Out=140
+Cost: $0.000169

@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. There is stigmata of portal hypertension including upper abdominal varices and splenomegaly. No arterially enhancing hepatic lesions to suggest hepatocellular carcinoma. 
+
+The right, left, and main portal veins are atretic appearing and thrombosed, new since prior examination, with a tiny amount of flow remaining within the main portal vein. The superior mesenteric vein and splenic vein are patent. The hepatic veins are patent. There is an inferior vena cava filter. Stable prominent periportal lymph nodes. Cholelithiasis.
+
+There is a inferior right pulmonary vein varix.
+
+The pancreas, kidneys, and adrenal glands are unremarkable.No evidence of HCC. Interval development of portal vein thrombosis as described above.
+
+The critical findings described above were communicated via the Veriphy Critical Results Reporting System as a Yellow critical result
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis. Additional findings such as portal hypertension, varices, and splenomegaly further support this classification.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=401 / Out=58
+Cost: $0.000137

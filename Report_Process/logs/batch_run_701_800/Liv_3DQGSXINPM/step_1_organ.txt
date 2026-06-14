@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post partial left hepatectomy. 
+
+There is interval decrease in size of a 1.4 x 1.1 cm segment 6/7 ablation cavity, previously 1.5 x 1.4 cm. There is stable delayed rim enhancement without nodularity to suggest residual disease. There is stable mild intrahepatic biliary ductal dilatation distal to the ablation cavity.
+
+There are few scattered subcentimeter arterially enhancing foci, which are less conspicuous and without washout or pseudocapsule.  Hepatic vasculature is patent.
+
+The spleen, adrenal glands, and pancreas are unremarkable. Bilateral renal cysts, some of which are hemorrhagic, are noted.
+
+Stable nonspecific mildly prominent upper abdominal lymph nodes, for example a 1.0 cm gastrohepatic node (image 40, series 13), unchanged. There is no ascites.No evidence of HCC.
+
+Decreased conspicuity of few nonspecific subcentimeter arterially enhancing foci (LI-RADS 3), which are amenable to follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes post-surgical and post-ablation changes, but the liver parenchyma itself is not characterized as unremarkable, normal, or smooth. However, the absence of any terms indicating fibrosis or cirrhosis, along with no mention of ascites (except to state "no ascites") and patent hepatic vasculature, suggests no direct evidence of fibrosis/cirrhosis. Since the criteria specify that classification as "NoFibrosis/Cirrhosis" requires terms like "unremarkable", "normal", or "smooth" for the liver, and these are not explicitly stated, the default inference from the absence of positive signs is that the liver does not show signs of fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=445 / Out=201
+Cost: $0.000177

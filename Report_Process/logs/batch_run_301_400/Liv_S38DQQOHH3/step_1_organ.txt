@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic morphology with sequela of portal hypertension including recanalized paraumbilical vein, upper abdominal and gastroesophageal varices.
+Nonocclusive thrombus of main and right portal veins. Chronic thrombosis left portal vein. Hepatic veins patent.
+
+Some of the previously described hepatocellular carcinomas are unchanged, for example;
+On image 72 series 13 in segment 2/4, 5.1 x 4.8 cm HCC is unchanged (remeasured on the prior exam.
+
+Some of the previously described hepatocellular carcinomas have increased in size, for example; On image 58 series 13 in segment 2/4, 4.4 x 4.5 cm HCC previously measured 4.4 x 3.6 cm.
+
+There are also multiple new HCC's, for example; on image 50 series 13 in segment 6 there is a new 2.5 cm HCC.
+There are numerous new enhancing nodules of varying sizes throughout the liver consistent with HCC.
+
+Cholelithiasis. 
+2.1 cm unilocular cystic lesion in the pancreatic head on image 22 series 4 previously measured 1.8 cm.
+
+Spleen, adrenal glands, and kidneys are unremarkable except simple cyst.
+
+New 7 mm enhancing focus in the lumbar vertebral body on image 21 series 13.
+Ascites has slightly increased in comparison to the prior exam. No lymphadenopathyProgression of multifocal HCC. New non-obstructive thrombus main and right portal vein.
+Possible metastasis and lumbar spine.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" in the liver section, which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension (recanalized paraumbilical vein, varices), which is commonly associated with cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=544 / Out=65
+Cost: $0.000147

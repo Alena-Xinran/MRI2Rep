@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology. Stable right hepatic sclerosing hemangiomas are again noted. There are no findings of HCC. The hepatic vasculature is patent. There are findings of portal hypertension with a recannulized paraumbilical vein and small upper abdominal varices.
+
+The spleen, adrenal glands, and kidneys are unremarkable with exception of a few subcentimeter renal cysts. The patient is status post cholecystectomy.
+
+There are a few stable sub-5 mm cystic foci within the pancreas, likely reflecting side branch IPMNs or sequela of prior pancreatitis. There is no pancreatic ductal dilatation.
+
+There is no abdominal ascites or lymphadenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, there are findings of portal hypertension, including a recannulized paraumbilical vein and small upper abdominal varices, which are commonly associated with advanced liver fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=371 / Out=73
+Cost: $0.000102

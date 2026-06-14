@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Several images are limited by motion.
+
+There is a cirrhotic morphology of the liver. Redemonstrated are multiple masses in the right hepatic lobe, the majority of which is confluent. For reference, a 7.8 cm mass is in segment 5 on image 27, series 18. Portions of the infiltrative disease demonstrate arterial enhancement with washout (image 47, series 15). Additionally, a 2.4 cm nodular component on image 38, series 8 demonstrates internal hemorrhage and a component more inferiorly demonstrates intralesional fat (image 32, series 8). The right portal vein is thrombosed with tumor thrombus. No biliary ductal dilatation is seen.
+
+Cholelithiasis is noted. The spleen, pancreas, and right adrenal gland are unremarkable. A 1.8 cm indeterminate left adrenal nodule has increased from 1.3 cm. on the exam from 2010. There are bilateral renal cysts. 
+
+Periportal lymphadenopathy measures up to 1.7 cm. and para-aortic adenopathy measures up to 1.1 cm Trace perihepatic fluid is present.Large infiltrative masses in the right hepatic lobe, most suggestive of HCC. Associated tumor thrombus within the right portal vein.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There is a cirrhotic morphology of the liver," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=494 / Out=53
+Cost: $0.000128

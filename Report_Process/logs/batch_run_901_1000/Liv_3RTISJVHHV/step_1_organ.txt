@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has advanced cirrhotic morphology. There are no findings of hepatocellular carcinoma.Sequela of portal hypertension include moderate volume ascites, splenomegaly measuring 14.9 cm, and upper abdominal portosystemic collaterals including a recannulized paraumbilical vein. There is occlusive thrombus in the splenic vein, new since prior exam. Again seen is chronic nonocclusive thrombus in the main portal vein extending into the left portal vein. There is also redemonstration of thrombi in the segment 7 branch portal veins. The remainder of the hepatic vasculature is patent.     Gamna-Gandy bodies are noted within the spleen. There is gallbladder sludge. The pancreas, adrenal glands and kidneys are unremarkable.    There is no adenopathy.No HCC.  New occlusive thrombus in the splenic vein.  Unchanged nonocclusive thrombus in main portal vein and intrahepatic portal veins.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has advanced cirrhotic morphology," which directly indicates cirrhosis. Additionally, there are findings consistent with sequelae of portal hypertension (ascites, splenomegaly, portosystemic collaterals), further supporting chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=422 / Out=74
+Cost: $0.000117

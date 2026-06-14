@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is not cirrhotic in morphology. There is no evidence of HCC. A few scattered hepatic cysts and a subcentimeter left hepatic lobe flash filling hemangioma are noted. The hepatic vasculature is patent.    There is hepatic steatosis. Hepatic fat fraction is 23%.    There is no evidence of hepatic iron overload. Hepatic iron quantification is 1.3 mg/g.    There is gallbladder fundal adenomyomatosis. The pancreas, spleen, adrenal glands, and kidneys are unremarkable with the exception of a few renal cysts. There is no abdominal lymphadenopathy or ascites.1.  Hepatic steatosis, with a fat fraction of 23%.  2.  No evidence of hepatic iron overload. Hepatic iron quantification is 1.3 mg/g.  3.  No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is not cirrhotic in morphology." There are no mentions of cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver is described without signs of fibrosis or cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=401 / Out=67
+Cost: $0.000108

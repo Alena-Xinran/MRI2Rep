@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Interval decrease in size of segment VIII treatment cavity, now 5.2 x 3.6 cm, previously 6.3 x 4.6 cm, with no evidence of recurrent disease. No evidence of new enhancing suspicious lesion. Intrahepatic and extrahepatic bile ducts are unremarkable. Gallstones without evidence of acute cholecystitis.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Mild splenomegaly measuring 13 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Status post sleeve gastrectomy. Otherwise grossly unremarkable bowel.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace ascites.
+
+Lower chest: Improved right pleural effusion.Decreased segment VIII posttreatment cavity, LR TR nonviable. No new suspicious liver lesion.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not directly described, but findings like a post-treatment cavity, no recurrent disease, and unremarkable bile ducts do not indicate fibrosis or cirrhosis. The presence of mild splenomegaly and trace ascites could be related to other conditions (e.g., post-treatment changes, portal hypertension from other causes) but are not specific for liver fibrosis/cirrhosis in the absence of direct liver parenchymal descriptors. Without explicit evidence of fibrosis or cirrhosis, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=416 / Out=168
+Cost: $0.000155

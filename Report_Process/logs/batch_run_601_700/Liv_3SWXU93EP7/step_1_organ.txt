@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+before and after 25 cc of intravenous Dotarem. Compared to exam dated 5/27/2020.
+
+The liver demonstrates morphologic features of cirrhosis. The spleen is enlarged and there are varices compatible with portal hypertension. There is no significant ascites. Hepatic vasculature is patent.
+
+On series 10 image 35, there is a 3.1 x 2.3 cm ablation cavity in segment 7 which has decreased in size, previously measuring 4.2 x 3.5 cm. There is no evidence of recurrent HCC.
+
+There is no evidence of new HCC.
+
+Gallstones are present. The pancreas contains small cystic structures measuring up to 1.5 cm, essentially unchanged. The left adrenal gland and kidneys are unremarkable with exception of renal cysts. There is a 1 cm right adrenal nodule which is unchanged when compared to 2/20/2020. There is no abdominal adenopathy.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis," which directly meets the criteria for keywords indicating fibrosis/cirrhosis. Additional supporting findings include an enlarged spleen and varices compatible with portal hypertension, which are often associated with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=424 / Out=69
+Cost: $0.000115

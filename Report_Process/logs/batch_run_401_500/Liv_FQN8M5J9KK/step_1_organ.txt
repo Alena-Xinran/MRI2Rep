@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic. Evidence of portal hypertension includes splenomegaly, upper abdominal varices and a splenorenal shunt.  
+Cholelithiasis is noted, without common bile duct or intrahepatic biliary ductal dilatation.
+
+Following contrast, there are multiple areas of nodular like arterial phase enhancement, the majority of which are peripheral, likely perfusional in etiology. There is no delayed washout or pseudocapsule. No corresponding T2 abnormality. No areas of signal void on delayed hepatobiliary phase imaging. There is normal excretion on hepatobiliary phase imaging. The visualized hepatic vasculature is patent.
+
+Aside from simple bilateral renal cysts, the kidneys, adrenal glands and pancreas are unremarkable. Prominent but subcentimeter posterior mediastinal lymph and pericardiac lymph nodes are noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=399 / Out=38
+Cost: $0.000095

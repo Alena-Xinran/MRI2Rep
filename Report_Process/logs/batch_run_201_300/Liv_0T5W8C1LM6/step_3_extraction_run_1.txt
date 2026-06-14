@@ -1,0 +1,112 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Liver: Cirrhosis. Hepatic steatosis.. Scattered simple and septated hepatic cysts, the largest is in the inferior right hepatic lobe measures 1.9 x 1.5 cm. No evidence of HCC. A TIPS is present. Incidentally noted is a replaced/accessory left hepatic artery off of the left gastric artery.
+
+Biliary and Gallbladder: Cholelithiasis. 
+
+Pancreas: Unremarkable. 
+
+Spleen: Mildly enlarged, 13.0 cm CC. 
+
+Adrenals: Unremarkable. 
+
+Kidneys: Tiny cyst in the left upper pole. 
+
+Vascular: Visualized portion of the abdominal aorta is normal in caliber. Mild upper abdominal varices.
+
+Lymph nodes: Unremarkable. 
+
+Ascites: None. 
+
+Body wall and Bones: Unremarkable.Cirrhosis, hepatic steatosis, and portal hypertension without evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Liver: Cirrhosis. Hepatic steatosis.. -> Reasoning: Background parenchymal findings, no focal lesion.
+Sentence 2: Scattered simple and septated hepatic cysts, the largest is in the inferior right hepatic lobe measures 1.9 x 1.5 cm. -> Reasoning: Found focal lesions. Features: Simple and septated cysts. Maps to CYST. Location: "inferior right hepatic lobe" corresponds to segments 5/6 (R_ANT or R_POST). "Scattered" implies multiple. Quantity: Multiple.
+Sentence 3: No evidence of HCC. -> Reasoning: Negative statement, no focal lesion identified.
+Sentence 4: A TIPS is present. -> Reasoning: Background finding (transjugular intrahepatic portosystemic shunt), no focal lesion.
+Sentence 5: Incidentally noted is a replaced/accessory left hepatic artery off of the left gastric artery. -> Reasoning: Vascular variant, no focal lesion.
+Sentence 6: Biliary and Gallbladder: Cholelithiasis. -> Reasoning: Finding in gallbladder, not liver.
+Sentence 7: Pancreas: Unremarkable. -> Reasoning: No finding.
+Sentence 8: Spleen: Mildly enlarged, 13.0 cm CC. -> Reasoning: Finding in spleen, not liver.
+Sentence 9: Adrenals: Unremarkable. -> Reasoning: No finding.
+Sentence 10: Kidneys: Tiny cyst in the left upper pole. -> Reasoning: Finding in kidney, not liver.
+Sentence 11: Vascular: Visualized portion of the abdominal aorta is normal in caliber. Mild upper abdominal varices. -> Reasoning: Vascular findings, not focal liver lesions.
+Sentence 12: Lymph nodes: Unremarkable. -> Reasoning: No finding.
+Sentence 13: Ascites: None. -> Reasoning: No finding.
+Sentence 14: Body wall and Bones: Unremarkable.Cirrhosis, hepatic steatosis, and portal hypertension without evidence of HCC. -> Reasoning: Summary/background findings, no new focal lesion.
+
+Step 2: Structured Output
+TUMOR_RECORD: CYST | R_POST | Multiple
+
+--- EXTRACTED INFO ---
+CYST | R_POST | Multiple
+
+--- USAGE ---
+Tokens: In=1028 / Out=454
+Cost: $0.000349

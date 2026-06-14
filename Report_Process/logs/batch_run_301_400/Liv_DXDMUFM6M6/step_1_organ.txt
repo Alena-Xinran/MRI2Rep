@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver: Cirrhotic liver morphology with sequelae of portal hypertension including upper abdominal collateral vessel formation. There is no liver lesion meeting criteria for HCC. TIPS is noted. Similar eccentric nonocclusive thrombus is seen in the SMV. Main portal vein remains patent.
+
+Gallbladder and biliary tree: Patient is status post cholecystectomy. Mild intrahepatic biliary ductal dilatation is unchanged.
+
+Pancreas: Subcentimeter cystic structures in the pancreas likely reflect sidebranch IPMN or sequela of prior pancreatitis, now measuring up to 0.9 cm, previously 0.8 cm (image 19, series 3). No main pancreatic ductal dilatation.
+
+Spleen: Splenomegaly. Gamna-Gandy bodies and peripheral susceptibility artifact are compatible with hemosiderin deposition/sequela of portal hypertension.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left renal cysts. Right kidney is unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1. No evidence of HCC.
+
+2. Stable small nonocclusive SMV thrombus.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis. Additionally, there is mention of splenomegaly and Gamna-Gandy bodies compatible with portal hypertension, further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=458 / Out=68
+Cost: $0.000125

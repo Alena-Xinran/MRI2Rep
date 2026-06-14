@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are 3 avascular ablation cavities:
+
+Segment 8/4A: 2.7 x 2.4 cm (series 11, image 14; previously 2.9 x 2.5 cm)
+Segment 7/8:  2.9 x 2.9 x 1.8 cm (was 11, image 18; unchanged)
+Segment 7/8 :2.0 x 1.9 cm (series 11, image 18; unchanged)
+
+Perfusion changes are again seen. A few hypointense foci are again seen on the hepatobiliary phase (series 21, images 28 and 39).The hepatic and portal veins are patent. There is no lymphadenopathy or ascites.
+
+Fundal gallbladder adenomyomatosis is again noted. The spleen, pancreas, adrenal glands and kidneys are unremarkable aside from a few small cysts.No evidence of new or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" either; the focus is on ablation cavities, perfusion changes, and hypointense foci, but no direct assessment of fibrosis or cirrhosis is provided. Since the criteria require explicit signs or descriptions, and none are present, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=422 / Out=138
+Cost: $0.000144

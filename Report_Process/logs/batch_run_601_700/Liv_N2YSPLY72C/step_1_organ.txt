@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver again demonstrates cirrhotic morphology and sequelae of portal hypertension with splenomegaly (14.4 cm) and esophageal varices. 
+
+The previously identified segment VIII HCC (OPTN 5B) with arterial enhancement and washout has grown and now measures 4.2 cm, previously 2.1 cm (image 76, series 13). Please note that the portion of this mass which enhances in the arterial phase measures 4.3 cm, but possibly the mass measures as large as 5.3 cm.
+
+The indeterminate segment II mass which does not enhance in the arterial phase has grown measuring 4.0 cm, previously 3.5 cm (image 66, series 17). This mass does not meet OPTN criteria for HCC, but is highly suggestive of a hypovascular HCC.
+
+There are multiple other nodules within the liver which cannot be definitively characterized. Many of these are hyperintense on precontrast T1-weighted images and some arterial phase enhance, but do not washout. 
+
+The uncinate process of the pancreas demonstrates a stable 1.4 cm cyst (image 19, series 5). The adrenal glands and kidneys are unremarkable. There is no abdominal lymphadenopathy or ascites.1. Interval growth of the segment VIII OPTN 5B HCC.
+
+2. Interval growth of the segment II hepatic nodule which does not satisfy OPTN criteria but remains suspicious for hypovascular HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver again demonstrates cirrhotic morphology," which directly indicates the presence of cirrhosis. Additionally, it mentions sequelae of portal hypertension, including splenomegaly and esophageal varices, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=525 / Out=66
+Cost: $0.000142

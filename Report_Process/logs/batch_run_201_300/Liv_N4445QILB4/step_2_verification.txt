@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post right lower lobectomy with redemonstration of a small right pleural effusion and mild pleural thickening.
+
+There is a stable treatment cavity in segment VI which measures 3.3 x 0.8 cm, without evidence of residual or recurrent disease (image 49, series 14). Again noted are 2 indeterminate subcentimeter arterially enhancing foci without washout or pseudocapsule in segment VII (series 12, image 23 and 25). There are no imaging findings of hepatocellular carcinoma. A 1.0 cm right hepatic lobe hemangioma is stable. The hepatic vasculature is patent.
+
+Stable scattered pancreatic cystic lesions are again seen, the largest measuring 0.9 cm in the pancreatic body (series 4, image 21), likely sequela of prior pancreatitis or side branch IPMNs. The gallbladder, kidneys, and spleen are unremarkable, except for stable tiny bilateral renal cysts, including a left upper pole hemorrhagic renal cyst. The adrenal glands are unremarkable except for stable nodularity of the left adrenal gland.
+
+There is no abdominal ascites. Prominent portacaval nodes are unchanged and likely reactive.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy patterns, signs of portal hypertension, etc.). It notes a stable hemangioma and patent hepatic vasculature, and explicitly states "no imaging findings of hepatocellular carcinoma," but does not comment on liver parenchymal texture or morphology indicative of fibrosis or cirrhosis. Without any positive mention of cirrhosis or its features, the liver is considered normal in this context for fibrosis/cirrhosis status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=446 / Out=124
+Cost: $0.000177

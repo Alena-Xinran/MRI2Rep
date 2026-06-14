@@ -1,0 +1,42 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is redemonstrated with splenomegaly measuring 14.1 cm likely reactive representing portal hypertension. 
+
+There is been slight interval decrease in size of in segment VII ablation cavity now measuring 3.7 x 3.4 cm (series 13001, image 26), previously measured 3.9 x 3.6 cm, LR- TR nonviable. Scattered peripheral foci of arterial enhancement are stable and likely perfusional.
+
+Cholelithiasis is redemonstrated. The pancreas, adrenal glands, and kidneys are unremarkable except for tiny bilateral renal cysts.
+
+There is no adenopathy or ascites.Ongoing decrease in segment VII ablation cavity with no evidence of recurrent or residual HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions splenomegaly likely representing portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=380 / Out=45
+Cost: $0.000093

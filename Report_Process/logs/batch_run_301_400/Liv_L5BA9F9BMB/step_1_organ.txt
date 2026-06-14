@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Postsurgical changes from segment 2 resection have almost completely resolved with only a subcapsular 7 mm cystic structure remaining and associated hyperemia in the region. The previously seen collection along the right inferior liver tip now measures 1.3 cm compared to 4 cm on prior study. It demonstrates marked T2 hypointensity and does not enhance likely indicating the presence of blood clot. Multiple subcapsular subcentimeter arterial phase hyperenhancing foci not apparent on other sequences and phases (LI-RADS 3). No HCC. Hepatic vasculature:patent. Cholelithiasis. No bile duct dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC.
+Almost complete resolution of postoperative changes and perihepatic hematoma.
+Multiple LI-RADS 3 observations
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" in a direct parenchymal assessment, but the findings focus on postsurgical changes, a resolving hematoma, and LI-RADS 3 observations without indicating fibrosis or cirrhosis. The absence of any described features of fibrosis or cirrhosis suggests no evidence of that condition.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=440 / Out=129
+Cost: $0.000145

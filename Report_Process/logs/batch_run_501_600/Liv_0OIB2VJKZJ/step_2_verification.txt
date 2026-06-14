@@ -1,0 +1,60 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Liver: Elastography demonstrates no fibrosis. Liver stiffness: 2.4 kPa.
+
+Reference: (Clin Gastroenterol Hepatol. 2015 Mar; 13(3): 440-451.e6. Published online 2014 Nov 20. doi:  10.1016/j.cgh.2014.09.046)
+
+Optical cut-off (kPa): 
+3.45-3.65 kPa = Any fibrosis (stage 1)
+3.66- 4.10 kPa = Significant fibrosis (stage 2)
+4.11- 4.70 kPa = Advanced fibrosis (stage 3)
+&gt; 4.71 kPa = Cirrhosis (stage 4)
+
+There is no iron overload. Liver iron content is 1.1 mg/g. 
+
+Results interpretation for given liver iron content (in mg/g), performed on a 1.5 Tesla system: 
+
+Less than 2- Normal
+2.0-7.0 - Mild Iron overload
+7.0-15.0 - Moderate iron overload
+Greater than 15.0 - Severe iron overload
+
+There is diffuse hepatic steatosis, the fat fraction signal is 17%. The liver is not cirrhotic in morphology. The spleen, pancreas, adrenal glands and kidneys are unremarkable. Patient is status post cholecystectomy with stable biliary ductal dilatation. The common bile duct measures 1 cm. The hepatic vasculature is patent.
+
+There is no abdominal lymphadenopathy or ascites.Diffuse hepatic steatosis. No evidence of HCC, cirrhosis, hepatic fibrosis or iron deposition.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "Elastography demonstrates no fibrosis" with a liver stiffness of 2.4 kPa, which is below the cut-off for any fibrosis (stage 1). It also notes "The liver is not cirrhotic in morphology" and concludes "No evidence of HCC, cirrhosis, hepatic fibrosis or iron deposition." Therefore, the liver is normal with respect to fibrosis and cirrhosis, confirming the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=527 / Out=104
+Cost: $0.000191

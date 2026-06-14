@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Postcontrast images are degraded by motion and misregistration on subtraction images.
+
+The patient is status post liver transplant. Allowing for exam limitations, there are no lesions with imaging features suspicious for HCC. Hepatic vasculature is patent.
+
+The pancreas, spleen, adrenal glands and kidneys unremarkable except for renal cysts, some of which are thinly septated. There is no upper abdominal adenopathy or ascites.Status post liver transplant. No findings of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis. It indicates the patient is status post liver transplant and notes no lesions suspicious for HCC, with patent hepatic vasculature. There is no description of liver morphology, nodularity, or other signs of fibrosis/cirrhosis. Since the report does not state cirrhosis and the liver is described in the context of a transplant without abnormal features, the appropriate status is "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=292 / Out=119
+Cost: $0.000132

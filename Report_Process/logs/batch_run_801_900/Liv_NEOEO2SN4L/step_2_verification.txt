@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic in morphology with heterogeneous reticular pattern of enhancement and T2 hyperintensity compatible with inflammation/fibrosis. There are multiple scattered hepatic cysts. 
+
+Multiple treatment cavities are again identified with largest three mentioned below:
+
+Segment 7/8, measuring 2.9 x 1.8 cm (image 14, series 16), previously 3.7 x 1.9 cm. No evidence of residual or recurrent disease.
+
+Segment 4B/3, measuring 3.6 x 2.7 cm (image 41, series 16), previously 3.8 x 2.6 cm. No evidence of residual or recurrent disease.
+
+Segment 5/6, measuring 2.3 x 1.9 cm (image 54, series 16), previously 2.4 x 2.0 cm. There is a new 1.6 cm arterial enhancing lesion adjacent to the ablation cavity (image 58, series 12) that demonstrates washout with an enhancing pseudocapsule (image 58, series 16) compatible with recurrent disease.
+
+There is a new 1.7 cm arterial enhancing lesion (image 29 series 12) with washout and enhancing pseudocapsule (image 29 series 16) in segment 7/8 compatible with recurrent hepatocellular carcinoma.
+
+There are multiple additional subcentimeter arterially enhancing foci scattered throughout the liver parenchyma which do not demonstrate washout or enhancing pseudocapsule and are indeterminate.
+
+The hepatic vasculature is patent.
+
+There is biliary sludge/stones without biliary ductal dilatation. The spleen, pancreas, adrenal glands and kidneys are unremarkable with exception of a few bilateral renal cysts. There is no ascites or lymphadenopathy.1. New 1.6 cm HCC adjacent to the segment 5/6 ablation cavity.
+
+2. New 1.7 cm HCC in segment 7/8.
+
+3. Multiple additional subcentimeter arterially enhancing foci scattered throughout the liver parenchyma which do not demonstrate washout or pseudocapsule and are indeterminate.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver is cirrhotic in morphology with heterogeneous reticular pattern of enhancement and T2 hyperintensity compatible with inflammation/fibrosis." This explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=630 / Out=75
+Cost: $0.000208

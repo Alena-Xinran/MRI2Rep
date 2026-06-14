@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of chronic occlusion of the suprarenal and intrahepatic IVC and hepatic veins compatible with known Budd-Chiari. A middle hepatic vein stent is again noted some are presumably occluded. The liver is cirrhotic in morphology. The spleen is enlarged and mild ascites is noted, presumably secondary to portal hypertension. A splenorenal shunt is noted, likely surgically created. Innumerable collaterals are noted within the abdominal wall and musculature of the back. Again seen are innumerable hepatic nodules, some of which demonstrate intrinsic T1 hyperintensity. For example, a 1.5 cm focus in segment 8 (image 25, series 10) demonstrates intrinsic T1 hyperintensity, limiting evaluation for arterial enhancement, and is unchanged. There is a stable hemangioma at the liver dome.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable. There is no abdominal adenopathy.Stable exam with innumerable hepatic nodules, likely regenerative in the setting of Budd-Chiari. No evidence of HCC. Continued follow-up is recommended.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, there are mentions of "innumerable hepatic nodules" and findings consistent with chronic liver disease such as splenomegaly, ascites, and portal hypertension, all supporting a classification of fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=449 / Out=77
+Cost: $0.000126

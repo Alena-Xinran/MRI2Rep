@@ -1,0 +1,40 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Please note the exam is limited by respiratory motion artifact due to difficulty in breath holding. This severely degrades the arterial phase imaging.
+
+A steatotic cirrhotic liver with sequelae of portal hypertension is again noted including splenomegaly, Gamma Gandy bodies, esophageal varices and a large recanalized paraumbilical vein. Small gallstones and sludge are noted within the gallbladder.  A 1.8 cm lesion within segment 8, likely corresponding to the ultrasound finding and displays possible early nodular enhancement as well as some focal fat. This region is hypointense on the hepatobiliary phase. This is nonspecific but could reflect a sclerosed hemangioma. A punctate hepatic cyst within segment 7 is incidentally seen. No lesions meeting imaging criteria for HCC. A few left renal cysts are noted. Remaining intra-abdominal organs appear unremarkable. No suspicious adenopathy. Trace ascites.No lesions meeting imaging criteria for HCC.  Nonspecific lesion within segment 8 as detailed above can be watched on surveillance 6 month follow-up ultrasound or CT exam (patient had difficulty with breath-holding so do not recommend MRI).
+
+Cholelithiasis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "steatotic cirrhotic liver" and mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=468 / Out=43
+Cost: $0.000117

@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Bibasilar subsegmental atelectasis is noted.
+
+The liver is cirrhotic in morphology with atrophy of the right hepatic lobe and findings of portal hypertension, including splenomegaly, small volume ascites, and small upper abdominal portosystemic varices (recanalized umbilical vein, paraesophageal varices and probable small splenorenal shunt). There are no suspicious lesions in the liver. The hepatic vasculature is patent.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for punctate left renal cyst. There is mild thickening of the colon at the hepatic flexure that could be related to portal colopathy. There is no lymphadenopathy.Cirrhotic liver with portal hypertension. No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic in morphology" and later concludes "Cirrhotic liver with portal hypertension." This confirms the presence of cirrhosis. According to the rules, if the report mentions cirrhosis or its features, the status must be "Fibrosis/Cirrhosis." The previously extracted status matches this requirement.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=353 / Out=84
+Cost: $0.000134

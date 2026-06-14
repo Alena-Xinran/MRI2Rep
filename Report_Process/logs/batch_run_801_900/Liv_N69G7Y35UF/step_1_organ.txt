@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post partial segmentectomy of segment IVb and chemoembolization of multiple LI-RADs 4/5 lesions. There are no arterially enhancing observations to suggest viable disease. Scattered small hepatic cysts/hemangiomas are noted.
+
+The spleen, pancreas, and adrenal glands are unremarkable. There are multiple bilateral renal cysts, some of which are hemorrhagic.
+
+No abdominal lymphadenopathy or ascites is seen.
+
+There is a new 1.8 cm enhancing lesion in the left aspect of T10 vertebral body (image 21, series 19).No evidence of HCC. New 1.8 cm lesion in T10 vertebral body, suspicious for a metastasis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not specifically described, but the findings focus on post-treatment status, cysts/hemangiomas, and no arterially enhancing lesions. There is no mention of the liver being "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators suggests no evidence of that condition in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=370 / Out=134
+Cost: $0.000128

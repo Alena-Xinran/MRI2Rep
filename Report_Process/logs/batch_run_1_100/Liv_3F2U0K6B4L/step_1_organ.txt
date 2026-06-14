@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is redemonstrated. There are no new liver lesions with imaging features of hepatocellular carcinoma. Posttreatment related. The posterior right hepatic lobe is redemonstrated. Observations are as follows:
+
+- On image 30, series 7, in segment VII, a 1.4 cm treated HCC is not significantly changed in size when remeasured in a similar manner. Internally, this appears mostly necrotic with only a persistent linear enhancing focus present, similar to the prior exam (LR-TR equivocal).
+
+- On image 32, series 7, in segment VII 4 medially, a 0.9 cm treated HCC is not significantly changed in size when remeasured; internally, this demonstrates more conspicuous necrosis, with the previously described nodular enhancing component identified (LR TR nonviable).
+
+- On image 38, series 7, in segment VIII, a 1.1 cm HCC is unchanged in size and appearance demonstrating thick rim enhancement and central necrosis, similar to the prior exam (LR TR equivocal).
+
+- On image 29, series 7, at the periphery of segment VIII, there is a 0.9 cm observation with arterial phase hyperenhancement, without washout or pseudocapsule is unchanged in size though more conspicuous (LR 3).
+
+Portal venous thrombus is unchanged as is the diminutive caliber of the intrahepatic portal veins. Prominent splenorenal shunt is again noted. The patient is status post cholecystectomy. Prominent periportal nodes measuring up to 1.3 cm stable.
+
+Indeterminate subcentimeter splenic lesion is stable (image 41, series 7). Few nonspecific subcentimeter pancreatic cystic lesions are also unchanged, with no dilatation of the main pancreatic duct present. Trace ascites is noted. No aggressive osseous lesions are detected. Lower lobe atelectasis is present.Overall liver findings are stable to improving with no new disease identified.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated" at the beginning, which directly indicates cirrhosis. Additionally, there are supporting findings such as "portal venous thrombus," "diminutive caliber of the intrahepatic portal veins," "prominent splenorenal shunt," and "trace ascites," which are commonly associated with chronic liver disease and portal hypertension secondary to cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=633 / Out=96
+Cost: $0.000185

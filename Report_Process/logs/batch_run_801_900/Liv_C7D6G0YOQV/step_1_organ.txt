@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates cirrhotic morphology with evidence of portal hypertension, characterized by splenomegaly and small volume ascites (slightly increased). There are no new lesions meeting imaging criteria for hepatocellular carcinoma. Tiny hepatic cysts are noted. Ablation cavities are as follows:
+
+- Segment I cavity measuring 3.3 x 2.3 cm, previously 3.5 x 2.2 cm. No evidence of residual or recurrent disease.
+- Segment V/VIII cavity measuring 2.9 x 1.6 cm, previously 2.9 x 1.6 cm. No evidence of residual or recurrent disease.
+
+Stable nearly occlusive portal vein thrombus with extension into the right and left portal veins and SMV is noted. 
+
+Cholelithiasis is noted. Scattered cystic lesions noted within the pancreas, measuring up to 1.2 cm in the pancreatic head (image 33, series 3), likely represent sidebranch IPMNs or sequelae of prior pancreatitis. The pancreatic duct is normal in caliber. Small bilateral renal cysts are noted.
+
+No abdominal lymphadenopathy is seen. A fat-containing hernia ventral abdominal hernia is partially imaged. Unchanged. T2 hypointense signal of the vertebral bodies and iliac bones is likely related to known myelodysplastic syndrome.No evidence of residual or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates cirrhotic morphology" and also mentions evidence of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=501 / Out=43
+Cost: $0.000126

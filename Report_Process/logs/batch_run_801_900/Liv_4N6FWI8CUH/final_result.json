@@ -1,0 +1,35 @@
+{
+  "id": "Liv_4N6FWI8CUH",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "L_DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "L_LAT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | L_LAT | 1\", \"CYST | L_DIFFUSE | 1\"]": 2,
+      "[\"APHE_NoWO | DIFFUSE | 1\", \"APHE_NoWO | L_LAT | 1\", \"APHE_NoWO | L_LAT | 1\", \"CYST | L_DIFFUSE | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.001299564,
+    "timestamp": "2026-02-08 03:29:53",
+    "model": "deepseek/deepseek-chat"
+  }
+}

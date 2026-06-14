@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post right hepatectomy. A 10.7 cm postoperative collection along the cut surface of the liver is not significantly changed. Some hyperemia the adjacent parenchyma is again seen and likely related to mass effect. Stable cysts and mild biliary dilatation. There are no findings of recurrent disease or new liver lesions with imaging features suspicious for hepatocellular carcinoma. Hepatic vasculature is patent.
+
+A 1.0 cm cystic lesion in the pancreatic uncinate process is unchanged, nonspecific, presumed sequela of pancreatitis or sidebranch IPMN.
+
+Patient is status post cholecystectomy. Spleen, adrenal glands and kidneys unremarkable except for tiny cysts. A right upper abdominal wall hernia contains unobstructed small bowel There is no upper abdominal adenopathy or ascites.  A 0.9 cm right nonenhancing retroperitoneal nodule (series 6, image 26) is unchanged.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either; however, the absence of fibrosis/cirrhosis indicators and the focus on postoperative changes, stable cysts, and absence of recurrent disease suggest no active signs of fibrosis or cirrhosis are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=420 / Out=119
+Cost: $0.000135

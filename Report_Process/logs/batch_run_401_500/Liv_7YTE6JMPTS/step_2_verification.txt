@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent.  Sequela of portal hypertension is appreciated as indicated by paraesophageal varices.
+*  Stable segment VI treatment cavity measuring 3.7 x 2.7 cm (series 4001 image 50). There is multifocal HCC at the superior medial aspect of the cavity extending caudally. Some of the specific measurable lesions are as follows. There is a 3.6 cm in area of arterial enhancement with washout along the anterior superior aspect of the cavity concerning for recurrence (series 11,001 image 47 and series 15,001 image 47). This is associated with a much larger wedge-shaped area of arterial enhancement in which it is unclear (but highly suspicious) that there is viable disease.
+*  Just superior to the cavity there are 2 segment V arterial enhancing lesions that have slightly grown since the prior study and now measuring 1.1 and 1.0 cm respectively (series 11,001 image 40). They both demonstrate washout and, new since the prior and pseudocapsule on delayed imaging (series 15,001 image 40) meeting OPTN 5A criteria for HCC. 
+*  There is a 1.0 cm segment II arterially enhancing lesion with washout, new since the prior and pseudocapsule (series 11,001 and series 15,001 image 24) which is slightly increased in size since prior study and meets OPTN 5A criteria for HCC.
+*  There is a segment VIII/IVA 1.2 cm arterial enhancing lesion that demonstrates washout and pseudocapsule compatible with HCC (series 11,001 image 26).
+*  There is a new 1.1 cm indeterminate peripherally enhancing lesion in segment VII (series 11,001 image 18).
+*  Several other nonspecific scattered foci of arterial enhancement are noted. These do not demonstrate washout, recommend continued attention on subsequent imaging.
+
+Cholelithiasis is noted. There is mild splenomegaly. The pancreas, and adrenals are unremarkable. Bilateral renal cysts are noted.
+
+There is trace ascites. No adenopathy or obstruction.1.  Multifocal HCC adjacent to the segment VI treatment cavity.
+2.  Several new foci of HCC within the left hepatic lobe.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver has a cirrhotic morphology," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=684 / Out=56
+Cost: $0.000215

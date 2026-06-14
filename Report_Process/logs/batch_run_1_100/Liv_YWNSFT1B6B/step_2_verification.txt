@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post liver transplant. There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent. A perihepatic hematoma is decreased measuring 4.2 x 0.9 cm, previously 5.2 x 1.6 cm.
+
+The spleen, adrenal glands, and kidneys are unremarkable. A nonspecific 5 mm cystic lesion in the pancreatic head is stable.
+
+There is no abdominal adenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension). It describes the patient as status post liver transplant and notes no evidence of hepatocellular carcinoma, patent hepatic vasculature, and a decreasing perihepatic hematoma. There is no statement about liver parenchyma being normal, but the absence of any mention of cirrhosis or its features, combined with the clinical context of transplant follow-up without noted abnormalities, supports the previous extraction of "NoFibrosis/Cirrhosis" as correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=296 / Out=134
+Cost: $0.000139

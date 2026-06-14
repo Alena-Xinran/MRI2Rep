@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post liver transplant. The liver is steatotic. A 1 cm nonspecific arterially enhancing lesion in segment 3 (series 11, image 36) without washout or pseudocapsule is stable. Additional stable foci of arterial enhancement in the posterior right hepatic lobe on image 35 and image 39 without correlate on other sequences are likely perfusional. The hepatic vasculature is patent. Paraesophageal varices are again noted.
+
+There is a stable 1.9 cm cystic lesion in the tail of the pancreas, which may represent the sequela of prior pancreatitis versus a sidebranch IPMN. The main pancreatic duct is mildly dilated to 5 mm.
+
+The spleen, kidneys, and adrenal glands are unremarkable except for a small left hemorrhagic renal cyst. There is no abdominal adenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a liver that is "steatotic" and notes "paraesophageal varices are again noted," but it does not explicitly mention cirrhosis or describe specific morphologic features of cirrhosis (such as nodularity, contour irregularity, or segmental atrophy/hypertrophy). The presence of steatosis and varices can be associated with cirrhosis, but the report does not state cirrhosis definitively. Since the task requires the status to be "Fibrosis/Cirrhosis" only if the report says "cirrhosis" or features of it, and the report does not meet that threshold, the correct status should be "NoFibrosis/Cirrhosis" as the liver is not described as normal but the absence of explicit cirrhosis statement means the previous extraction is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=377 / Out=178
+Cost: $0.000180

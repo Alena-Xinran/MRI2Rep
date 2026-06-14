@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluation is limited due to patient motion artifact.    Cirrhotic liver morphology is redemonstrated. The patient is status post partial right hepatectomy. There is no evidence of recurrence along the surgical margin. Many of the previously seen arterially enhancing lesions are not well seen on today's study, likely due to a combination of differences in contrast bolus timing as significant motion artifact. No Portal venous thrombosis.    -Stable 1 cm arterially enhancing focus in segment 7 (image 20 of series 12,001) with no washout or pseudocapsule is compatible with LI RADS 3 observation.     -Additional segment a 1.2 cm arterially enhancing lesion is stable with no evidence of washout or pseudocapsule (LR 3) (image 20 of series 12,001).    -T2 bright lesion within the caudate lobe is stable going back to multiple studies and is likely benign.     There is worsening intrahepatic and extrahepatic biliary ductal dilatation to the level of the ampulla with the common bile duct measuring up to 1.6 cm, previously 1.4 cm. No choledocholithiasis. The patient is status post cholecystectomy.    Numerous subcentimeter pancreatic cysts are again seen such as a 0.2 cm cyst in the pancreatic tail (image 20 of series 3001). These are more conspicuous on today's study and do not appear significantly changed. No main pancreatic ductal dilatation. The spleen, adrenal glands and kidneys are unremarkable other than bilateral renal cysts. Artifact from prior G-tube are noted.    No abdominal adenopathy or ascites. No aggressive osseous lesion is seen.Limited evaluation due to motion artifact.    Status post partial right hepatectomy with no evidence of recurrent HCC.    Unchanged LR 3 observations.    Increased biliary dilatation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated," which directly indicates the presence of cirrhosis. This satisfies the criteria for keywords such as "cirrhosis" or "cirrhotic."
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=621 / Out=57
+Cost: $0.000166

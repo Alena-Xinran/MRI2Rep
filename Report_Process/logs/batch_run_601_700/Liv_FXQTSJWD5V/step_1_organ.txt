@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post right hepatic lobe transplant with hepaticojejunostomy and gastrojejunostomy. No hepatocellular carcinoma is identified. There is a new nonspecific patchy region of enhancement in segment 8 measuring approximately 2 cm (image 41, series 10), without T2 correlate, washout, or pseudocapsule. The hepatic vasculature is patent. 
+
+The spleen, adrenal glands, pancreas, and kidneys are unremarkable with exception of a few tiny renal cysts. No upper abdominal lymphadenopathy or ascites.
+
+The patient is status post ventral hernia repair with several loops of nonobstructed small bowel adhesed to the anterior abdominal wall.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators and the focus on post-transplant status and a nonspecific enhancement without chronic liver disease features suggests no active signs of fibrosis or cirrhosis are reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=368 / Out=122
+Cost: $0.000122

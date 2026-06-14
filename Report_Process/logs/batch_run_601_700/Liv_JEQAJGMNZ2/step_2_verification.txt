@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of hepatocellular carcinoma. The portal and hepatic veins are patent. A few tiny hepatic cysts are present.
+
+There is cholelithiasis and gallbladder fundal adenomyomatosis. The spleen, pancreas and kidney are unremarkable except for tiny renal cysts. There is stable left adrenal thickening.
+
+There is no upper abdominal lymphadenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, regenerative nodules, portal hypertension signs, or splenomegaly). It only notes patent hepatic vasculature, tiny hepatic cysts, and no evidence of hepatocellular carcinoma, which are not indicative of cirrhosis. The spleen is described as unremarkable. Therefore, the liver is considered normal in terms of cirrhosis, aligning with the previously extracted status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=279 / Out=117
+Cost: $0.000127

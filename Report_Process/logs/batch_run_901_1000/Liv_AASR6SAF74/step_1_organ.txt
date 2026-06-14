@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The study is limited due to dielectric artifact from large volume ascites.    Redemonstration of cirrhotic morphology of liver and evidence of portal hypertension as manifested by splenomegaly with Gamma-Gandy bodies, large volume ascites and multiple collaterals. Innumerable hypointense liver nodules are noted. Few unchanged hepatic cysts are noted. Hepatic vasculature is patent.    Following treatment cavities are noted, without evidence of recurrent disease (on series 19001) - LR TR nonviable  -Image 28 1.3 x 1 cm in segment 2, previously 2 x 1.6 cm  -Image 30 1.2 x 1.1 cm in segment 7 (status post recent TACE)  -Image 67 1.2 x 1.1 cm in segment 6, previously 2.3 x 1.9 cm    Previously seen 2 cm exophytic T1 hyperintense observation in segment 6 is less prominent compared to the prior study and measures 1.4 cm image 63, series 15001, with subtle arterial enhancement, but without washout or pseudocapsule (LR-3).    There is a 0.9 cm observation in segment 2 on image 34, series 16001, without washout or pseudocapsule, compatible with LR-3.    The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable, with the exception of bilateral renal cysts.    No abdominal lymphadenopathy is identified. Large amount of ascites demonstrates septations. Small bowel wall thickening is nonspecific.    There is a new small right pleural effusion and increased moderate left pleural effusion.Limited examination with no definite evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Redemonstration of cirrhotic morphology of the liver," which directly indicates cirrhosis. Additionally, there is evidence of portal hypertension (splenomegaly, ascites, collaterals), supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=590 / Out=63
+Cost: $0.000159

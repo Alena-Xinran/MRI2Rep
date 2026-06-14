@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+A geographic area of arterial hyperenhancement in the medial left hepatic lobe without correlate on other sequences most likely represents a perfusional abnormality.  There is no evidence of hepatocellular carcinoma. The hepatic vasculature is patent. Mild biliary ductal dilatation may be due to postcholecystectomy state.
+
+The pancreas, spleen, adrenal glands, and kidneys are unremarkable except for parapelvic cysts (some are hemorraghic) and right renal scarring. A 7 mm distal splenic artery aneurysm is stable (series 10, image 45).
+
+There is no abdominal adenopathy or ascites. There is a fat-containing ventral abdominal wall hernia.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes a perfusional abnormality in the left hepatic lobe but does not mention any findings suggestive of cirrhosis, such as nodular liver contour, segmental atrophy/hypertrophy, portal hypertension signs (e.g., splenomegaly, varices, ascites), or fibrosis. It explicitly states "no evidence of hepatocellular carcinoma" and that the hepatic vasculature is patent. There is no mention of cirrhosis or features thereof. Therefore, the liver is considered normal in the context of cirrhosis assessment.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=339 / Out=122
+Cost: $0.000146

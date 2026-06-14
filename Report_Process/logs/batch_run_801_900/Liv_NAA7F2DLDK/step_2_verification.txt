@@ -1,0 +1,40 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. There are at least 4 masses ranging in size from 1.5 to 3 cm associated with the liver (series 16,001 image is 26, 33, 43, and 44). The majority of these are associated with the capsule of the liver, and it is unclear if these are arise from the liver, or represent implants on the liver. The largest in the caudate has some enhancement features suggesting hemangioma, however the T2-weighted sequences would be very atypical for this, and thisCirrhosis.
+Indeterminant liver masses, the possibility that these represent implants on the liver versus intrinsic masses to the liver should be considered. They do not have typical features of HCC. Biopsy is suggested.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis." as a standalone finding. This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=359 / Out=68
+Cost: $0.000129

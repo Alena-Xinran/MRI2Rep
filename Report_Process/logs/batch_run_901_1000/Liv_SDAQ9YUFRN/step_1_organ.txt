@@ -1,0 +1,50 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are trace bilateral pleural effusions.
+
+The liver is cirrhotic morphology with findings of portal hypertension as evidenced by upper abdominal varices, recanalization of the umbilical veins, mild volume ascites, and borderline splenomegaly. There is geographic hepatic steatosis most pronounced in the peripheral posterior right hepatic lobe. 
+
+
+There is nonspecific heterogeneous enhancement throughout the liver without corresponding T2 signal abnormalities to suggest underlying neoplasm/HCC. This is more focal in the peripheral posterior right hepatic lobe, image 53 series 14. The hepatic vasculature is patent.
+
+Gallbladder is distended with sludge and small stones. There is no intrahepatic or extrahepatic biliary duct dilatation. The pancreas, adrenal glands, and kidneys are unremarkable.
+
+There is no abdominal lymphadenopathy.
+
+There are no aggressive osseous lesions.1. No imaging findings of HCC. Heterogeneous arterial enhancement is most likely related to geographic hepatic steatosis and is amenable to follow-up.
+
+2. Cirrhosis with portal hypertension.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic morphology" and later concludes with "Cirrhosis with portal hypertension." It also lists findings consistent with cirrhosis and portal hypertension, such as upper abdominal varices, recanalization of the umbilical veins, ascites, and borderline splenomegaly. These keywords and descriptions meet the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=433 / Out=89
+Cost: $0.000126

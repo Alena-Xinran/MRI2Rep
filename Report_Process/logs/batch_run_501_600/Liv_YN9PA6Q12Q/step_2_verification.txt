@@ -1,0 +1,47 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+Please refer to CT chest performed the same day for thoracic findings.
+
+Patient is status post right hepatectomy and cholecystectomy. There are multiple new subcentimeter foci of arterial enhancement within the liver without washout or pseudocapsule.  Hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands and kidneys are unremarkable. There is no abdominal adenopathy or ascites.Nonspecific subcentimeter arterial enhancing foci without washout amenable to follow up in 3-6 months. No lesions meeting imaging criteria for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension findings, etc.). It describes the patient's status post right hepatectomy and cholecystectomy, with multiple new subcentimeter arterial enhancing foci, but no description of liver morphology suggestive of fibrosis or cirrhosis. The hepatic vasculature is patent, and there is no mention of ascites related to portal hypertension (the report notes no ascites in the context of abdominal findings). Therefore, the liver is not described as cirrhotic, and the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=388 / Out=154
+Cost: $0.000173

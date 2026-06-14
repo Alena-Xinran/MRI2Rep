@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver demonstrates morphologic features of cirrhosis. The spleen is enlarged and there are multiple varices compatible with hyper portal hypertension. There is no ascites. Hepatic vasculature is patent.    There are no findings to suggest new or recurrent HCC.     There are multiple treatment cavities which are essentially unchanged without evidence of viable tumor (measured on series 14):    Segment 4 treatment cavity measures 3 x 1.9 cm (image 35).  Segment 2 treatment cavity measures 1.3 x 0.9 cm (image 39).  Segment 2 treatment cavity measures 3.3 x 2.7 cm (image 31).   Segment 5/8 treatment cavity measures 3.9 x 3.1 cm (image 46).    Gallstones are noted. The pancreas, adrenal glands, and kidneys are unremarkable exception of a small right renal cyst.No evidence of new or recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver demonstrates morphologic features of cirrhosis," which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=419 / Out=40
+Cost: $0.000102

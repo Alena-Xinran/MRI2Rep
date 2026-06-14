@@ -1,0 +1,51 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic appearing liver is again seen with stable left-sided biliary dilatation secondary to prior treatment. 
+
+Interval decrease in size of 2.3 cm segment 8 treatment cavity with thin rim enhancement (LR TR nonviable).
+
+A 2.6 cm segment 2/3 treatment cavity is again noted with new nodular arterial enhancement with washout and pseudocapsule along its lateral margin measuring 8 mm (series 13 image 37) consistent with recurrent disease (LR TR viable).
+
+No new sites of HCC are identified. Portal venous system remains patent. 
+
+
+Gallbladder, spleen, pancreas, kidneys, adrenal glands display no new findings. No adenopathy or ascites. Duplex collecting system is incidentally noted on the right.
+
+No aggressive osseous lesions.New nodular focus of enhancement and washout at the segment 2/3 ablation cavity consistent with viable disease.
+
+
+These findings have been submitted to the YNHHS Radiology Communication Center to ensure provider is aware of findings.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic appearing liver" at the beginning, which directly indicates cirrhosis. This meets the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=428 / Out=49
+Cost: $0.000108

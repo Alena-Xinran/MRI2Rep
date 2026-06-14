@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, and axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: Cirrhotic ablation cavity in segment 7/8 measures 3.9 x 3.4 cm. No recurrent/residual viable HCC. No new HCC.
+
+Hepatic vasculature: Patent. Portal hypertension and recanalized paraumbilical vein.
+
+Gallbladder:Unremarkable.
+
+Pancreas:Unremarkable.
+
+Spleen: Splenomegaly
+
+Adrenal glands: Unchanged nodularity in left
+
+Kidneys:Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Successful ablation. No viable recurrent/residual HCC and no new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "Cirrhotic ablation cavity" and "Portal hypertension", both of which are direct indicators of cirrhosis. Additionally, the presence of a recanalized paraumbilical vein is a common finding in portal hypertension secondary to cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=430 / Out=66
+Cost: $0.000116

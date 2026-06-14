@@ -1,0 +1,69 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 10 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+Liver: 
+
+On image 42 series 1006001 there is a treatment cavity in segment 5/6 measuring 3.8 x 2.6 cm in the location of an and arterially enhancing mass with washout seen on the prior study. It has a thin slightly irregular enhancing rim but no findings concerning for residual/recurrent viable HCC.
+
+On image 32 series 1004001 the treatment cavity in segment 4A measures 1.6 x 1.8 cm.In these superior anterior margin of the cavity, there is a 9 mm that contains lipid and corresponds arterial phase enhancing nodule with washout. This is unchanged compared to the prior study and is viable HCC.
+
+
+On image 26 series 1004001 there is a hypovascular lesion with a thin enhancing rim which is unchanged compared to prior study
+
+There are no new HCC's.
+
+Hepatic vasculature: Patent without thrombosis..
+
+Gallbladder: Status post cholecystectomy.
+
+Pancreas:Unremarkable.
+
+Spleen: Status post splenectomy.
+
+Adrenal glands:Unremarkable.
+
+Kidneys: Bilateral simple cysts, some hemorrhagic, unchanged.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Successful ablation segment 5/6 HCC with no findings concerning for residual/recurrent viable tumor.
+
+Unchanged 9 mm HCC in margin of the ablation cavity in segment 4A
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either, but the focus is on treatment cavities and lesions related to HCC. Without any positive indicators of fibrosis or cirrhosis, and in the absence of a normal description, the default classification based on the provided criteria is "NoFibrosis/Cirrhosis" when no signs are present.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=604 / Out=138
+Cost: $0.000195

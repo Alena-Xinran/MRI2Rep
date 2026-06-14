@@ -1,0 +1,24 @@
+{
+  "id": "Liv_SNMWSDX6E0",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_NoWO",
+      "position": "CAUDATE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_NoWO | CAUDATE | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00082614,
+    "timestamp": "2026-02-06 21:53:23",
+    "model": "deepseek/deepseek-chat"
+  }
+}

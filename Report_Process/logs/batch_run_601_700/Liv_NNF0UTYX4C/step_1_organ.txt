@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent.
+*   Stable segment 7 treatment cavity measuring 2.8 x 1.8 cm (series 101 image 23) previously measuring 2.7 x 1.2 cm. No suspicious features are identified. The previously described associated arterial enhancement is no longer appreciated.
+*  Stable segment 7/6 treatment cavity measuring 3.3 x 2.7 cm (series 101 image 35) previously measuring 3.4 x 2.4 cm. No suspicious features are identified.
+*  Stable segment 5 treatment cavity measuring 2.4 x 2.0 cm (series 101 image 37) previously measuring 2.4 x 1.9 cm. No suspicious features are identified.
+*  Additional indeterminate arterial enhancing foci are noted measuring up to 1.0 cm (series 100 image 48). No washout or pseudocapsule.
+
+Cholelithiasis and gallbladder sludge is noted. The pancreas, spleen, and adrenals are unremarkable. Renal cysts are noted.
+
+There is trace ascites. 3.1 cm infrarenal abdominal aortic aneurysm is stable. Hardware is appreciated within the lumbar spine.No evidence of recurrent disease. No new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=492 / Out=51
+Cost: $0.000127

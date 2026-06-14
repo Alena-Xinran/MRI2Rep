@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic with findings of portal hypertension. Multiple liver lesions are again noted, many of which are not as well-visualized as the prior study where several hypoattenuating lesions are noted on the hepatobiliary phase images. However, the following lesions are seen and largely stable (series 11/13):
+
+On image 54, a segment II unchanged exophytic 4.1 cm lesion with no arterial phase enhancement with washout (LR4).
+On image 60, a 1.6 cm segment VIII lesion displays more pronounced arterial phase enhancement with washout and pseudocapsule (LR5). Accounting for differences in measurement technique, likely not significantly changed from prior.
+On image 53 a 1 cm arterially enhancing lesion with subtle washout in segment 4A/B is unchanged (LR 5).
+On series 15 image 54 a 1.2 cm lesion in segment 2/3 without arterial enhancement but prominent washout is unchanged (LR 3)
+On image 50 a 2 cm segment 4A/4B lesion without arterial enhancement but with persistent subtle washout and partial pseudocapsule is unchanged (LR 4)
+
+Hepatic vasculature appears patent without evidence for thrombosis. Stable prominent biliary system.
+
+The gallbladder, spleen, pancreas, kidneys, and adrenal glands are unremarkable. Infrarenal aortic ectasia is unchanged.
+
+The patient is status post partial gastrectomy. Trace perihepatic free fluid is seen. There is no lymphadenopathy. No aggressive osseous lesion is seen.Stable multifocal HCC as noted above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic with findings of portal hypertension," which directly indicates the presence of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=557 / Out=40
+Cost: $0.000141

@@ -1,0 +1,102 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+The entire study, including the arterial phase images, are limited due to the patient's inability to cooperate with breath-holding.
+
+Segment 7 ablation cavity measures 3.0 x 2.5 cm, previously 3.6 x 3.1 cm.
+
+No new hepatic masses are identified. The
+
+The segment 3 lesion cavity is not visualized on this study due to motion artifact.
+
+The indeterminate 1 cm segment 8 lesion seen on the prior MRI only on the hepatobiliary phase is not identified on the current study.
+
+ Liver demonstrates cirrhotic morphology and there is evidence of portal hypertension with enlarged venous collaterals and splenomegaly. There is trace ascites. Portal and hepatic veins are patent.Although no new or recurrent HCC is identified, the study is extremely limited due to patient's inability to cooperate with breath-holding.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: The entire study, including the arterial phase images, are limited due to the patient's inability to cooperate with breath-holding. -> Reasoning: No focal liver lesion described.  
+Sentence 2: Segment 7 ablation cavity measures 3.0 x 2.5 cm, previously 3.6 x 3.1 cm. -> Reasoning: Found lesion. Features: Ablation cavity (treated lesion). Maps to RIM_ATYP (treated lesions/scars). Loc: Seg 7 (R_POST). Quantity: 1.  
+Sentence 3: No new hepatic masses are identified. The -> Reasoning: Negative statement, no new lesion identified.  
+Sentence 4: The segment 3 lesion cavity is not visualized on this study due to motion artifact. -> Reasoning: Describes a known lesion cavity that is not seen. This is a mention of a prior treated lesion (cavity). Maps to RIM_ATYP (treated lesion/scar). Loc: Seg 3 (L_LAT). Quantity: 1.  
+Sentence 5: The indeterminate 1 cm segment 8 lesion seen on the prior MRI only on the hepatobiliary phase is not identified on the current study. -> Reasoning: Describes a known lesion not seen now. Features: Indeterminate lesion (prior). Based on mapping, an indeterminate lesion not characterized here fits APHE_NoWO (indeterminate arterial foci). Loc: Seg 8 (R_ANT). Quantity: 1.  
+Sentence 6: Liver demonstrates cirrhotic morphology and there is evidence of portal hypertension with enlarged venous collaterals and splenomegaly. -> Reasoning: Background parenchymal and extrahepatic findings, no focal lesion.  
+Sentence 7: There is trace ascites. Portal and hepatic veins are patent. -> Reasoning: Background findings, no focal lesion.  
+Sentence 8: Although no new or recurrent HCC is identified, the study is extremely limited due to patient's inability to cooperate with breath-holding. -> Reasoning: Negative statement, no new lesion identified.
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | R_POST | 1  
+TUMOR_RECORD: RIM_ATYP | L_LAT | 1  
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_POST | 1  
+RIM_ATYP | L_LAT | 1  
+APHE_NoWO | R_ANT | 1
+
+--- USAGE ---
+Tokens: In=1009 / Out=499
+Cost: $0.000363

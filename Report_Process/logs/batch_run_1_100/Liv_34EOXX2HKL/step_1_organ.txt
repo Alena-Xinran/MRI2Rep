@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver demonstrates morphologic features of cirrhosis. Hepatic vasculature is patent.
+
+The previously described small treatment cavity in the left lobe is not confidently identified.
+
+On series 11 image 32, there is a new 2.3 cm arterial phase enhancing mass with washout and a pseudocapsule in segment 7 consistent with HCC (LR 5).
+
+The patient is status post cholecystectomy and gastric pull-through. The spleen, pancreas, right adrenal gland, and kidneys are unremarkable with exception of a small hemorrhagic cyst in the left kidney. A small left adrenal nodule is stable. There is very mild biliary prominence, presumably related to the gallbladder surgery.New HCC.
+
+An alert has been created in the YNHHS Radiology Notify Critical Results system.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates morphologic features of cirrhosis," which directly indicates cirrhosis. This satisfies the criteria for keywords like "cirrhosis" or explicit mentions of chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=384 / Out=54
+Cost: $0.000098

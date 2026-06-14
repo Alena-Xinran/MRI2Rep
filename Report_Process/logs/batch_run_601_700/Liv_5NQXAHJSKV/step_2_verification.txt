@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is cirrhotic liver morphology with sequela of portal hypertension as manifested by splenomegaly, upper abdominal varices (including prominent gastroesophageal varices), and moderate volume ascites. There is redemonstration of portal venous thrombosis with cavernous transformation.    In segment 4A, there is a 2.8 x 1.8 cm ablation cavity, slightly decreased in size when compared to prior exam when it measured 3.0 x 1.8 cm (series 18, image 28). There is no evidence of residual or recurrent disease. There are no new findings of HCC.    A 1.3 cm multiloculated cystic lesion in the pancreatic head is unchanged from prior exam. There is no dilation of the main pancreatic duct. Findings are favored to represent sequelae of prior pancreatitis versus a side branch IPMN.     The gallbladder wall is edematous, presumably reactive in nature. The adrenal glands and kidneys are unremarkable.    There is no abdominal lymphadenopathy.1.  Slight interval decrease in size of a hepatic segment 4A ablation cavity, without evidence of residual or recurrent disease. No new findings of HCC.  2.  Redemonstration of portal venous thrombosis with cavernous transformation.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "There is cirrhotic liver morphology", which directly indicates the presence of cirrhosis. According to the verification rules, if the report mentions cirrhosis or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=454 / Out=76
+Cost: $0.000159

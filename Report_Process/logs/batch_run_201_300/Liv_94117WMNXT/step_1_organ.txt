@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology with sequela of portal hypertension including splenomegaly, numerous varices, and moderate to large volume ascites. Cavernous transformation of the portal vein again identified. No evidence of HCC.
+
+Similar thickening of the gallbladder wall containing collateral vasculature, which may be seen in portal hypertension and/or chronic liver disease. The pancreas, adrenal glands, and kidneys are unremarkable except for a right renal cyst. No hydronephrosis. No evidence of bowel obstruction. Nonspecific edema of a few small bowel loops again seen, this probably is due to portal hypertension unless the patient has symptoms of small bowel enteritis.
+
+There is no abnormal marrow enhancement.Cirrhotic liver with evidence of portal hypertension. No evidence for HCC.
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and "Cirrhotic liver with evidence of portal hypertension," which directly indicate cirrhosis. Additionally, it mentions findings consistent with chronic liver disease and portal hypertension, such as splenomegaly, varices, ascites, and cavernous transformation of the portal vein.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=393 / Out=79
+Cost: $0.000111

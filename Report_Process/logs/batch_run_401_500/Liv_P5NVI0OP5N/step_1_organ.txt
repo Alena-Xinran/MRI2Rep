@@ -1,0 +1,44 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of cirrhotic liver morphology with sequelae of portal venous hypertension, including splenomegaly, esophageal and abdominal varices, with a recannulated umbilical vein. There are no focal masses or lesions meeting criteria for hepatocellular carcinoma. A small focus of blooming artifact in the right hepatic lobe is unchanged and nonspecific.
+
+Multilobulated cystic lesion at the pancreatic tail, measuring up to 3.0 cm, is stable since at least 1/2018. A 5 mm cystic lesion in the uncinate process is also stable and measured in a similar fashion, as are scattered punctate cystic foci in the pancreatic body.
+
+Multiple small gallstones are again seen, with minimal, nonspecific gallbladder wall thickening but no pericholecystic fluid. The adrenal glands and kidneys are unremarkable other than a right renal cyst.
+
+There is no bowel obstruction, ascites or abdominopelvic lymphadenopathy. Bone marrow signal is normal throughout1.  Hepatic cirrhosis. No evidence for HCC.
+2.  Stable cystic lesions in the pancreas, likely representing sidebranch IPMNs versus sequela of prior pancreatitis, amenable to follow-up on future HCC screening examinations.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "cirrhotic liver morphology" and "Hepatic cirrhosis" in the findings and impression sections, which directly indicate the presence of cirrhosis. Additionally, there are sequelae of portal hypertension such as splenomegaly and varices, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=470 / Out=77
+Cost: $0.000132

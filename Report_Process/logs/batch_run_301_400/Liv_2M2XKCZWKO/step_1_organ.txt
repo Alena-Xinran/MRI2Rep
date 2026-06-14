@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post orthotopic liver transplant. Again seen are arterially enhancing observations without washout or pseudocapsule. For example, a 1.8 cm observation in segment 7 is stable. A 1.4 cm observation and segment 8 is stable in size but less conspicuous. These are not significantly changed since 2020. No new observations are seen. The hepatic vasculature is patent.
+
+Punctate cystic foci are again noted in the pancreas. There is no main pancreatic duct dilation. The spleen and adrenal glands are unremarkable. Punctate renal cysts are noted.
+
+There is no abdominal adenopathy or ascites. Small lipoma is noted in the region of the pylorus.Stable exam with no evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a patient status post orthotopic liver transplant, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described as unremarkable, normal, or smooth, but the absence of any fibrosis/cirrhosis indicators and the stable appearance of observations without signs of chronic liver disease suggest no active fibrosis or cirrhosis is reported. The spleen is noted as unremarkable, but this does not directly describe the liver. Given the criteria, the lack of positive findings for fibrosis/cirrhosis leads to classification as "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=382 / Out=169
+Cost: $0.000146

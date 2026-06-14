@@ -1,0 +1,24 @@
+{
+  "id": "Liv_EUS3S0FMUD",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "CYST",
+      "position": "DIFFUSE",
+      "quantity": "Multiple"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"CYST | DIFFUSE | Multiple\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.0009391200000000001,
+    "timestamp": "2026-02-07 01:09:41",
+    "model": "deepseek/deepseek-chat"
+  }
+}

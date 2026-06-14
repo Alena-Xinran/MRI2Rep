@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Status post left hepatectomy and cholecystectomy. No evidence of HCC. Hepatic steatosis. Numerous arterially enhancing observations are seen throughout the liver, some of which are stable to more conspicuous and some new observations, without washout or enhancing pseudocapsule. LR-3. For example, a 0.8 cm right hepatic arterially enhancing observation is new (image 26, series 8), and a 0.5 cm right posterior hepatic lobe arterially enhancing observation is more conspicuous than prior (image 39, series 8). No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: A 1.2 cm pancreatic body cystic lesion is stable in size, which could represent sidebranch IPMN or sequela of prior pancreatitis (image 14, series 5). Nondilated main pancreatic duct.
+
+Spleen: Unremarkable.
+
+Adrenal glands: 1.8 cm lipid rich left adrenal adenoma is again seen. Unremarkable right adrenal gland.
+
+Kidneys: Unremarkable except for small bilateral renal cysts.
+
+Bowel: A duodenal diverticulum is again seen.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.No HCC. 
+Numerous hepatic LR-3 observations including some which are new and/or more conspicuous.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "Hepatic steatosis" but does not include keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" in the parenchymal context, but the absence of fibrosis/cirrhosis indicators and the presence of steatosis alone do not meet the criteria for "Fibrosis/Cirrhosis". The classification is based on the specified keywords, which are absent here.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=508 / Out=138
+Cost: $0.000168

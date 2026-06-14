@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is right basilar subsegmental atelectasis.    The patient is status post liver transplant. Hepatic steatosis is noted. There are a few subcentimeter arterial phase enhancing foci which are not seen on the subsequent phases of enhancement which are unchanged. One of these is noted in segment 8 on series 15 image 25.    Hepatic vasculature is patent.    Redemonstrated sequela of portal hypertension, as evidenced by a splenorenal shunt and splenomegaly.    Stable pancreatic cystic lesions measuring up to 1.5 cm in the tail, which are likely sequela of prior pancreatitis versus IPMNs. The adrenal glands and kidneys are unremarkable except for a few renal cysts bilaterally.    There is no abdominal lymphadenopathy or ascites.    Fat-containing ventral abdominal hernias, one of which contains a locule of fluid, are noted.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "Redemonstrated sequela of portal hypertension, as evidenced by a splenorenal shunt and splenomegaly." Portal hypertension is a common complication of advanced fibrosis or cirrhosis, and its presence in a post-liver transplant patient suggests underlying chronic liver disease. Although direct terms like "cirrhosis" or "fibrosis" are not used, the sequelae of portal hypertension strongly indicate an underlying fibrotic or cirrhotic condition.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=416 / Out=106
+Cost: $0.000129

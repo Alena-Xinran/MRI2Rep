@@ -1,0 +1,61 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+ABDOMEN:
+
+Liver: A transplanted liver is noted. There is a 2.0 cm arterially enhancing lesion in segment 6 which displays persistent enhancement on delayed imaging (image 63, series 14). It is not visible on other sequences. This lesion is of uncertain significance, but is likely benign.
+
+There is a 1.7 cm segment 6 lesion (image 73, series 14) and a 1.9 cm segment 3 lesion (image 70, series 14), which display arterial enhancement but fade to isointensity on delayed imaging. These lesions have no correlate on other sequences, and likely represent shunts/perfusional phenomena. There is no definite evidence for hepatoma. The hepatic vasculature is patent.
+
+Gallbladder and biliary tree: The gallbladder is surgically absent. There is no intrahepatic or extrahepatic biliary dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: There is splenomegaly with Gamna-Gandy bodies.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There are scattered sub-5 mm renal cysts.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Other: There is a partially duplicated IVC.Hepatic lesions as described above are indeterminate but likely benign. No findings suspicious for HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes a transplanted liver with several enhancing lesions but does not mention any features of cirrhosis such as nodularity, contour irregularity, segmental atrophy/hypertrophy, or signs of portal hypertension (aside from splenomegaly and Gamna-Gandy bodies, which are noted but are not specific to cirrhosis in this context of a transplant). The liver is not described as normal, but the absence of any mention of cirrhosis or its features means the status should remain "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=480 / Out=123
+Cost: $0.000186

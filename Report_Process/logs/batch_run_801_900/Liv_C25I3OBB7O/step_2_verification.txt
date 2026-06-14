@@ -1,0 +1,64 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Morphologically cirrhotic liver. Mild hepatic steatosis. Scattered T2 bright nonenhancing simple hepatic cysts are noted
+
+1.  Segment 7 , previously noted 7 mm arterially enhancing observation without washout or growth is unchanged (series 12001 image 27). LR 3.
+2.  Additional previously noted segment 7 observation that was new on the MRI 5/17/2023  is not seen on the current study.
+3.  Segment 7, new 5 mm arterial enhancing observation without washout (series 12001 image 33). LR 3.
+4.  Segment 8, new 6 mm arterial enhancing observation without washout series 12001 image 32). LR 3.
+
+Gallbladder is unremarkable.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Again seen are several scattered unilocular pancreatic cystic lesions, the largest measuring 1.4 cm in the body of the pancreas. No definite communication with the main pancreatic duct which is neither dilated nor irregular. These could represent side branch IPMN or sequelae of prior pancreatitis.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Several bilateral simple appearing renal cortical cysts are again seen. Two 3-4 mm foci of T1 bright signal precontrast medially in the upper pole of the right kidney may represent proteinaceous or hemorrhagic cysts.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.3 subcentimeter arterially enhancing observations as described, LR3. No evidence of HCC. Recommend continued attention on follow-up.
+
+Result priority: Routine.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Morphologically cirrhotic liver" in the hepatobiliary system section. This confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=552 / Out=63
+Cost: $0.000181

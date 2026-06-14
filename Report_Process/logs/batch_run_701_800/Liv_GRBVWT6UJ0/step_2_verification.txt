@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Again seen are two small arterial phase hyperenhancing nodules with washout and pseudocapsule appearance in segment 7 at the dome of the liver. Uterus measures 1.2 cm (measured on the delayed venous phase) image 21 series 21 and the second measures 1.0 cm (image 22 series 21. These are unchanged compared to the prior study.
+
+There are other nodule-like arterial phase hyperenhancement, but none of these demonstrate pseudocapsule appearance or washout on the current study. Furthermore, some of the nodule-like arterial phase hyperenhancement seen on the prior exam are not apparent on the current study, possibly due to slight changes in timing of the contrast injection.
+
+The hepatic vasculature is patent. The pancreas, spleen, adrenals, and kidneys are unremarkable.
+
+There is no adenopathy, ascites, or obstruction. There is no pelvic mass.
+
+A small right hip joint effusion with peripheral enhancement is noted consistent with synovitis. The joint effusion is similar in size to recent MRI.-1.2 cm unchanged enhanced nodule in segment 7 which meets OPTN 5A criteria for HCC.
+-Another unchanged enhancing nodule in segment 7 demonstrates washout and pseudocapsule, but since it measures 1.0 cm it does not technique OPTN criteria for HCC. Nevertheless, it remains highly suspicious for HCC
+-No other small enhancing nodules identified in the study demonstrate washout or pseudocapsule. Some of the tiny enhancing nodule seen on the prior study are not apparent on the current study.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention cirrhosis, fibrosis, or any morphologic features suggestive of chronic liver disease. It describes specific nodules in the liver but does not comment on the overall liver parenchyma or indicate background cirrhosis. Since the report does not state "cirrhosis" or features of it, and the liver is not explicitly described as normal, the default status based on the provided rules is "NoFibrosis/Cirrhosis" when the report does not indicate cirrhosis. The previously extracted status is consistent with this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=528 / Out=123
+Cost: $0.000200

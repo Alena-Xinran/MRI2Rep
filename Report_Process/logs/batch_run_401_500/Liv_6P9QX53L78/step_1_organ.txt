@@ -1,0 +1,61 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: There is a punctate T1 hyperintense focus in segment 6 of the liver (image 39 series 8), much less prominent compared to prior and likely representing a hemorrhagic/proteinaceous cyst. No evidence of HCC..
+
+The patient is status post cholecystectomy. A biliary stent is seen. There are multiple stones within the common hepatic duct duct, right and left the hepatic ducts. The largest stone measures 1.1 cm in the common hepatic duct. T2 hypointense foci within the common bile duct may also represent small stones. There is similar dilatation of the intrahepatic and extrahepatic biliary ductal system. There is also similar enhancement along the walls of the biliary ductal system, which may be reactive due to the presence of stones or due to recent placement or manipulation of the biliary stents.
+
+Hepatic vasculature: Patent.
+
+Pancreas: A few subcentimeter T2 hyperintense foci are seen in the pancreatic head.
+
+Spleen: The spleen appears borderline enlarged, measuring up to 14.9 cm in cranial caudal dimension.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: There is a left renal cyst. A subcentimeter T1 hyperintense focus in the left kidney also likely represents a hemorrhagic/proteinaceous cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  Biliary stent in place. Multiple stones within the biliary ductal system, measuring up to 1.1 cm, cephalad to the level of the stent. Similar enhancement of the walls of the common bile duct/common hepatic duct, likely reactive.
+2.  Few subcentimeter T2 hyperintense foci within the pancreatic head, which likely represent side branch IPMN or sequela of pancreatitis. Recommend continued attention on subsequent MRI of the abdomen.
+3.  No evidence for HCC.
+
+
+
+YNHHS Radiology Notify Critical Result system classification: Routine
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes findings related to the hepatobiliary system, including biliary stones, stent placement, and cystic lesions, but does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit "chronic liver disease". The liver parenchyma itself is not described as abnormal, unremarkable, normal, or smooth in this excerpt. However, the absence of positive indicators for fibrosis/cirrhosis and the lack of any description suggesting parenchymal disease leads to the classification of "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=640 / Out=147
+Cost: $0.000209

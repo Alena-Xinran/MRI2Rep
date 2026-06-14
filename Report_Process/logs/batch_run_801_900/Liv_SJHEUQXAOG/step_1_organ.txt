@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The 3.1 x 2.6 cm ablation cavity in segment VIII containing hemorrhage is unchanged in appearance and without evidence of recurrence. Multiple arterially enhancing foci such as a 6 mm focus in segment II (image 42, series 13) is new, but does not demonstrate washout or pseudocapsule and amenable to follow-up. Cholelithiasis is noted.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: A stable 2.4 cm exophytic enhancing mass arising from the upper to midpole the left kidney is again seen. Bilateral renal cysts are noted.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Pleura/Peritoneum: The right pleural effusion has increased, now moderate. There is small volume ascites1.  No evidence of recurrent HCC. New foci of arterial enhancement amenable to follow-up.
+2.  Stable left renal neoplasm, likely malignant.
+3.  Moderate-sized right pleural effusion
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any direct description of the liver parenchyma itself. There is mention of an ablation cavity and new arterially enhancing foci, but no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is not described as "unremarkable", "normal", or "smooth" either. However, the presence of ascites and a moderate right pleural effusion could be indirect signs of portal hypertension, which is often associated with cirrhosis. Since the criteria are based on explicit keywords or direct descriptions of the liver parenchyma, and none are present, the classification defaults to "NoFibrosis/Cirrhosis" due to the absence of positive findings.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=464 / Out=178
+Cost: $0.000172

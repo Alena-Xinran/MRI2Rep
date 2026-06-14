@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no finding suspicious for HCC. The hepatic vasculature is patent.
+
+The liver, spleen, pancreas, kidneys, adrenal glands and gallbladder are unremarkable.
+
+There is no adenopathy or ascites. A 9 mm dilated tubular structure along the left diaphragmatic crus is nonspecific but may be lymphatic in origin (image 19, series 4).No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver... is unremarkable" and explicitly notes "no finding suspicious for HCC." There is no mention of cirrhosis, fibrosis, nodularity, contour irregularity, or any other features suggestive of chronic liver disease. The liver is described as normal, so the correct status should be "NoFibrosis/Cirrhosis." The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=278 / Out=98
+Cost: $0.000119

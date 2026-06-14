@@ -1,0 +1,64 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Patient is status post left hepatectomy and cholecystectomy. Liver is cirrhotic and diffusely steatotic. There are sequela of portal hypertension with 15 cm craniocaudal splenomegaly and paraesophageal varices. Hepatic vasculature is patent. There is no intra or extrahepatic biliary ductal dilatation. 
+
+Again seen are multiple arterially enhancing liver lesions. Regions of washout and pseudocapsule noted on prior exam are no longer apparent, likely related to treatment.
+
+-A 1.1 cm arterial enhancing lesion in segment 8 (series 13, image 24) is decreased, previously 2.1 cm.
+-A 1.9 cm arterial enhancing lesion in the caudate (series 13, image 43 and series 17, image 36) is decreased, previously 2.6 cm.
+-A 1.5 cm arterially enhancing lesion is unchanged (series 13, image 32).
+-A 2.7 cm lesion at the border of segments 5 and 8 (series 13, image 46) is decreased, previously 3.3 cm.
+-Linear arterial enhancement along the superior aspect of segment 8 (series 13, image 32) appears less prominent, previously more  masslike in measuring 2.4 cm.
+-A 1.2 cm focus of arterial enhancement is unchanged (series 13, image 18).
+
+Multiple other subcentimeter arterially enhancing foci without suspicious imaging features, for example in segment 6 (series 13, image 50) are also unchanged.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable except for left renal cyst.
+
+Upper abdominal lymph nodes: Prominent periportal nodes measuring up to 1.0 cm are not significant changed.
+
+Peritoneum: No ascites.
+
+Other: Susceptibility artifact from sternotomy wires are seen. Multiple ventral hernias are again seen containing nonobstructed loops of large and small bowel.  There is mild bilateral symmetric gynecomastia.Improved multifocal HCC. No findings of distant metastatic disease in the abdomen.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Liver is cirrhotic and diffusely steatotic." This confirms the presence of cirrhosis. According to the verification rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=662 / Out=92
+Cost: $0.000224

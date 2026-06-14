@@ -1,0 +1,48 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is an unchanged 4 cm arterially enhancing lesion in segment 8 (series 11 image 17), which does not washout, but has a pseudocapsule consistent with HCC.
+
+There are a few other scattered arterial phase enhancing foci measuring 5 mm or less within the liver. These do not washout or have a pseudocapsule. Some of them are unchanged, but some are not definitely seen on the previous exam. It is unclear if these are new or secondary to slight differences in the phase of enhancement. Some are hyperintense on the EPI images, which suggests that they are not shunts.
+
+The hepatic vasculature is patent. There is no ascites. There is hepatic steatosis.
+
+Prominent periportal nodes are stable.
+
+The spleen, gallbladder, pancreas, adrenal glands and kidneys are unremarkable except for stable bilateral subcentimeter renal cysts.Stable 4 cm segment 8 HCC. 
+Indeterminant arterial phase enhancing foci measuring 5 mm or less as discussed above. Follow-up in 3 months is suggested.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, portal hypertension signs like varices or splenomegaly). It notes hepatic steatosis and a known HCC, but these are not definitive for cirrhosis. The liver is described with patent vasculature and no ascites, but these are not explicit statements of a normal liver either. However, since the report does not state cirrhosis or its features, and the previous extraction was "NoFibrosis/Cirrhosis", it remains consistent with the requirement that absence of mention defaults to "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=152
+Cost: $0.000181

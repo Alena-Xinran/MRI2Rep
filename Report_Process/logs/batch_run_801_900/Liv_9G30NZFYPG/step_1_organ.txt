@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There are new small bilateral pleural effusions.
+
+A partially steatotic 5.1 cm HCC within segment II/III is unchanged in size with surrounding enhancing, intermediate T2 signal compatible with infiltrative HCC (image 27, series 19). Inferior to the dominant well-defined HCC, there is a new area of capsular bulging measuring 5.1 cm, which may be more apparent secondary to relative atrophy of the left hepatic lobe after radio embolization. However, the extent of the infiltrative HCC appears increased, particularly within segment II and IVA with a representative measurement of 12 cm on image 11, series 5, previously 8 cm. There is significant increase in tumor thrombus now throughout all of the intrahepatic portal veins and extending to the level of the confluence of the main portal vein with the SMV and splenic vein. The hepatic veins remain patent. There is new moderate volume ascites.
+
+Cholelithiasis is again noted. The pancreas, spleen, and adrenal glands are unremarkable with the exception of a stable 1.1 cm cystic lesion in the pancreatic tail. The main pancreatic duct is not dilated. A 1.3 cm portocaval lymph node is not significantly changed (image 64, series 19). 
+
+No aggressive osseous lesion is seen.Worsening infiltrative HCC throughout the left hepatic lobe, including increased tumor thrombus now throughout all the intrahepatic portal veins to the level of the portal/SMV/splenic confluence. 
+
+New moderate volume ascites.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes findings related to hepatocellular carcinoma (HCC), tumor thrombus, ascites, and other changes, but does not include any keywords or explicit descriptions indicating fibrosis or cirrhosis (such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or "chronic liver disease"). The liver parenchyma itself is not characterized as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis criteria means it does not meet the classification for "Fibrosis/Cirrhosis". Given the criteria, the default classification in the absence of such keywords is "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=545 / Out=154
+Cost: $0.000185

@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Patient is status post partial hepatectomy and the previously noted multiple T2 hyperintense, T1 hypointense, arterial enhancing lesions have increased in size since the prior study. Although the lesions do not demonstrate washout, there has been interval growth and these lesions are concerning for hepatocellular carcinoma. For example a 1.3 cm lesion in the inferior right hepatic lobe (series 5, image 18) previously measured 1 cm. Another lesion at the periphery of the right hepatic lobe measures 1.4 cm (series 5, image 29; previously 1.0 cm). Postcontrast images are limited by motion, however there is persistent enhancement of these lesions. The hepatic vasculature is patent.
+
+The gallbladder, spleen, pancreas, adrenal glands and kidneys other than a contour defect of the right kidney inferiorly are unremarkable.
+
+Please note that the pelvis was not imaged and the patient will be recalled for additional imaging.Interval growth of previously seen hepatic lesions, which are highly suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes multiple hepatic lesions concerning for hepatocellular carcinoma (HCC) with interval growth, but it does not contain any keywords or descriptions related to cirrhosis, fibrosis, nodular surface, coarse echotexture, or chronic liver disease. The liver parenchyma itself is not specifically characterized as normal, unremarkable, or smooth, but the absence of any positive indicators for fibrosis/cirrhosis means the condition cannot be classified as such based on the provided criteria. The gallbladder, spleen, pancreas, adrenal glands, and kidneys are noted as unremarkable, but this does not directly describe the liver parenchyma. Since no signs of fibrosis or cirrhosis are mentioned, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=163
+Cost: $0.000158

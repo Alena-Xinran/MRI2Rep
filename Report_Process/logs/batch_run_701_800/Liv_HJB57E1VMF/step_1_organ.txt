@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic morphology of the liver is again noted with sequela of portal hypertension including upper abdominal varices and patent paraumbilical vein. Portal and hepatic veins are patent.
+
+ There is no evidence of recurrent or residual disease in the segment 8 ablation cavity which now measures 2.9 x 2.4 cm (image 16, series 17), previously 2.9 x 2.7 cm. 
+
+8 mm arterial enhancing focus (without pseudocapsule) in segment 6 now demonstrates washout (image 38, series 16), however is unchanged in size from the prior study where it also measured 8 mm.  Multiple siderotic nodules are seen throughout the liver.
+
+The spleen, pancreas, adrenal glands, kidneys, and bowels are unremarkable. Cholelithiasis is present. Prominent periportal lymph nodes are also likely related to chronic liver disease. Trace perihepatic ascites is present. No focal osseous lesion is present.
+
+Calcified right lower lobe lung nodule is better assessed on the prior CT.1.Segment 6,   8-mm lesion is stable in size but now demonstrates washout. While this does not meet OPTN criteria for HCC, it remains suspicious for HCC.
+2.Segment 8 ablation cavity without residual or recurrent tumor.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of the liver" and later mentions "prominent periportal lymph nodes are also likely related to chronic liver disease," both of which meet the criteria for classification as Fibrosis/Cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=500 / Out=64
+Cost: $0.000135

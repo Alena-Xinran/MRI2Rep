@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of cirrhotic liver morphology, with sequelae of portal venous hypertension including splenomegaly and abdominal varices. Few newly appreciated punctate arterial enhancing foci without correlate on other images are nonspecific (images 38 and 55 of series 12). 
+
+-A newly appreciated subtle enhancing 1.4 cm lesion in segment 6 demonstrates no washout (images 64 of series 12). There is heterogeneous enhancement in the posterior right hepatic lobe on the delayed images.
+
+Punctate cyst is again seen in the right hepatic lobe. TIPS is present. The visualized hepatic vasculature appears patent. No lesions meet criteria for hepatocellular carcinoma. 
+
+The pancreas, adrenal glands and kidneys are unremarkable other than few punctate renal cysts.
+
+There is no bowel obstruction or ascites. Prominent periportal nodes are unchanged.
+
+No aggressive osseous abnormality.No lesion meeting imaging criteria for HCC. Subtle enhancing lesion without washout could be evaluated in 6 months.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver morphology" and mentions sequelae of portal venous hypertension, which are direct indicators of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=428 / Out=42
+Cost: $0.000105

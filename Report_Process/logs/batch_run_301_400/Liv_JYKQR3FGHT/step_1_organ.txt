@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of a segment VIII ablation cavity, measuring 2.1 x 1.9 cm, previously measured 2.3 x 2 cm, without evidence of residual or recurrent disease. There is no abnormal arterial enhancement to suggest new HCC.
+
+The adrenal glands, kidneys, spleen, pancreas, and gallbladder are unremarkable with the exception of few small renal cysts.
+
+There is no ascites or lymphadenopathy.Segment VIII ablation cavity without residual or recurrent disease. No new lesion suspicious for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not specifically described, but the findings focus on a segment VIII ablation cavity and absence of new lesions. Other organs are noted as unremarkable, but there is no direct statement about the liver being normal, smooth, or unremarkable. However, based on the criteria provided, the absence of positive keywords for fibrosis/cirrhosis and the lack of any described abnormality in the liver parenchyma suggests a classification of "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=334 / Out=158
+Cost: $0.000128

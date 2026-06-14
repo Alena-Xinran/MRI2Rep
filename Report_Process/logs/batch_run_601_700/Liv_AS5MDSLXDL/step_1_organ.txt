@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver redemonstrates a nodular contour compatible cirrhosis and splenomegaly and upper abdominal varices compatible with portal hypertension. The hepatic vasculature is patent. There is a small amount of upper abdominal ascites.
+
+Multiple ablation cavities as follows:
+
+Segment 4A: Not significant changed measuring 2.7 x 2.4 cm (previously 2.6 x 2.6cm) (image 63, series 11) with no evidence of recurrent disease.
+
+Segment 4A/B: Stable measuring 1.0  x 1.0 cm (image 59, series 11) with no evidence of recurrent disease.
+
+Segment 7/8: Stable ablation cavity measuring 2.1 x 2.1 cm. 5 mm focus of enhancement with washout and pseudocapsule at the inferior posterior cavity is unchanged measuring 0.5 cm (image 52, series 7). 
+
+There is a more prominent indeterminate focus of ill-defined enhancement at the superior posterior cavity measuring 0.9 cm which however demonstrates hyperenhancement on portal venous and equilibrium phases and no pseudocapsule (image 58, series 7). 
+
+There are other tiny arterial enhancing lesion without correlate, likely shunts.
+
+Cholelithiasis is noted. The pancreas, adrenal glands, and kidneys are unremarkable except for a right renal cyst.
+
+Partially visualized enhancement along the left posterior lower lobe is better characterized on the CT scan performed today.Stable inferior focus of enhancement compatible with recurrent HCC and increased indeterminate superior focus of enhancement within the segment 7/8 ablation cavity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "nodular contour compatible cirrhosis" and also mentions splenomegaly and varices consistent with portal hypertension, which are clear indicators of chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=558 / Out=52
+Cost: $0.000146

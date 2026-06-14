@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic morphology. The patient is status post partial right hepatectomy. There are no imaging features suspicious for hepatocellular carcinoma.    Sequelae of portal hypertension include moderate volume ascites and upper abdominal collateral vessels. The hepatic vasculature is patent.    The gallbladder, pancreas, spleen, adrenal glands and kidneys are unremarkable with the exception of bilateral renal cysts, one of which is hemorrhagic on the right.    There is no lymphadenopathy. Ascites tracks into a small right abdominal wall defect/hernia, similar to prior studies.No evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic morphology," which directly indicates cirrhosis. Additionally, there are mentions of sequelae of portal hypertension (moderate ascites, collateral vessels), which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=345 / Out=62
+Cost: $0.000090

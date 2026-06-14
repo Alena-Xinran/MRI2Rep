@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+There is no evidence of hepatocellular carcinoma. There is a 6.0 cm cystic lesion in hepatic segments 8/4a with multiple internal serpiginous structures, compatible with an echinococcal cyst with detached membranes. There is no enhancing solid component. This lesion is unchanged in size since 2014. There are a few additional scattered subcentimeter cysts. The hepatic vasculature is patent. There is no biliary ductal dilatation.
+
+Mild splenomegaly is again noted. The gallbladder, adrenal glands, and kidneys are unremarkable except for left renal cysts, one of which is hemorrhagic/proteinaceous. There are few scattered sub-5 mm cystic lesions in the pancreas, likely the sequela of prior pancreatitis and/or side branch IPMN. The main pancreatic duct is not dilated. 
+
+No abdominal lymphadenopathy or ascites is seen.No evidence of HCC. 6 cm hepatic echinococcal cyst, stable in size since 2014.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes a cystic lesion (echinococcal cyst) and scattered subcentimeter cysts but does not mention any findings suggestive of cirrhosis such as nodular liver contour, atrophy/hypertrophy patterns, portal hypertension signs (aside from mild splenomegaly, which can have other causes), or fibrosis. The hepatic vasculature is patent, and there is no biliary ductal dilatation. There is no statement indicating cirrhosis or chronic liver disease morphology. Therefore, the liver is considered normal aside from the noted cysts, and the status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=398 / Out=138
+Cost: $0.000169

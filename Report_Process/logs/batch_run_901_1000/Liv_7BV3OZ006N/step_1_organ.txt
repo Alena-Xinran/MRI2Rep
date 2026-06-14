@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The exam is essentially nondiagnostic for evaluation of HCC given significant motion on all sequences and poor contrast opacification. Within this limitation a cirrhotic liver morphology is demonstrated and small T2 hyperintensities within the right hepatic lobe are seen, favored to represent cysts but poorly evaluate. There is evidence of portal hypertension given splenomegaly and small volume ascites. Hepatic vasculature is not well evaluated given aforementioned limitations.
+
+There is nonspecific gallbladder wall edema, presumably related to chronic liver disease. The limited evaluation of the pancreas, adrenal glands and partially imaged kidneys are unremarkable
+
+Moderate bilateral pleural effusions with adjacent lung base consolidations are partially imaged.
+
+No definite lymphadenopathy is seen.Cirrhosis with evidence of portal hypertension. Essentially nondiagnostic evaluation for HCC, given significant motion and poor contrast opacification. Recommend multiphase CT of the abdomen for further evaluation.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly mentions "cirrhotic liver morphology" and "cirrhosis with evidence of portal hypertension," which directly indicate fibrosis/cirrhosis. Additional supporting findings include portal hypertension (splenomegaly, ascites) and gallbladder wall edema related to chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=412 / Out=72
+Cost: $0.000113

@@ -1,0 +1,99 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Cirrhotic morphology of the liver with hepatic steatosis is again noted with evidence of portal hypertension as manifested by splenomegaly. A few scattered tiny hepatic cysts are also present. 
+
+There is interval increase in size of a 2.8 x 2.4 cm segment VII arterially enhancing lesion (image 25, series 11001) with washout and a pseudocapsule, previously 2.1 x 2.2 cm when measured in a similar fashion. No new lesions are identified. Hepatic vasculature is patent.
+
+Layering sludge is noted within the gallbladder. There is mild nodularity of bilateral adrenal glands, stable. Bilateral renal cysts are present, some of which are hemorrhagic. There are multiple stable cystic lesions within the pancreatic head and uncinate, the largest measuring up to 1.6 cm.
+
+There is abdominal adenopathy or ascites.Slight interval growth of segment VII HCC (OPTN 5b).
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Cirrhotic morphology of the liver with hepatic steatosis is again noted with evidence of portal hypertension as manifested by splenomegaly. -> Reasoning: Background description of liver morphology and portal hypertension. No focal lesion.
+Sentence 2: A few scattered tiny hepatic cysts are also present. -> Reasoning: Found lesion(s). Features: Simple cysts. Maps to CYST. Loc: Not specified (DIFFUSE). Quantity: "A few" implies multiple.
+Sentence 3: There is interval increase in size of a 2.8 x 2.4 cm segment VII arterially enhancing lesion (image 25, series 11001) with washout and a pseudocapsule, previously 2.1 x 2.2 cm when measured in a similar fashion. -> Reasoning: Found lesion. Features: Arterial enhancement (APHE) WITH washout and pseudocapsule. Maps to APHE_WO. Loc: Segment VII (R_POST). Quantity: 1.
+Sentence 4: No new lesions are identified. -> Reasoning: Statement about absence of new lesions. No new focal finding.
+Sentence 5: Hepatic vasculature is patent. -> Reasoning: Background vascular finding. No focal lesion.
+Sentence 6: Layering sludge is noted within the gallbladder. -> Reasoning: Gallbladder finding. Not a liver lesion.
+Sentence 7: There is mild nodularity of bilateral adrenal glands, stable. -> Reasoning: Adrenal finding. Not a liver lesion.
+Sentence 8: Bilateral renal cysts are present, some of which are hemorrhagic. -> Reasoning: Kidney finding. Not a liver lesion.
+Sentence 9: There are multiple stable cystic lesions within the pancreatic head and uncinate, the largest measuring up to 1.6 cm. -> Reasoning: Pancreatic finding. Not a liver lesion.
+Sentence 10: There is abdominal adenopathy or ascites. -> Reasoning: General abdominal finding. No focal liver lesion.
+Sentence 11: Slight interval growth of segment VII HCC (OPTN 5b). -> Reasoning: This sentence refers to the same lesion described in Sentence 3 (the segment VII lesion is explicitly called HCC). It is a restatement/interpretation, not a new distinct observation.
+
+Step 2: Structured Output
+TUMOR_RECORD: CYST | DIFFUSE | Multiple
+TUMOR_RECORD: APHE_WO | R_POST | 1
+
+--- EXTRACTED INFO ---
+CYST | DIFFUSE | Multiple
+APHE_WO | R_POST | 1
+
+--- USAGE ---
+Tokens: In=1035 / Out=508
+Cost: $0.000374

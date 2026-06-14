@@ -1,0 +1,63 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Lung bases: Visualized lung bases are clear.
+
+Liver: No evidence of HCC. Multiple punctate arterial enhancing foci may be perfusional.
+
+Hepatic vasculature: Patent.
+
+Gallbladder and Biliary system: Cholelithiasis. No biliary dilatation.
+
+Pancreas: Unremarkable.
+
+Spleen: Interval improvement in previously noted mild splenomegaly.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Visualized bowel is unremarkable.
+
+Upper abdominal lymph nodes: Multiple subcentimeter retroperitoneal lymph nodes are identified.
+
+Peritoneum: No abdominal ascites.
+
+Musculoskeletal system and soft tissue: No aggressive osseous lesion is identified.No evidence of HCC. 
+
+Findings compatible with interval improvement in portal hypertension.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not explicitly mention "cirrhosis" or describe specific morphologic features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension like varices or splenomegaly). While there is mention of "interval improvement in portal hypertension" and "interval improvement in previously noted mild splenomegaly," which are compatible with chronic liver disease, the liver itself is described without evidence of HCC and with only punctate arterial enhancing foci possibly perfusional. The report does not state the liver is normal, but it also does not confirm cirrhosis. Given the instructions, the status "Fibrosis/Cirrhosis" should only be used if the report says "cirrhosis" or features of it. Since it does not explicitly state cirrhosis, and the liver is not described as normal, the appropriate status based on the provided binary choice is "NoFibrosis/Cirrhosis" because the report does not meet the criteria for affirming cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=361 / Out=219
+Cost: $0.000193

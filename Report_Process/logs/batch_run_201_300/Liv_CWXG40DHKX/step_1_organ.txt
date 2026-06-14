@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+A 4.3 x 3.2 cm ablation cavity in the segment 7 is essentially unchanged in size. There is slight interval increase in nodular and wispy enhancement in the periphery of the cavity, suspicious for early recurrence.
+
+A 1.0 cm arterially enhancing nodule in segment 3 is redemonstrated (series 5, image 36), however without definite washout or pseudocapsule on today's exam. This nodule remains concerning for HCC given prior findings of washout.
+
+A new 1.1 cm arterially enhancing nodule in segment 8 (series 5, image 24) with washout and pseudocapsule is consistent with OPTN 5a HCC.
+
+A previously described steatotic 1.1 cm nodule in segment 5 does not arterial phase enhance and is indeterminant but stable (series 7, image 34).
+
+There are multiple other subcapsular arterial phase enhancing foci within the liver, without washout or pseudocapsule, nonspecific.
+
+Hepatic vasculature is patent.
+
+Gallbladder, spleen, pancreas, adrenal glands and kidneys are unremarkable.
+
+There is no abdominal adenopathy or ascites.New HCC in segment 8.
+
+Findings suspicious for early recurrence in the ablation cavity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma is not described as "unremarkable", "normal", or "smooth" either; the focus is on specific nodules and ablation cavity findings. Since there is no evidence of fibrosis or cirrhosis described, the classification defaults to "NoFibrosis/Cirrhosis".
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=492 / Out=118
+Cost: $0.000155

@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is again noted to be status post liver transplant. No arterial enhancing lesions suspicious for HCC are seen. Hepatic vein and portal venous systems are patent. Similar small fluid collections are noted around and within the liver. Spleen, adrenal glands, pancreas and kidneys are unremarkable. No abdominal adenopathy is noted.No findings of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, atrophy/hypertrophy, portal hypertension signs, etc.). It only notes the patient is status post liver transplant and describes no arterial enhancing lesions suspicious for HCC, patent vasculature, and small fluid collections. The liver parenchyma itself is not explicitly described as normal, but there is no statement indicating fibrosis or cirrhosis. Given the absence of any mention of cirrhosis or its features, and the task rule that if the report says normal liver the status must be "NoFibrosis/Cirrhosis", the previously extracted status "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=269 / Out=158
+Cost: $0.000142

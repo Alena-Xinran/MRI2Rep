@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequelae of portal hypertension, including splenomegaly and upper abdominal varices. The portal and hepatic veins are patent.
+
+Segment 7 arterially enhancing lesion has increased in size, measuring 2.7 x 2.4 cm (series 11 image 22), previously 1.7 x 1.3 cm. Part of the lesion appears to demonstrate washout (image 17, series 13).
+
+An additional, new adjacent arterially enhancing lesion in segment 7 just inferiorly measures 1.0 x 0.7 cm (series 11 image 27). There is no washout or pseudocapsule demonstrated.
+
+The gallbladder, adrenal glands and visualized portions of the kidneys are unremarkable except for bilateral renal cysts. Punctate cystic foci in the pancreas are stable. Gamna-Gandy bodies are noted throughout the spleen.
+
+There is trace ascites. Prominent pericardial lymph nodes are stable.Increased in size 2.7 cm hepatic lesion in segment 7 and an adjacent new 1.0 cm lesion in segment 7 are suspicious for HCC, although not meeting OPTN criteria.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology," which directly indicates cirrhosis. Additionally, there are mentions of sequelae of portal hypertension, including splenomegaly and varices, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=466 / Out=64
+Cost: $0.000125

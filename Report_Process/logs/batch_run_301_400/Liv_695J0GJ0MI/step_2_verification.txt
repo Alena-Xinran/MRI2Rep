@@ -1,0 +1,54 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Cirrhotic morphology with manifestations of portal hypertension including markedly enlarged recanalized paraumbilical vein and extensive varices in the upper abdomen and anterior abdominal wall. Hepatic vasculature is patent. No HCC. Status post cholecystectomy. No bile duct dilatation.
+
+Vasculature: No abdominal aortic aneurysm. Unchanged markedly enlarged splenic vein with no thrombosis. Pancreas: Unremarkable.
+
+Spleen: Unchanged splenomegaly
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Left kidney displaced medially by the enlarged spleen. Simple cyst on the right..
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Cirrhosis, portal hypertension. No HCC or venous thrombosis.
+Unchanged exam compared to MRI from 1/30/2022.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic morphology" and later summarizes "Cirrhosis, portal hypertension." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=380 / Out=63
+Cost: $0.000133

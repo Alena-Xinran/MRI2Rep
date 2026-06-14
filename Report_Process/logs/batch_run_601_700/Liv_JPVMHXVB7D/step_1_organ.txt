@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Intrathoracic findings are dictated separately by the chest radiology service.
+
+
+No findings of biliary obstruction. Probable peribiliary cysts are noted within the left lateral segment. Some scattered pancreatic cysts are again noted, largest within the pancreatic head measuring 1 cm without any worrisome internal enhancement or dilatation the main pancreatic duct. Spleen, adrenal glands, and kidneys appear unremarkable. Small hiatal hernia is noted.
+
+Again noted is a cirrhotic liver with sequelae of portal hypertension including large splenorenal shunt. No arterially enhancing lesion with washout is identified to suggest recurrent HCC. A few scattered probable perfusion anomalies are seen peripherally within the right and left lobes. A segment 5/6 ablation cavity is stable measuring 2 cm without any findings of local recurrence. Additional scattered cysts within the liver also unchanged. Portal venous system remains patent. Common hepatic artery is again noted to have independent origin of the aorta.
+
+No aggressive osseous lesions.Cirrhotic liver with sequelae of portal hypertension. No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "cirrhotic liver" and mentions "sequelae of portal hypertension," which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=442 / Out=43
+Cost: $0.000110

@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: Liver does not demonstrate cirrhotic morphology. There are no hepatic masses. Portal and hepatic veins are patent. No intrahepatic bile duct dilatation.. Status post cholecystectomy. CBD diffusely dilated to 11 mm, unchanged.
+
+Pancreas: Unremarkable
+
+Spleen: 6 mm
+
+Adrenal glands: Unremarkable
+
+Kidneys: Bilateral simple cysts
+
+No lymphadenopathy, ascites, or aggressive osseous lesions.No HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver does not demonstrate cirrhotic morphology," and there are no mentions of cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver is not described as unremarkable or normal in direct terms, but the absence of cirrhotic morphology and the lack of any positive indicators for fibrosis or cirrhosis align with a classification of no fibrosis/cirrhosis.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=329 / Out=101
+Cost: $0.000102

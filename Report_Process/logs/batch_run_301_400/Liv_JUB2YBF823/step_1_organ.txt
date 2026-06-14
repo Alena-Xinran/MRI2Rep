@@ -1,0 +1,54 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The liver demonstrates a cirrhotic morphology with sequela of portal hypertension characterized by splenomegaly and abdominal varices, including a recanalized paraumbilical vein. Gallbladder adenomyomatosis and sludge or stones. There is no biliary dilatation. 
+
+Segment 8 ablation cavity is stable measuring 3.2 x 2.1 cm (series 13, image 16). No evidence of recurrent disease. No new hepatic lesion is identified.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Atrophic.
+
+Spleen: Markedly enlarged, up to 23 cm. Siderotic nodules are noted.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Small left renal cysts.
+
+Bowel: No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace perihepatic ascites.No new or recurrent viable HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver demonstrates a cirrhotic morphology" and also mentions sequelae of portal hypertension (splenomegaly, varices, recanalized paraumbilical vein) and trace ascites, all consistent with cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=413 / Out=66
+Cost: $0.000111

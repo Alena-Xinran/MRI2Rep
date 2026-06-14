@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. Sequences include axial T2 fat-sat, axial T1 precontrast and multiphasic postcontrast after IV administration of 12 cc Dotarem.
+
+FINDINGS
+The liver is cirrhotic with lesions as follows:
+
+- On image 32 series 11, new segment 4 ablation cavity measuring 2.6 x 2.4 cm. There is no evidence for residual disease.
+- On image 44 series 11, segment 5 ablation cavity measures 3.1 x 2.8 cm, and not significantly changed when measured similarly. No evidence for recurrent disease. The previously described regions of arterial phase enhancement adjacent to this are not definitely identified on the current study.
+
+
+-On more remote studies, other ablation cavities measuring less than 1 cm were described and are not well seen on the current exam.
+
+-A few subcentimeter foci of arterial phase enhancement without washout are noted, nonspecific.
+
+Stable mild intrahepatic biliary ductal dilatation. 
+
+The spleen, pancreas, and kidneys are unremarkable except for left renal cyst and subcentimeter splenic T2 hyperintensities. Stable bilateral adrenal nodules.
+
+Stable trace abdominal ascites. There is no lymphadenopathy.Status post ablation of segment 4 HCC without evidence of recurrent or residual neoplasm as described.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" in the findings section, which directly meets the criteria for classification as Fibrosis/Cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=503 / Out=47
+Cost: $0.000128

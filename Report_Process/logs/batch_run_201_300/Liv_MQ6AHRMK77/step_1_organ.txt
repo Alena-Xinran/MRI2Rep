@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is again noted to have cirrhotic morphology with sequela of portal hypertension characterized by splenomegaly, abdominal varices, recanalization of the umbilical vein. There is slight interval decrease in trace ascites. 
+
+A segment 8 ablation cavity measures approximately 4.2 x 3.2 cm, unchanged without definite evidence of recurrent neoplasm. Previously described focus of linear enhancement at the inferior margin of the ablation cavity is overall unchanged in appearance (series 6 image 21), nonspecific. There is no definite evidence of HCC. 
+
+Segmental biliary dilatation predominantly in segment 5 is unchanged, possibly treatment related.
+
+There is interval improvement in the previously seen bland thrombus within the right portal vein which is now partially recanalized. The hepatic veins are patent.
+
+Kidneys, adrenal glands, and pancreas are unremarkable except for subcentimeter renal cysts. Gallstones are again noted within the gallbladder.No evidence of recurrent HCC.
+
+Interval improvement in right portal vein thrombosis..
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is again noted to have cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions sequelae of portal hypertension (splenomegaly, varices, recanalized umbilical vein), further supporting chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=428 / Out=66
+Cost: $0.000115

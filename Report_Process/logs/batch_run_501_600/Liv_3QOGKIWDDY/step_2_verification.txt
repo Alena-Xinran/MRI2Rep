@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+with and without 19 cc of intravenous Gadavist. Precontrast sequences include axial and coronal T2, axial fat-suppressed T2, and axial T1-weighted images with and without fat suppression. After contrast, dynamic axial fat-suppressed T1-weighted images were performed. Compared to exam dated 12/16/2015.
+
+The patient is status post liver transplant. There is no evidence of HCC. The hepatic vasculature is patent.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable the exception of renal cysts.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis. It states the patient is status post liver transplant and there is no evidence of HCC, with patent hepatic vasculature. The liver parenchyma is not explicitly described as normal, but no cirrhotic features are noted. However, the spleen, pancreas, adrenal glands, and kidneys are described as unremarkable except for renal cysts. Since the report does not indicate cirrhosis or fibrosis, and the patient has a transplant (which typically replaces a cirrhotic liver), the appropriate status based on the provided rules is "NoFibrosis/Cirrhosis". The previously extracted status matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=316 / Out=151
+Cost: $0.000152

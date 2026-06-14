@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 25 Dotarem was administered intravenously. Sequences include axial T2 HASTE and axial T1 fat-sat pre an multiphase postcontrast. Subtraction images are submitted.
+
+FINDINGS
+The liver is cirrhotic. Secondary signs of portal hypertension include splenomegaly, varices, and small amount of ascites. 
+
+Ablation cavities demonstrate no evidence of residual or recurrent disease.
+Retreated segment 8 ablation cavity measures 4.8 x 3.0 cm (image 51, series 8)
+Segment 6 ablation cavity measures 2.6 x 1.0 cm (image 36, series 8)
+Segment 5 ablation cavity measures 1.3 x 1.0 cm (image 22, series 8)
+Segment 3 ablation cavity measures 5.9 x 2.0 cm (image 31, series 8)
+
+The pancreas, adrenal glands, and kidneys are unremarkable. There is no abdominal lymphadenopathy. There are small bilateral pleural effusions, left greater than right.No evidence of recurrent/residual HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "The liver is cirrhotic." This directly indicates the presence of cirrhosis. According to the verification rules, if the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis". Therefore, the previously extracted status is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=440 / Out=78
+Cost: $0.000156

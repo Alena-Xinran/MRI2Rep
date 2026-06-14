@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Again noted is a cirrhotic liver with findings of portal hypertension and a TIPS. Main portal vein remains patent. Cannot assess patency of the shunt on MRI. Some scattered hepatic cysts and geographic regions of increased T2 signal intensity are again seen with delayed enhancement likely reflecting confluent fibrosis appear unchanged. Gallbladder surgically absent.
+
+No discrete arterial enhancing lesion with washout is seen to suggest HCC. Previously noted segment 8 lesion is not seen on today's exam. Previously noted segment 2 lesion is also not well seen on today's exam with a large geographic region of slight hyperenhancement noted involving the left lateral segment superiorly.
+
+8 mm arterially enhancing lesion without washout (compared to more posterior right hepatic parenchyma), pseudocapsule, or T2 correlate is unchanged in segment 5 (LR 3, image 53 series 21001).
+
+Malrotated kidneys appears stable. Pancreas, spleen, and adrenal glands display no suspicious lesions. No findings of biliary obstruction. No adenopathy or aggressive osseous lesions. Mild ascites. Fat-containing ventral hernia is again seen.No evidence for HCC. Stable subcentimeter LR 3 lesion in the right lobe which can be watched on follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report begins with "Again noted is a cirrhotic liver," which explicitly confirms the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=448 / Out=58
+Cost: $0.000150

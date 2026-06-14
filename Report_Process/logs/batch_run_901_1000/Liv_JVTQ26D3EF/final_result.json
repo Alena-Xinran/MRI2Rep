@@ -1,0 +1,30 @@
+{
+  "id": "Liv_JVTQ26D3EF",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "HEM",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"HEM | R_ANT | 1\", \"RIM_ATYP | R_POST | 1\"]": 2,
+      "[\"APHE_NoWO | R_POST | 1\", \"HEM | R_ANT | 1\", \"RIM_ATYP | R_POST | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.001608992,
+    "timestamp": "2026-02-08 23:48:46",
+    "model": "deepseek/deepseek-chat"
+  }
+}

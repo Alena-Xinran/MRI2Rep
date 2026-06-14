@@ -1,0 +1,53 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver redemonstrates cirrhotic morphology. Multiple liver lesions are again seen, as follows:
+
+- 1.4 cm arterially enhancing mass with washout and pseudocapsule in segment VIII, consistent with HCC OPTN 5a (series 10 image 22). This is not significantly changed from 1.3 cm on 8/28/2014.
+
+- 1.4 cm arterially enhancing mass without definite washout and no pseudocapsule in segment VIII (series 10 image 32), not significantly changed from 8/28/2014. This is suspicious for HCC although not meeting OPTN criteria.
+
+- 1.9 cm mass with eccentric arterial enhancement in segment V (series 10 image 40). The eccentric enhancement measures 4 mm, not significantly changed from 4 mm previously. The washout is difficult to assess given that the mass is hypointense on portal venous phase. This mass is also hypointense on hepatobiliary phase. Again, this is stable from prior exam (1.9 cm when remeasured on MR 8/28/2014) and may represent an infarcted cirrhotic nodule or infarcted HCC.
+
+There are multiple nonspecific stable nodules throughout the liver that are hypointense on arterial and hepatobiliary phases, for example in series 10 image 22 and image 41. 
+
+The portal and hepatic veins are patent. Mild gallbladder wall edema is nonspecific and may reflect hepatocellular disease. Previous cystic lesion associated with the ampulla of Vater is less conspicuous on current exam. 
+
+Moderate splenomegaly is again seen. The pancreas, adrenal glands and kidneys are unremarkable except for stable renal cysts. A few prominent peripancreatic and periportal lymph nodes are again seen, likely reactive.
+
+Multiple expansile skeletal lesions are again seen. The lesion affecting the vertebral body of T12 was previously biopsied with benign results.Stable HCC 5A in segment VIII and additional stable  nodules suspicious for HCC although not meeting OPTN criteria.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver redemonstrates cirrhotic morphology," which directly indicates the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=623 / Out=60
+Cost: $0.000200

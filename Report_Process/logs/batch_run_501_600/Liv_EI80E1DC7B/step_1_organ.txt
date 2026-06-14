@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+T2* = 24.4 ms. This corresponds to 1.24 mg / g iron based on the study cohort of Wood et al. Blood 2005; 106:1460-1465. 
+
+The liver is cirrhotic with portal hypertension marked by abdominal/paraesophageal varices and small amount of abdominal ascites. There is no focal lesion meeting imaging criteria for hepatocellular carcinoma. There is an indeterminate 0.7 cm lesion with subtle T2 hyperintensity and persistent enhancement (image 16 series 7). Scattered hepatic cysts are also noted. The hepatic vasculature is patent.
+
+The pancreas, adrenal glands, and kidneys are unremarkable except for bilateral renal cysts. Cholelithiasis is noted.
+
+There is no abdominal lymphadenopathy.No evidence of HCC. Hepatic iron deposition as above.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic with portal hypertension", which directly indicates cirrhosis. Additional findings such as abdominal/paraesophageal varices and ascites further support chronic liver disease with portal hypertension.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=397 / Out=56
+Cost: $0.000102

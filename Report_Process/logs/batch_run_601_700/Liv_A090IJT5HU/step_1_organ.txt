@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is redemonstration of multifocal HCC with dominant confluent mass of the right hepatic lobe and additional satellite lesions which are new and increased since the prior study. Few lesions again demonstrate internal proteinaceous/hemorrhagic T1 hyperintense material which may reflect prior treatment.
+
+The dominant mass of the right hepatic lobe measures 12.7 x 11.4 cm, image 61 series 13001, previously 8.6 x 6.8cm. It demonstrates arterial phase hyperenhancement, washout, and pseudocapsule. LIRADS 5 HCC
+
+New segment 4A lesion measures 3.7 cm, image 30 series 13001. It demonstrates arterial phase hyperenhancement, washout, and pseudocapsule. LIRADS 5 HCC
+
+Segment 5 lesion now measures 5.8 cm, image 25 series 13001, previously 4.0 cm. It demonstrates arterial phase hyperenhancement, washout, and pseudocapsule. LIRADS 5 HCC
+
+Segment 6/7 lesion now measures 5.0cm, image 28 series 13 001, previously 8.1 cm. There is no evidence of arterial hyperenhancement or washout suggest recurrent HCC in this location, likely related to treatment effect. Low-level internal enhancement is again noted.
+
+There is redemonstration of cavernous transformation of the portal vein, also involving a short segment of the SMV. There is new mild intrahepatic biliary ductal dilatation primarily involving segments 2, 4A, and 8. This is likely related to compression from tumor. The common bile duct is normal in size.
+
+Patient is status post cholecystectomy. The pancreas, spleen, right adrenal gland, and kidneys are unremarkable aside from right renal cyst. Stable mild thickening of the left adrenal gland.
+
+There is no bowel obstruction. There is normal perihepatic ascites which is increased, along with new loculated fluid in Morison's pouch with septation, measuring 5.0 cm, image 41 series 3001. There is no aggressive osseous lesion.Progression of multifocal HCC as described when compared with prior MRI from 2/25/2020. One of the lesions demonstrates some treatment effect. Dominant mass is increased and other satellite lesions are new/increased in size.
+
+New mild segmental intrahepatic biliary ductal dilatation of segments 2, 4A, and 8, likely due to compression of central bile ducts from tumor.
+
+Increased small perihepatic ascites with new 5 cm loculated fluid collection in Morrison's pouch.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The MRI report describes multifocal hepatocellular carcinoma (HCC) with specific lesion characteristics, portal vein cavernous transformation, biliary ductal dilatation likely due to tumor compression, and ascites. However, there is no explicit mention of keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" either. The findings are primarily focused on tumor progression and secondary effects, but the underlying liver condition regarding fibrosis or cirrhosis is not stated.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=779 / Out=146
+Cost: $0.000247

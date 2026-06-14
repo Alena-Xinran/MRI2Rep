@@ -1,0 +1,53 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver again demonstrates cirrhotic morphology, with evidence of portal hypertension including splenomegaly and upper abdominal varices. 
+
+Multiple liver lesions are noted:
+
+- A 10.5 cm lesion in segment 2 (image 32, series 13) demonstrates arterial enhancement, washout and pseudocapsule, compatible with OPTN 5X HCC.
+
+- A 6.3 cm lesion in segment 4B (image 61, series 13) demonstrates arterial enhancement, washout and pseudocapsule, compatible with OPTN 5X HCC.
+
+-A 2.2 cm lesion in segment 2/4A (image 34, series 13) demonstrates arterial enhancement, washout and pseudocapsule, compatible with OPTN 5B HCC.
+
+- A 2.0 cm lesion in segment 3 (image 58, series 13) demonstrates arterial enhancement, washout and pseudocapsule, compatible with OPTN 5B HCC.
+
+- There are numerous other smaller arterial enhancing foci throughout the liver, which demonstrate washout. While they don't meet OPTN criteria, they are compatible with HCC.
+
+There is tumor thrombus throughout the right portal system with bland thrombus in the main portal vein. There is periportal adenopathy, as evidenced by a 1.7 cm node (image 21, series 3).  
+
+The gallbladder, pancreas, adrenal glands and kidneys are unremarkable, with exception of a tiny left renal cyst. Trace ascites is noted.Multifocal HCC with tumor thrombus as described.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver again demonstrates cirrhotic morphology," which directly indicates the presence of cirrhosis. Additionally, there is mention of associated portal hypertension findings (splenomegaly and varices), further supporting chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=550 / Out=68
+Cost: $0.000150

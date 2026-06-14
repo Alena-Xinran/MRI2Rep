@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post interval cholecystectomy and resection of previously seen segment 5 hepatocellular carcinoma. There is a small amount of fluid along the resection margin. No residual or recurrent disease is identified.
+
+Postsurgical changes from prior segment 8 wedge resection are redemonstrated, without findings of recurrent disease.
+
+There are no new liver lesions with imaging features suspicious for HCC. Subcentimeter liver cysts are redemonstrated. There is no intra or extrahepatic biliary duct dilatation. Hepatic vasculature is patent. 
+
+The pancreas, spleen, adrenal glands and kidneys unremarkable except for tiny renal cysts. There is no abdominal adenopathy or ascitesInterval resection of segment 5 HCC without residual/recurrent disease. No new lesions suspicious for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension). It describes postsurgical changes, no new lesions suspicious for HCC, subcentimeter cysts, patent vasculature, and no biliary dilatation, but does not explicitly state the liver is normal or abnormal in terms of background parenchyma. However, the absence of any mention of cirrhosis or fibrosis, combined with the lack of descriptors suggesting chronic liver disease, implies the liver is considered without fibrosis/cirrhosis for the purposes of this extraction rule. The previously extracted status "NoFibrosis/Cirrhosis" aligns with the report's lack of positive findings for cirrhosis.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=352 / Out=168
+Cost: $0.000169

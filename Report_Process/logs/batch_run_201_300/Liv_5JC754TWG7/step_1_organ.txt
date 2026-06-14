@@ -1,0 +1,65 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Cirrhotic morphology. Patient is status post treatment of multifocal HCC as follows (series 14):
+
+A segment 3 treatment cavity measuring 2.0 x 1.0 cm is without recurrent viable tumor (image 35). LR-TR nonviable.
+
+A segment 7/8 treatment cavity measuring 3.6 x 2.6 cm is without recurrent  viable tumor (image 20). LR-TR nonviable.
+
+A segment 5/6 treatment cavity measuring 2.8 x 2.4 cm without recurrent viable tumor (image 34). LR-TR nonviable.
+
+No new HCC.
+
+Heterogeneous intrinsic T1 hyperintense signal in the left hepatic lobe is not significantly changed compared with prior studies and likely treatment-related. 
+
+Cholelithiasis is again noted. No intrahepatic biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unchanged subcentimeter cystic lesions of the pancreas measuring up to 0.6 cm in the tail (series 5, image 19), likely sidebranch IPMNs or sequelae of prior pancreatitis.
+
+Spleen: Prominent.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Three treatment cavities LR-TR nonviable. No new HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology" in the hepatobiliary system description, which directly indicates the presence of cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=526 / Out=41
+Cost: $0.000132

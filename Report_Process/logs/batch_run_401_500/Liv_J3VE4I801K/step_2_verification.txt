@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic with sequela of portal hypertension including recanalized umbilical vein. The patient is status post segment 6 resection with the cavity measuring 3.6 x 3.9 cm (series 15, image 37), unchanged in comparison with prior when measured similarly. 
+
+There is interval increase in size of an arterially enhancing mass adjacent to the cavity with washout and pseudocapsule appearance, measuring up to 3.4 cm (series 11, image 34), previously 2.6 cm. There is also interval development of tumor thrombus within the adjacent segment 6/7 portal venous branches with associated segmental perfusion abnormalities.
+
+There is also interval increase in size of a segment 8 arterial enhancing lesion measuring 0.9 cm (series 11, image 49), previously 0.6 cm with new questionable washout, highly concerning for HCC. 
+
+There are multiple other small indeterminate arterial enhancing foci scattered throughout the liver, which are essentially stable in comparison with priors (for example, image 26, 28, series 11). These lesions do not have correlates on any of the other sequences and remain nonspecific.
+
+Status post cholecystectomy. The spleen, adrenal glands and kidneys are unremarkable except for stable bilateral renal cysts. 1.5 cm cystic structure at the head of the pancreas is unchanged. No main pancreatic ductal dilatation. There is no abdominal lymphadenopathy. Trace fluid at Morison's pouch.
+
+No aggressive osseous lesions are identified.Interval progression of HCC with new tumor thrombus.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic" in the first sentence, confirming the presence of cirrhosis. Therefore, the previously extracted status of "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=523 / Out=59
+Cost: $0.000171

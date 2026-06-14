@@ -1,0 +1,24 @@
+{
+  "id": "Liv_KECLJWLXVI",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_WO | R_ANT | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00102326,
+    "timestamp": "2026-02-08 01:04:21",
+    "model": "deepseek/deepseek-chat"
+  }
+}

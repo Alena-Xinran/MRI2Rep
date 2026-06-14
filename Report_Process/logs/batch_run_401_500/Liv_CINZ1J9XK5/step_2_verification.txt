@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Again seen is an infiltrative HCC within the right hepatic lobe, measuring approximately 8.5 x 5.5 cm, stable in size from prior. While some areas of arterial hyperenhancement appear decreased (for example, on image 31, series 12), some previously avascular areas now demonstrate arterial enhancement (for example, image 25, series 12). A separate 1.8 cm arterially enhancing lesion which demonstrates washout is stable. No biliary ductal dilatation. Cholelithiasis and adenomyomatosis is again noted.     Hepatic vasculature: No significant change in bland portal vein thrombus burden (initially tumor thrombus). Portosystemic varices again noted    Pancreas: Scattered cystic lesions within the pancreas without main duct dilation (image 21, series 4)     Spleen: Stable splenomegaly measuring up to 14 cm.    Adrenal glands: Unremarkable.    Kidneys: Bilateral renal cysts. Stable mild perinephric stranding, nonspecific.    Bowel: Unremarkable.    Upper abdominal lymph nodes: Stable upper abdominal adenopathy do not 1.8 cm (image 56, series 11)    Peritoneum: No ascites.Overall stable size of an infiltrative HCC within the right hepatic lobe.      No significant change in portal vein thrombosis.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes findings related to hepatocellular carcinoma (HCC), portal vein thrombus, varices, and other abdominal findings, but does not explicitly mention "cirrhosis" or describe specific morphologic features of cirrhosis (such as nodular liver contour, caudate lobe hypertrophy, or signs of portal hypertension beyond the noted varices, which could be related to portal vein thrombosis). The presence of HCC and varices can be associated with cirrhosis, but the report does not state cirrhosis directly or indicate that the liver background shows cirrhotic morphology. Therefore, based on the provided rules, since the report does not say "cirrhosis" or features of it, the status should remain "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=491 / Out=166
+Cost: $0.000207

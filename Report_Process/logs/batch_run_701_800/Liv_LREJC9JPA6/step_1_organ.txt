@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+with and without 16 cc of intravenous Dotarem. Precontrast sequences include axial and coronal T2, axial fat-suppressed T2, and axial T1-weighted images with and without fat suppression. After contrast, dynamic axial fat-suppressed T1-weighted images were performed. Compared to 10/13/2017.
+
+The patient is status post transplantation of the right lobe of the liver with biliary enteric anastomosis and gastrojejunostomy.  There is no evidence of HCC. Hepatic vasculature is patent. There is minimal intrahepatic biliary prominence. The spleen is prominent in size. The pancreas, adrenal glands, and kidneys are unremarkable exception of tiny renal cysts. There is no ascites or adenopathy.No evidence of HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post liver transplantation of the right lobe, but does not contain any keywords indicating fibrosis or cirrhosis (such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mention of "chronic liver disease"). The liver parenchyma itself is not specifically described as unremarkable, normal, or smooth, but the absence of fibrosis/cirrhosis indicators and the context of a transplant without noted parenchymal abnormalities suggests no active signs of fibrosis/cirrhosis in the remaining/replanted liver.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=381 / Out=137
+Cost: $0.000132

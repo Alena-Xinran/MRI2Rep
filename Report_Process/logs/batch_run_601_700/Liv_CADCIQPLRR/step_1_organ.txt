@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Evaluation is limited by dielectric artifact.    Cirrhotic liver morphology is redemonstrated along with sequelae of portal hypertension including splenomegaly measuring 6.4 cm and large volume of ascites. There are a few hepatic cysts.  There are no lesions with imaging findings consistent with hepatocellular carcinoma.    The pancreas, adrenal gland and kidneys are unremarkable. There is a nonspecific 1.1 cm hypoenhancing lesion in the spleen.    There is no abdominal adenopathy. No aggressive osseous lesion is seen.Liver cirrhosis with no evidence for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and later repeats "Liver cirrhosis", which directly indicates the presence of cirrhosis. Additionally, it mentions sequelae of portal hypertension (splenomegaly, ascites), which are consistent with advanced chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=345 / Out=69
+Cost: $0.000093

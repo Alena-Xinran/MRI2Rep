@@ -1,0 +1,46 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is cirrhotic. There is no evidence of hepatocellular carcinoma. A 0.7 cm arterially enhancing focus in segment 8 adjacent to the gallbladder fossa is unchanged and demonstrates no evidence of washout (image 33, series 13). A subcentimeter right hepatic lobe cyst is noted. The hepatic vasculature is patent.
+
+A septated cystic lesion in the pancreatic head has minimally increased from 2.2 cm to 2.3 cm (image 29, series 3). No nodular components are seen. The main pancreatic duct is normal in caliber.
+
+Mild splenomegaly is unchanged. The kidneys, adrenal glands, and gallbladder are local, except for parapelvic renal cysts and a stable 1 cm right adrenal nodule.
+
+No abdominal lymphadenopathy or ascites is seen.1. No evidence of HCC.
+2. Minimal increase in 2.3 cm pancreatic cystic lesion, likely a sidebranch IPMN.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "The liver is cirrhotic." This confirms the presence of cirrhosis, so the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=395 / Out=53
+Cost: $0.000133

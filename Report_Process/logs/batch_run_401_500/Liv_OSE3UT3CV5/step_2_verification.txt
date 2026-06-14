@@ -1,0 +1,54 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post left hepatectomy.Intrahepatic biliary ductal dilatation at the cut surface of the liver and dilatation of the common bile duct extending to the ampulla is unchanged
+The hemorrhagic ablation cavity within segment VII is stable to slightly decreased in size measuring 1.6 x 3.1 cm, previously 1.6 x 3.3 cm with no evidence of recurrent HCC.
+ There are a few new subcentimeter, subcapsular wedge-shaped areas of arterial phase hyperenhancement with no corresponding washout or pseudocapsule, likely perfusional (images 25, 33, 38 of series 10). A stable wedge-shaped area of arterial hyperenhancement is present within segment VIII.
+The hepatic vasculature is patent. 
+
+The patient is status post cholecystectomy and splenectomy. . 
+
+Pancreatic atrophy, mild pancreatic ductal dilatation measuring 4 mm the pancreatic head, and pancreatic divisum are again noted. 
+
+The adrenal glands are unremarkable.
+
+ The kidneys are unremarkable with the exception of areas of bilateral renal cortical scarring, particularly in the right lower lobe.
+
+Small periampullary duodenal diverticula are present.
+
+ No abdominal adenopathy or ascites is seen. The visualized bowel is unremarkable.No recurrent or new HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, regenerative nodules, or portal hypertension findings). It describes post-surgical changes, biliary dilatation, and ablation cavity, but no cirrhotic morphology. Therefore, the liver is not described as normal, but the absence of cirrhosis statements means the previous extraction "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=475 / Out=111
+Cost: $0.000180

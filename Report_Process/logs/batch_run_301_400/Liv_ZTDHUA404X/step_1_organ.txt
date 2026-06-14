@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver has a cirrhotic morphology. Portal hypertension is evidenced by abdominal varices including a splenorenal shunt and mild splenomegaly. The hepatic vasculature is patent.    The patient is status post partial resection of segments 6/7. Again seen are subcapsular and wedge shaped areas of arterial phase hyperenhancement without washout or pseudocapsule which may be perfusional. There is no evidence of hepatocellular carcinoma.    The gallbladder, pancreas, adrenal glands and kidneys are unremarkable with the exception of a left renal cyst and stable sub-5 mm pancreatic cystic lesions without main pancreatic ductal dilatation.    There is no abdominal adenopathy or ascites.No evidence for recurrent or new HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver has a cirrhotic morphology," which directly indicates cirrhosis. Additionally, it mentions portal hypertension with varices and splenomegaly, which are consistent with chronic liver disease and cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=376 / Out=58
+Cost: $0.000097

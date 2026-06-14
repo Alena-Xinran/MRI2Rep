@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver is steatotic. The previously noted indeterminant T2 hyperintense lesion in the right inferior hepatic lobe does not enhance and is decreased in size measuring 0.5 cm, and likely represents a decompressed cyst (series 6, image 24). Additional tiny scattered cysts are again noted. A 1 cm arterial focus of enhancement at the hepatic dome (series 9, image 77) without correlate on other sequences is likely perfusional.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable except for a stable 6 mm right renal angiomyolipoma.
+
+There is no abdominal ascites or adenopathy.No findings suggestive of HCC.
+
+Previously noted indeterminant liver lesion is decreased in size and likely represents a decompressed cyst.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report describes a steatotic liver and notes a lesion that has decreased in size, likely a decompressed cyst, along with additional tiny scattered cysts and a perfusional enhancement focus. There is no mention of cirrhosis, nodularity, surface irregularity, segmental atrophy/hypertrophy, or other morphologic features of cirrhosis. The liver is not described as normal, but the absence of any cirrhosis-related findings means the status should remain "NoFibrosis/Cirrhosis" as per the rule that only explicit mention of cirrhosis or its features changes the status.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=358 / Out=135
+Cost: $0.000157

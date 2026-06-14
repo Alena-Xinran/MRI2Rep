@@ -1,0 +1,49 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary: Liver does not demonstrate cirrhotic morphology. There are no hepatic masses. Portal and hepatic veins are patent. No intrahepatic bile duct dilatation.. Status post cholecystectomy. CBD diffusely dilated to 11 mm, unchanged.
+
+Pancreas: Unremarkable
+
+Spleen: 6 mm
+
+Adrenal glands: Unremarkable
+
+Kidneys: Bilateral simple cysts
+
+No lymphadenopathy, ascites, or aggressive osseous lesions.No HCC
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "Liver does not demonstrate cirrhotic morphology," which indicates a normal liver without features of cirrhosis. According to the task rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis". The previously extracted status is "NoFibrosis/Cirrhosis", which matches the report.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=302 / Out=87
+Cost: $0.000121

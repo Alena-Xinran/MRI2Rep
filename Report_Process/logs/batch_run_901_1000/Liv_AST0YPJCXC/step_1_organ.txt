@@ -1,0 +1,55 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: Patient is status post liver transplant. A few hepatic cysts are noted. There is mild intrahepatic ductal dilatation, slightly more prominent than on prior examination, with mismatch between the donor and recipient bile ducts again noted. There is a 0.9 cm arterial enhancing observation in hepatic segment 8 (8-36), previously 0.7 cm (September 26, 2022), measuring 1.0 cm on examination June 30, 2022. Differences in measured size likely reflects earlier contrast timing on the September 26, 2022 exam compared to this examination and the exam June 30, 2022. Lesion demonstrates no washout or pseudocapsule (LR 3).
+
+Hepatic vasculature: Patent.
+
+Pancreas: Unremarkable.
+
+Spleen: The patient is status post splenectomy.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Small hiatal hernia. No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Stable segment 8 LR 3 observation when differences in contrast timing are considered.
+
+No lesions meeting imaging criteria for HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes the patient as status post liver transplant and notes hepatic cysts, mild intrahepatic ductal dilatation, and a hepatic segment 8 observation, but there are no keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver parenchyma itself is not described as "unremarkable", "normal", or "smooth" directly, but the absence of fibrosis/cirrhosis indicators suggests no active signs of fibrosis or cirrhosis are reported in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=478 / Out=138
+Cost: $0.000160

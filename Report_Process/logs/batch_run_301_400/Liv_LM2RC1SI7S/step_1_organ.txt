@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 16 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre and multiphase postcontrast including subtraction images.
+
+FINDINGS
+There are findings of cirrhosis and portal hypertension characterized by moderate volume ascites, splenomegaly and upper abdominal varices.
+
+-A 3.4 x 1.5 cm segment 6 ablation cavity is again noted (image 47 series 11). There is a 2.5 cm focus of arterial phase enhancement without associated pseudocapsule or washout posterior and inferior to the segment 6 ablation cavity, previously measuring 1.2 cm (image 50 series 9), suspicious for recurrent HCC. There is an additional 1.2 cm focus of arterial phase enhancement along the superior and posterior margin of the segment 6 ablation cavity which appears more conspicuous and is also suspicious for HCC.
+
+-A segment 8/4a ablation cavity measures 3.6 x 1.7 cm (image 60 series 11). There is stable nonspecific 1.1 cm arterial phase enhancement without pseudocapsule or washout  along the anterior margin of the ablation cavity, unchanged from 9/19/2017 (image 61 series 8). This is amenable to follow-up.
+
+The gallbladder, spleen, adrenal glands, pancreas and kidneys are unremarkable.
+
+No ascites or lymphadenopathy. No aggressive osseous lesions.Increased arterial phase enhancement along the posterior and superior margins of the segment 6 ablation cavity suspicious for recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "There are findings of cirrhosis and portal hypertension" in the findings section, which directly meets the criteria for keywords indicating fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=586 / Out=46
+Cost: $0.000135

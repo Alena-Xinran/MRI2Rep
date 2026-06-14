@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Study is limited by patient motion.
+
+The liver is cirrhotic with sequela of portal hypertension, as evidenced by trace abdominal ascites and upper abdominal varices. Again noted is cavernous transformation of the portal vein. Similar intrahepatic biliary duct dilatation is presumed secondary to the postcholecystectomy state mass effect on the adjacent vessels.
+
+Hepatic observations are as follows:
+-Multiple arterially hyperenhancing observations without washout or pseudocapsule measuring up to 1.3 cm in the right hepatic lobe near the border of segment 5/6 on series 19001, image 57. This is hard to measure on the most recent exam but measured approximately 1 cm on the older March 2022 exam with increased signal on diffusion-weighted images (LR-4). No correlate seen on older 2020 CT exam.
+
+The segment 5/6 treatment zone is not well delineated. No arterially enhancing lesions are seen to suggest recurrent disease with some associated regions of low signal treatment zone measuring up to 1.3 cm likely sequelae of prior treatment. These regions can be watched closely on follow-up. No definitive findings of recurrence (LR TR equivocal).
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable. Periportal nodes measure up to 1 cm.
+
+Redemonstrated marked narrowing at the origin of the SMA. 2 renal arteries are present bilaterally.Slow growth of arterially enhancing 1.3 cm lesion at the junction of segment 5/6 suspicious for HCC (LR 4).
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=545 / Out=43
+Cost: $0.000171

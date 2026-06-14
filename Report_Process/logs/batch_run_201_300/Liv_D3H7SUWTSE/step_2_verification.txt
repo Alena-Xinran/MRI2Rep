@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Patient is status post liver transplant. Previously identified hepatic steatosis has resolved. No enhancing foci are identified to suggest hepatoma.
+
+The spleen, adrenal glands, kidneys, and pancreas are unremarkable.
+
+There is no abdominal lymphadenopathy. Multiple venous collaterals are seen in the upper abdomen.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension aside from venous collaterals, which in this context are likely related to the patient's transplant status). It notes that previously identified hepatic steatosis has resolved and no hepatoma is seen, but does not comment on liver morphology or fibrosis. The spleen, adrenal glands, kidneys, and pancreas are described as unremarkable, but the liver parenchyma itself is not explicitly described as normal. However, given the absence of any mention of cirrhosis or fibrotic features, and following the rule that if the report says normal liver the status must be "NoFibrosis/Cirrhosis", the previous extraction of "NoFibrosis/Cirrhosis" is appropriate.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=264 / Out=187
+Cost: $0.000152

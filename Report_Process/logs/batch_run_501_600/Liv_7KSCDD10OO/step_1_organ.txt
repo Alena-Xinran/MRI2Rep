@@ -1,0 +1,37 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology is redemonstrated. The patient is status post partial hepatectomy of segments IVb and 5 with a small amount of perihepatic fluid. Regions of increased T2 signal intensity and progressive enhancement consistent with fibrosis are seen near the surgical resection site. There are no lesions with imaging findings compatible with hepatocellular carcinoma. There is a stable punctate 0.5 cm enhancing lesion in segment 4 (LR3). The hepatic vasculature is patent.    The spleen, adrenal gland and kidneys are unremarkable. Stable 0.5 cm cystic lesion in the pancreatic body. No dilatation of the main pancreatic duct or worrisome internal enhancement.    There is no abdominal adenopathy or ascites. No aggressive osseous lesion.No evidence for HCC.    Pancreatic cyst measuring up to 0.5 cm are nonspecific, but likely reflect sidebranch IPMN versus sequelae of pancreatitis. This can be watched on follow-up surveillance MRIs.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology is redemonstrated" and also notes "progressive enhancement consistent with fibrosis" near the surgical site. These are direct keywords indicating chronic liver disease with fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=428 / Out=61
+Cost: $0.000113

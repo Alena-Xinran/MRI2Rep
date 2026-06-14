@@ -1,0 +1,59 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: Status post partial left hepatectomy. The liver is steatotic. There are no liver lesions meeting imaging criteria for hepatocellular carcinoma. There are scattered ill-defined observations measuring up to 1.8 cm which demonstrate relative fat sparing/T1 hyperintensity without arterial phase hyperenhancement, washout or pseudocapsule, LR3. No biliary dilatation.
+
+Hepatic vasculature: Patent. The right hepatic artery arises from the SMA (for example, image 49 series 18001).
+
+Pancreas: A 0.3 cm T2 hyperintense focus in the body/tail of pancreas may may be a small cystic lesion such as a sidebranch IPMN (image 21 series 3001), similar to prior and is amenable to follow-up on future exams.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Subcentimeter left upper pole cyst.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.
+
+Musculoskeletal: T12 vertebral body hemangioma. No aggressive osseous lesion.No evidence of recurrent HCC.
+
+Scattered LR 3 observations amenable to follow-up.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes the liver as "steatotic" and mentions "scattered ill-defined observations measuring up to 1.8 cm which demonstrate relative fat sparing/T1 hyperintensity without arterial phase hyperenhancement, washout or pseudocapsule, LR3." There is no mention of cirrhosis, morphologic features of cirrhosis (such as nodular contour, caudate lobe hypertrophy, or segmental atrophy/hypertrophy), or fibrosis. The liver is not explicitly described as "normal," but the absence of cirrhosis-related terminology and the focus on steatosis and LR3 observations does not meet the criteria for "Fibrosis/Cirrhosis." Therefore, the previous extraction of "NoFibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=455 / Out=172
+Cost: $0.000200

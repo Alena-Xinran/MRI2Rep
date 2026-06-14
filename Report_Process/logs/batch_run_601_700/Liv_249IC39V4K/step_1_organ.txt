@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+See same day chest CT for thoracic findings.
+
+Previously seen tumor in the posterior right hepatic lobe is predominantly necrotic and overall decreased in size, now 5.5 x 3.9 cm, previously 7.0 x 6.4 cm. There is persistent rim enhancement, some of which appears more thickened and irregular.
+
+A 4 mm focus of arterial enhancement in segment 4A without washout or T2 correlate is unchanged. Previously described ill-defined arterial hyperenhancement in segment 8 is less conspicuous on this exam. No new lesions are seen.
+
+Right portal vein thrombus appears similar to prior. The left portal vein and main portal vein are patent.
+
+Patient is status post cholecystectomy. The pancreas, spleen, adrenal glands and kidneys are unremarkable except for small renal cysts and a stable 1 cm cystic lesion at the pancreatic head near the ampulla. There is no abdominal adenopathy. Trace free fluid is present. There is mild right thickening and hyperenhancement of the peritoneum and diaphragm adjacent to the treatment cavity.Decrease in size of right hepatic HCC with persistent rim enhancement, some of which appears more thickened/irregular; attention on follow-up.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes a tumor in the liver and portal vein thrombus but does not comment on the overall liver parenchyma texture or surface morphology. The liver is not described as "unremarkable", "normal", or "smooth" either, but the absence of fibrosis/cirrhosis indicators suggests no evidence of that condition is reported.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=471 / Out=126
+Cost: $0.000153

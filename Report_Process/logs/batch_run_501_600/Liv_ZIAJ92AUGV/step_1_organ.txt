@@ -1,0 +1,43 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is again noted to be status post right hepatic lobe transplant. The hepatic vasculature is patent. The transplanted liver has a noncirrhotic morphology.
+
+There are no arterially enhancing lesions or areas of washout concerning for hepatocellular carcinoma. A stable 1.1 cm cyst is present within segment 6. Moderate intrahepatic biliary ductal dilatation, predominantly involving segments VI/VII is stable over multiple prior exams.
+
+The pancreas, adrenal glands, and kidneys are unremarkable with the exception of stable bilateral renal cysts. The spleen remains mildly enlarged.
+
+No enlarged abdominal lymph nodes are seen. There are slightly increased small volume ascites, predominantly in the right paracolic gutter. There is no aggressive osseous lesion.No HCC
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The transplanted liver has a noncirrhotic morphology," indicating no signs of cirrhosis. There are no mentions of cirrhosis, cirrhotic, nodular surface, fibrosis, coarse echotexture, or chronic liver disease. The liver is not described as unremarkable or normal, but the specific term "noncirrhotic" directly indicates absence of cirrhosis/fibrosis in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=378 / Out=98
+Cost: $0.000115

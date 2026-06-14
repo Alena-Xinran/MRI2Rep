@@ -1,0 +1,72 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+;
+Hepatobiliary system: Cirrhotic morphology of liver. Similar appearance of intraluminal sludge within the gallbladder with thickened wall 
+;
+There is redemonstration of numerous arterial enhancing lesions interspersed throughout the liver demonstrating washout and pseudocapsule compatible with LI-RADS 5 lesions. The majority of these lesions have increased in size with representative lesions described below:;
+;
+-A 4.7 cm segment 7 lesion contiguous with adjacent segment of 5/8 treatment cavity on image 31 of series 9 appears more confluent compared to prior
+;
+-A segment 7 lesion has also increased in size and now measures 6.4 x 5.8 cm, previously 4.9 x 3.7 cm (image 18, series 9)
+;
+-A segment 3 lesion on image 46 of series 9 is also increased in size measuring 3.8 x 3.0 cm, previously 2.2 x 1.8 cm
+;
+A 6.9 x 7.5 cm treatment cavity with the thick incomplete rind of arterial enhancement (image 31 of series 9) also appears increased with greater extensive tumor surrounding the cavity LR-TR viable. ;
+;
+The previously described segment 4A treatment cavity is not well visualized
+;
+Hepatic vasculature: Patent
+;
+Pancreas: Unremarkable
+;
+Spleen: Unremarkable
+;
+Adrenal glands: Stable 1.0 cm right adrenal adenoma.
+;
+Kidneys: Numerous renal cysts are noted bilaterally
+;
+Bowel: Multiple vertebral osseous metastases are again noted which have increased in size, for example a 2.5 cm peripherally enhancing osseous lesion within the right aspect of the L2 vertebral body previously measured 2.1 cm, seen on image 62 of series 15
+;
+Upper abdominal lymph nodes: No lymphadenopathy
+;
+Peritoneum: Trace ascites
+;
+Additional findings: Status post median sternotomy. Gynecomastia is noted
+;;
+;
+Overall worsening of multifocal metastatic HCC
+;
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic morphology of liver" in the hepatobiliary system section, which directly indicates the presence of cirrhosis. This satisfies the criteria for keywords like "cirrhotic" and implies chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=661 / Out=61
+Cost: $0.000178

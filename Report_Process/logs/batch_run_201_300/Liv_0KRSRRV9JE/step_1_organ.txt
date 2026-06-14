@@ -1,0 +1,57 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary system: The patient status post segment 5 HCC resection and cholecystectomy. Trace fluid is seen in the cholecystectomy fossa. There is no evidence for residual or recurrent disease. Treatment cavities in segment 2 are unchanged, without evidence for residual or recurrent disease.
+
+There is slightly increased segmental biliary dilatation within segment 7 with surrounding increased T2 signal and abnormal perfusion.
+
+Hepatic vasculature: Thrombus in the left portal vein branch supplying segment 2 appears stable. Trifurcation pattern to the portal vein is again noted. Which appears otherwise patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Stable hemorrhagic left upper pole renal cyst.
+
+Bowel: Redemonstration of changes status post esophagectomy and gastric pull-through. No bowel obstruction.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Status post segment 5 resection of HCC. No findings of residual /recurrent HCC.
+
+New biliary dilatation predominantly involving segment 7, presumably postsurgical.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not contain keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". It describes post-surgical changes, biliary dilatation, and a history of HCC resection, but does not comment on the liver parenchyma's texture or surface characteristics indicative of fibrosis or cirrhosis. The liver is not described as "unremarkable", "normal", or "smooth" either, but the absence of positive fibrosis/cirrhosis criteria leads to the default classification of "NoFibrosis/Cirrhosis" based on the provided criteria.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=457 / Out=150
+Cost: $0.000159

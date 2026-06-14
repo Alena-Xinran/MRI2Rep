@@ -1,0 +1,46 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Cirrhotic liver morphology with caudate lobe hypertrophy is redemonstrated. Large upper abdominal and paraesophageal varices are redemonstrated, compatible with the sequelae of portal hypertension.
+
+Heterogenous/nodular liver enhancement is again noted throughout the liver, without specific findings compatible with HCC. Scattered subcentimeter hepatic cysts are redemonstrated. Dilation of the intrahepatic IVC with a slitlike appearance of the patent intrahepatic IVC is unchanged. The portal veins are patent. The hepatic veins are not identified.
+
+Gallbladder wall edema is present, and there may be cholelithiasis (series 2001, image 10).
+
+The spleen is surgically absent. A horseshoe kidney is partially visualized. The adrenal glands and pancreas are unremarkable.
+
+There is slight interval increase in ascites, which remains mild involving. No abdominal lymphadenopathy is seen.1.  No findings of HCC. Unchanged hepatic vascular findings.
+2.  Slight increase in mild volume ascites.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Cirrhotic liver morphology" and mentions "heterogenous/nodular liver enhancement," both direct indicators of cirrhosis. Additionally, it notes findings compatible with portal hypertension sequelae (varices), which is often associated with advanced fibrosis or cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=436 / Out=68
+Cost: $0.000118

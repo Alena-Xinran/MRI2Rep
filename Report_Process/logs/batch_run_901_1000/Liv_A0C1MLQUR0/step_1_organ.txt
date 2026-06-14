@@ -1,0 +1,62 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Moderately to markedly degraded exam due to patient motion.
+
+Partial images of the lower chest show a trace left and small right pleural effusion with dependent atelectasis.
+
+Hepatobiliary system: Status post liver transplant as before. This is a moderately to markedly limited exam due to patient motion for screening of HCC, within this limitation there is no clear evidence of a concerning lesion. Geographic enhancement in the peripheral liver, some associated with peripheral bile ducts in segment 4 is similar, without washout or pseudocapsule, and is nonmasslike in configuration. The previously noted reference observation in segment 4 with delayed enhancement appears similar although less well seen due to motion artifact on series 12 image 45. Scattered, LR 3 observations are unchanged for instance series 8 image 48, while others have resolved. 
+
+2 cystic hepatic lesions, series 12 image 37 and 46 without associated soft tissue component are unchanged.
+
+Mild intrahepatic biliary ductal dilation and peribiliary enhancement remains, similar to the prior. 2 internal/external biliary drains also remain in place, as before.
+
+Hepatic vasculature: Limited evaluation due to motion shows no evidence of a large thrombus in the main or central left and right portal veins.
+
+Pancreas: Similar cystic lesion at the uncinate process of approximately 3 cm series 3 image 37, and in the mid body on image 36, probably sidebranch IPMN, amenable to follow-up on subsequent screening exams.
+
+Spleen: Borderline splenomegaly at 14 cm in the coronal plane.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: 2 cm left lower pole renal cyst is unchanged.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.1.  Within at least moderately limited study due to patient motion there is no evidence of HCC. Previously noted observation in segment 4 associated with peripheral bile duct dilation are likely due to infection/inflammation and are unchanged. Given the motion limitation on the current exam, recommend short-term repeat when the patient is able to hold still for the study for HCC screening.
+2.  Similar biliary ductal dilation and periaortic delivery enhancement suggestive of cholangitis.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report describes a status post liver transplant and mentions "geographic enhancement in the peripheral liver" and "mild intrahepatic biliary ductal dilation and peribiliary enhancement," but there are no explicit keywords such as "cirrhosis," "cirrhotic," "nodular surface," "fibrosis," "coarse echotexture," or direct mentions of chronic liver disease. The liver parenchyma itself is not described as unremarkable, normal, or smooth, but the absence of the specified fibrosis/cirrhosis indicators suggests no clear evidence of fibrosis or cirrhosis is reported in this context.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=691 / Out=138
+Cost: $0.000219

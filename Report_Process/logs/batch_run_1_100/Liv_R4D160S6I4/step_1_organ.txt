@@ -1,0 +1,47 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Multiplanar T1 and T2-weighted MRI of the abdomen was performed with and without contrast. A total of 14 mL Dotarem was administered intravenously. 
+
+FINDINGS
+A cirrhotic liver is again noted. No findings of recurrent HCC.
+
+Ablation cavity in segment 5/8 measures 0.9 cm.
+
+Ablation cavity in segment IVb measures 1.5 cm.
+
+Intrahepatic biliary dilatation, worse within the caudate and left lobe appears stable. This is secondary to posttreatment related stricture. Vasculature remains patent.
+
+Remaining abdominal organs appear unremarkable with stable renal cysts. No adenopathy. There is trace ascites.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "A cirrhotic liver is again noted," which directly indicates the presence of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=376 / Out=37
+Cost: $0.000089

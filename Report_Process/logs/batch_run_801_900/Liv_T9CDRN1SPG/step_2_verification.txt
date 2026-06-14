@@ -1,0 +1,66 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: The liver is a cirrhotic in morphology. 
+
+路  A 3.2 x 3.2 cm treatment cavity in segment 8 is again noted (series 16,001 image 28), minimally decreased in size from prior with intrinsic internal T1 hyperintensity. No evidence of viable tumor. LR TR-nonviable.
+路  A 2.9 cm posttreatment cavity is noted in segment 7 (series 16,001 image 32), unchanged in size from prior and without evidence of viable tumor. LR TR-nonviable.
+路  A 3.5 x 2.2 cm treatment cavity in segment 5 has decreased in size from prior where previously measured 4.8 x 2.9 cm (series 11001 image 52). Although this lesion has decreased in size,, it continues to show peripheral nodular enhancement, most prominently on the portal venous and delayed phases (series 16001 image 51). LR TR-equivocal.
+路  There is concern for a lesion with peripheral fill-in centered in hepatic subsegment IVb measuring approximately 6.1 cm in maximum dimension, LI RADS M.
+路  A 7 mm arterially enhancing observation is seen in segment 7 without evidence of washout or pseudocapsule formation. This is unchanged since June 10, 2023 comparison. LIRADS 3.
+
+No biliary ductal dilatation is noted. 
+
+Hepatic vasculature:  The patient is status post TIPS. The main portal vein and right portal vein is patent. The left portal vein is occluded. The hepatic veins are patent.
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: New moderate left hydronephrosis. Renal cysts are partially visualized.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Perihepatic ascites is noted.?  New LR M evaluation measuring 6 cm in IVb with T2 hyperintensity and delayed enhancement. Advanced progressive fibrosis is less likely.
+?  Interval decrease in size of an LR-TR equivocal observation in segment 5 of the liver.
+1  Unchanged LI-RADS 3 segment 7 observation.
+2  New moderate left hydronephrosis and hydroureter. Consider CT evaluation. There is some abnormal urothelial enhancement noted at the transition point.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report states "The liver is a cirrhotic in morphology," which explicitly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=707 / Out=54
+Cost: $0.000221

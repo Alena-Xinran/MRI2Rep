@@ -1,0 +1,41 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is expected hemosiderin deposition and artifact secondary to prior hepatic transplant. Residual Gamma Gandy bodies are noted within the spleen consistent with prior portal hypertension. No steatosis. No mass to suggest recurrent HCC or biliary dilatation. Vasculature remains patent with no findings of stenosis. Stable splenic artery 2 cm aneurysm. 
+
+There is trace perisplenic ascites and mild soft tissue anasarca.  Remaining intra-abdominal organs display no change from the January 2 exam with a few punctate hemorrhagic right renal cysts.No findings of recurrent HCC.
+
+Patent vasculature.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report mentions "prior portal hypertension" indicated by Gamma Gandy bodies in the spleen, which is often associated with chronic liver disease and can be a consequence of cirrhosis. However, there is no direct mention of liver parenchymal abnormalities such as "cirrhosis," "fibrosis," "nodular surface," "coarse echotexture," or explicit statements about chronic liver disease affecting the liver itself. The liver findings are limited to hemosiderin deposition and artifact from prior transplant, with no steatosis, mass, or biliary dilatation. The criteria require direct evidence of fibrosis/cirrhosis in the liver parenchyma, which is not explicitly stated here.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=149
+Cost: $0.000127

@@ -1,0 +1,52 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 14 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+The patient is status post liver transplant. Again seen is low signal within the inferior portion of the donor IVC which may represent postsurgical changes versus small amount of intraluminal thrombus (image 27 series 11). There is no evidence of recurrent hepatocellular carcinoma.
+
+Common bile duct stents with associated mild intrahepatic biliary ductal dilatation and pneumobilia are noted. There is a stable 3 mm mm cystic lesion within the pancreatic uncinate process, likely representing a sidebranch IPMN.
+
+The spleen, adrenal glands and kidneys are unremarkable with the exception of stable left renal cysts.
+
+There is no bowel obstruction or ascites.
+
+There is no abdominal lymphadenopathy.
+
+A 7.0 cm left pleural mass is essentially unchanged. There is a small amount of left pleural effusion, slightly increased from prior study.No findings of recurrent HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report does not mention "cirrhosis" or any specific features of cirrhosis (such as nodular liver surface, caudate lobe hypertrophy, or signs of portal hypertension). The liver is described in the context of transplant status and absence of recurrent hepatocellular carcinoma, but no explicit statement about normal liver morphology is made. However, the absence of any mention of cirrhosis or its features, combined with the lack of any described liver parenchymal abnormality aside from the post-surgical IVC finding, suggests the liver is not cirrhotic. The previously extracted status "NoFibrosis/Cirrhosis" aligns with this interpretation.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=438 / Out=143
+Cost: $0.000183

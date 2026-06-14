@@ -1,0 +1,39 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The patient is status post liver transplant. There is no evidence of hepatocellular carcinoma with post contrast images slightly limited due to artifact from adjacent gas in the stomach. There are tiny right hepatic lobe cysts. The hepatic vasculature is patent. Donor recipient size mismatch involving the bile duct is again noted with stable mild intrahepatic biliary dilatation. No frank stricture is appreciated. The pancreas, spleen, adrenal glands, and kidneys are unremarkable aside from tiny renal cysts. Atherosclerotic plaque is again noted involving the aorta.
+
+There is no adenopathy or ascites.No evidence of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report does not mention any keywords such as "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease". The liver is described in the context of post-transplant findings, including cysts and biliary dilatation, but the parenchyma itself is not characterized as abnormal, unremarkable, normal, or smooth. However, given the absence of any fibrosis/cirrhosis indicators and the overall stable appearance without parenchymal abnormality, it aligns more with "NoFibrosis/Cirrhosis" based on the criteria provided.
+
+FINAL_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=347 / Out=142
+Cost: $0.000125

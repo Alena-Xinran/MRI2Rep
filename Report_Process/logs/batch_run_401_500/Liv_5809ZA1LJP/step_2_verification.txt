@@ -1,0 +1,50 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 11 cc Dotarem was administered intravenously. Sequences include axial, coronal T2 HASTE, axial T2 fat-sat, axial T2 EPI, axial T1 in and opposed phase, axial T1 fat-sat pre an multiphase postcontrast.
+
+FINDINGS
+
+The liver has a cirrhotic appearance. Since the previous exam, there is increasing HCC tumor burden throughout the liver. Examples include a segment 4B lesion measuring 3.0 x 2.9 cm, previously 2.0 x 1.7 cm (image 41 of series 12) and a segment 6 lesion on image 48 measuring 2.7 x 2.4 cm, previously 1.7 x 1.1 cm.
+Arterial enhancing lesions with washout and pseudocapsule appearance are identified within the majority of the left hepatic lobe, which has progressed since the previous exam (best seen on image 51 of series 12). Scattered subcentimeter arterial enhancing lesions with washout in the right hepatic lobe are new from the previous exam. An example includes a lesion on image 58 of series 12.
+
+The adrenal glands, pancreas and kidneys are unremarkable. Cholelithiasis is again seen. Splenomegaly is again noted. The previously seen pancreatic cystic lesions are not seen on the current study.
+
+There is a small amount of ascites, which is increased from the previous exam. Trace right pleural effusion is seen.
+
+No abdominal lymphadenopathy is identified.Progression of HCC with increase in tumor burden throughout the liver.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver has a cirrhotic appearance," which directly indicates cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=543 / Out=52
+Cost: $0.000174

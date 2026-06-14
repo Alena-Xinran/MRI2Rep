@@ -1,0 +1,47 @@
+{
+  "id": "Liv_3PRMVMTYL7",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "APHE_WO",
+      "position": "R_ANT",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_ANT",
+      "quantity": "Multiple"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "L_MED",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_WO",
+      "position": "R_POST",
+      "quantity": "1"
+    }
+  ],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 5,
+    "winner_count": 2,
+    "details": {
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_ANT | Multiple\", \"APHE_NoWO | R_DIFFUSE | 1\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\"]": 2,
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_ANT | Multiple\", \"APHE_WO | R_ANT | 1\", \"APHE_WO | R_POST | 1\"]": 1,
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_DIFFUSE | 1\", \"APHE_NoWO | R_JUNCTION | Multiple\", \"APHE_WO | R_JUNCTION | 1\", \"APHE_WO | R_POST | 1\"]": 1,
+      "[\"APHE_NoWO | L_MED | 1\", \"APHE_NoWO | R_DIFFUSE | Multiple\", \"APHE_NoWO | R_DIFFUSE | Multiple\", \"APHE_WO | R_DIFFUSE | 1\", \"APHE_WO | R_POST | 1\"]": 1
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.002234176,
+    "timestamp": "2026-02-07 02:14:11",
+    "model": "deepseek/deepseek-chat"
+  }
+}

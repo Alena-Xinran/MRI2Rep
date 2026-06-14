@@ -1,0 +1,114 @@
+=== STEP: step_3_extraction_run_2 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+There is increased necrosis and hemorrhage within treated hepatocellular carcinoma in the posterior segment of the right hepatic lobe. The mass measures 8.2 x 7.5 x 9.3 cm (previously 8.4 x 7.8 x 8.5) and demonstrates persistent arterial nodular enhancement along its wall with associated washout and enhancing capsule, consistent with residual disease. The largest area of nodular enhancement in the posteromedial aspect of the lesion measures 5.5 cm (image 29 series 6). 
+
+No new HCC.
+
+There is wedge-shaped arterial enhancement anterior and lateral to the mass without correlation on other images (image 37 series 6), which is probably perfusional.. A small left hepatic cyst is again seen. Portal and hepatic veins are patent.
+
+There is no ascites.
+
+There is cholelithiasis. The spleen, pancreas, adrenal glands and kidneys are unremarkable except for small bilateral renal cysts.
+
+There is no adenopathy or ascites.
+
+No aggressive osseous lesion.Recurrent/residual viable HCC in the ablation cavity.
+
+No new HCC.
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis  
+Sentence 1: There is increased necrosis and hemorrhage within treated hepatocellular carcinoma in the posterior segment of the right hepatic lobe. -> Found lesion. Describes a treated HCC with necrosis/hemorrhage. This is a "treated lesion" and fits RIM_ATYP per rules (treated lesions/scars). Location: posterior segment of right lobe (Seg 6/7 -> R_POST).  
+Sentence 2: The mass measures 8.2 x 7.5 x 9.3 cm (previously 8.4 x 7.8 x 8.5) and demonstrates persistent arterial nodular enhancement along its wall with associated washout and enhancing capsule, consistent with residual disease. -> Found lesion. This is the same mass as Sentence 1, now with specific enhancement features: arterial nodular enhancement + washout + capsule. This is APHE with Washout (APHE_WO) per rules (classic HCC pattern). Location: same (R_POST).  
+Sentence 3: The largest area of nodular enhancement in the posteromedial aspect of the lesion measures 5.5 cm (image 29 series 6). -> This is part of the same lesion described in Sentences 1-2, not a new distinct finding.  
+Sentence 4: No new HCC. -> No focal finding.  
+Sentence 5: There is wedge-shaped arterial enhancement anterior and lateral to the mass without correlation on other images (image 37 series 6), which is probably perfusional. -> Found observation. Wedge-shaped arterial enhancement, perfusional (THAD). Maps to APHE_NoWO per rules (perfusion anomalies). Location: anterior and lateral to the mass (mass is in R_POST; "anterior and lateral" suggests Seg 5/8 or right anterior region relative to it, but not precisely specified; given boundary terms and context, likely near junction or anterior segment. Since "anterior and lateral to the mass" and mass is in R_POST, this likely involves Seg 5/8 boundary or anterior segment. Mapping: Boundary (5/6, 6/7, 5/8) -> R_JUNCTION, but here it's "anterior and lateral" to a posterior mass, so could be at junction of posterior/anterior. We'll map to R_JUNCTION as per boundary rule.  
+Sentence 6: A small left hepatic cyst is again seen. -> Found lesion. Simple cyst. Maps to CYST. Location: left hepatic (not specified segment) -> since not specified, map to DIFFUSE per rules.  
+Sentence 7: Portal and hepatic veins are patent. -> No focal finding.  
+Sentence 8: There is no ascites. -> No focal finding.  
+Sentence 9: There is cholelithiasis. -> Not a liver parenchymal finding.  
+Sentence 10: The spleen, pancreas, adrenal glands and kidneys are unremarkable except for small bilateral renal cysts. -> Renal cysts are not liver, ignore.  
+Sentence 11: There is no adenopathy or ascites. -> No focal finding.  
+Sentence 12: No aggressive osseous lesion. -> No focal finding.  
+Sentence 13: Recurrent/residual viable HCC in the ablation cavity. -> This is a summary statement referring to the same mass in Sentences 1-2, not a new finding.  
+Sentence 14: No new HCC. -> No focal finding.
+
+Step 2: Structured Output  
+TUMOR_RECORD: RIM_ATYP | R_POST | 1  
+TUMOR_RECORD: APHE_WO | R_POST | 1  
+TUMOR_RECORD: APHE_NoWO | R_JUNCTION | 1  
+TUMOR_RECORD: CYST | DIFFUSE | 1
+
+--- EXTRACTED INFO ---
+RIM_ATYP | R_POST | 1  
+APHE_WO | R_POST | 1  
+APHE_NoWO | R_JUNCTION | 1  
+CYST | DIFFUSE | 1
+
+--- USAGE ---
+Tokens: In=1064 / Out=797
+Cost: $0.000375

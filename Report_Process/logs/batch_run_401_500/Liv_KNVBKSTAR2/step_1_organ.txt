@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+For findings in the chest, please see the separate CT chest report that will be dictated separately by the thoracic radiology service.
+
+The liver is cirrhotic with sequela of portal hypertension, characterized by splenomegaly, Gamna-Gandy bodies and recanalized paraumbilical vein. The hepatic vasculature is patent.
+
+-On series 17, image 29, a 1.2 cm arterially enhancing focus adjacent to a segment 8 ablation cavity with no correlate on subsequent phases is indeterminate. Attention on follow-up.
+
+-On series 21, image 40, a 1.7 x 1.5 cm segment VIII ablation cavity has decreased in size, previously 2.4 x 1.8 cm. There is no evidence recurrent disease. Mild enhancement at the anterior aspect of the cavity is likely related to treatment effect and unchanged.
+
+-On series 21, image 29, additional segment 8 ablation cavity has decreased in size, measuring 1.4 x 0.5 cm, previously 2.0 x 1.1 cm. There is no evidence of recurrence.
+
+The gallbladder, pancreas, adrenal glands, and kidneys are unremarkable. 
+
+Small volume ascites has slightly increased from prior. Stable subcentimeter porta hepatis and peripancreatic nodes are likely related to chronic liver disease. No aggressive osseous lesion is identified.No findings of recurrent HCC.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic with sequela of portal hypertension," which directly indicates cirrhosis. Additionally, it mentions findings related to chronic liver disease, such as splenomegaly, recanalized paraumbilical vein, and stable nodes likely related to chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=513 / Out=74
+Cost: $0.000142

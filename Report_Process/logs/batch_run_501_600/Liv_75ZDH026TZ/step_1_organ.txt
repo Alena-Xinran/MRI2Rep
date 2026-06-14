@@ -1,0 +1,48 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+MRI of the abdomen was performed with and without contrast. A total of 18 Dotarem was administered intravenously. Sequences include axial T2 fat-sat, axial T1 precontrast and multiphasic postcontrast..
+
+FINDINGS
+The liver is cirrhotic with portal hypertension marked by splenomegaly, minimal ascites, and upper abdominal varices. 
+
+There is a 2 x 1.4 cm ablation cavity in segment 8 of the liver which centrally avascular (series 7 image 18). However, immediately adjacent to it is an 8 mm arterial phase enhancing focus which has slightly increased in size and appears to washout on the current study (series 7 image 17), highly suspicious for recurrent/residual neoplasm. Along the posterior aspect of the cavity, there is vague arterial phase enhancement which also appears to washout, also likely recurrent neoplasm.
+
+No new hepatic lesions. A few hepatic cysts are noted.
+
+The pancreas, adrenal glands, and bilateral kidneys are unremarkable except for renal cysts. Biliary sludge/small gallbladder stones are noted.
+
+There are no dilated bowel loops or abdominal lymphadenopathy. There is a small hiatal hernia.Findings consistent with recurrent HCC adjacent to the segment 8 ablation cavity.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic with portal hypertension marked by splenomegaly, minimal ascites, and upper abdominal varices," which directly indicates cirrhosis and chronic liver disease.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=484 / Out=54
+Cost: $0.000126

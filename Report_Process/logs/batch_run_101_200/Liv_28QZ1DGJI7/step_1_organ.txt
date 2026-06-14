@@ -1,0 +1,45 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Hepatobiliary: Liver demonstrates morphologic features of cirrhosis. There is portal hypertension with splenomegaly, trace ascites, esophageal varices, and a recannulized paraumbilical vein. Portal and hepatic veins are patent. Bile ducts are not dilated. Gallbladder is unremarkable.
+On image 31 series 16 and a new subcapsular location in segment 8 there is a 1.4 cm arterial phase hyper per enhancing observation which demonstrates persistent hyperenhancement on delayed phase images this has the appearance of a vascular structure on the surface of the liver rather than a hepatic lesion.
+
+There are several new subcentimeter hypodensity arterial phase hyperenhancing observations (for example on series 16 image 36 and 27) and which fade to isointensity but demonstrate T2 hyperintensity on T2-weighted EPI images. LI-RADS 3.
+
+Pancreas and adrenal glands are unremarkable. There is bilateral simple cysts and mild bilateral hydroureteronephrosis which is decreased in comparison to MRI from 2017.
+
+No lymphadenopathy, or aggressive osseous lesions.Cirrhosis. No HCC.
+There are several subcentimeter LIRADS 3 observations. Recommend follow-up MRI in 3-6 months.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver demonstrates morphologic features of cirrhosis" and later repeats "Cirrhosis." Additionally, it mentions findings associated with cirrhosis such as portal hypertension, splenomegaly, ascites, and varices.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=492 / Out=61
+Cost: $0.000131

@@ -1,0 +1,39 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The liver has a cirrhotic morphology. The hepatic vasculature is patent. A 1 cm hemangioma is again seen in the right hepatic lobe (series 14001, image 29).    Hepatic observations are as follows:    -There are scattered subcentimeter foci of arterial phase hyperenhancement without washout or pseudocapsule. For example measuring 0.6 cm on series 12001, image 36. LR-3.    -Stable segment 7 treatment cavity measuring 1.7 x 2.3 cm (series 14001, image 23) without evidence of recurrent tumor. LR-TR nonviable.    -Stable segment 6 treatment cavity measuring 3.1 x 4.6 cm (series 14001, image 47) with evidence recurrent tumor. There is stable geographic enhancement seen inferiorly, likely post treatment related. LR-TR nonviable.    The gallbladder is unremarkable. There are stable cystic lesions in pancreas measuring up to 1.2 cm. The main pancreatic duct is not dilated. The spleen and kidneys are unremarkable except for renal cysts including a left upper pole hemorrhagic cyst. There is stable nodularity of the left adrenal gland.    There is no abdominal adenopathy or ascites.No evidence for HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "The liver has a cirrhotic morphology," which directly indicates features of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=473 / Out=54
+Cost: $0.000155

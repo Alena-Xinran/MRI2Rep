@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Bilateral lower lobe fibrotic changes are noted.
+
+There has been interval ablation of previously seen focus of recurrent disease adjacent to segment VI ablation cavity (series 15, image 37), which measures 3.1 x 1.8 cm and contains internal hemorrhage. There are no findings of residual disease. Segmental biliary ductal dilatation is noted peripheral to the ablation cavity.
+
+On series 15, image 42, a segment VI ablation cavity has slightly decreased in size measuring 1.5 x 0.8 cm, previously 1.9 x 1.2 cm. There are no findings of recurrent disease in this cavity. The hepatic vasculature is patent. There are no new lesions concerning for HCC.
+
+The adrenal glands, kidneys, spleen, and gallbladder are unremarkable, except for stable bilateral renal cysts, including few subcentimeter hemorrhagic/proteinaceous cysts. A few sub-5 mm pancreatic cystic lesions are nonspecific and may represent sidebranch IPMNs or sequela of prior pancreatitis. Periampullary duodenal diverticulum is noted. There is no abdominal ascites or lymphadenopathy. No aggressive osseous lesion is identified.Status post interval ablation of recurrent disease adjacent to segment VI ablation cavity. No findings of residual disease or new HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "bilateral lower lobe fibrotic changes," which refers to lung findings, not liver fibrosis or cirrhosis. For the liver, it describes ablation cavities and segmental biliary ductal dilatation but does not mention cirrhosis, morphologic features of cirrhosis, or diffuse liver fibrosis. The hepatic vasculature is patent, and there are no new lesions concerning for HCC, but the liver parenchyma itself is not explicitly described as normal. However, the absence of any mention of cirrhosis or fibrosis in the liver context, along with the lack of descriptors like nodularity, contour irregularity, or altered morphology, suggests the liver is not reported as cirrhotic. According to the task rules, if the report does not state "cirrhosis" or features of it, the status should be "NoFibrosis/Cirrhosis." The previous extraction is correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=461 / Out=193
+Cost: $0.000210

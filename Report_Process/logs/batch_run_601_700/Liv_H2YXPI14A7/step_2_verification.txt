@@ -1,0 +1,63 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Lower thorax: There is a partially loculated small right pleural effusion with pleural enhancement. There is a trace loculated left pleural effusion. There is rounded atelectasis in the lung bases, better characterized on dedicated CT chest imaging. Bilateral gynecomastia is also noted.
+
+Liver: There is cirrhotic morphology of the liver . There is no hepatocellular carcinoma. There are nonspecific subcentimeter arterial enhancing foci without washout or pseudocapsule. For reference, an unchanged 0.8 cm arterial enhancing focus in seen in segment 5 on series 11 image 57. The complex perihepatic fluid collection has  decreased in size now measuring 7.0 x 7.2 x 1.5 cm, previously measuring 13.1 x 11.6 x 3.0 cm.
+
+Hepatic vasculature: Patent.
+
+Gallbladder: The patient is status post cholecystectomy
+
+Pancreas: There are multiple cystic lesions within the pancreatic head, the largest measuring 1.1 cm, unchanged, and likely representing  sidebranch IPMNs or possibly sequela of prior pancreatitis.
+
+Spleen: There is splenomegaly
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Unremarkable.
+
+Bowel: Unremarkable with the exception of a small hiatal hernia.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: No ascites.Cirrhosis without evidence of HCC.
+
+Decreasing complex perihepatic fluid collection.
+
+Unchanged pancreatic cysts, possibly I PMN
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report explicitly states "There is cirrhotic morphology of the liver" and later summarizes "Cirrhosis without evidence of HCC." This confirms the presence of cirrhosis. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=520 / Out=68
+Cost: $0.000174

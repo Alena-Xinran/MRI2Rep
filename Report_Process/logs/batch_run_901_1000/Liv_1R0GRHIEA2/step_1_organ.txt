@@ -1,0 +1,56 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+The liver is cirrhotic in morphology with sequelae of portal hypertension including upper abdominal varices, ascites and mild splenomegaly.
+
+There are multiple arterially enhancing solid masses as follows:
+Segment 6. measuring 7.6 x 7.6 cm (series 12 image 56).
+Segment 6, anterior to the aforementioned, partially exophytic measuring 1.9 x 1.7 cm (series 12 image 41).
+Segment 6, posterolateral subcapsular region, punctate (series 12 image 37).
+
+Although evaluation is limited due to fat/water swap artifact impeding evaluation of the delayed sequences, these are highly concerning for HCC.
+
+The portal and hepatic veins are patent.
+
+Splenic infarcts are noted. The pancreas, gallbladder and adrenal glands are unremarkable. There is marked gallbladder wall edema, likely due to chronic liver disease.
+
+The kidneys are atrophied and demonstrate simple cysts, measuring up to 2 cm on the left. No hydronephrosis.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive osseous lesion.Multiple segment 6 lesions measuring up to 7.6 cm most likely representing multifocal HCC, although do not meet OPTN criteria due to technical limitations as above. Given that the lesions are somewhat atypical, consider biopsy for tissue diagnosis prior to treatment.
+
+The findings were discussed with Dr. Ashley Tran at 4:50 PM on 4/2/2019.
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic in morphology" and also mentions "chronic liver disease" in relation to gallbladder wall edema. These keywords directly meet the criteria for fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=530 / Out=56
+Cost: $0.000140

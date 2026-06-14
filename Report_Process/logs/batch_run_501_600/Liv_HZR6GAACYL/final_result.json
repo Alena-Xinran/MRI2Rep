@@ -1,0 +1,19 @@
+{
+  "id": "Liv_HZR6GAACYL",
+  "organ_status": "Fibrosis/Cirrhosis",
+  "tumors": [],
+  "consistent": false,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 2,
+    "details": {
+      "[\"RIM_ATYP | DIFFUSE | 1\"]": 1,
+      "[]": 2
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.00107226,
+    "timestamp": "2026-02-07 23:19:33",
+    "model": "deepseek/deepseek-chat"
+  }
+}

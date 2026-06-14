@@ -1,0 +1,43 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The patient is status post orthotopic liver transplant. A splenorenal shunt is again noted. There is no evidence of HCC. The hepatic vasculature is patent.
+
+The pancreas, spleen, kidneys and adrenal glands are unremarkable aside from bilateral renal cysts. A 6 mm nodule in the right perirenal space is stable. 
+
+There is no abdominal adenopathy or ascites.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report does not mention "cirrhosis" or any features of cirrhosis (such as nodular liver contour, atrophy/hypertrophy, signs of portal hypertension aside from the noted splenorenal shunt which is a known post-transplant finding). The report states the patient is status post orthotopic liver transplant and the hepatic vasculature is patent, but does not describe the liver parenchyma. Since there is no explicit statement of cirrhosis or normal liver, and the previous extraction was "NoFibrosis/Cirrhosis", I must check if the report implies a normal liver. The absence of HCC and patent vasculature are not equivalent to a normal liver. However, in the context of a transplant, the liver is typically replaced with a non-cirrhotic organ unless otherwise stated. Given the task rules, if the report says normal liver, the status must be "NoFibrosis/Cirrhosis". The report does not explicitly say "normal liver", but it also does not mention cirrhosis. The previous extraction "NoFibrosis/Cirrhosis" is consistent with the absence of cirrhosis mention, but strictly by the rules, the report must say "normal liver" to assign "NoFibrosis/Cirrhosis". Since it doesn't, the previous extraction might be incorrect. However, the rules also state: if the report says cirrhosis or features, it must be "Fibrosis/Cirrhosis". Since it doesn't, and the default in the previous extraction is "NoFibrosis/Cirrhosis", and the report is silent on liver parenchyma, I will assume the previous extraction is correct because no cirrhosis is mentioned. But to be precise, the report does not say "normal liver", so by strict interpretation, the previous extraction could be considered incorrect. However, in QA auditing, if the report does not mention cirrhosis, we typically do not assign cirrhosis. The example given uses "morphologic features of cirrhosis" to confirm. Here, there are no such features. Therefore, the previous extraction "NoFibrosis/Cirrhosis" is correct based on the absence of cirrhosis mention.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=285 / Out=448
+Cost: $0.000268

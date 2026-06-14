@@ -1,0 +1,56 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatobiliary system: There is a new 7.0 cm mass in segment 6/7 (image 29 series 16 0001) and a new 4.0 cm mass in segment 8 (image 23). These are compatible with HCC, however they do not demonstrate the classic enhancement pattern. Infiltrative HCC in the posterior right hepatic lobe has increased measuring 6.4 cm (previously 5.7 cm), image 61. There is mild unchanged intrahepatic biliary ductal dilatation. Status post cholecystectomy. 
+
+
+Hepatic vasculature: Thrombosis of the portal vein with cavernous transformation and  minimal extension into the SMV is again seen. 
+
+Pancreas: Unremarkable.
+
+Spleen: Unremarkable.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Right cyst, otherwise unremarkable.
+
+Bowel: Unremarkable.
+
+Upper abdominal lymph nodes: No lymphadenopathy.
+
+Peritoneum: Trace amount of ascites.New and enlarging HCCs as detailed.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report describes multiple hepatocellular carcinoma (HCC) lesions, portal vein thrombosis with cavernous transformation, and mild intrahepatic biliary ductal dilatation. However, there is no explicit mention of cirrhosis, morphologic features of cirrhosis, or fibrosis. The liver parenchyma outside the masses is not described as nodular, shrunken, or having contour abnormalities typical of cirrhosis. Since the report does not state "cirrhosis" or features of it, and does not describe the liver as normal either (it is abnormal due to masses and vascular changes), the appropriate status based on the given rules is "NoFibrosis/Cirrhosis" because the absence of a specific statement about cirrhosis means the previous extraction remains correct.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=418 / Out=166
+Cost: $0.000187

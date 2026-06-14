@@ -1,0 +1,105 @@
+=== STEP: step_3_extraction_run_1 ===
+
+--- PROMPT ---
+Analyze the MRI report to extract a structured list of ALL focal findings, observations, and lesions within the liver.
+
+OBJECTIVE:
+Capture EVERY distinct visual observation mentioned in the liver parenchyma. You must classify EVERY finding into one of the 5 allowed types based on its imaging features.
+
+MAPPING RULES (Strictly follow these):
+
+1. LOCATION MAPPING (Based on Couinaud Segments):
+- Seg 2, 3 -> L_LAT
+- Seg 4 -> L_MED
+- Seg 5, 8, Dome -> R_ANT
+- Seg 6, 7 -> R_POST
+- Seg 1 -> CAUDATE
+- Boundary (5/6, 6/7, 5/8) -> R_JUNCTION
+- Left Lobe (General) -> L_DIFFUSE
+- Right Lobe (General) -> R_DIFFUSE
+- Not specified -> DIFFUSE
+
+2. TYPE MAPPING (Strictly limited to these 5 categories):
+- CYST: Simple cysts, polycystic liver, fluid collections, seromas.
+- HEM: Hemangiomas (peripheral nodular enhancement, fill-in).
+- APHE_WO: Arterial Phase HyperEnhancement (APHE) WITH Washout. (Classic HCC pattern, LR-5).
+- APHE_NoWO: Arterial Phase HyperEnhancement WITHOUT Washout. (Includes LR-3, LR-4, Flash-filling hemangiomas, THAD, Shunts, Perfusion anomalies, and indeterminate arterial foci).
+- RIM_ATYP: Rim enhancement, Peripheral washout, Targetoid appearance, Cholangiocarcinoma features, Metastases, Treated lesions/Scars, or any other atypical finding not fitting the above.
+
+3. QUANTITY MAPPING:
+- Specific number (1, 2, 3...) -> Write the number.
+- Words like "multiple", "innumerable", "many", "foci" (plural without number) -> Multiple
+
+TASK:
+1. Break down the report content into individual sentences.
+2. Analyze each sentence to check if it describes a focal liver observation.
+3. If a finding is identified, determine its Type, Location, and Quantity based on the rules above.
+4. Ignore findings clearly stated as belonging to other organs (e.g., kidney cysts).
+
+INPUT REPORT:
+```
+Segment 2 hemorrhagic ablation cavity encompasses the previously noted arterially enhancing mass and measures 5.1 x 3.3 cm (series 12 image 21). There is no evidence recurrent or residual disease.
+
+Additional arterially enhancing focus within segment 2 is increased, measuring 2.0 cm (series 10 image 23), previously 1.2 cm. There is corresponding vague T2 hyperintensity (series 7 image 31). This does not demonstrate washout or pseudocapsule, although is concerning for HCC.
+
+New nodular focus of arterial enhancement at segment 2 at the hepatic dome does not demonstrate washout or pseudocapsule (best seen series 10 image 19). There is no corresponding T2 or other signal abnormality.
+
+The liver is cirrhotic in morphology with sequelae of portal hypertension including recanalization of the paraumbilical vein and splenomegaly.
+
+There is no upper abdominal lymphadenopathy.
+
+There is no aggressive appearing osseous lesion.Interval segment 2 HCC ablation with no evidence of residual or recurrent disease at the treatment site.
+
+Increasing and new arterially enhancing foci within segment 2 are concerning for HCC, although do not meet imaging diagnostic criteria. Recommend short-term (3 month follow-up).
+```
+
+OUTPUT FORMAT:
+Strictly follow the format to reason and output. Do not output markdown code blocks for the analysis part, just plain text.
+
+Step 1: Sentence Analysis
+(Iterate through every sentence in the report)
+Sentence 1: [Original Text] -> [Reasoning: No lesion found / Found ...]
+Sentence 2: [Original Text] -> [Reasoning: ...]
+...
+
+Step 2: Structured Output
+(For each valid finding identified in Step 1, output a single line)
+TUMOR_RECORD: Type | Location | Quantity
+TUMOR_RECORD: Type | Location | Quantity
+
+Example Output:
+Step 1: Sentence Analysis
+Sentence 1: The liver demonstrates morphologic features of cirrhosis. -> Background info, no focal lesion.
+Sentence 2: There is a 1.2 cm observation in segment 8 showing arterial enhancement but no washout. -> Found lesion. Features: APHE + No Washout. Maps to APHE_NoWO. Loc: Seg 8 (R_ANT).
+Sentence 3: A wedge-shaped perfusion anomaly is seen in segment 4. -> Found observation (THAD). Maps to APHE_NoWO (as per rules). Loc: Seg 4 (L_MED).
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | R_ANT | 1
+TUMOR_RECORD: APHE_NoWO | L_MED | 1
+
+
+--- RAW RESPONSE ---
+Step 1: Sentence Analysis
+Sentence 1: Segment 2 hemorrhagic ablation cavity encompasses the previously noted arterially enhancing mass and measures 5.1 x 3.3 cm (series 12 image 21). There is no evidence recurrent or residual disease. -> Reasoning: Describes a post-treatment cavity. The report explicitly states "no evidence recurrent or residual disease," so this is not an active focal lesion for classification.
+Sentence 2: Additional arterially enhancing focus within segment 2 is increased, measuring 2.0 cm (series 10 image 23), previously 1.2 cm. -> Reasoning: Found lesion. Features: Arterial enhancement. The next sentence clarifies it has no washout. Maps to APHE_NoWO. Loc: Seg 2 (L_LAT). Quantity: 1.
+Sentence 3: There is corresponding vague T2 hyperintensity (series 7 image 31). -> Reasoning: This is a descriptive feature of the lesion from Sentence 2, not a separate finding.
+Sentence 4: This does not demonstrate washout or pseudocapsule, although is concerning for HCC. -> Reasoning: Confirms features (APHE, no washout) for the lesion from Sentence 2. Not a new finding.
+Sentence 5: New nodular focus of arterial enhancement at segment 2 at the hepatic dome does not demonstrate washout or pseudocapsule (best seen series 10 image 19). -> Reasoning: Found lesion. Features: Arterial enhancement without washout. Maps to APHE_NoWO. Loc: Seg 2 at dome (Seg 2 maps to L_LAT, but "at the hepatic dome" is a specific location; per rules, "Dome" maps to R_ANT. However, the primary descriptor is "segment 2," so L_LAT takes precedence). Quantity: 1.
+Sentence 6: There is no corresponding T2 or other signal abnormality. -> Reasoning: Negative finding for the lesion in Sentence 5, not a new lesion.
+Sentence 7: The liver is cirrhotic in morphology with sequelae of portal hypertension including recanalization of the paraumbilical vein and splenomegaly. -> Reasoning: Background parenchymal and extrahepatic findings, no focal lesion.
+Sentence 8: There is no upper abdominal lymphadenopathy. -> Reasoning: Negative finding, no lesion.
+Sentence 9: There is no aggressive appearing osseous lesion. -> Reasoning: Negative finding, no liver lesion.
+Sentence 10: Interval segment 2 HCC ablation with no evidence of residual or recurrent disease at the treatment site. -> Reasoning: Summary statement about the ablation cavity (Sentence 1), not a new lesion.
+Sentence 11: Increasing and new arterially enhancing foci within segment 2 are concerning for HCC, although do not meet imaging diagnostic criteria. -> Reasoning: Summary statement referring to the lesions identified in Sentences 2 and 5. Confirms multiple ("foci") arterially enhancing lesions in segment 2. Not a new distinct finding.
+
+Step 2: Structured Output
+TUMOR_RECORD: APHE_NoWO | L_LAT | 1
+TUMOR_RECORD: APHE_NoWO | L_LAT | 1
+
+--- EXTRACTED INFO ---
+APHE_NoWO | L_LAT | 1
+APHE_NoWO | L_LAT | 1
+
+--- USAGE ---
+Tokens: In=1096 / Out=673
+Cost: $0.000461

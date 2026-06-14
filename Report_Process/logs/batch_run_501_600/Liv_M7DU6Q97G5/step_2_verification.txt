@@ -1,0 +1,45 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The visualized lung bases are clear.
+
+The liver displays some hypertrophy of the caudate and atrophy of the medial segment which is likely related to underlying parenchymal liver disease however does not appear frankly cirrhotic. No arterially enhancing lesions with washout to suggest HCC. The hepatic vasculature is patent. The patient is status post cholecystectomy with stable dilatation of the common bile duct measuring up to 0.9 cm.
+
+The spleen, pancreas, adrenal glands, and kidneys are unremarkable except for stable tiny bilateral renal cysts.
+
+There is no bowel obstruction, ascites, or abdominal adenopathy.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The report states "does not appear frankly cirrhotic" and mentions findings that are "likely related to underlying parenchymal liver disease" but does not confirm cirrhosis. Since there is no definitive statement of cirrhosis or clear features of it, and the liver is not described as normal, the appropriate status based on the given rules is "NoFibrosis/Cirrhosis" because the report does not affirm cirrhosis. The previous extraction matches this.
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=327 / Out=106
+Cost: $0.000136

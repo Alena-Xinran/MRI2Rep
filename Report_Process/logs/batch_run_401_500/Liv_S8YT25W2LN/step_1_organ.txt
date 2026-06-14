@@ -1,0 +1,52 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+Liver is cirrhotic in morphology with sequelae of portal hypertension including splenomegaly, upper abdominal varices,  perihepatic and perisplenic ascites.
+
+Diffuse infiltrative HCC in the right hepatic lobe with extension to the left has not significantly changed.
+
+Measurable discrete lesions within segment 8 at the hepatic dome are unchanged measuring 6.9 and 3.8 cm, respectively (series 6 images 20 and 17, respectively). 
+
+Tumor thrombus in the right portal vein has increased, image 30 series 7. There is stable middle hepatic vein thrombosis.
+
+Focal arterial enhancement without washout at segment 6 measures 1.5 cm (series 6 image 30), unchanged from prior exam.
+
+Additional focal area wedge-shaped arterial enhancement and washout segments 3 (series 6 image 45) measuring 1.8 cm is consistent with hepatocellular carcinoma, similar compared to prior exam.
+
+No upper abdominal lymphadenopathy.
+
+There is a stable lobulated cystic lesion at the pancreatic body measuring 1.3 cm (see series 3 image 28). There is no dilatation of the main pancreatic duct.
+
+The adrenal glands and kidneys are unremarkable except for stable renal cysts. The gallbladder is unremarkable. There is no intra or extra hepatic biliary dilatation.Not significantly changed diffuse infiltrative HCC. Increased tumor thrombus in the right portal vein
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "Liver is cirrhotic in morphology" and also mentions sequelae of portal hypertension, which are direct indicators of cirrhosis.  
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=514 / Out=44
+Cost: $0.000130

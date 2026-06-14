@@ -1,0 +1,66 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+The evaluation is markedly limited secondary to dielectric artifact in the setting of large volume ascites, obscuring most of the liver.
+
+Hepatobiliary system: Cirrhotic liver morphology with findings of portal hypertension including splenomegaly, splenorenal shunt, and large volume ascites. No definite arterially enhancing hepatic lesions are seen within the limitations. There is cholelithiasis. No biliary dilatation.
+
+Hepatic vasculature: Patent.
+
+Pancreas: Numerous known pancreatic cystic lesions are poorly evaluated on this exam.
+
+Spleen: Splenomegaly measuring up to 16.5 cm.
+
+Adrenal glands: Unremarkable.
+
+Kidneys: Interval resolution of the previously seen right hydroureteronephrosis. There appears mild prominent left renal collecting system versus prior CT 8/11/2023; evaluation for possible ureteric obstruction is difficult on these images. Please note that only the proximal ureter is visualized. A few renal cysts are noted bilaterally.
+
+Bowel: Apparent wall thickening of some of the bowel loops predominantly the transverse colon is presumably secondary to underdistention. No abnormal bowel loop dilatation.
+
+Upper abdominal lymph nodes: No lymphadenopathy within aforementioned limits.
+
+Peritoneum: Large volume ascites with dilated artifacts as above.
+
+Other: Incompletely included a small bilateral pleural effusions with adjacent atelectasis.
+
+Degenerative changes in the included spine.Markedly limited examination due to dielectric artifact.
+
+1.  Cirrhosis without evidence of HCC within aforementioned limits.
+2.  Mildly prominent left renal collecting system as above. 
+3.  Resolution of the right hydroureteronephrosis.
+4.  The known pancreatic cystic lesions are poorly evaluated on this exam.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+Fibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report explicitly states "Cirrhotic liver morphology" in the hepatobiliary system section and lists "Cirrhosis without evidence of HCC" as the first impression. Therefore, the previously extracted status "Fibrosis/Cirrhosis" is correct.
+
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=554 / Out=70
+Cost: $0.000185

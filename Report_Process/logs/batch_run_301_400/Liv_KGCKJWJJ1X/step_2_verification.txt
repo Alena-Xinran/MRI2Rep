@@ -1,0 +1,41 @@
+=== STEP: step_2_verification ===
+
+--- PROMPT ---
+You are a Quality Assurance Auditor. Review the original report and the previously extracted organ status.
+
+ORIGINAL REPORT:
+```
+Hepatic steatosis is noted. There is no liver mass. Hepatic vasculature is patent. The spleen, adrenal glands, and right kidney are unremarkable. The pancreas is atrophic and contains calcifications compatible with chronic pancreatitis. Again noted is a stone in the region of the left UPJ resulting in severe proximal hydronephrosis and thinning of the renal parenchyma. Blood and other stones are also noted within the collecting system.
+
+There is moderate ascites. A small left pleural effusion is noted. The patient is status post cholecystectomy.No evidence of HCC.
+```
+
+PREVIOUSLY EXTRACTED STATUS:
+```
+NoFibrosis/Cirrhosis
+```
+
+TASK:
+Verify if the previous status is correct based on the report.
+1. If the report says "cirrhosis" or features of it, the status must be "Fibrosis/Cirrhosis".
+2. If the report says normal liver, the status must be "NoFibrosis/Cirrhosis".
+
+OUTPUT FORMAT:
+Provide your verification reasoning, then output the final corrected result on a new line starting with "CONFIRMED_RESULT:".
+
+Example:
+VERIFICATION_REASONING: The report clearly states "morphologic features of cirrhosis", so the previous extraction is correct.
+CONFIRMED_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+VERIFICATION_REASONING: The original report mentions "hepatic steatosis" and "no liver mass" but does not describe any morphologic features of cirrhosis (such as nodularity, contour irregularity, caudate lobe hypertrophy, or signs of portal hypertension like varices or splenomegaly). The spleen is described as unremarkable. There is no mention of fibrosis or cirrhosis. Therefore, the liver is considered normal aside from steatosis, and the status should be "NoFibrosis/Cirrhosis".
+
+CONFIRMED_RESULT: NoFibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+NoFibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=319 / Out=120
+Cost: $0.000140

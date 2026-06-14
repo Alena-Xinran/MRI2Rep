@@ -1,0 +1,49 @@
+=== STEP: step_1_organ ===
+
+--- PROMPT ---
+Analyze the following MRI report text to determine the condition of the liver parenchyma.
+
+TASK:
+Determine if the liver shows signs of "Fibrosis/Cirrhosis" or "NoFibrosis/Cirrhosis".
+
+CRITERIA:
+- Look for keywords like "cirrhosis", "cirrhotic", "nodular surface", "fibrosis", "coarse echotexture", or explicit mentions of "chronic liver disease".
+- If these are present, the classification is "Fibrosis/Cirrhosis".
+- If the liver is described as "unremarkable", "normal", or "smooth", the classification is "NoFibrosis/Cirrhosis".
+
+INPUT REPORT:
+```
+There is right lower lobe subsegmental atelectasis.
+
+The liver is cirrhotic with evidence of portal hypertension characterized by splenomegaly and upper abdominal varices. There is trace perihepatic ascites.
+
+-On series 6, image 48, a 1.5 cm arterially enhancing focus associated with the segment 4b ablation cavity is unchanged.
+
+-On series 9, image 55, a segment 3 ablation cavity is decreased measuring 1.8 x 0.9 cm, previously 3.8 x 1.5 cm. Previously noted peripheral enhancement is decreased. No residual or recurrent viable HCC
+
+-On series 9, image 29, a contiguous ablation cavity spanning segments 4a, 2, and 3 is decreased measuring 3.1 x 2.2 cm at its superior aspect, previously 2.7 x 2.7 cm. No residual or recurrent viable HCC
+
+-On series 7, image 42, an indeterminate 1.0 cm persistently enhancing lesion in segment 3 is stable, and may represent a vascular malformation.
+
+Cholelithiasis is noted. The pancreas is atrophic with scattered subcentimeter cystic lesions, likely the sequela prior pancreatitis or sidebranch IPMNs. The adrenal glands and kidneys are unremarkable. Prominent peripancreatic lymph nodes are stable.Unchanged 1.5 cm arterially enhancing focus (no washout) associated with segment 4b ablation cavity, concerning for viable HCC. Continued short-term follow-up recommended
+```
+
+OUTPUT FORMAT:
+Please output your reasoning first, followed by the final classification on a new line starting with "FINAL_RESULT:".
+
+Example:
+REASONING: The report mentions surface nodularity, which is a sign of advanced fibrosis.
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+
+--- RAW RESPONSE ---
+REASONING: The report explicitly states "The liver is cirrhotic" and also mentions evidence of portal hypertension, which are direct indicators of chronic liver disease and fibrosis/cirrhosis.
+
+FINAL_RESULT: Fibrosis/Cirrhosis
+
+--- EXTRACTED INFO ---
+Fibrosis/Cirrhosis
+
+--- USAGE ---
+Tokens: In=544 / Out=49
+Cost: $0.000141

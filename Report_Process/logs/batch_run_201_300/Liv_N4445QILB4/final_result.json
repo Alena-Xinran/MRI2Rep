@@ -1,0 +1,34 @@
+{
+  "id": "Liv_N4445QILB4",
+  "organ_status": "NoFibrosis/Cirrhosis",
+  "tumors": [
+    {
+      "type": "RIM_ATYP",
+      "position": "R_POST",
+      "quantity": "1"
+    },
+    {
+      "type": "APHE_NoWO",
+      "position": "R_POST",
+      "quantity": "2"
+    },
+    {
+      "type": "HEM",
+      "position": "R_DIFFUSE",
+      "quantity": "1"
+    }
+  ],
+  "consistent": true,
+  "consistency_details": {
+    "total_rounds": 3,
+    "winner_count": 3,
+    "details": {
+      "[\"APHE_NoWO | R_POST | 2\", \"HEM | R_DIFFUSE | 1\", \"RIM_ATYP | R_POST | 1\"]": 3
+    }
+  },
+  "_meta": {
+    "total_cost_usd": 0.001341004,
+    "timestamp": "2026-02-07 00:13:38",
+    "model": "deepseek/deepseek-chat"
+  }
+}
